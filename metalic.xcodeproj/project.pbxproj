@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
-		DAD5C2161DA866DC002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */; };
-		DAD5C2171DA866DC002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2151DA866DC002996A0 /* CParent.swift */; };
+		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
+		DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21B1DA86C47002996A0 /* CParent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +30,8 @@
 		DAD5C2041DA85FA5002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5C2081DA85FA5002996A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAD5C2101DA85FE9002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
-		DAD5C2151DA866DC002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DAD5C21B1DA86C47002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 		DAD5C2011DA85FA5002996A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DAD5C2121DA866DC002996A0 /* home */,
-				DAD5C2131DA866DC002996A0 /* main */,
+				DAD5C2181DA86C47002996A0 /* Home */,
+				DAD5C2191DA86C47002996A0 /* Main */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -118,6 +118,8 @@
 		DAD5C2091DA85FA5002996A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5C21E1DA86C4E002996A0 /* Home */,
+				DAD5C21F1DA86C4E002996A0 /* Main */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,20 +132,34 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		DAD5C2121DA866DC002996A0 /* home */ = {
+		DAD5C2181DA86C47002996A0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = home;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		DAD5C2131DA866DC002996A0 /* main */ = {
+		DAD5C2191DA86C47002996A0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */,
-				DAD5C2151DA866DC002996A0 /* CParent.swift */,
+				DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */,
+				DAD5C21B1DA86C47002996A0 /* CParent.swift */,
 			);
-			path = main;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DAD5C21E1DA86C4E002996A0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DAD5C21F1DA86C4E002996A0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD5C2161DA866DC002996A0 /* CAppDelegate.swift in Sources */,
-				DAD5C2171DA866DC002996A0 /* CParent.swift in Sources */,
+				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
+				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
