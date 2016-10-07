@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
+		DAD5C20B1DA85FA5002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */; };
+		DAD5C20C1DA85FA5002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2031DA85FA5002996A0 /* CParent.swift */; };
+		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAD5C1F11DA85DCC002996A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAD5C1D41DA85DCC002996A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAD5C1DB1DA85DCC002996A0;
+			remoteInfo = metalic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DAD5C1DC1DA85DCC002996A0 /* metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAD5C1F01DA85DCC002996A0 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DAD5C2031DA85FA5002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DAD5C2041DA85FA5002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAD5C2081DA85FA5002996A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DAD5C2101DA85FE9002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAD5C1D91DA85DCC002996A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAD5C1ED1DA85DCC002996A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAD5C1D31DA85DCC002996A0 = {
+			isa = PBXGroup;
+			children = (
+				DAD5C1DE1DA85DCC002996A0 /* metalic */,
+				DAD5C1DD1DA85DCC002996A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAD5C1DD1DA85DCC002996A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C1DC1DA85DCC002996A0 /* metalic.app */,
+				DAD5C1F01DA85DCC002996A0 /* tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAD5C1DE1DA85DCC002996A0 /* metalic */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C20F1DA85FE9002996A0 /* Tests */,
+				DAD5C1FF1DA85FA5002996A0 /* Assets */,
+				DAD5C2011DA85FA5002996A0 /* Controller */,
+				DAD5C2041DA85FA5002996A0 /* Info.plist */,
+				DAD5C2051DA85FA5002996A0 /* Model */,
+				DAD5C2061DA85FA5002996A0 /* Resource */,
+				DAD5C2091DA85FA5002996A0 /* View */,
+			);
+			path = metalic;
+			sourceTree = "<group>";
+		};
+		DAD5C1FF1DA85FA5002996A0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DAD5C2011DA85FA5002996A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */,
+				DAD5C2031DA85FA5002996A0 /* CParent.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DAD5C2051DA85FA5002996A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAD5C2061DA85FA5002996A0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C2071DA85FA5002996A0 /* Localizable.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DAD5C2091DA85FA5002996A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAD5C20F1DA85FE9002996A0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C2101DA85FE9002996A0 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAD5C1DB1DA85DCC002996A0 /* metalic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAD5C1F91DA85DCC002996A0 /* Build configuration list for PBXNativeTarget "metalic" */;
+			buildPhases = (
+				DAD5C1D81DA85DCC002996A0 /* Sources */,
+				DAD5C1D91DA85DCC002996A0 /* Frameworks */,
+				DAD5C1DA1DA85DCC002996A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = metalic;
+			productName = metalic;
+			productReference = DAD5C1DC1DA85DCC002996A0 /* metalic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAD5C1EF1DA85DCC002996A0 /* tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAD5C1FC1DA85DCC002996A0 /* Build configuration list for PBXNativeTarget "tests" */;
+			buildPhases = (
+				DAD5C1EC1DA85DCC002996A0 /* Sources */,
+				DAD5C1ED1DA85DCC002996A0 /* Frameworks */,
+				DAD5C1EE1DA85DCC002996A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAD5C1F21DA85DCC002996A0 /* PBXTargetDependency */,
+			);
+			name = tests;
+			productName = metalicTests;
+			productReference = DAD5C1F01DA85DCC002996A0 /* tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAD5C1D41DA85DCC002996A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = iturbide;
+				TargetAttributes = {
+					DAD5C1DB1DA85DCC002996A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7AMWG3RLHN;
+						ProvisioningStyle = Manual;
+					};
+					DAD5C1EF1DA85DCC002996A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7AMWG3RLHN;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DAD5C1DB1DA85DCC002996A0;
+					};
+				};
+			};
+			buildConfigurationList = DAD5C1D71DA85DCC002996A0 /* Build configuration list for PBXProject "metalic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAD5C1D31DA85DCC002996A0;
+			productRefGroup = DAD5C1DD1DA85DCC002996A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAD5C1DB1DA85DCC002996A0 /* metalic */,
+				DAD5C1EF1DA85DCC002996A0 /* tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAD5C1DA1DA85DCC002996A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
+				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAD5C1EE1DA85DCC002996A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAD5C1D81DA85DCC002996A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAD5C20B1DA85FA5002996A0 /* CAppDelegate.swift in Sources */,
+				DAD5C20C1DA85FA5002996A0 /* CParent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAD5C1EC1DA85DCC002996A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAD5C1F21DA85DCC002996A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAD5C1DB1DA85DCC002996A0 /* metalic */;
+			targetProxy = DAD5C1F11DA85DCC002996A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAD5C2071DA85FA5002996A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAD5C2081DA85FA5002996A0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAD5C1F71DA85DCC002996A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAD5C1F81DA85DCC002996A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAD5C1FA1DA85DCC002996A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				INFOPLIST_FILE = metalic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2d4e2185-b0a3-4fbc-97f9-7baba6135497";
+				PROVISIONING_PROFILE_SPECIFIER = "metalic dev";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DAD5C1FB1DA85DCC002996A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				INFOPLIST_FILE = metalic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7e9786f5-34a1-4366-b71a-78e1a961f25c";
+				PROVISIONING_PROFILE_SPECIFIER = "metalic dist";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DAD5C1FD1DA85DCC002996A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				INFOPLIST_FILE = metalic/Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metalic.app/metalic";
+			};
+			name = Debug;
+		};
+		DAD5C1FE1DA85DCC002996A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				INFOPLIST_FILE = metalic/Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metalic.app/metalic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAD5C1D71DA85DCC002996A0 /* Build configuration list for PBXProject "metalic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAD5C1F71DA85DCC002996A0 /* Debug */,
+				DAD5C1F81DA85DCC002996A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAD5C1F91DA85DCC002996A0 /* Build configuration list for PBXNativeTarget "metalic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAD5C1FA1DA85DCC002996A0 /* Debug */,
+				DAD5C1FB1DA85DCC002996A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DAD5C1FC1DA85DCC002996A0 /* Build configuration list for PBXNativeTarget "tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAD5C1FD1DA85DCC002996A0 /* Debug */,
+				DAD5C1FE1DA85DCC002996A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAD5C1D41DA85DCC002996A0 /* Project object */;
+}
