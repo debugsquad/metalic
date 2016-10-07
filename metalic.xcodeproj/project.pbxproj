@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
-		DAD5C20B1DA85FA5002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */; };
-		DAD5C20C1DA85FA5002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2031DA85FA5002996A0 /* CParent.swift */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
+		DAD5C2161DA866DC002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */; };
+		DAD5C2171DA866DC002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C2151DA866DC002996A0 /* CParent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,11 +27,11 @@
 		DAD5C1DC1DA85DCC002996A0 /* metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C1F01DA85DCC002996A0 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
-		DAD5C2031DA85FA5002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DAD5C2041DA85FA5002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5C2081DA85FA5002996A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAD5C2101DA85FE9002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DAD5C2151DA866DC002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 		DAD5C2011DA85FA5002996A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DAD5C2021DA85FA5002996A0 /* CAppDelegate.swift */,
-				DAD5C2031DA85FA5002996A0 /* CParent.swift */,
+				DAD5C2121DA866DC002996A0 /* home */,
+				DAD5C2131DA866DC002996A0 /* main */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +128,22 @@
 				DAD5C2101DA85FE9002996A0 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		DAD5C2121DA866DC002996A0 /* home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		DAD5C2131DA866DC002996A0 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5C2141DA866DC002996A0 /* CAppDelegate.swift */,
+				DAD5C2151DA866DC002996A0 /* CParent.swift */,
+			);
+			path = main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +250,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD5C20B1DA85FA5002996A0 /* CAppDelegate.swift in Sources */,
-				DAD5C20C1DA85FA5002996A0 /* CParent.swift in Sources */,
+				DAD5C2161DA866DC002996A0 /* CAppDelegate.swift in Sources */,
+				DAD5C2171DA866DC002996A0 /* CParent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +457,7 @@
 				DAD5C1FB1DA85DCC002996A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAD5C1FC1DA85DCC002996A0 /* Build configuration list for PBXNativeTarget "tests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +466,7 @@
 				DAD5C1FE1DA85DCC002996A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
