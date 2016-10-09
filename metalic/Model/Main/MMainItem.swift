@@ -1,9 +1,22 @@
-//
-//  MMainItem.swift
-//  metalic
-//
-//  Created by zero on 10/9/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MMainItem
+{
+    let iconImageOn:String
+    let iconImageOff:String
+    let index:Int
+    
+    init(iconImage:String, index:Int)
+    {
+        self.index = index
+        iconImageOn = String(format:"%@On", iconImage)
+        iconImageOff = String(format:"%@Off", iconImage)
+    }
+    
+    //MARK: public
+    
+    func controller() -> CController
+    {
+        fatalError()
+    }
+}
