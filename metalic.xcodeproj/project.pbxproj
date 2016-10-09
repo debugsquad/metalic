@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA48F6911DA9C9DB00D7D3E3 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6901DA9C9DB00D7D3E3 /* CController.swift */; };
+		DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6921DA9CA0800D7D3E3 /* CHome.swift */; };
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		DA48F6901DA9C9DB00D7D3E3 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
+		DA48F6921DA9CA0800D7D3E3 /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DAD5C1DC1DA85DCC002996A0 /* metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C1F01DA85DCC002996A0 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		DAD5C2181DA86C47002996A0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DA48F6921DA9CA0800D7D3E3 /* CHome.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
+				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
 				DA48F6911DA9C9DB00D7D3E3 /* CController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
