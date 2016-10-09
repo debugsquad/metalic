@@ -62,6 +62,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA48F69A1DAAFE3D00D7D3E3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		DAD5C1D31DA85DCC002996A0 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +120,7 @@
 		DAD5C2051DA85FA5002996A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA48F69A1DAAFE3D00D7D3E3 /* Main */,
 			);
 			path = Model;
 			sourceTree = "<group>";
