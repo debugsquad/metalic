@@ -12,6 +12,9 @@
 		DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6941DAAFD7D00D7D3E3 /* VParent.swift */; };
 		DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6961DAAFDD600D7D3E3 /* VBar.swift */; };
 		DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6981DAAFDEE00D7D3E3 /* VBarCell.swift */; };
+		DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */; };
+		DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */; };
+		DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */; };
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		DA48F6941DAAFD7D00D7D3E3 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA48F6961DAAFDD600D7D3E3 /* VBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBar.swift; sourceTree = "<group>"; };
 		DA48F6981DAAFDEE00D7D3E3 /* VBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBarCell.swift; sourceTree = "<group>"; };
+		DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMain.swift; sourceTree = "<group>"; };
+		DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItem.swift; sourceTree = "<group>"; };
+		DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemHome.swift; sourceTree = "<group>"; };
 		DAD5C1DC1DA85DCC002996A0 /* metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C1F01DA85DCC002996A0 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 		DA48F69A1DAAFE3D00D7D3E3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */,
+				DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */,
+				DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -289,12 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,
 				DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */,
 				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
+				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
+				DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */,
 				DA48F6911DA9C9DB00D7D3E3 /* CController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
