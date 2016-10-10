@@ -7,7 +7,7 @@ class CController:UIViewController
     weak var shadow:VShadow?
     
     override var title:String?
-        {
+    {
         didSet
         {
             parentController.viewParent.bar.label.text = title
@@ -15,7 +15,7 @@ class CController:UIViewController
     }
     
     var parentController:CParent
-        {
+    {
         get
         {
             return self.parent as! CParent

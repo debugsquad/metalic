@@ -1,9 +1,15 @@
-//
-//  VMain.swift
-//  metalic
-//
-//  Created by zero on 10/10/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VHome:UIView
+{
+    weak var controller:CHome!
+    
+    convenience init(controller:CHome)
+    {
+        self.init()
+        self.controller = controller
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+}
