@@ -187,14 +187,14 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath) -> MMenuItem
+    private func modelAtIndex(index:IndexPath) -> MMainItem
     {
-        let item:MMenuItem = model.items[index.item]
+        let item:MMainItem = model.items[index.item]
         
         return item
     }
     
-    private func selectItem(item:MMenuItem)
+    private func selectItem(item:MMainItem)
     {
         let controller:CController = item.controller()
         
