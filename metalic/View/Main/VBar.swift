@@ -24,7 +24,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
-        backgroundColor = UIColor.main()
+        backgroundColor = UIColor.main
         self.parent = parent
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -47,7 +47,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.register(
             VBarCell.self,
             forCellWithReuseIdentifier:
-            VBarCell.reusableIdentifier())
+            VBarCell.reusableIdentifier)
         self.collectionView = collectionView
         
         let label:UILabel = UILabel()
