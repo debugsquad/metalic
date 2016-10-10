@@ -18,6 +18,7 @@
 		DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */; };
 		DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CAB1DAC42B800031E5D /* VHomePicture.swift */; };
 		DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CAF1DAC44F900031E5D /* VHomeSelector.swift */; };
+		DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -56,6 +57,7 @@
 		DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuCell.swift; sourceTree = "<group>"; };
 		DA513CAB1DAC42B800031E5D /* VHomePicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePicture.swift; sourceTree = "<group>"; };
 		DA513CAF1DAC44F900031E5D /* VHomeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeSelector.swift; sourceTree = "<group>"; };
+		DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerCamera.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				DA48F6921DA9CA0800D7D3E3 /* CHome.swift */,
+				DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
+				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
 				DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */,
 				DAB94E561DAC2C3B00880B1B /* ExtensionUIColor.swift in Sources */,
