@@ -24,8 +24,7 @@ class VParent:UIView
         let views:[String:UIView] = [
             "bar":bar]
         
-        let metrics:[String:CGFloat] = [
-            "barHeight":kBarHeight]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[bar]-0-|",
@@ -95,9 +94,9 @@ class VParent:UIView
         parent.controllers.last?.layoutRight.constant = delta
         
         UIView.animate(withDuration:kAnimationDuration, animations:
-            {
-                self.layoutIfNeeded()
-            })
+        {
+            self.layoutIfNeeded()
+        })
         { (done:Bool) in
             
             completion()
