@@ -43,7 +43,7 @@ class VBarCell:UICollectionViewCell
     }
     
     override var isSelected:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -51,7 +51,7 @@ class VBarCell:UICollectionViewCell
     }
     
     override var isHighlighted:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -65,12 +65,10 @@ class VBarCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             icon.image = UIImage(named:model.iconImageOn)
-            label.textColor = UIColor.white
         }
         else
         {
             icon.image = UIImage(named:model.iconImageOff)
-            label.textColor = UIColor(white:1, alpha:0.5)
         }
     }
     
