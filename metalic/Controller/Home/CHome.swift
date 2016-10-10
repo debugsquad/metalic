@@ -15,6 +15,6 @@ class CHome:CController
     
     func imageSelected(image:UIImage?)
     {
-        
+        viewHome.viewPicture.imageView.image = image
     }
 }

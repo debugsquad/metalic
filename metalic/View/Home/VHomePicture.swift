@@ -11,13 +11,13 @@ class VHomePicture:UIView
         self.controller = controller
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor(white:0.985, alpha:1)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         self.imageView = imageView
         
         addSubview(imageView)
@@ -33,7 +33,7 @@ class VHomePicture:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
