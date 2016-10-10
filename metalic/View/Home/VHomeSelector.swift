@@ -24,11 +24,19 @@ class VHomeSelector:UIView
         buttonCamera.translatesAutoresizingMaskIntoConstraints = false
         buttonCamera.clipsToBounds = true
         buttonCamera.setTitle("Camera", for:UIControlState.normal)
+        buttonCamera.addTarget(
+            self,
+            action:#selector(self.actionCamera(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonLibrary:UIButton = UIButton()
         buttonLibrary.translatesAutoresizingMaskIntoConstraints = false
         buttonLibrary.clipsToBounds = true
         buttonLibrary.setTitle("Library", for:UIControlState.normal)
+        buttonLibrary.addTarget(
+            self,
+            action:#selector(self.actionLibrary(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonCamera)
         addSubview(buttonLibrary)
@@ -106,5 +114,25 @@ class VHomeSelector:UIView
         layoutButtonLibraryTop.constant = marginTop
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionCamera(sender button:UIButton)
+    {
+        let picker:CHomePickerCamera = CHomePickerCamera(controller:controller)
+        controller.parentController.present(
+            picker,
+            animated:true,
+            completion:nil)
+    }
+    
+    func actionLibrary(sender button:UIButton)
+    {
+        let picker:CHomePickerLibrary = CHomePickerLibrary(controller:controller)
+        controller.parentController.present(
+            picker,
+            animated:true,
+            completion:nil)
     }
 }
