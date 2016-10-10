@@ -15,6 +15,7 @@
 		DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */; };
 		DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
+		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E4E1DAC29AF00880B1B /* MMainState.swift */; };
 		DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */; };
 		DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */; };
@@ -47,6 +48,7 @@
 		DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItem.swift; sourceTree = "<group>"; };
 		DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemHome.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
+		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DAB94E4E1DAC29AF00880B1B /* MMainState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainState.swift; sourceTree = "<group>"; };
 		DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */,
+				DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
+				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +476,6 @@
 		DAD5C1FA1DA85DCC002996A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,13 +484,13 @@
 				PROVISIONING_PROFILE = "2d4e2185-b0a3-4fbc-97f9-7baba6135497";
 				PROVISIONING_PROFILE_SPECIFIER = "metalic dev";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		DAD5C1FB1DA85DCC002996A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Info.plist;
@@ -497,6 +500,7 @@
 				PROVISIONING_PROFILE = "7e9786f5-34a1-4366-b71a-78e1a961f25c";
 				PROVISIONING_PROFILE_SPECIFIER = "metalic dist";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

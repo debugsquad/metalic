@@ -62,7 +62,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(#imageLiteral(resourceName: "genericBack"), for:UIControlState())
+        backButton.setImage(#imageLiteral(resourceName: "assetGenericBack"), for:UIControlState())
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.alpha = 0
