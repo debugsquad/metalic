@@ -6,8 +6,8 @@ class VHome:UIView
     weak var viewPicture:VHomePicture!
     weak var viewSelector:VHomeSelector!
     weak var viewMenu:VHomeMenu!
-    private let kSelectorHeight:CGFloat = 45
-    private let kMenuHeight:CGFloat = 100
+    private let kSelectorHeight:CGFloat = 40
+    private let kMenuHeight:CGFloat = 60
     
     convenience init(controller:CHome)
     {
