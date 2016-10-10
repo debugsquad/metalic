@@ -47,7 +47,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.register(
             VBarCell.self,
             forCellWithReuseIdentifier:
-            VBarCell.reusableIdentifier())
+            VBarCell.reusableIdentifier)
         self.collectionView = collectionView
         
         let label:UILabel = UILabel()
@@ -347,7 +347,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     {
         let item:MMainItem = modelAtIndex(index:indexPath)
         let cell:VBarCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: VBarCell.reusableIdentifier(),
+            withReuseIdentifier:VBarCell.reusableIdentifier,
             for:indexPath) as! VBarCell
         cell.config(model:item)
         

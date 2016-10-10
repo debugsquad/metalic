@@ -2,10 +2,13 @@ import UIKit
 
 extension UICollectionReusableView
 {
-    class func reusableIdentifier() -> String
+    open class var reusableIdentifier:String
     {
-        let classType:AnyClass = object_getClass(self)
-        
-        return NSStringFromClass(classType)
+        get
+        {
+            let classType:AnyClass = object_getClass(self)
+            
+            return NSStringFromClass(classType)
+        }
     }
 }
