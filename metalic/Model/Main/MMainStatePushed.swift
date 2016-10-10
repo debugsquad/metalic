@@ -1,8 +1,13 @@
 import Foundation
 
-class MMainStateOptions:MMainState
+class MMainStatePushed:MMainState
 {
-    override func showOptions() -> Bool
+    override func showBackButton() -> Bool
+    {
+        return true
+    }
+    
+    override func showTitle() -> Bool
     {
         return true
     }
