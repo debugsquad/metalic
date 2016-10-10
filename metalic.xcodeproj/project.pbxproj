@@ -17,6 +17,7 @@
 		DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA71DAC420500031E5D /* VHomeMenu.swift */; };
 		DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */; };
 		DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CAB1DAC42B800031E5D /* VHomePicture.swift */; };
+		DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CAF1DAC44F900031E5D /* VHomeSelector.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -54,6 +55,7 @@
 		DA513CA71DAC420500031E5D /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
 		DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuCell.swift; sourceTree = "<group>"; };
 		DA513CAB1DAC42B800031E5D /* VHomePicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePicture.swift; sourceTree = "<group>"; };
+		DA513CAF1DAC44F900031E5D /* VHomeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeSelector.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */,
 				DA513CAB1DAC42B800031E5D /* VHomePicture.swift */,
+				DA513CAF1DAC44F900031E5D /* VHomeSelector.swift */,
 				DA513CA71DAC420500031E5D /* VHomeMenu.swift */,
 				DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */,
 			);
@@ -363,6 +366,7 @@
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
+				DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */,
 				DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
