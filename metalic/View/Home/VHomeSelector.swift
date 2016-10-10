@@ -6,12 +6,15 @@ class VHomeSelector:UIView
     weak var layoutButtonsLeft:NSLayoutConstraint!
     weak var layoutButtonCameraTop:NSLayoutConstraint!
     weak var layoutButtonLibraryTop:NSLayoutConstraint!
+    private let totalButtonsWidth:CGFloat
     private let kButtonWidth:CGFloat = 80
     private let kButtonHeight:CGFloat = 40
     
-    convenience init(controller:CHome)
+    init(controller:CHome)
     {
-        self.init()
+        totalButtonsWidth = kButtonWidth + kButtonWidth
+        
+        super.init()
         self.controller = controller
         clipsToBounds = true
         backgroundColor = UIColor.background
@@ -82,5 +85,26 @@ class VHomeSelector:UIView
         addConstraint(layoutButtonsLeft)
         addConstraint(layoutButtonCameraTop)
         addConstraint(layoutButtonLibraryTop)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let remainWidth:CGFloat = width - totalButtonsWidth
+        let marginLeft:CGFloat = remainWidth / 2.0
+        let remainHeight:CGFloat = height - kButtonHeight
+        let marginTop:CGFloat = remainHeight / 2.0
+        
+        layoutButtonsLeft.constant = marginLeft
+        layoutButtonCameraTop.constant = marginTop
+        layoutButtonLibraryTop.constant = marginTop
+        
+        super.layoutSubviews()
     }
 }
