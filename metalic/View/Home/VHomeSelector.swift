@@ -8,13 +8,13 @@ class VHomeSelector:UIView
     weak var layoutButtonLibraryTop:NSLayoutConstraint!
     private let totalButtonsWidth:CGFloat
     private let kButtonWidth:CGFloat = 80
-    private let kButtonHeight:CGFloat = 40
+    private let kButtonHeight:CGFloat = 36
     
     init(controller:CHome)
     {
         totalButtonsWidth = kButtonWidth + kButtonWidth
         
-        super.init()
+        super.init(frame:CGRect.zero)
         self.controller = controller
         clipsToBounds = true
         backgroundColor = UIColor.background
