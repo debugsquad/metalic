@@ -2,7 +2,7 @@ import UIKit
 
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    let model:MMenu
+    let model:MMain
     weak var parent:CParent!
     weak var collectionView:UICollectionView!
     weak var label:UILabel!
@@ -18,7 +18,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     {
         self.barHeight = barHeight
         self.barDelta = barDelta
-        model = MMenu()
+        model = MMain()
         currentWidth = 0
         
         super.init(frame:CGRect.zero)
