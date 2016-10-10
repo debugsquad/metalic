@@ -14,6 +14,7 @@
 		DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */; };
 		DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */; };
 		DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */; };
+		DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA71DAC420500031E5D /* VHomeMenu.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -48,6 +49,7 @@
 		DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMain.swift; sourceTree = "<group>"; };
 		DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItem.swift; sourceTree = "<group>"; };
 		DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemHome.swift; sourceTree = "<group>"; };
+		DA513CA71DAC420500031E5D /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */,
+				DA513CA71DAC420500031E5D /* VHomeMenu.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
 				DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */,
+				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,

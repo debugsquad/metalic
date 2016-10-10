@@ -153,26 +153,26 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }
         
         DispatchQueue.main.async
+        {
+            let currentHeight:CGFloat = self.bounds.maxY
+            let deltaHeight:CGFloat = self.barHeight - currentHeight
+            let deltaPercent:CGFloat = deltaHeight / self.barDelta
+            let alpha:CGFloat = 1 - deltaPercent
+            
+            if self.model.state.showOptions()
             {
-                let currentHeight:CGFloat = self.bounds.maxY
-                let deltaHeight:CGFloat = self.barHeight - currentHeight
-                let deltaPercent:CGFloat = deltaHeight / self.barDelta
-                let alpha:CGFloat = 1 - deltaPercent
-                
-                if self.model.state.showOptions()
-                {
-                    self.collectionView.alpha = alpha
-                }
-                
-                if self.model.state.showBackButton()
-                {
-                    self.backButton.alpha = alpha
-                }
-                
-                if self.model.state.showTitle()
-                {
-                    self.label.alpha = alpha
-                }
+                self.collectionView.alpha = alpha
+            }
+            
+            if self.model.state.showBackButton()
+            {
+                self.backButton.alpha = alpha
+            }
+            
+            if self.model.state.showTitle()
+            {
+                self.label.alpha = alpha
+            }
         }
         
         super.layoutSubviews()

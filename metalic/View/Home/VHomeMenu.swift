@@ -1,6 +1,6 @@
 import UIKit
 
-class VHome:UIView
+class VHomeMenu:UIView
 {
     weak var controller:CHome!
     
@@ -9,7 +9,7 @@ class VHome:UIView
         self.init()
         self.controller = controller
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
