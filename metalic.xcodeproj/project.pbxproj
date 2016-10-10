@@ -33,7 +33,6 @@
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
-		DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21B1DA86C47002996A0 /* CParent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 		DAD5C2081DA85FA5002996A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAD5C2101DA85FE9002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
-		DAD5C21B1DA86C47002996A0 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */,
-				DAD5C21B1DA86C47002996A0 /* CParent.swift */,
 				DA9E561C1DAC375E00E0F1B4 /* CController.swift */,
 			);
 			path = Main;
@@ -366,7 +363,6 @@
 				DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */,
 				DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */,
 				DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */,
-				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
 				DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */,
 				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
