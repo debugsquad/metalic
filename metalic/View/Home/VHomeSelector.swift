@@ -53,5 +53,34 @@ class VHomeSelector:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutButtonsLeft = NSLayoutConstraint(
+            item:buttonCamera,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        layoutButtonCameraTop = NSLayoutConstraint(
+            item:buttonCamera,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        layoutButtonLibraryTop = NSLayoutConstraint(
+            item:buttonLibrary,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutButtonsLeft)
+        addConstraint(layoutButtonCameraTop)
+        addConstraint(layoutButtonLibraryTop)
     }
 }
