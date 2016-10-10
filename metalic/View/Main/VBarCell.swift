@@ -3,8 +3,7 @@ import UIKit
 class VBarCell:UICollectionViewCell
 {
     weak var icon:UIImageView!
-    weak var label:UILabel!
-    weak var model:MMenuItem!
+    weak var model:MMainItem!
     
     override init(frame:CGRect)
     {
@@ -19,20 +18,10 @@ class VBarCell:UICollectionViewCell
         icon.contentMode = UIViewContentMode.center
         self.icon = icon
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.textAlignment = NSTextAlignment.center
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:12)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.label = label
-        
         addSubview(icon)
-        addSubview(label)
         
         let views:[String:UIView] = [
-            "icon":icon,
-            "label":label]
+            "icon":icon]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -42,17 +31,7 @@ class VBarCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-29-[icon]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-16-[label(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -97,10 +76,9 @@ class VBarCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MMenuItem)
+    func config(model:MMainItem)
     {
         self.model = model
-        label.text = model.title
         hover()
     }
 }
