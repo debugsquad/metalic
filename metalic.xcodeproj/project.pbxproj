@@ -19,6 +19,7 @@
 		DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */; };
 		DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */; };
 		DAB94E561DAC2C3B00880B1B /* ExtensionUiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */; };
+		DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */; };
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
 		DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUiColor.swift; sourceTree = "<group>"; };
+		DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
 		DAD5C1DC1DA85DCC002996A0 /* metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C1F01DA85DCC002996A0 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */,
+				DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				DAB94E561DAC2C3B00880B1B /* ExtensionUiColor.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,
+				DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */,
 				DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */,
 				DAD5C21D1DA86C47002996A0 /* CParent.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
