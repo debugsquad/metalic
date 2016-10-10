@@ -3,29 +3,20 @@ import Foundation
 class MMain
 {
     let items:[MMainItem]
-    var state:MMenuState
-    weak var current:MMenuItem!
-    weak var itemHome:MMenuItemHome!
+    var state:MMainState
+    weak var current:MMainItem!
+    weak var itemHome:MMainItemHome!
     
     init()
     {
-        state = MMenuStateOptions()
+        state = MMainStateOptions()
         
-        var items:[MMenuItem] = []
+        var items:[MMainItem] = []
         
-        let itemSettings:MMenuItemSettings = MMenuItemSettings(index:items.count)
-        items.append(itemSettings)
-        
-        let itemHistory:MMenuItemHistory = MMenuItemHistory(index:items.count)
-        items.append(itemHistory)
-        
-        let itemHome:MMenuItemHome = MMenuItemHome(index:items.count)
+        let itemHome:MMainItemHome = MMainItemHome(index:items.count)
         current = itemHome
         self.itemHome = itemHome
         items.append(itemHome)
-        
-        let itemRooms:MMenuItemRooms = MMenuItemRooms(index:items.count)
-        items.append(itemRooms)
         
         self.items = items
     }
@@ -34,11 +25,11 @@ class MMain
     
     func pushed()
     {
-        state = MMenuStatePushed()
+        state = MMainStatePushed()
     }
     
     func poped()
     {
-        state = MMenuStateOptions()
+        state = MMainStateOptions()
     }
 }
