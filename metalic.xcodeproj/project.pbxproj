@@ -18,7 +18,7 @@
 		DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E4E1DAC29AF00880B1B /* MMainState.swift */; };
 		DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */; };
 		DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */; };
-		DAB94E561DAC2C3B00880B1B /* ExtensionUiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */; };
+		DAB94E561DAC2C3B00880B1B /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E551DAC2C3B00880B1B /* ExtensionUIColor.swift */; };
 		DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */; };
 		DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E591DAC321000880B1B /* VShadow.swift */; };
 		DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */; };
@@ -50,7 +50,7 @@
 		DAB94E4E1DAC29AF00880B1B /* MMainState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainState.swift; sourceTree = "<group>"; };
 		DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
-		DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUiColor.swift; sourceTree = "<group>"; };
+		DAB94E551DAC2C3B00880B1B /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
 		DAB94E591DAC321000880B1B /* VShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VShadow.swift; sourceTree = "<group>"; };
 		DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		DAB94E541DAC2C0E00880B1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DAB94E551DAC2C3B00880B1B /* ExtensionUiColor.swift */,
+				DAB94E551DAC2C3B00880B1B /* ExtensionUIColor.swift */,
 				DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */,
 				DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */,
 			);
@@ -330,7 +330,7 @@
 				DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
-				DAB94E561DAC2C3B00880B1B /* ExtensionUiColor.swift in Sources */,
+				DAB94E561DAC2C3B00880B1B /* ExtensionUIColor.swift in Sources */,
 				DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,

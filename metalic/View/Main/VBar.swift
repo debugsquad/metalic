@@ -24,7 +24,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
-        backgroundColor = UIColor.main
+        backgroundColor = UIColor.main()
         self.parent = parent
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -47,7 +47,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.register(
             VBarCell.self,
             forCellWithReuseIdentifier:
-            VBarCell.reusableIdentifier)
+            VBarCell.reusableIdentifier())
         self.collectionView = collectionView
         
         let label:UILabel = UILabel()
@@ -142,13 +142,13 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             collectionView.collectionViewLayout.invalidateLayout()
             
             DispatchQueue.main.async
-                {
-                    let selected:Int = self.model.current.index
-                    let selectedIndexPath:IndexPath = IndexPath(item:selected, section:0)
-                    self.collectionView.scrollToItem(
-                        at:selectedIndexPath,
-                        at:UICollectionViewScrollPosition.centeredHorizontally,
-                        animated:true)
+            {
+                let selected:Int = self.model.current.index
+                let selectedIndexPath:IndexPath = IndexPath(item:selected, section:0)
+                self.collectionView.scrollToItem(
+                    at:selectedIndexPath,
+                    at:UICollectionViewScrollPosition.centeredHorizontally,
+                    animated:true)
             }
         }
         
@@ -301,7 +301,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func synthSelect(index:Int)
     {
-        let menuItem:MMenuItem = model.items[index]
+        let menuItem:MMainItem = model.items[index]
         let indexPath:IndexPath = IndexPath(item:index, section:0)
         selectItem(item:menuItem)
         
@@ -345,7 +345,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MMenuItem = modelAtIndex(index:indexPath)
+        let item:MMainItem = modelAtIndex(index:indexPath)
         let cell:VBarCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: VBarCell.reusableIdentifier(),
             for:indexPath) as! VBarCell
@@ -356,7 +356,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MMenuItem = modelAtIndex(index:indexPath)
+        let item:MMainItem = modelAtIndex(index:indexPath)
         
         if item !== model.current
         {
