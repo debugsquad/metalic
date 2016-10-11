@@ -17,6 +17,7 @@
 		DA4C0A5A1DAD316E006934D1 /* MBasicShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA4C0A591DAD316E006934D1 /* MBasicShader.metal */; };
 		DA4C0A5C1DAD6806006934D1 /* MBasicGaussian.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C0A5B1DAD6806006934D1 /* MBasicGaussian.swift */; };
 		DA4C0A5E1DAD6D49006934D1 /* MBaseImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C0A5D1DAD6D49006934D1 /* MBaseImageLoader.swift */; };
+		DA4C0A601DADA472006934D1 /* MBasicA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C0A5F1DADA472006934D1 /* MBasicA.swift */; };
 		DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA71DAC420500031E5D /* VHomeMenu.swift */; };
 		DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */; };
 		DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CAB1DAC42B800031E5D /* VHomePicture.swift */; };
@@ -60,6 +61,7 @@
 		DA4C0A591DAD316E006934D1 /* MBasicShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MBasicShader.metal; sourceTree = "<group>"; };
 		DA4C0A5B1DAD6806006934D1 /* MBasicGaussian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBasicGaussian.swift; sourceTree = "<group>"; };
 		DA4C0A5D1DAD6D49006934D1 /* MBaseImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBaseImageLoader.swift; sourceTree = "<group>"; };
+		DA4C0A5F1DADA472006934D1 /* MBasicA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBasicA.swift; sourceTree = "<group>"; };
 		DA513CA71DAC420500031E5D /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
 		DA513CA91DAC425800031E5D /* VHomeMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuCell.swift; sourceTree = "<group>"; };
 		DA513CAB1DAC42B800031E5D /* VHomePicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePicture.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				DA4C0A591DAD316E006934D1 /* MBasicShader.metal */,
 				DA4C0A5B1DAD6806006934D1 /* MBasicGaussian.swift */,
 				DA4C0A5D1DAD6D49006934D1 /* MBaseImageLoader.swift */,
+				DA4C0A5F1DADA472006934D1 /* MBasicA.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA4C0A601DADA472006934D1 /* MBasicA.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
 				DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */,
 				DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */,

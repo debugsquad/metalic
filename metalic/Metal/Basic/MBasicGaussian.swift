@@ -10,11 +10,10 @@ import Foundation
 import MetalPerformanceShaders
 
 class GaussianBlur: CommandBufferEncodable {
-    let gaussian: MPSImageGaussianBlur
+    let gaussian: MBasicA
     
     required init(device: MTLDevice) {
-        gaussian = MPSImageGaussianBlur(device: device,
-                                        sigma: 10.0)
+        gaussian = MBasicA()
     }
     
     func encode(to commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture) {
