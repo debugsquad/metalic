@@ -1,9 +1,11 @@
 import UIKit
+import QuartzCore
 
 class VHomePicture:UIView
 {
     weak var controller:CHome!
     weak var imageView:UIImageView!
+    var metalLayer:CAMetalLayer!
     
     convenience init(controller:CHome)
     {
