@@ -111,6 +111,21 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		DA4C0A571DAD3153006934D1 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				DA4C0A581DAD3153006934D1 /* Basic */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		DA4C0A581DAD3153006934D1 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
 		DAB94E541DAC2C0E00880B1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +156,7 @@
 		DAD5C1DE1DA85DCC002996A0 /* metalic */ = {
 			isa = PBXGroup;
 			children = (
+				DA4C0A571DAD3153006934D1 /* Metal */,
 				DAB94E541DAC2C0E00880B1B /* Extensions */,
 				DAD5C20F1DA85FE9002996A0 /* Tests */,
 				DAD5C1FF1DA85FA5002996A0 /* Assets */,
