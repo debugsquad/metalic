@@ -1,7 +1,7 @@
 import UIKit
 import MetalKit
 
-class CHome:CController
+class CHome:CController, MTKViewDelegate
 {
     weak var viewHome:VHome!
     
@@ -16,9 +16,14 @@ class CHome:CController
         view = viewHome
     }
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupMetal()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         viewHome.viewPicture.draw()
     }
@@ -39,7 +44,7 @@ class CHome:CController
          For the video image, the content only needs to be filtered whenever the camera provides a new video frame.
          */
         viewHome.viewPicture.isPaused = true
-        
+        viewHome.viewPicture.delegate = self
         viewHome.viewPicture.device = device
         viewHome.viewPicture.colorPixelFormat = .bgra8Unorm
     }
@@ -48,5 +53,72 @@ class CHome:CController
     
     func imageSelected(image:UIImage?)
     {
+        sourceTexture = nil
+        
+        let loader = MTKTextureLoader(device: device)
+        let cgImage = image?.cgImage
+        // The still image is loaded directly into GPU-accessible memory that is only ever read from.
+        
+        var options = [
+            
+            MTKTextureLoaderOptionTextureUsage:         MTLTextureUsage.shaderRead.rawValue,
+            MTKTextureLoaderOptionSRGB:                 0
+        ]
+        
+        if #available(iOS 10.0, *)
+        {
+            options[MTKTextureLoaderOptionTextureStorageMode] = MTLStorageMode.private.rawValue
+        }
+        
+        do {
+            let fileTexture = try loader.newTexture(with: cgImage!, options: options as [String : NSObject]?)
+            sourceTexture = fileTexture
+        } catch let error as NSError {
+            print("Error loading still image texture: \(error)")
+        }
+        
+        viewHome.viewPicture.draw()
+    }
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        
+    }
+    
+    func draw(in view: MTKView) {
+    /*
+        
+        guard
+            
+            let drawable:CAMetalDrawable = view.currentDrawable,
+            let sourceTexture = sourceTexture
+            
+            else
+        {
+            return
+        }
+        
+        let commandBuffer = commandQueue.makeCommandBuffer();
+        
+        let imageFilter: CommandBufferEncodable = GaussianBlur(device:device)
+        
+        
+        /** Obtain the current drawable.
+         The final destination texture is always the filtered output image written to the MTKView's drawable.
+         */
+        let destinationTexture = drawable.texture
+        
+        // Encode the image filter operation.
+        imageFilter.encode(to: commandBuffer,
+                           sourceTexture: sourceTexture,
+                           destinationTexture: destinationTexture)
+        
+        
+        // Schedule a presentation.
+        commandBuffer.present(drawable)
+        
+        // Commit the command buffer to the GPU.
+        commandBuffer.commit()
+ 
+ */
     }
 }

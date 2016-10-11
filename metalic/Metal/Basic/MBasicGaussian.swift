@@ -14,7 +14,7 @@ class GaussianBlur: CommandBufferEncodable {
     
     required init(device: MTLDevice) {
         gaussian = MPSImageGaussianBlur(device: device,
-                                        sigma: 5.0)
+                                        sigma: 10.0)
     }
     
     func encode(to commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture) {

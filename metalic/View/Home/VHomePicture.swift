@@ -18,7 +18,7 @@ class VHomePicture:MTKView
         
         guard
             
-            let currentDrawable:CAMetalDrawable = currentDrawable,
+            let drawable:CAMetalDrawable = currentDrawable,
             let sourceTexture = controller.sourceTexture
             
         else
@@ -34,17 +34,20 @@ class VHomePicture:MTKView
         /** Obtain the current drawable.
          The final destination texture is always the filtered output image written to the MTKView's drawable.
          */
-        let destinationTexture = currentDrawable.texture
+        let destinationTexture = drawable.texture
         
         // Encode the image filter operation.
         imageFilter.encode(to: commandBuffer,
                            sourceTexture: sourceTexture,
                            destinationTexture: destinationTexture)
         
+        
         // Schedule a presentation.
-        commandBuffer.present(currentDrawable)
+        commandBuffer.present(drawable)
         
         // Commit the command buffer to the GPU.
         commandBuffer.commit()
+        
+        super.draw()
     }
 }
