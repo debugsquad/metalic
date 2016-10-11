@@ -22,6 +22,7 @@ class CHome:CController
         
         mtlDevice = MTLCreateSystemDefaultDevice()
         
+        viewHome.viewPicture.viewLoaded()
         
         // 1
         let defaultLibrary = mtlDevice.newDefaultLibrary()
@@ -58,23 +59,28 @@ class CHome:CController
     }
     
     func render() {
-        let renderPassDescriptor = MTLRenderPassDescriptor()
-        let drawable = viewHome.viewPicture.metalLayer.nextDrawable()!
-        renderPassDescriptor.colorAttachments[0].texture = drawable.texture
-        renderPassDescriptor.colorAttachments[0].loadAction = .clear
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
+        let drawable = viewHome.viewPicture.metalLayer.nextDrawable()
         
-        let commandBuffer = commandQueue.makeCommandBuffer()
-        
-        let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor:renderPassDescriptor)
-        renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setVertexBuffer(viewHome.viewPicture.vertexBuffer, offset:0, at:0)
-        renderEncoder.drawPrimitives(type: MTLPrimitiveType.triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
-        renderEncoder.endEncoding()
-        
-        
-        commandBuffer.present(drawable)
-        commandBuffer.commit()
+        if drawable != nil
+        {
+            let renderPassDescriptor = MTLRenderPassDescriptor()
+            
+            renderPassDescriptor.colorAttachments[0].texture = drawable!.texture
+            renderPassDescriptor.colorAttachments[0].loadAction = .clear
+            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
+            
+            let commandBuffer = commandQueue.makeCommandBuffer()
+            
+            let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor:renderPassDescriptor)
+            renderEncoder.setRenderPipelineState(pipelineState)
+            renderEncoder.setVertexBuffer(viewHome.viewPicture.vertexBuffer, offset:0, at:0)
+            renderEncoder.drawPrimitives(type: MTLPrimitiveType.triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
+            renderEncoder.endEncoding()
+            
+            
+            commandBuffer.present(drawable!)
+            commandBuffer.commit()
+        }
     }
     
     //MARK: public

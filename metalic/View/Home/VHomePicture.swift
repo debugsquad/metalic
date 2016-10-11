@@ -6,6 +6,7 @@ class VHomePicture:UIView
     weak var controller:CHome!
     weak var imageView:UIImageView!
     var metalLayer:CAMetalLayer!
+    private let kMinLayerSize:CGFloat = 1
     
     let vertexData:[Float] = [
         0.0, 1.0, 0.0,
@@ -22,12 +23,6 @@ class VHomePicture:UIView
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor(white:0.985, alpha:1)
         
-        metalLayer = CAMetalLayer()
-        metalLayer.device = controller.mtlDevice
-        metalLayer.pixelFormat = MTLPixelFormat.bgra8Unorm
-        metalLayer.framebufferOnly = true
-        metalLayer.frame = layer.bounds
-        
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +31,6 @@ class VHomePicture:UIView
         self.imageView = imageView
         
         addSubview(imageView)
-        layer.addSublayer(metalLayer)
         
         let views:[String:UIView] = [
             "imageView":imageView]
@@ -53,6 +47,24 @@ class VHomePicture:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override func layoutSubviews() {
+        metalLayer.frame = layer.frame
+        super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func viewLoaded()
+    {
+        metalLayer = CAMetalLayer()
+        metalLayer.device = controller.mtlDevice
+        metalLayer.pixelFormat = MTLPixelFormat.bgra8Unorm
+        metalLayer.framebufferOnly = true
+        metalLayer.frame = CGRect(x:0, y:0, width:kMinLayerSize, height:kMinLayerSize)
+        
+        layer.addSublayer(metalLayer)
         
         let dataSize = vertexData.count * MemoryLayout.size(ofValue: vertexData[0])
         vertexBuffer = controller.mtlDevice.makeBuffer(bytes:vertexData, length:dataSize, options: MTLResourceOptions.cpuCacheModeWriteCombined)
