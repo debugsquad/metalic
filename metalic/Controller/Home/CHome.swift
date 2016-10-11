@@ -4,7 +4,7 @@ import Metal
 class CHome:CController
 {
     weak var viewHome:VHome!
-    private var mtlDevice:MTLDevice?
+    var mtlDevice:MTLDevice!
     
     override func loadView()
     {
