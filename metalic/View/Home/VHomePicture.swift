@@ -12,6 +12,8 @@ class VHomePicture:MTKView
         self.controller = controller
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        contentMode = .scaleAspectFit
+        autoResizeDrawable = false
     }
     
     override func draw() {
