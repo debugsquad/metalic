@@ -17,5 +17,5 @@ vertex float4 basic_vertex(                           // 1
 }
 
 fragment half4 basic_fragment() { // 1
-    return half4(1.0);              // 2
+    return half4(0.3,0.5,0.7,0.5);              // 2
 }

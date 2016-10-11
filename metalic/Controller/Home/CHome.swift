@@ -67,7 +67,7 @@ class CHome:CController
             
             renderPassDescriptor.colorAttachments[0].texture = drawable!.texture
             renderPassDescriptor.colorAttachments[0].loadAction = .clear
-            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
+            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 0.5)
             
             let commandBuffer = commandQueue.makeCommandBuffer()
             
