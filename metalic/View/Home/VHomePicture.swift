@@ -13,7 +13,6 @@ class VHomePicture:MTKView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = .scaleAspectFit
-        autoResizeDrawable = false
     }
     
     override func draw() {
@@ -37,6 +36,11 @@ class VHomePicture:MTKView
          The final destination texture is always the filtered output image written to the MTKView's drawable.
          */
         let destinationTexture = drawable.texture
+        
+        if destinationTexture.width != sourceTexture.width || destinationTexture.height != sourceTexture.height
+        {
+            print("dest w: \(destinationTexture.width), dest h: \(destinationTexture.height), sourc w: \(sourceTexture.width), sourc h: \(sourceTexture.height)")
+        }
         
         // Encode the image filter operation.
         imageFilter.encode(to: commandBuffer,

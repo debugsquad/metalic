@@ -1,7 +1,7 @@
 import UIKit
 import MetalKit
 
-class CHome:CController, MTKViewDelegate
+class CHome:CController
 {
     weak var viewHome:VHome!
     
@@ -78,47 +78,5 @@ class CHome:CController, MTKViewDelegate
         }
         
         viewHome.viewPicture.draw()
-    }
-    
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
-    }
-    
-    func draw(in view: MTKView) {
-    /*
-        
-        guard
-            
-            let drawable:CAMetalDrawable = view.currentDrawable,
-            let sourceTexture = sourceTexture
-            
-            else
-        {
-            return
-        }
-        
-        let commandBuffer = commandQueue.makeCommandBuffer();
-        
-        let imageFilter: CommandBufferEncodable = GaussianBlur(device:device)
-        
-        
-        /** Obtain the current drawable.
-         The final destination texture is always the filtered output image written to the MTKView's drawable.
-         */
-        let destinationTexture = drawable.texture
-        
-        // Encode the image filter operation.
-        imageFilter.encode(to: commandBuffer,
-                           sourceTexture: sourceTexture,
-                           destinationTexture: destinationTexture)
-        
-        
-        // Schedule a presentation.
-        commandBuffer.present(drawable)
-        
-        // Commit the command buffer to the GPU.
-        commandBuffer.commit()
- 
- */
     }
 }

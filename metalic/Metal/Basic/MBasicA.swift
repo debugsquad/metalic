@@ -34,8 +34,5 @@ class MBasicA:MPSUnaryImageKernel
         commandEncoder.setBuffer(buffer, offset: 0, at: 0)
         commandEncoder.dispatchThreadgroups(threadgroups, threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
-        
-        commandBuffer.commit()
-        commandBuffer.waitUntilCompleted()
     }
 }
