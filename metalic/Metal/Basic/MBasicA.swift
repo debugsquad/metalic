@@ -7,7 +7,7 @@ class MBasicA:MPSUnaryImageKernel
     override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
     {
         let defaultLibrary = device.newDefaultLibrary()
-        let fragmentProgram = defaultLibrary!.makeFunction(name:"kernel")
+        let fragmentProgram = defaultLibrary!.makeFunction(name:"adjust_saturation")
         let pipeline:MTLComputePipelineState?
         
         do
