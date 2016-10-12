@@ -17,6 +17,8 @@ class VHome:UIView
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
         let viewPicture:VHomePicture = VHomePicture(controller:controller)
         self.viewPicture = viewPicture
         
@@ -36,6 +38,7 @@ class VHome:UIView
             "viewMenu":viewMenu]
         
         let metrics:[String:CGFloat] = [
+            "barHeight":barHeight,
             "selectorHeight":kSelectorHeight,
             "menuHeight":kMenuHeight]
         
@@ -55,7 +58,7 @@ class VHome:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[viewPicture]-0-[viewSelector(selectorHeight)]-0-[viewMenu(menuHeight)]-0-|",
+            withVisualFormat:"V:|-(barHeight)-[viewPicture]-0-[viewSelector(selectorHeight)]-0-[viewMenu(menuHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
