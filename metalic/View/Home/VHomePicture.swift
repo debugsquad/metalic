@@ -12,7 +12,7 @@ class VHomePicture:MTKView
         self.controller = controller
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        contentMode = .scaleAspectFit
+        contentMode = .scaleAspectFill
         autoResizeDrawable = false
     }
     

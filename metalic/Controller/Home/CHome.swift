@@ -91,10 +91,12 @@ class CHome:CController
         let cgImage = normalizedImage.cgImage!
         
         let scale = UIScreen.main.scale
-        let width = viewHome.viewPicture.bounds.width * scale
-        let height = viewHome.viewPicture.bounds.height * scale
+        let width:CGFloat = viewHome.viewPicture.bounds.width * scale
+        let height:CGFloat = viewHome.viewPicture.bounds.height * scale
         
-        if width < imageWidth && height < imageHeight
+        print("\(imageWidth) .. \(imageHeight)  \(width) ... \(height)")
+        
+        if width < imageWidth || height < imageHeight
         {
             let ratioWidth:CGFloat = imageWidth / width
             let ratioHeight:CGFloat = imageHeight / height
@@ -129,6 +131,9 @@ class CHome:CController
         let colorSpace = cgImage.colorSpace
         let bitmapInfo = cgImage.bitmapInfo
         let context = CGContext.init(data:nil, width:Int(width), height:Int(height), bitsPerComponent:bitsPerComponent, bytesPerRow:bytesPerRow, space:colorSpace!, bitmapInfo:bitmapInfo.rawValue)
+        context?.setFillColor(UIColor.green.cgColor)
+        context?.addRect(CGRect(x:0, y:0, width:width, height:height))
+        context?.drawPath(using: CGPathDrawingMode.fill)
         
         
         
@@ -137,8 +142,6 @@ class CHome:CController
         context?.draw(cgImage, in:CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight))
         
         let scaledImage:CGImage? = context?.makeImage()
-        
-        sourceTexture = nil
         
         let loader = MTKTextureLoader(device: device)
         // The still image is loaded directly into GPU-accessible memory that is only ever read from.

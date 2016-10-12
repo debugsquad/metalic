@@ -29,6 +29,6 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
     float4 inColor = inTexture.read(gid);
     float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
     float4 grayColor(value, value, value, 1.0);
-    float4 outColor = mix(grayColor, inColor, 0.2);
+    float4 outColor = mix(grayColor, inColor, 0.9);
     outTexture.write(outColor, gid);
 }

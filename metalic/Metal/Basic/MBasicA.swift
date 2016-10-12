@@ -21,7 +21,10 @@ class MBasicA:MPSUnaryImageKernel
             pipeline = nil
         }
         
-        let threadgroupCounts = MTLSizeMake(8, 8, 1)
+        let sourceWidth = sourceTexture.width
+        let sourceHeight = sourceTexture.height
+        
+        let threadgroupCounts = MTLSizeMake(2, 2, 1)
         let threadgroups = MTLSizeMake(sourceTexture.width / threadgroupCounts.width, sourceTexture.height / threadgroupCounts.height, 1)
         
         let vertexxSize = MemoryLayout.size(ofValue:Float.self)
