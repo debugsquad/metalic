@@ -3,6 +3,8 @@ import MetalPerformanceShaders
 
 class MBasicA:MPSUnaryImageKernel
 {
+    let vertexData:[Float] = [
+        0.5]
     
     override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
     {
@@ -22,11 +24,14 @@ class MBasicA:MPSUnaryImageKernel
         let threadgroupCounts = MTLSizeMake(8, 8, 1)
         let threadgroups = MTLSizeMake(sourceTexture.width / threadgroupCounts.width, sourceTexture.height / threadgroupCounts.height, 1)
         
+        let vertexxSize = MemoryLayout.size(ofValue:Float.self)
+        let buffer = device.makeBuffer(bytes:vertexData, length:vertexxSize, options: MTLResourceOptions.cpuCacheModeWriteCombined)
         let commandEncoder = commandBuffer.makeComputeCommandEncoder()
      
         commandEncoder.setComputePipelineState(pipeline!)
         commandEncoder.setTexture(sourceTexture, at:0)
         commandEncoder.setTexture(destinationTexture, at:1)
+        commandEncoder.setBuffer(buffer, offset: 0, at: 0)
         commandEncoder.dispatchThreadgroups(threadgroups, threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
         
