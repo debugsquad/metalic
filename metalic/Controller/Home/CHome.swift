@@ -32,7 +32,7 @@ class CHome:CController
     
     private func normalize(image:UIImage)
     {
-        UIGraphicsBeginImageContextWithOptions(image.size, true, image.scale)
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
         let rect = CGRect(origin:CGPoint.zero, size:image.size)
         image.draw(in:rect)
         normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -127,13 +127,16 @@ class CHome:CController
         print("x:\(drawX) y:\(drawY) w:\(drawWidth), h:\(drawHeight)")
         
         let bitsPerComponent = cgImage.bitsPerComponent
-        let bytesPerRow = cgImage.bytesPerRow
+        var bytesPerRow = cgImage.bytesPerRow
         let colorSpace = cgImage.colorSpace
         let bitmapInfo = cgImage.bitmapInfo
+        
+        if bytesPerRow < 3000
+        {
+            bytesPerRow = 3000
+        }
+        
         let context = CGContext.init(data:nil, width:Int(width), height:Int(height), bitsPerComponent:bitsPerComponent, bytesPerRow:bytesPerRow, space:colorSpace!, bitmapInfo:bitmapInfo.rawValue)
-        context?.setFillColor(UIColor.green.cgColor)
-        context?.addRect(CGRect(x:0, y:0, width:width, height:height))
-        context?.drawPath(using: CGPathDrawingMode.fill)
         
         
         
@@ -141,7 +144,14 @@ class CHome:CController
         context?.interpolationQuality = CGInterpolationQuality.high
         context?.draw(cgImage, in:CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight))
         
-        let scaledImage:CGImage? = context?.makeImage()
+        guard
+            
+            let scaledImage = context?.makeImage()
+        
+        else
+        {
+            return
+        }
         
         let loader = MTKTextureLoader(device: device)
         // The still image is loaded directly into GPU-accessible memory that is only ever read from.
@@ -149,8 +159,7 @@ class CHome:CController
         
         var options = [
             
-            MTKTextureLoaderOptionTextureUsage:         MTLTextureUsage.shaderRead.rawValue,
-            MTKTextureLoaderOptionSRGB:                 0
+            MTKTextureLoaderOptionTextureUsage:         MTLTextureUsage.shaderRead.rawValue
         ]
         
         if #available(iOS 10.0, *)
@@ -159,7 +168,7 @@ class CHome:CController
         }
         
         do {
-            let fileTexture = try loader.newTexture(with: scaledImage!, options: options as [String : NSObject]?)
+            let fileTexture = try loader.newTexture(with: scaledImage, options: options as [String : NSObject]?)
             sourceTexture = fileTexture
         } catch let error as NSError {
             print("Error loading still image texture: \(error)")
