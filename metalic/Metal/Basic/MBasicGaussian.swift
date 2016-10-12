@@ -13,7 +13,7 @@ class GaussianBlur: CommandBufferEncodable {
     let gaussian: MBasicA
     
     required init(device: MTLDevice) {
-        gaussian = MBasicA()
+        gaussian = MBasicA(device:device)
     }
     
     func encode(to commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture) {
