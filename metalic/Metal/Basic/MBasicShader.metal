@@ -27,23 +27,28 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
                               uint2 gid [[thread_position_in_grid]])
 {
     /*
+     
+     Saturation
     float4 inColor = inTexture.read(gid);
     float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
     float4 grayColor(value, value, value, 1.0);
     float4 outColor = mix(grayColor, inColor, 0.09);
     outTexture.write(outColor, gid);*/
     
+    /*
+    
+     ink
     float4 inColor = inTexture.read(gid);
     float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
     float bright;
     
-    if (value >= 0.8)
+    if (value >= 0.9)
     {
-        bright = 0.8;
+        bright = 0.66;
     }
     else if (value >= 0.5)
     {
-        bright = 0.6;
+        bright = 0.7;
     }
     else
     {
@@ -51,5 +56,18 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
     }
     
     float4 outColor(inColor[0] * bright, inColor[1] * bright, inColor[2] * bright, bright);
+    outTexture.write(outColor, gid);*/
+    
+    
+    float4 inColor = inTexture.read(gid);
+    float red = inColor[0]
+    float green = inColor[1]
+    float blur = inColor[2]
+    
+    
+    
+    float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
+    float4 grayColor(value, value, value, 1.0);
+    float4 outColor = mix(grayColor, inColor, 0.09);
     outTexture.write(outColor, gid);
 }
