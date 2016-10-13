@@ -75,20 +75,20 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
         if (green >= blue)
         {
             newRed = red * maxMulti;
-            green = green * midMulti;
-            blue = blue * minMulti;
+            newGreen = green * midMulti;
+            newBlue = blue * minMulti;
         }
         else if (blue >= red)
         {
             newRed = red * midMulti;
-            green = green * minMulti;
-            blue = blue * maxMulti;
+            newGreen = green * minMulti;
+            newBlue = blue * maxMulti;
         }
         else
         {
             newRed = red * maxMulti;
-            green = green * minMulti;
-            blue = blue * midMulti;
+            newGreen = green * minMulti;
+            newBlue = blue * midMulti;
         }
     }
     else if (green >= blue)
@@ -96,21 +96,21 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
         if (blue >= red)
         {
             newRed = red * minMulti;
-            green = green * maxMulti;
-            blue = blue * midMulti;
+            newGreen = green * maxMulti;
+            newBlue = blue * midMulti;
         }
         else
         {
             newRed = red * midMulti;
-            green = green * maxMulti;
-            blue = blue * minMulti;
+            newGreen = green * maxMulti;
+            newBlue = blue * minMulti;
         }
     }
     else
     {
         newRed = red * minMulti;
-        green = green * midMulti;
-        blue = blue * maxMulti;
+        newGreen = green * midMulti;
+        newBlue = blue * maxMulti;
     }
     
     if (newRed > 1)
