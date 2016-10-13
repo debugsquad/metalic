@@ -60,14 +60,59 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
     
     
     float4 inColor = inTexture.read(gid);
-    float red = inColor[0]
-    float green = inColor[1]
-    float blur = inColor[2]
+    float minMulti = 0.8;
+    float midMulti = 0.9;
+    float maxMulti = 1.1;
+    float red = inColor[0];
+    float green = inColor[1];
+    float blue = inColor[2];
+    float newRed;
+    float newGreen;
+    float newBlue;
     
+    if (red >= green)
+    {
+        if (green >= blue)
+        {
+            newRed = red * maxMulti;
+            green = green * midMulti;
+            blue = blue * minMulti;
+        }
+        else if (blue >= red)
+        {
+            newRed = red * midMulti;
+            green = green * minMulti;
+            blue = blue * maxMulti;
+        }
+        else
+        {
+            newRed = red * maxMulti;
+            green = green * minMulti;
+            blue = blue * midMulti;
+        }
+    }
+    else if (green >= blue)
+    {
+        if (blue >= red)
+        {
+            newRed = red * minMulti;
+            green = green * maxMulti;
+            blue = blue * midMulti;
+        }
+        else
+        {
+            newRed = red * midMulti;
+            green = green * maxMulti;
+            blue = blue * minMulti;
+        }
+    }
+    else
+    {
+        newRed = red * minMulti;
+        green = green * midMulti;
+        blue = blue * maxMulti;
+    }
     
-    
-    float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
-    float4 grayColor(value, value, value, 1.0);
-    float4 outColor = mix(grayColor, inColor, 0.09);
+    float4 outColor(newRed, newGreen, newBlue, 1.0);
     outTexture.write(outColor, gid);
 }
