@@ -58,76 +58,52 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
     float4 outColor(inColor[0] * bright, inColor[1] * bright, inColor[2] * bright, bright);
     outTexture.write(outColor, gid);*/
     
-    
     float4 inColor = inTexture.read(gid);
-    float minMulti = 0.8;
-    float midMulti = 0.9;
-    float maxMulti = 1.1;
+    float4 outColor;
+    float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
     float red = inColor[0];
     float green = inColor[1];
     float blue = inColor[2];
-    float newRed;
-    float newGreen;
-    float newBlue;
+    bool blur = false;
+    outColor = inColor;
     
-    if (red >= green)
+    if (value > 0.9)
     {
-        if (green >= blue)
-        {
-            newRed = red * maxMulti;
-            newGreen = green * midMulti;
-            newBlue = blue * minMulti;
-        }
-        else if (blue >= red)
-        {
-            newRed = red * midMulti;
-            newGreen = green * minMulti;
-            newBlue = blue * maxMulti;
-        }
-        else
-        {
-            newRed = red * maxMulti;
-            newGreen = green * minMulti;
-            newBlue = blue * midMulti;
-        }
+        blur = true;
     }
-    else if (green >= blue)
+    else if (red >= green && red >= blue)
     {
-        if (blue >= red)
-        {
-            newRed = red * minMulti;
-            newGreen = green * maxMulti;
-            newBlue = blue * midMulti;
-        }
-        else
-        {
-            newRed = red * midMulti;
-            newGreen = green * maxMulti;
-            newBlue = blue * minMulti;
-        }
+    }
+    else if (green > red && green >= blue)
+    {
+        blur = true;
     }
     else
     {
-        newRed = red * minMulti;
-        newGreen = green * midMulti;
-        newBlue = blue * maxMulti;
+        
     }
     
-    if (newRed > 1)
+    if (blur)
     {
-        newRed = 1;
+        int size = 12;
+        int radius = size / 2;
+        
+        float4 accumColor(0, 0, 0, 0);
+        
+        for (int j = 0; j < size; ++j)
+        {
+            for (int i = 0; i < size; ++i)
+            {
+                uint2 kernelIndex(i, j);
+                uint2 textureIndex(gid.x + (i - radius), gid.y + (j - radius));
+                float4 color = inTexture.read(textureIndex).rgba;
+                accumColor += color;
+            }
+        }
+        
+        accumColor /= (size * size);
+        outColor = float4(accumColor.rgb, 1);
     }
     
-    if (newGreen > 1)
-    {
-        newGreen = 1;
-    }
-    
-    if (newBlue > 1)
-    {
-        newBlue = 1;
-    }
-    
-    float4 outColor(newRed, newGreen, newBlue, 1.0);
     outTexture.write(outColor, gid);
 }
