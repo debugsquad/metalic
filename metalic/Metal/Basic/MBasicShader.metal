@@ -113,6 +113,21 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture [[texture
         blue = blue * maxMulti;
     }
     
+    if (newRed > 1)
+    {
+        newRed = 1;
+    }
+    
+    if (newGreen > 1)
+    {
+        newGreen = 1;
+    }
+    
+    if (newBlue > 1)
+    {
+        newBlue = 1;
+    }
+    
     float4 outColor(newRed, newGreen, newBlue, 1.0);
     outTexture.write(outColor, gid);
 }
