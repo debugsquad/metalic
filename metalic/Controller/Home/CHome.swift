@@ -68,6 +68,12 @@ class CHome:CController
             return
         }
         
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewHome.showLoading()
+        }
+        
         let metalFilter:MetalFilter = metalFilterType.init(device:device)
     }
     

@@ -85,10 +85,12 @@ class VHome:UIView
     func showLoading()
     {
         viewSpinner.startAnimating()
+        viewPicture.isHidden = true
     }
     
     func showImage()
     {
         viewSpinner.stopAnimating()
+        viewPicture.isHidden = false
     }
 }
