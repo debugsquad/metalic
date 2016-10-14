@@ -2,7 +2,7 @@ import MetalPerformanceShaders
 
 class MetalFilterBasicInk:MetalFilter
 {
-    private let kFunctionName:String = ""
+    private let kFunctionName:String = "filter_basicInk"
     
     required init(device:MTLDevice)
     {
