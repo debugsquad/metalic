@@ -6,8 +6,8 @@ class CHome:CController
     weak var viewHome:VHome!
     var normalizedImage:UIImage?
     var normalizedScaledImage:CGImage?
-    let device = MTLCreateSystemDefaultDevice()!
-    var commandQueue: MTLCommandQueue!
+    var device:MTLDevice!
+    var commandQueue:MTLCommandQueue!
     var sourceTexture: MTLTexture?
     private let kMinBytesPerRow:Int = 3000
     
@@ -18,19 +18,31 @@ class CHome:CController
         view = viewHome
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         setupMetal()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated:Bool)
+    {
         super.viewDidAppear(animated)
         
         viewHome.viewPicture.draw()
     }
     
     //MARK: private
+    
+    private func setupMetal()
+    {
+        device = MTLCreateSystemDefaultDevice()
+        commandQueue = device.makeCommandQueue()
+        viewHome.viewPicture.framebufferOnly = false
+        viewHome.viewPicture.isPaused = true
+        viewHome.viewPicture.device = device
+        viewHome.viewPicture.colorPixelFormat = MTLPixelFormat.bgra8Unorm
+    }
     
     private func normalize(image:UIImage, onCompletion:(() -> ())?)
     {
@@ -165,24 +177,6 @@ class CHome:CController
         }
         
         onCompletion?()
-    }
-    
-    private func setupMetal() {
-        commandQueue = device.makeCommandQueue()
-        
-        /** MetalPerformanceShaders is a compute-based framework.
-         This means that the drawable's texture is *written* to, not *rendered* to.
-         The destination texture for all image filter operations is not a traditional framebuffer.
-         */
-        viewHome.viewPicture.framebufferOnly = false
-        
-        /** This sample manages the MTKView's draw loop manually (i.e. the draw() method is called explicitly).
-         For the still image, the content only needs to be filtered once.
-         For the video image, the content only needs to be filtered whenever the camera provides a new video frame.
-         */
-        viewHome.viewPicture.isPaused = true
-        viewHome.viewPicture.device = device
-        viewHome.viewPicture.colorPixelFormat = .bgra8Unorm
     }
     
     //MARK: public
