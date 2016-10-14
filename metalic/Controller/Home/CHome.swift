@@ -5,6 +5,7 @@ class CHome:CController
 {
     weak var viewHome:VHome!
     var normalizedImage:UIImage?
+    var normalizedScaledImage:UIImage?
     let device = MTLCreateSystemDefaultDevice()!
     var commandQueue: MTLCommandQueue!
     var sourceTexture: MTLTexture?
@@ -30,13 +31,18 @@ class CHome:CController
     
     //MARK: private
     
-    private func normalize(image:UIImage)
+    private func normalize(image:UIImage, onCompletion:(() -> ())?)
     {
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
         let rect = CGRect(origin:CGPoint.zero, size:image.size)
         image.draw(in:rect)
         normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+    }
+    
+    private func scaleImage(onCompletion:(() -> ())?)
+    {
+        
     }
     
     private func setupMetal() {
@@ -57,11 +63,12 @@ class CHome:CController
         viewHome.viewPicture.colorPixelFormat = .bgra8Unorm
     }
     
-    private func asyncApplyFilter()
+    private func asyncApplyFilter(onCompletion:(() -> ())?)
     {
         guard
             
-            let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter
+            let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter,
+            let image:UIImage = normalizedImage
             
             else
         {
@@ -197,7 +204,7 @@ class CHome:CController
         viewHome.viewPicture.draw()
     }
     
-    func applyFilter()
+    func applyFilter(onCompletion:(() -> ())?)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
