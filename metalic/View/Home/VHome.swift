@@ -6,6 +6,7 @@ class VHome:UIView
     weak var viewPicture:VHomePicture!
     weak var viewSelector:VHomeSelector!
     weak var viewMenu:VHomeMenu!
+    weak var spinner
     private let kSelectorHeight:CGFloat = 40
     private let kMenuHeight:CGFloat = 60
     
@@ -62,5 +63,17 @@ class VHome:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: public
+    
+    func showLoading()
+    {
+        
+    }
+    
+    func showImage()
+    {
+        
     }
 }
