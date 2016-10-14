@@ -63,16 +63,13 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelect)
         { [weak self] in
             
-            guard
+            let index:IndexPath = IndexPath(item:0, section:0)
+            self?.collectionView.selectItem(
+                at:index,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
             
-                let item:MFiltersItem = self?.model.items.first
-            
-            else
-            {
-                return
-            }
-            
-            self?.selectItem(item:item)
+            self?.selectItemAtIndex(index:index)
         }
     }
     
@@ -90,8 +87,10 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return item
     }
     
-    private func selectItem(item:MFiltersItem)
+    private func selectItemAtIndex(index:IndexPath)
     {
+        let item:MFiltersItem = modelAtIndex(index:index)
+        
         if selectedItem !== item
         {
             selectedItem = item
@@ -135,7 +134,6 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MFiltersItem = modelAtIndex(index:indexPath)
-        selectItem(item:item)
+        selectItemAtIndex(index:IndexPath)
     }
 }
