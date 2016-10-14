@@ -57,6 +57,20 @@ class CHome:CController
         viewHome.viewPicture.colorPixelFormat = .bgra8Unorm
     }
     
+    private func asyncApplyFilter()
+    {
+        guard
+            
+            let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter
+            
+            else
+        {
+            return
+        }
+        
+        let metalFilter:MetalFilter = metalFilterType.init(device:device)
+    }
+    
     //MARK: public
     
     func imageSelected(image:UIImage?)
@@ -175,5 +189,14 @@ class CHome:CController
         }
         
         viewHome.viewPicture.draw()
+    }
+    
+    func applyFilter()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncApplyFilter()
+        }
     }
 }

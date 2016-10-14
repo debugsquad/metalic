@@ -74,20 +74,6 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return item
     }
     
-    private func applyFilter()
-    {
-        guard
-        
-            let filterType:MetalFilter.Type = selectedItem?.filter
-        
-        else
-        {
-            return
-        }
-        
-        let filter:MetalFilter = filterType(device:nil)
-    }
-    
     //MARK: collection delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -129,7 +115,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         if selectedItem !== item
         {
             selectedItem = item
-            applyFilter()
+            controller.applyFilter()
         }
     }
 }

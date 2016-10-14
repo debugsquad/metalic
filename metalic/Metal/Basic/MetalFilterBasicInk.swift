@@ -4,7 +4,7 @@ class MetalFilterBasicInk:MetalFilter
 {
     private let kFunctionName:String = ""
     
-    override init(device:MTLDevice)
+    required init(device:MTLDevice)
     {
         super.init(device:device, functionName:kFunctionName)
     }

@@ -12,7 +12,7 @@ class MetalFilter:MPSUnaryImageKernel
         super.init(device:device)
     }
     
-    override init(device:MTLDevice)
+    required override init(device:MTLDevice)
     {
         fatalError()
     }
