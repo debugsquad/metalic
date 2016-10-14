@@ -134,6 +134,6 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        selectItemAtIndex(index:IndexPath)
+        selectItemAtIndex(index:indexPath)
     }
 }
