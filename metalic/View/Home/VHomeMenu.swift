@@ -66,8 +66,11 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     //MARK: collection delegate
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
         
+        return size
     }
 }
