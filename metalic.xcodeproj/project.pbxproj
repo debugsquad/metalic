@@ -36,6 +36,8 @@
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
+		DAA0BFFE1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0BFFD1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift */; };
+		DAA0C0001DB18D560017DBE1 /* MetalFilterBasicNone.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAA0BFFF1DB18D560017DBE1 /* MetalFilterBasicNone.metal */; };
 		DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E4E1DAC29AF00880B1B /* MMainState.swift */; };
 		DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */; };
 		DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */; };
@@ -88,6 +90,8 @@
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
+		DAA0BFFD1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicNone.swift; sourceTree = "<group>"; };
+		DAA0BFFF1DB18D560017DBE1 /* MetalFilterBasicNone.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBasicNone.metal; sourceTree = "<group>"; };
 		DAB94E4E1DAC29AF00880B1B /* MMainState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainState.swift; sourceTree = "<group>"; };
 		DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				DA4C0A5B1DAD6806006934D1 /* MBasicGaussian.swift */,
 				DA4C0A5D1DAD6D49006934D1 /* MBaseImageLoader.swift */,
 				DA4C0A5F1DADA472006934D1 /* MBasicA.swift */,
+				DAA0BFFD1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift */,
+				DAA0BFFF1DB18D560017DBE1 /* MetalFilterBasicNone.metal */,
 				DA46D85C1DB1481E00B89DE9 /* MetalFilterBasicInk.swift */,
 				DA46D8651DB16C6700B89DE9 /* MetalFilterBasicInk.metal */,
 			);
@@ -452,11 +458,13 @@
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
 				DA46D85D1DB1481E00B89DE9 /* MetalFilterBasicInk.swift in Sources */,
 				DA4C0A5C1DAD6806006934D1 /* MBasicGaussian.swift in Sources */,
+				DAA0C0001DB18D560017DBE1 /* MetalFilterBasicNone.metal in Sources */,
 				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
 				DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */,
 				DAB94E561DAC2C3B00880B1B /* ExtensionUIColor.swift in Sources */,
+				DAA0BFFE1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift in Sources */,
 				DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA4C0A5A1DAD316E006934D1 /* MBasicShader.metal in Sources */,
