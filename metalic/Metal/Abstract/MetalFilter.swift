@@ -37,4 +37,10 @@ class MetalFilter:MPSUnaryImageKernel
         commandEncoder.dispatchThreadgroups(threadgroups, threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
     }
+    
+    //MARK: public
+    
+    func specialConfig()
+    {
+    }
 }
