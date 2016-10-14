@@ -80,6 +80,15 @@ class VHome:UIView
             views:views))
     }
     
+    //MARK: private
+    
+    private func asyncShowImage()
+    {
+        viewSpinner.stopAnimating()
+        viewPicture.isHidden = false
+        viewPicture.draw()
+    }
+    
     //MARK: public
     
     func showLoading()
@@ -90,7 +99,10 @@ class VHome:UIView
     
     func showImage()
     {
-        viewSpinner.stopAnimating()
-        viewPicture.isHidden = false
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.asyncShowImage()
+        }
     }
 }

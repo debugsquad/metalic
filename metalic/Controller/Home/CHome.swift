@@ -42,6 +42,90 @@ class CHome:CController
     
     private func scaleImage(onCompletion:(() -> ())?)
     {
+        guard
+            
+            let normalizedImage:UIImage = normalizedImage
+            
+            else
+        {
+            return
+        }
+        
+        let imageWidth:CGFloat = normalizedImage.size.width
+        let imageHeight:CGFloat = normalizedImage.size.height
+        let drawWidth:Int
+        let drawHeight:Int
+        let drawX:Int
+        let drawY:Int
+        
+        let cgImage = normalizedImage.cgImage!
+        
+        let scale = UIScreen.main.scale
+        let width:CGFloat = viewHome.viewPicture.bounds.width * scale
+        let height:CGFloat = viewHome.viewPicture.bounds.height * scale
+        
+        print("\(imageWidth) .. \(imageHeight)  \(width) ... \(height)")
+        
+        if width < imageWidth || height < imageHeight
+        {
+            let ratioWidth:CGFloat = imageWidth / width
+            let ratioHeight:CGFloat = imageHeight / height
+            let maxRatio:CGFloat = max(ratioWidth, ratioHeight)
+            let scaledWidth:CGFloat = floor(imageWidth / maxRatio)
+            let scaledHeight:CGFloat = floor(imageHeight / maxRatio)
+            let deltaWidth:CGFloat = width - scaledWidth
+            let deltaHeight:CGFloat = height - scaledHeight
+            let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
+            let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
+            drawX = Int(drawXFloat)
+            drawY = Int(drawYFloat)
+            drawWidth = Int(scaledWidth)
+            drawHeight = Int(scaledHeight)
+        }
+        else
+        {
+            let deltaWidth:CGFloat = width - imageWidth
+            let deltaHeight:CGFloat = height - imageHeight
+            let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
+            let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
+            drawX = Int(drawXFloat)
+            drawY = Int(drawYFloat)
+            drawWidth = Int(imageWidth)
+            drawHeight = Int(imageHeight)
+        }
+        
+        print("x:\(drawX) y:\(drawY) w:\(drawWidth), h:\(drawHeight)")
+        
+        let bitsPerComponent = cgImage.bitsPerComponent
+        var bytesPerRow = cgImage.bytesPerRow
+        let colorSpace = cgImage.colorSpace
+        let bitmapInfo = cgImage.bitmapInfo
+        
+        if bytesPerRow < 3000
+        {
+            bytesPerRow = 3000
+        }
+        
+        let context = CGContext.init(data:nil, width:Int(width), height:Int(height), bitsPerComponent:bitsPerComponent, bytesPerRow:bytesPerRow, space:colorSpace!, bitmapInfo:bitmapInfo.rawValue)
+        
+        
+        
+        
+        context?.interpolationQuality = CGInterpolationQuality.high
+        context?.draw(cgImage, in:CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight))
+        
+        guard
+            
+            let scaledImage = context?.makeImage()
+            
+            else
+        {
+            return
+        }
+    }
+    
+    private func loadTexture()
+    {
         
     }
     
@@ -65,23 +149,7 @@ class CHome:CController
     
     private func asyncApplyFilter(onCompletion:(() -> ())?)
     {
-        guard
-            
-            let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter,
-            let image:UIImage = normalizedImage
-            
-            else
-        {
-            return
-        }
         
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewHome.showLoading()
-        }
-        
-        let metalFilter:MetalFilter = metalFilterType.init(device:device)
     }
     
     //MARK: public
@@ -97,7 +165,16 @@ class CHome:CController
             return
         }
         
-        normalize(image:image)
+        normalize(
+            image:image)
+        { [weak self] in
+            
+            self?.scaleImage(onCompletion:
+            { [weak self] in
+                
+                self?.viewHome.showImage()
+            })
+        }
         
         guard
         
@@ -204,12 +281,8 @@ class CHome:CController
         viewHome.viewPicture.draw()
     }
     
-    func applyFilter(onCompletion:(() -> ())?)
+    func updateFilter(onCompletion:(() -> ())?)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.asyncApplyFilter()
-        }
+        viewHome.showImage()
     }
 }

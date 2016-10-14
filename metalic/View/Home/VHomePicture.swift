@@ -18,6 +18,31 @@ class VHomePicture:MTKView
     
     override func draw() {
         
+        /*
+ 
+ 
+         guard
+         
+         let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter,
+         let image:UIImage = normalizedImage
+         
+         else
+         {
+         return
+         }
+         
+         DispatchQueue.main.async
+         { [weak self] in
+         
+         self?.viewHome.showLoading()
+         }
+         
+         let metalFilter:MetalFilter = metalFilterType.init(device:device)
+ 
+        */
+        
+        
+        
         guard
             
             let drawable:CAMetalDrawable = currentDrawable,
