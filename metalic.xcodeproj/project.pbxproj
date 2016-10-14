@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8551DB140FD00B89DE9 /* MFilters.swift */; };
+		DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */; };
 		DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6921DA9CA0800D7D3E3 /* CHome.swift */; };
 		DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6941DAAFD7D00D7D3E3 /* VParent.swift */; };
 		DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F6961DAAFDD600D7D3E3 /* VBar.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		DA46D8551DB140FD00B89DE9 /* MFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFilters.swift; sourceTree = "<group>"; };
+		DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItem.swift; sourceTree = "<group>"; };
 		DA48F6921DA9CA0800D7D3E3 /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DA48F6941DAAFD7D00D7D3E3 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA48F6961DAAFDD600D7D3E3 /* VBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBar.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DA46D8551DB140FD00B89DE9 /* MFilters.swift */,
+				DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			files = (
 				DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */,
 				DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */,
+				DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
 				DA4C0A5C1DAD6806006934D1 /* MBasicGaussian.swift in Sources */,
