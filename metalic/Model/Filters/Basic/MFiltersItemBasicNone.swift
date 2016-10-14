@@ -7,8 +7,7 @@ class MFiltersItemBasicNone:MFiltersItem
     init()
     {
         let name:String = NSLocalizedString("MFiltersItemBasicNone_name", comment:"")
-        let filter:MetalFilter.Type = MetalFilterBasicInk.self
         
-        super.init(name:name, asset:kImageName, filter:filter)
+        super.init(name:name, asset:kImageName, filter:nil)
     }
 }
