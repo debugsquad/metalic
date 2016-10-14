@@ -19,9 +19,11 @@ class MFilters
     
     private func basicFilters() -> [MFiltersItem]
     {
+        let itemNone:MFiltersItemBasicNone = MFiltersItemBasicNone()
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
         
         let items:[MFiltersItem] = [
+            itemNone,
             itemInk
         ]
         
