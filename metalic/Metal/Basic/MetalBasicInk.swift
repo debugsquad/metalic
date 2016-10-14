@@ -1,6 +1,7 @@
 import Foundation
+import MetalPerformanceShaders
 
-class MetalBasicInk
+class MetalBasicInk:MPSUnaryImageKernel
 {
     
 }
