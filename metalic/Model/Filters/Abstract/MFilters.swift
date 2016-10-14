@@ -22,7 +22,7 @@ class MFilters
     
     private func premiumFilters() -> [MFiltersItem]
     {
-        let item:[MFiltersItem] = [
+        let items:[MFiltersItem] = [
         ]
         
         return items
