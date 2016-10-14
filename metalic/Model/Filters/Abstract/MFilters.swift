@@ -9,4 +9,22 @@ class MFilters
         items = [
         ]
     }
+    
+    //MARK: private
+    
+    private func basicFilters() -> [MFiltersItem]
+    {
+        let items:[MFiltersItem] = [
+        ]
+        
+        return items
+    }
+    
+    private func premiumFilters() -> [MFiltersItem]
+    {
+        let item:[MFiltersItem] = [
+        ]
+        
+        return items
+    }
 }
