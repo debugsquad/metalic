@@ -34,13 +34,13 @@ class MetalFilter:MPSUnaryImageKernel
         let threadgroups = MTLSizeMake(sourceTexture.width / threadgroupCounts.width, sourceTexture.height / threadgroupCounts.height, 1)
         
         let vertexxSize = MemoryLayout.size(ofValue:Float.self)
-        let buffer = device.makeBuffer(bytes:vertexData, length:vertexxSize, options: MTLResourceOptions.cpuCacheModeWriteCombined)
+        /*let buffer = device.makeBuffer(bytes:vertexData, length:vertexxSize, options: MTLResourceOptions.cpuCacheModeWriteCombined)*/
         let commandEncoder = commandBuffer.makeComputeCommandEncoder()
         
         commandEncoder.setComputePipelineState(pipeline!)
         commandEncoder.setTexture(sourceTexture, at:0)
         commandEncoder.setTexture(destinationTexture, at:1)
-        commandEncoder.setBuffer(buffer, offset: 0, at: 0)
+        //commandEncoder.setBuffer(buffer, offset: 0, at: 0)
         commandEncoder.dispatchThreadgroups(threadgroups, threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
     }

@@ -2,5 +2,12 @@ import Foundation
 
 class MFiltersItem
 {
-    let 
+    let filter:MetalFilter.Type
+    let name:String
+    
+    init(name:String, filter:MetalFilter.Type)
+    {
+        self.name = name
+        self.filter = filter
+    }
 }
