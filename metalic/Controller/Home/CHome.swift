@@ -5,10 +5,11 @@ class CHome:CController
 {
     weak var viewHome:VHome!
     var normalizedImage:UIImage?
-    var normalizedScaledImage:UIImage?
+    var normalizedScaledImage:CGImage?
     let device = MTLCreateSystemDefaultDevice()!
     var commandQueue: MTLCommandQueue!
     var sourceTexture: MTLTexture?
+    private let kMinBytesPerRow:Int = 3000
     
     override func loadView()
     {
@@ -44,37 +45,42 @@ class CHome:CController
     {
         guard
             
-            let normalizedImage:UIImage = normalizedImage
-            
-            else
+            let normalizedImage:UIImage = normalizedImage,
+            let normalizedCGImage:CGImage = normalizedImage.cgImage
+        
+        else
         {
             return
         }
         
+        let screenScale:CGFloat = UIScreen.main.scale
         let imageWidth:CGFloat = normalizedImage.size.width
         let imageHeight:CGFloat = normalizedImage.size.height
+        let usableWidth:CGFloat = viewHome.viewPicture.bounds.width
+        let usableHeight:CGFloat = viewHome.viewPicture.bounds.height
+        let usableWidthScale:CGFloat = usableWidth * screenScale
+        let usableHeightScale:CGFloat = usableHeight * screenScale
+        let usableWidthScaleInt:Int = Int(usableWidthScale)
+        let usableHeightScaleInt:Int = Int(usableHeightScale)
+        let bitsPerComponent:Int = normalizedCGImage.bitsPerComponent
+        let bitmapInfo:CGBitmapInfo = normalizedCGImage.bitmapInfo
+        let colorSpace:CGColorSpace? = normalizedCGImage.colorSpace
+        var bytesPerRow:Int = normalizedCGImage.bytesPerRow
+        let drawRect:CGRect
         let drawWidth:Int
         let drawHeight:Int
         let drawX:Int
         let drawY:Int
         
-        let cgImage = normalizedImage.cgImage!
-        
-        let scale = UIScreen.main.scale
-        let width:CGFloat = viewHome.viewPicture.bounds.width * scale
-        let height:CGFloat = viewHome.viewPicture.bounds.height * scale
-        
-        print("\(imageWidth) .. \(imageHeight)  \(width) ... \(height)")
-        
-        if width < imageWidth || height < imageHeight
+        if usableWidthScale < imageWidth || usableHeightScale < imageHeight
         {
-            let ratioWidth:CGFloat = imageWidth / width
-            let ratioHeight:CGFloat = imageHeight / height
+            let ratioWidth:CGFloat = imageWidth / usableWidthScale
+            let ratioHeight:CGFloat = imageHeight / usableHeightScale
             let maxRatio:CGFloat = max(ratioWidth, ratioHeight)
             let scaledWidth:CGFloat = floor(imageWidth / maxRatio)
             let scaledHeight:CGFloat = floor(imageHeight / maxRatio)
-            let deltaWidth:CGFloat = width - scaledWidth
-            let deltaHeight:CGFloat = height - scaledHeight
+            let deltaWidth:CGFloat = usableWidthScale - scaledWidth
+            let deltaHeight:CGFloat = usableHeightScale - scaledHeight
             let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
             let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
             drawX = Int(drawXFloat)
@@ -84,8 +90,8 @@ class CHome:CController
         }
         else
         {
-            let deltaWidth:CGFloat = width - imageWidth
-            let deltaHeight:CGFloat = height - imageHeight
+            let deltaWidth:CGFloat = usableWidthScale - imageWidth
+            let deltaHeight:CGFloat = usableHeightScale - imageHeight
             let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
             let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
             drawX = Int(drawXFloat)
@@ -94,39 +100,71 @@ class CHome:CController
             drawHeight = Int(imageHeight)
         }
         
-        print("x:\(drawX) y:\(drawY) w:\(drawWidth), h:\(drawHeight)")
-        
-        let bitsPerComponent = cgImage.bitsPerComponent
-        var bytesPerRow = cgImage.bytesPerRow
-        let colorSpace = cgImage.colorSpace
-        let bitmapInfo = cgImage.bitmapInfo
-        
-        if bytesPerRow < 3000
+        if bytesPerRow < kMinBytesPerRow
         {
-            bytesPerRow = 3000
+            bytesPerRow = kMinBytesPerRow
         }
         
-        let context = CGContext.init(data:nil, width:Int(width), height:Int(height), bitsPerComponent:bitsPerComponent, bytesPerRow:bytesPerRow, space:colorSpace!, bitmapInfo:bitmapInfo.rawValue)
-        
-        
-        
-        
-        context?.interpolationQuality = CGInterpolationQuality.high
-        context?.draw(cgImage, in:CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight))
+        drawRect = CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight)
         
         guard
             
-            let scaledImage = context?.makeImage()
-            
-            else
+            let realColorSpace:CGColorSpace = colorSpace,
+            let context:CGContext = CGContext.init(
+                data:nil,
+                width:usableWidthScaleInt,
+                height:usableHeightScaleInt,
+                bitsPerComponent:bitsPerComponent,
+                bytesPerRow:bytesPerRow,
+                space:realColorSpace,
+                bitmapInfo:bitmapInfo.rawValue)
+        
+        else
         {
             return
         }
+        
+        context.interpolationQuality = CGInterpolationQuality.high
+        context.draw(
+            normalizedCGImage,
+            in:drawRect)
+        
+        normalizedScaledImage = context.makeImage()
+        onCompletion?()
     }
     
-    private func loadTexture()
+    private func loadTexture(onCompletion:(() -> ())?)
     {
+        guard
+            
+            let scaledImage:CGImage = normalizedImage?.cgImage
+            
+        else
+        {
+            return
+        }
         
+        let mtkTextureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
+        
+        var options:[String:NSObject] = [
+            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject
+        ]
+        
+        if #available(iOS 10.0, *)
+        {
+            options[MTKTextureLoaderOptionTextureStorageMode] = MTLStorageMode.private.rawValue as NSObject
+        }
+        
+        do
+        {
+            sourceTexture = try mtkTextureLoader.newTexture(with:scaledImage, options:options)
+        }
+        catch
+        {
+            sourceTexture = nil
+        }
+        
+        onCompletion?()
     }
     
     private func setupMetal() {
@@ -145,11 +183,6 @@ class CHome:CController
         viewHome.viewPicture.isPaused = true
         viewHome.viewPicture.device = device
         viewHome.viewPicture.colorPixelFormat = .bgra8Unorm
-    }
-    
-    private func asyncApplyFilter(onCompletion:(() -> ())?)
-    {
-        
     }
     
     //MARK: public
@@ -172,7 +205,11 @@ class CHome:CController
             self?.scaleImage(onCompletion:
             { [weak self] in
                 
-                self?.viewHome.showImage()
+                self?.loadTexture(onCompletion:
+                { [weak self] in
+                    
+                    self?.viewHome.showImage()
+                })
             })
         }
         
@@ -257,26 +294,7 @@ class CHome:CController
             return
         }
         
-        let loader = MTKTextureLoader(device: device)
-        // The still image is loaded directly into GPU-accessible memory that is only ever read from.
         
-        
-        var options = [
-            
-            MTKTextureLoaderOptionTextureUsage:         MTLTextureUsage.shaderRead.rawValue
-        ]
-        
-        if #available(iOS 10.0, *)
-        {
-            options[MTKTextureLoaderOptionTextureStorageMode] = MTLStorageMode.private.rawValue
-        }
-        
-        do {
-            let fileTexture = try loader.newTexture(with: scaledImage, options: options as [String : NSObject]?)
-            sourceTexture = fileTexture
-        } catch let error as NSError {
-            print("Error loading still image texture: \(error)")
-        }
         
         viewHome.viewPicture.draw()
     }
