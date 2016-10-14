@@ -7,6 +7,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     weak var selectedItem:MFiltersItem?
     let model:MFilters
     private let kCellWidth:CGFloat = 80
+    private let kAfterSelect:TimeInterval = 0.1
     
     init(controller:CHome)
     {
@@ -58,6 +59,21 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             options:[],
             metrics:metrics,
             views:views))
+        
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelect)
+        { [weak self] in
+            
+            guard
+            
+                let item:MFiltersItem = self?.model.items.first
+            
+            else
+            {
+                return
+            }
+            
+            self?.selectItem(item:item)
+        }
     }
     
     required init?(coder:NSCoder)
@@ -72,6 +88,15 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let item:MFiltersItem = model.items[index.item]
         
         return item
+    }
+    
+    private func selectItem(item:MFiltersItem)
+    {
+        if selectedItem !== item
+        {
+            selectedItem = item
+            controller.applyFilter()
+        }
     }
     
     //MARK: collection delegate
@@ -111,11 +136,6 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MFiltersItem = modelAtIndex(index:indexPath)
-        
-        if selectedItem !== item
-        {
-            selectedItem = item
-            controller.applyFilter()
-        }
+        selectItem(item:item)
     }
 }
