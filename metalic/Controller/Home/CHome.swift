@@ -150,7 +150,7 @@ class CHome:CController
     {
         guard
             
-            let scaledImage:CGImage = normalizedImage?.cgImage
+            let scaledImage:CGImage = normalizedScaledImage
             
         else
         {
