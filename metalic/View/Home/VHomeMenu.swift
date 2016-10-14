@@ -94,7 +94,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         if selectedItem !== item
         {
             selectedItem = item
-            controller.applyFilter()
+            controller.updateFilter()
         }
     }
     

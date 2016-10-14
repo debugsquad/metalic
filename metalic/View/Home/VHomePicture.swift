@@ -4,8 +4,7 @@ import MetalKit
 class VHomePicture:MTKView
 {
     weak var controller:CHome!
-    
-    
+
     convenience init(controller:CHome)
     {
         self.init()
@@ -16,68 +15,28 @@ class VHomePicture:MTKView
         autoResizeDrawable = false
     }
     
-    override func draw() {
-        
-        /*
- 
- 
-         guard
-         
-         let metalFilterType:MetalFilter.Type = viewHome.viewMenu.selectedItem?.filter,
-         let image:UIImage = normalizedImage
-         
-         else
-         {
-         return
-         }
-         
-         DispatchQueue.main.async
-         { [weak self] in
-         
-         self?.viewHome.showLoading()
-         }
-         
-         let metalFilter:MetalFilter = metalFilterType.init(device:device)
- 
-        */
-        
-        
-        
+    override func draw()
+    {
         guard
-            
+        
+            let metalFitlerType:MetalFilter.Type = controller.viewHome.viewMenu.selectedItem?.filter,
             let drawable:CAMetalDrawable = currentDrawable,
-            let sourceTexture = controller.sourceTexture
-            
+            let sourceTexture:MTLTexture = controller.sourceTexture
+        
         else
         {
             return
         }
         
-        let commandBuffer = controller.commandQueue.makeCommandBuffer();
+        let destinationTexture:MTLTexture = drawable.texture
+        let commandBuffer:MTLCommandBuffer = controller.commandQueue.makeCommandBuffer()
+        let metalFilter:MetalFilter = metalFitlerType.init(device:controller.device)
         
-        let imageFilter: CommandBufferEncodable = GaussianBlur(device:controller.device)
-        
-        
-        /** Obtain the current drawable.
-         The final destination texture is always the filtered output image written to the MTKView's drawable.
-         */
-        let destinationTexture = drawable.texture
-        
-        if destinationTexture.width != sourceTexture.width || destinationTexture.height != sourceTexture.height
-        {
-            print("dest w: \(destinationTexture.width), dest h: \(destinationTexture.height), sourc w: \(sourceTexture.width), sourc h: \(sourceTexture.height)")
-        }
-        
-        // Encode the image filter operation.
-        imageFilter.encode(to: commandBuffer,
-                           sourceTexture: sourceTexture,
-                           destinationTexture: destinationTexture)
-        
-        
-        // Schedule a presentation.
+        metalFilter.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:sourceTexture,
+            destinationTexture:destinationTexture)
         commandBuffer.present(drawable)
-        
-        // Commit the command buffer to the GPU.
         commandBuffer.commit()
         
         super.draw()
