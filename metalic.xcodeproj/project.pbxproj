@@ -38,6 +38,7 @@
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
 		DAA0BFFE1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0BFFD1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift */; };
 		DAA0C0001DB18D560017DBE1 /* MetalFilterBasicNone.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAA0BFFF1DB18D560017DBE1 /* MetalFilterBasicNone.metal */; };
+		DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */; };
 		DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E4E1DAC29AF00880B1B /* MMainState.swift */; };
 		DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */; };
 		DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */; };
@@ -92,6 +93,7 @@
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA0BFFD1DB18D4F0017DBE1 /* MetalFilterBasicNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicNone.swift; sourceTree = "<group>"; };
 		DAA0BFFF1DB18D560017DBE1 /* MetalFilterBasicNone.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBasicNone.metal; sourceTree = "<group>"; };
+		DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicRembrandt.swift; sourceTree = "<group>"; };
 		DAB94E4E1DAC29AF00880B1B /* MMainState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainState.swift; sourceTree = "<group>"; };
 		DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				DA46D8611DB1598200B89DE9 /* MFiltersItemBasicNone.swift */,
 				DA46D85A1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift */,
+				DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				DA46D8601DB14CA200B89DE9 /* MetalFilter.swift in Sources */,
 				DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */,
 				DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */,
+				DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
 				DA46D85D1DB1481E00B89DE9 /* MetalFilterBasicInk.swift in Sources */,
