@@ -12,6 +12,11 @@ class MetalFilter:MPSUnaryImageKernel
         super.init(device:device)
     }
     
+    override init(device:MTLDevice)
+    {
+        fatalError()
+    }
+    
     override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
     {
         let defaultLibrary = device.newDefaultLibrary()

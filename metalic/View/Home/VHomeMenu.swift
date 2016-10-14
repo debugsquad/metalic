@@ -4,6 +4,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
 {
     weak var controller:CHome!
     weak var collectionView:UICollectionView!
+    weak var selectedItem:MFiltersItem?
     let model:MFilters
     private let kCellWidth:CGFloat = 80
     
@@ -73,6 +74,20 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return item
     }
     
+    private func applyFilter()
+    {
+        guard
+        
+            let filterType:MetalFilter.Type = selectedItem?.filter
+        
+        else
+        {
+            return
+        }
+        
+        let filter:MetalFilter = filterType(device:nil)
+    }
+    
     //MARK: collection delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -109,6 +124,12 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        print("select")
+        let item:MFiltersItem = modelAtIndex(index:indexPath)
+        
+        if selectedItem !== item
+        {
+            selectedItem = item
+            applyFilter()
+        }
     }
 }
