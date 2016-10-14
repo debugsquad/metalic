@@ -3,6 +3,9 @@ import MetalPerformanceShaders
 class MetalFilter:MPSUnaryImageKernel
 {
     let mtlFunction:MTLFunction
+    private let kThreadgroupWidth:Int = 2
+    private let kThreadgroupHeight:Int = 2
+    private let kThreadgroupDeep:Int = 1
     
     init(device:MTLDevice, functionName:String)
     {
@@ -17,36 +20,48 @@ class MetalFilter:MPSUnaryImageKernel
         fatalError()
     }
     
-    override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
+    override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
     {
-        let defaultLibrary = device.newDefaultLibrary()
-        let fragmentProgram = defaultLibrary!.makeFunction(name:"adjust_saturation")
-        let pipeline:MTLComputePipelineState?
+        let optionalPipeline:MTLComputePipelineState?
         
         do
         {
-            try pipeline = device.makeComputePipelineState(function:fragmentProgram!)
+            try optionalPipeline = device.makeComputePipelineState(function:mtlFunction)
         }
         catch
         {
-            pipeline = nil
+            optionalPipeline = nil
         }
         
-        let sourceWidth = sourceTexture.width
-        let sourceHeight = sourceTexture.height
+        guard
         
-        let threadgroupCounts = MTLSizeMake(2, 2, 1)
-        let threadgroups = MTLSizeMake(sourceTexture.width / threadgroupCounts.width, sourceTexture.height / threadgroupCounts.height, 1)
+            let pipeline:MTLComputePipelineState = optionalPipeline
         
-        let vertexxSize = MemoryLayout.size(ofValue:Float.self)
-        /*let buffer = device.makeBuffer(bytes:vertexData, length:vertexxSize, options: MTLResourceOptions.cpuCacheModeWriteCombined)*/
-        let commandEncoder = commandBuffer.makeComputeCommandEncoder()
+        else
+        {
+            return
+        }
         
-        commandEncoder.setComputePipelineState(pipeline!)
+        let sourceWidth:Int = sourceTexture.width
+        let sourceHeight:Int = sourceTexture.height
+        let threadgroupsHorizontal:Int = sourceWidth / kThreadgroupWidth
+        let threadgroupsVertical:Int = sourceHeight / kThreadgroupHeight
+        let threadgroupCounts:MTLSize = MTLSizeMake(
+            kThreadgroupWidth,
+            kThreadgroupHeight,
+            kThreadgroupDeep)
+        let threadgroups:MTLSize = MTLSizeMake(
+            threadgroupsHorizontal,
+            threadgroupsVertical,
+            1)
+        
+        let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
+        commandEncoder.setComputePipelineState(pipeline)
         commandEncoder.setTexture(sourceTexture, at:0)
         commandEncoder.setTexture(destinationTexture, at:1)
-        //commandEncoder.setBuffer(buffer, offset: 0, at: 0)
-        commandEncoder.dispatchThreadgroups(threadgroups, threadsPerThreadgroup:threadgroupCounts)
+        commandEncoder.dispatchThreadgroups(
+            threadgroups,
+            threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
     }
     
