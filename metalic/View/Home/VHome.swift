@@ -6,7 +6,7 @@ class VHome:UIView
     weak var viewPicture:VHomePicture!
     weak var viewSelector:VHomeSelector!
     weak var viewMenu:VHomeMenu!
-    weak var spinner
+    weak var viewSpinner:VSpinner!
     private let kSelectorHeight:CGFloat = 40
     private let kMenuHeight:CGFloat = 60
     
@@ -29,14 +29,19 @@ class VHome:UIView
         let viewMenu:VHomeMenu = VHomeMenu(controller:controller)
         self.viewMenu = viewMenu
         
+        let viewSpinner:VSpinner = VSpinner()
+        self.viewSpinner = viewSpinner
+        
         addSubview(viewPicture)
         addSubview(viewSelector)
         addSubview(viewMenu)
+        addSubview(viewSpinner)
         
         let views:[String:UIView] = [
             "viewPicture":viewPicture,
             "viewSelector":viewSelector,
-            "viewMenu":viewMenu]
+            "viewMenu":viewMenu,
+            "viewSpinner":viewSpinner]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight,
@@ -59,7 +64,17 @@ class VHome:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[viewSpinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[viewPicture]-0-[viewSelector(selectorHeight)]-0-[viewMenu(menuHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[viewSpinner]-0-[viewSelector]",
             options:[],
             metrics:metrics,
             views:views))
@@ -69,11 +84,11 @@ class VHome:UIView
     
     func showLoading()
     {
-        
+        viewSpinner.startAnimating()
     }
     
     func showImage()
     {
-        
+        viewSpinner.stopAnimating()
     }
 }

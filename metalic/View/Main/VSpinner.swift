@@ -17,7 +17,6 @@ class VSpinner:UIImageView
         animationDuration = kAnimationDuration
         animationImages = images
         contentMode = UIViewContentMode.center
-        
         startAnimating()
     }
     
