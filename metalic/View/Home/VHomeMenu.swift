@@ -64,6 +64,15 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MFiltersItem
+    {
+        let item:MFiltersItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collection delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -72,5 +81,29 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let size:CGSize = CGSize(width:kCellWidth, height:height)
         
         return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MFiltersItem = modelAtIndex(index:indexPath)
+        let cell:VHomeMenuCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VHomeMenuCell.reusableIdentifier,
+            for:indexPath) as! VHomeMenuCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
