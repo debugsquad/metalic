@@ -3,13 +3,21 @@ import UIKit
 class VHomeMenu:UIView
 {
     weak var controller:CHome!
+    let model:MFilters
     
-    convenience init(controller:CHome)
+    init(controller:CHome)
     {
-        self.init()
+        model = MFilters()
+        
+        super.init(frame:CGRect.zero)
         self.controller = controller
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
 }
