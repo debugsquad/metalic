@@ -2,8 +2,15 @@ import MetalPerformanceShaders
 
 class MetalFilter:MPSUnaryImageKernel
 {
-    let vertexData:[Float] = [
-        0.5]
+    let mtlFunction:MTLFunction
+    
+    init(device:MTLDevice, functionName:String)
+    {
+        let mtlLibrary:MTLLibrary = device.newDefaultLibrary()!
+        mtlFunction = mtlLibrary.makeFunction(name:functionName)!
+        
+        super.init(device:device)
+    }
     
     override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
     {
