@@ -2,19 +2,27 @@ import Foundation
 
 class MFilters
 {
-    let items:[MFiltersItem]
+    var items:[MFiltersItem]
     
     init()
     {
-        items = [
-        ]
+        self.items = []
+        
+        var items:[MFiltersItem] = []
+        items.append(contentsOf:basicFilters())
+        items.append(contentsOf:premiumFilters())
+        
+        self.items = items
     }
     
     //MARK: private
     
     private func basicFilters() -> [MFiltersItem]
     {
+        let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
+        
         let items:[MFiltersItem] = [
+            itemInk
         ]
         
         return items
