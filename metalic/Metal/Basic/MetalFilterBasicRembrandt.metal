@@ -32,6 +32,7 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     bool applyBlur = false;
     bool plainColor = false;
     bool mainlyBlue = false;
+    bool mainlyRed = false;
     
     if (deltaColorRedGreen < kMinDeltaColor)
     {
@@ -47,6 +48,11 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     if (gridColorBlue >= gridColorRed && gridColorBlue >= gridColorGreen)
     {
         mainlyBlue = true;
+    }
+    
+    if (gridColorRed >= gridColorBlue && gridColorRed >= gridColorGreen)
+    {
+        mainlyRed = true;
     }
     
     if (lightValue > kAlmostWhite)
@@ -81,7 +87,7 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
         float newColorBlue = gridColorBlue = kTopThresholdBlueMultBlue;
         outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
     }
-    else if (red >= green && red >= blue)
+    else if (mainlyRed)
     {
         if (deltaRedGreen > 0.4)
         {
