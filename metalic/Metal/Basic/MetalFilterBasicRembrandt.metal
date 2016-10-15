@@ -21,6 +21,7 @@ static constant float kTopThresholdRedMultRed = 1;
 static constant float kTopThresholdRedMultGreen = 1.2;
 static constant float kTopThresholdRedMultBlue = 1.5;
 static constant float kBrightness = 1;
+static constant float kBlurSize = 12;
 
 kernel void
 filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
@@ -124,23 +125,22 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     
     if (applyBlur)
     {
-        int size = 12;
-        int radius = size / 2;
+        int size = kBlurSize;
+        int radius = size / 2.0;
+        float4 sumColor(0, 0, 0, 0);
         
-        float4 accumColor(0, 0, 0, 0);
-        
-        for (int j = 0; j < size; ++j)
+        for (int indexVertical = 0; indexVertical < size; ++indexVertical)
         {
-            for (int i = 0; i < size; ++i)
+            for (int indexHorizontal = 0; indexHorizontal < size; ++indexHorizontal)
             {
-                uint2 textureIndex(gid.x + (i - radius), gid.y + (j - radius));
+                uint2 textureIndex(gid.x + (indexHorizontal - radius), gid.y + (indexVertical - radius));
                 float4 color = inTexture.read(textureIndex).rgba;
                 accumColor += color;
             }
         }
         
-        accumColor /= (size * size);
-        outColor = float4(accumColor.rgb, 1);
+        sumColor /= (size * size);
+        outColor = float4(sumColor.rgb, 1);
     }
     
     outTexture.write(outColor, gid);
