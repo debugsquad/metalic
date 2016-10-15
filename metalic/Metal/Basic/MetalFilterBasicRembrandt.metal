@@ -10,6 +10,9 @@ static constant float kMinThresholdMult = 0.4;
 static constant float kTopThresholdMultRed = 0.98;
 static constant float kTopThresholdMultGreen = 0.99;
 static constant float kTopThresholdMultBlue = 1;
+static constant float kTopThresholdBlueMultRed = 1;
+static constant float kTopThresholdBlueMultGreen = 1.5;
+static constant float kTopThresholdBlueMultBlue = 2;
 static constant float kBrightness = 1;
 
 kernel void
@@ -73,9 +76,10 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     }
     else if (mainlyBlue)
     {
-        outColor[0] = red;
-        outColor[1] = green * 1.5;
-        outColor[2] = blue * 2;
+        float newColorRed = gridColorRed * kTopThresholdBlueMultRed;
+        float newColorGreen = gridColorGreen * kTopThresholdBlueMultGreen;
+        float newColorBlue = gridColorBlue = kTopThresholdBlueMultBlue;
+        outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
     }
     else if (red >= green && red >= blue)
     {
