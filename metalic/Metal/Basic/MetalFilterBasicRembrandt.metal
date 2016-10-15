@@ -1,79 +1,69 @@
 #include <metal_stdlib>
 using namespace metal;
 
-kernel void filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
-                            texture2d<float, access::write> filteredTexture [[texture(1)]],
-                            uint2 gridId [[thread_position_in_grid]])
+static constant float3 kLightScale(0.299, 0.587, 0.114);
+static constant float kAlmostWhite = 0.96;
+static constant float kTopLightThreshold = 0.9;
+static constant float kMinLightThreshold = 0.3;
+static constant float kMinDeltaColor = 0.1;
+static constant float kMinThresholdMult = 0.4;
+static constant float kTopThresholdMultRed = 0.98;
+static constant float kTopThresholdMultGreen = 0.99;
+static constant float kTopThresholdMultBlue = 1;
+static constant float kBrightness = 1;
+
+kernel void
+filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
+                texture2d<float, access::write> filteredTexture [[texture(1)]],
+                uint2 gridId [[thread_position_in_grid]])
 {
-    /*
-     
-     Saturation
-     float4 inColor = inTexture.read(gid);
-     float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
-     float4 grayColor(value, value, value, 1.0);
-     float4 outColor = mix(grayColor, inColor, 0.09);
-     outTexture.write(outColor, gid);*/
+    float4 gridColor = originalTexture.read(gridId);
+    float4 outColor = gridColor;
+    float gridColorRed = gridColor[0];
+    float gridColorGreen = gridColor[1];
+    float gridColorBlue = gridColor[2];
+    float deltaColorRedGreen = abs(gridColorRed - gridColorGreen);
+    float deltaColorGreenBlue = abs(gridColorGreen - gridColorBlue);
+    float deltaColorBlueRed = abs(gridColorBlue - gridColorRed);
+    float lightValue = dot(gridColor.rgb, kLightScale);
+    bool applyBlur = false;
+    bool plainColor = false;
     
-    /*
-     
-     ink
-     float4 inColor = inTexture.read(gid);
-     float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
-     float bright;
-     
-     if (value >= 0.9)
-     {
-     bright = 0.66;
-     }
-     else if (value >= 0.5)
-     {
-     bright = 0.7;
-     }
-     else
-     {
-     bright = 0.3;
-     }
-     
-     float4 outColor(inColor[0] * bright, inColor[1] * bright, inColor[2] * bright, bright);
-     outTexture.write(outColor, gid);*/
-    
-    float minDelta = 0.1;
-    float4 inColor = inTexture.read(gid);
-    float4 outColor;
-    float value = dot(inColor.rgb, float3(0.299, 0.587, 0.114));
-    float red = inColor[0];
-    float green = inColor[1];
-    float blue = inColor[2];
-    bool blur = false;
-    outColor = inColor;
-    
-    float deltaRedGreen = abs(red - green);
-    float deltaGreenBlue = abs(green - blue);
-    float deltaBlueRed = abs(blue - red);
-    bool plainColor = deltaRedGreen < minDelta && deltaGreenBlue < minDelta && deltaBlueRed < minDelta;
-    
-    if (plainColor)
+    if (deltaColorRedGreen < kMinDeltaColor)
     {
-        if (value < 0.3)
+        if (deltaColorGreenBlue < kMinDeltaColor)
         {
-            outColor[0] = red * 0.4;
-            outColor[1] = green * 0.4;
-            outColor[2] = blue * 0.4;
+            if (deltaColorBlueRed < kMinDeltaColor)
+            {
+                plainColor = true;
+            }
         }
-        else if (value > 0.9)
+    }
+    
+    if (lightValue > kAlmostWhite)
+    {
+        applyBlur = true;
+    }
+    else if (plainColor)
+    {
+        if (lightValue < kMinLightThreshold)
         {
-            outColor[0] = red * 0.98;
-            outColor[1] = green * 0.99;
-            outColor[2] = blue * 1;
+            float newColorRed = gridColorRed * kMinThresholdMult;
+            float newColorGreen = gridColorGreen * kMinThresholdMult;
+            float newColorBlue = gridColorBlue = kMinThresholdMult;
+            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+        }
+        else if (lightValue > kTopLightThreshold)
+        {
+            float newColorRed = gridColorRed * kTopThresholdMultRed;
+            float newColorGreen = gridColorGreen * kTopThresholdMultGreen;
+            float newColorBlue = gridColorBlue = kTopThresholdMultBlue;
+            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
         else
         {
-            blur = true;
+            applyBlur = true;
         }
-    }
-    else if (value > 0.96)
-    {
-        blur = true;
     }
     else if (blue >= red && blue >= green)
     {

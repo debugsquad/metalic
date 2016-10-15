@@ -2,8 +2,8 @@
 using namespace metal;
 
 static constant float3 kLightScale(0.299, 0.587, 0.114);
-static constant float kTopThreshold = 0.9;
-static constant float kMidThreshold = 0.7;
+static constant float kTopLightThreshold = 0.9;
+static constant float kMidLightThreshold = 0.7;
 static constant float kTopBrightness = 0.66;
 static constant float kMidBrightness = 0.7;
 static constant float kMinBrightness = 0.3;
@@ -25,11 +25,11 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     float brightness;
     float4 outColor;
     
-    if (lightValue >= kTopThreshold)
+    if (lightValue >= kTopLightThreshold)
     {
         brightness = kTopBrightness;
     }
-    else if (lightValue >= kMidThreshold)
+    else if (lightValue >= kMidLightThreshold)
     {
         brightness = kMidBrightness;
     }
