@@ -6,6 +6,7 @@ static constant float kAlmostWhite = 0.96;
 static constant float kTopLightThreshold = 0.9;
 static constant float kMinLightThreshold = 0.3;
 static constant float kMinDeltaColor = 0.1;
+static constant float kRedGreenDeltaColor = 0.4;
 static constant float kMinThresholdMult = 0.4;
 static constant float kTopThresholdMultRed = 0.98;
 static constant float kTopThresholdMultGreen = 0.99;
@@ -13,6 +14,12 @@ static constant float kTopThresholdMultBlue = 1;
 static constant float kTopThresholdBlueMultRed = 1;
 static constant float kTopThresholdBlueMultGreen = 1.5;
 static constant float kTopThresholdBlueMultBlue = 2;
+static constant float kTopThresholdRedishMultRed = 1.8;
+static constant float kTopThresholdRedishMultGreen = 1.1;
+static constant float kTopThresholdRedishMultBlue = 1;
+static constant float kTopThresholdRedMultRed = 1;
+static constant float kTopThresholdRedMultGreen = 1.2;
+static constant float kTopThresholdRedMultBlue = 1.5;
 static constant float kBrightness = 1;
 
 kernel void
@@ -33,6 +40,7 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     bool plainColor = false;
     bool mainlyBlue = false;
     bool mainlyRed = false;
+    bool ultraRedish = false;
     
     if (deltaColorRedGreen < kMinDeltaColor)
     {
@@ -53,6 +61,11 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     if (gridColorRed >= gridColorBlue && gridColorRed >= gridColorGreen)
     {
         mainlyRed = true;
+        
+        if (deltaColorRedGreen > kRedGreenDeltaColor)
+        {
+            ultraRedish = true;
+        }
     }
     
     if (lightValue > kAlmostWhite)
@@ -89,25 +102,27 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     }
     else if (mainlyRed)
     {
-        if (deltaRedGreen > 0.4)
+        if (ultraRedish)
         {
-            outColor[0] = red * 1.8;
-            outColor[1] = green * 1.1;
-            outColor[2] = blue;
+            float newColorRed = gridColorRed * kTopThresholdRedishMultRed;
+            float newColorGreen = gridColorGreen * kTopThresholdRedishMultGreen;
+            float newColorBlue = gridColorBlue = kTopThresholdRedishMultBlue;
+            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
         else
         {
-            outColor[0] = red;
-            outColor[1] = green * 1.2;
-            outColor[2] = blue * 1.5;
+            float newColorRed = gridColorRed * kTopThresholdRedMultRed;
+            float newColorGreen = gridColorGreen * kTopThresholdRedMultGreen;
+            float newColorBlue = gridColorBlue = kTopThresholdRedMultBlue;
+            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
     }
     else
     {
-        blur = true;
+        applyBlur = true;
     }
     
-    if (blur)
+    if (applyBlur)
     {
         int size = 12;
         int radius = size / 2;
