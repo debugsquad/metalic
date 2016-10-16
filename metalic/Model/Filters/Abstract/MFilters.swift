@@ -21,10 +21,14 @@ class MFilters
     {
         let itemNone:MFiltersItemBasicNone = MFiltersItemBasicNone()
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
+        let itemGothic:MFiltersItemBasicGothic = MFiltersItemBasicGothic()
+        let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
         
         let items:[MFiltersItem] = [
             itemNone,
-            itemInk
+            itemInk,
+            itemGothic,
+            itemRembrandt
         ]
         
         return items
