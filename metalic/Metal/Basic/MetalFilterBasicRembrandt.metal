@@ -131,11 +131,17 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
         
         for (int indexVertical = 0; indexVertical < size; ++indexVertical)
         {
+            int indexVertical_radius = indexVertical - radius;
+            
             for (int indexHorizontal = 0; indexHorizontal < size; ++indexHorizontal)
             {
-                uint2 textureIndex(gid.x + (indexHorizontal - radius), gid.y + (indexVertical - radius));
-                float4 color = inTexture.read(textureIndex).rgba;
-                accumColor += color;
+                int indexHorizontal_radius = indexHorizontal - radius;
+                int radIndexX = gridId.x + indexHorizontal_radius;
+                int radIndexY = gridId.y + indexVertical_radius;
+                
+                uint2 textureIndex(radIndexX, radIndexY);
+                float4 averageColor = originalTexture.read(textureIndex).rgba;
+                sumColor += averageColor;
             }
         }
         
@@ -143,5 +149,5 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
         outColor = float4(sumColor.rgb, 1);
     }
     
-    outTexture.write(outColor, gid);
+    filteredTexture.write(outColor, gridId);
 }
