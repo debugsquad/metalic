@@ -4,13 +4,14 @@ using namespace metal;
 static constant float3 kLightScale(0.299, 0.587, 0.114);
 static constant float kMinDeltaColor = 0.1;
 static constant float kRedGreenDeltaColor = 0.4;
-static constant float kBrightnessRedish = 1.5;
-static constant float kBrightnessRed = 1.2;
-static constant float kBrightnessPlainLight = 0.8;
-static constant float kBrightnessPlainDark = 0.3;
+static constant float kBrightnessRedish = 1.8;
+static constant float kBrightnessRed = 1.6;
+static constant float kBrightnessPlainLight = 0.6;
+static constant float kBrightnessPlainDark = 0.2;
 static constant float kThresholdLight = 0.94;
 static constant float kThresholdDark = 0.4;
 static constant float kBrightness = 1;
+static constant float kDefaultBrightness = 0.7;
 
 kernel void
 filter_basicRembrandt(texture2d<float, access::read> originalTexture [[texture(0)]],
@@ -25,7 +26,7 @@ filter_basicRembrandt(texture2d<float, access::read> originalTexture [[texture(0
     float deltaColorRedGreen = abs(gridColorRed - gridColorGreen);
     float deltaColorGreenBlue = abs(gridColorGreen - gridColorBlue);
     float deltaColorBlueRed = abs(gridColorBlue - gridColorRed);
-    float brightness = kBrightness;
+    float brightness = kDefaultBrightness;
     bool plainColor = false;
     bool mainlyRed = false;
     bool ultraRedish = false;
