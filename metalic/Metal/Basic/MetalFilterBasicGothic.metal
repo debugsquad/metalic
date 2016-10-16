@@ -79,14 +79,14 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
         {
             float newColorRed = gridColorRed * kMinThresholdMult;
             float newColorGreen = gridColorGreen * kMinThresholdMult;
-            float newColorBlue = gridColorBlue = kMinThresholdMult;
+            float newColorBlue = gridColorBlue * kMinThresholdMult;
             outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
         else if (lightValue > kTopLightThreshold)
         {
             float newColorRed = gridColorRed * kTopThresholdMultRed;
             float newColorGreen = gridColorGreen * kTopThresholdMultGreen;
-            float newColorBlue = gridColorBlue = kTopThresholdMultBlue;
+            float newColorBlue = gridColorBlue * kTopThresholdMultBlue;
             outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
         else
@@ -98,7 +98,7 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
     {
         float newColorRed = gridColorRed * kTopThresholdBlueMultRed;
         float newColorGreen = gridColorGreen * kTopThresholdBlueMultGreen;
-        float newColorBlue = gridColorBlue = kTopThresholdBlueMultBlue;
+        float newColorBlue = gridColorBlue * kTopThresholdBlueMultBlue;
         outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
     }
     else if (mainlyRed)
@@ -107,14 +107,14 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
         {
             float newColorRed = gridColorRed * kTopThresholdRedishMultRed;
             float newColorGreen = gridColorGreen * kTopThresholdRedishMultGreen;
-            float newColorBlue = gridColorBlue = kTopThresholdRedishMultBlue;
+            float newColorBlue = gridColorBlue * kTopThresholdRedishMultBlue;
             outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
         else
         {
             float newColorRed = gridColorRed * kTopThresholdRedMultRed;
             float newColorGreen = gridColorGreen * kTopThresholdRedMultGreen;
-            float newColorBlue = gridColorBlue = kTopThresholdRedMultBlue;
+            float newColorBlue = gridColorBlue * kTopThresholdRedMultBlue;
             outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
         }
     }
