@@ -25,8 +25,8 @@ static constant float kBlurSize = 12;
 
 kernel void
 filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]],
-                      texture2d<float, access::write> filteredTexture [[texture(1)]],
-                      uint2 gridId [[thread_position_in_grid]])
+                   texture2d<float, access::write> filteredTexture [[texture(1)]],
+                   uint2 gridId [[thread_position_in_grid]])
 {
     float4 gridColor = originalTexture.read(gridId);
     float4 outColor = gridColor;
