@@ -216,31 +216,33 @@ class CHome:CController
         
         let destinationTexture:MTLTexture = device.makeTexture(
             descriptor:textureDescriptor)
+        let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
         
+        viewHome.viewPicture.filterTexture(
+            commandBuffer:commandBuffer,
+            sourceTexture:fullSizeTexture,
+            destinationTexture:destinationTexture)
+        
+        commandBuffer.commit()
+        
+        guard
+            
+            let resultImage:UIImage = destinationTexture.exportImage()
+        
+        else
+        {
+            print("failed shit")
+            viewHome.showImage()
+            
+            return
+        }
         
         DispatchQueue.main.async
         { [weak self] in
             
-            guard
-                
-                let strongSelf:CHome = self,
-                let metalFilterType:MetalFilter.Type = strongSelf.viewHome.viewMenu.selectedItem?.filter
+            let filteredController:CHomeFiltered = CHomeFiltered(image:resultImage)
             
-            else
-            {
-                self?.viewHome.showImage()
-                
-                return
-            }
-            
-            let metalFilter:MetalFilter = metalFilterType.init(
-                device:strongSelf.device)
-            let controllerFiltered:CHomeFiltered = CHomeFiltered(
-                home:strongSelf,
-                texture:fullSizeTexture,
-                filter:metalFilter)
-            
-            strongSelf.parentController.push(controller:controllerFiltered)
+            self?.parentController.push(controller:filteredController)
         }
     }
     
