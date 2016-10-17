@@ -8,6 +8,8 @@ static constant float kTopBrightness = 0.66;
 static constant float kMidBrightness = 0.7;
 static constant float kMinBrightness = 0.3;
 static constant float kBrightness = 1;
+static constant float kMinColor = 0;
+static constant float kMaxColor = 1;
 
 kernel void
 filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
@@ -41,6 +43,33 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     newColorRed = gridColorRed * brightness;
     newColorGreen = gridColorGreen * brightness;
     newColorBlue = gridColorBlue * brightness;
+    
+    {
+        newColorRed = kMaxColor;
+    }
+    else if (newColorRed < kMinColor)
+    {
+        newColorRed = kMinColor;
+    }
+    
+    if (newColorGreen > kMaxColor)
+    {
+        newColorGreen = kMaxColor;
+    }
+    else if (newColorGreen < kMinColor)
+    {
+        newColorGreen = kMinColor;
+    }
+    
+    if (newColorBlue > kMaxColor)
+    {
+        newColorBlue = kMaxColor;
+    }
+    else if (newColorBlue < kMinColor)
+    {
+        newColorBlue = kMinColor;
+    }
+    
     outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
     filteredTexture.write(outColor, gridId);
 }

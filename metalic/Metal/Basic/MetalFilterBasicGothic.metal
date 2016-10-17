@@ -22,6 +22,8 @@ static constant float kTopThresholdRedMultGreen = 1.2;
 static constant float kTopThresholdRedMultBlue = 1.5;
 static constant float kBrightness = 1;
 static constant float kBlurSize = 12;
+static constant float kMinColor = 0;
+static constant float kMaxColor = 1;
 
 kernel void
 filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]],
