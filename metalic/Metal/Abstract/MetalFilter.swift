@@ -62,7 +62,7 @@ class MetalFilter:MPSUnaryImageKernel
         commandEncoder.setTexture(sourceTexture, at:0)
         commandEncoder.setTexture(destinationTexture, at:1)
         
-        specialConfig()
+        specialConfig(commandEncoder:commandEncoder)
         
         commandEncoder.dispatchThreadgroups(
             threadgroups,

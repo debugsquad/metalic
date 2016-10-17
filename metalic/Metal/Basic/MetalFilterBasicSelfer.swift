@@ -5,7 +5,8 @@ import UIKit
 class MetalFilterBasicSelfer:MetalFilter
 {
     private let kFunctionName:String = "filter_basicSelfer"
-    var facesTexture:MTLTexture?
+    private let kRepeatingValue:Float = 1
+    private let kFacesTextureIndex:Int = 2
     
     required init(device:MTLDevice)
     {
@@ -40,42 +41,37 @@ class MetalFilterBasicSelfer:MetalFilter
             height:sourceTexture.height,
             mipmapped:false)
         
-        facesTexture = device.makeTexture(descriptor:textureDescriptor)
-        
+        let facesTexture:MTLTexture = device.makeTexture(descriptor:textureDescriptor)
+        let sizeOfFloat:Int = MemoryLayout.size(ofValue:Float())
         let features:[CIFeature] = detector.features(in:image)
         
         for feature:CIFeature in features
         {
             if let faceFeature:CIFaceFeature = feature as? CIFaceFeature
             {
-                print(faceFeature.bounds)
+                let faceFeatureX:Int = Int(faceFeature.bounds.minX)
+                let faceFeatureY:Int = Int(faceFeature.bounds.minY)
+                let faceFeatureW:Int = Int(faceFeature.bounds.maxX)
+                let faceFeatureH:Int = Int(faceFeature.bounds.maxY)
+                let regionSize:Int = faceFeatureW * faceFeatureH
+                let bytesPerRow:Int = sizeOfFloat * faceFeatureW
+                let region:MTLRegion = MTLRegionMake2D(
+                    faceFeatureX,
+                    faceFeatureY,
+                    faceFeatureW,
+                    faceFeatureH)
+                let floatArray:[Float] = Array(
+                    repeating:kRepeatingValue,
+                    count:regionSize)
+                let bytes:UnsafeRawPointer = UnsafeRawPointer(floatArray)
+                facesTexture.replace(
+                    region:region,
+                    mipmapLevel:0,
+                    withBytes:bytes,
+                    bytesPerRow:bytesPerRow)
             }
         }
         
-        guard
-        
-            let strongFacetexture:MTLTexture = facesTexture
-        
-        else
-        {
-            return
-        }
-        
-        commandEncoder.setTexture(strongFacetexture, at:2)
-        
-        /*
- 
- 
-         CIContext *context = [CIContext context];                    // 1
-         NSDictionary *opts = @{ CIDetectorAccuracy : CIDetectorAccuracyHigh };      // 2
-         CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
-         context:context
-         options:opts];                    // 3
-         
-         opts = @{ CIDetectorImageOrientation :
-         [[myImage properties] valueForKey:kCGImagePropertyOrientation] }; // 4
-         NSArray *features = [detector featuresInImage:myImage options:opts];        // 5
- 
- */
+        commandEncoder.setTexture(facesTexture, at:kFacesTextureIndex)
     }
 }
