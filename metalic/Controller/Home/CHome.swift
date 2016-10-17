@@ -187,6 +187,20 @@ class CHome:CController
         onCompletion?()
     }
     
+    private func filterImage()
+    {
+        guard
+        
+            let cgImage:CGImage = normalizedImage?.cgImage
+        
+        else
+        {
+            viewHome.showImage()
+            
+            return
+        }
+    }
+    
     //MARK: public
     
     func imageSelected(image:UIImage?)
@@ -224,5 +238,11 @@ class CHome:CController
     func next()
     {
         viewHome.showLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.filterImage()
+        }
     }
 }
