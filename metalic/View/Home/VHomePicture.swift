@@ -10,6 +10,7 @@ class VHomePicture:MTKView
         self.init()
         self.controller = controller
         clipsToBounds = true
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = UIViewContentMode.scaleAspectFill
         autoResizeDrawable = false
