@@ -148,15 +148,10 @@ class CHome:CController
         let mtlTexture:MTLTexture?
         let mtkTextureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
         
-        var options:[String:NSObject] = [
+        let options:[String:NSObject] = [
             MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
             MTKTextureLoaderOptionSRGB:true as NSObject
         ]
-        
-        if #available(iOS 10.0, *)
-        {
-            options[MTKTextureLoaderOptionTextureStorageMode] = MTLStorageMode.private.rawValue as NSObject
-        }
         
         do
         {

@@ -1,5 +1,6 @@
 import MetalPerformanceShaders
 import CoreImage
+import UIKit
 
 class MetalFilterBasicSelfer:MetalFilter
 {
@@ -17,10 +18,34 @@ class MetalFilterBasicSelfer:MetalFilter
             CIDetectorAccuracy:CIDetectorAccuracyHigh
         ]
         
-        let detector:CIDetector? = CIDetector(ofType:CIDetectorTypeFace, context:context
-            , options:options)
-//        self.sourceTexture.ima
-        //detector?.features(in: <#T##CIImage#>)
+        guard
+        
+            let detector:CIDetector = CIDetector(
+                ofType:CIDetectorTypeFace,
+                context:context,
+                options:options),
+            let image:CIImage = sourceTexture?.exportImage()?.ciImage
+        
+        else
+        {
+            return
+        }
+        
+        let features:[CIFeature] = detector.features(in:image)
+        
+        for feature:CIFeature in features
+        {
+            guard
+            
+                let faceFeature:CIFaceFeature = feature as? CIFaceFeature
+            
+            else
+            {
+                continue
+            }
+            
+            print(faceFeature)
+        }
         
         /*
  
