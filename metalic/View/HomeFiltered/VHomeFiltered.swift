@@ -19,6 +19,7 @@ class VHomeFiltered:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
+        imageView.image = controller.image
         
         addSubview(imageView)
         

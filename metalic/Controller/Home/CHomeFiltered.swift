@@ -4,17 +4,13 @@ import MetalKit
 class CHomeFiltered:CController
 {
     weak var viewFiltered:VHomeFiltered!
-    weak var home:CHome!
-    let texture:MTLTexture
-    let filter:MetalFilter
+    let image:UIImage
     
-    init(home:CHome, texture:MTLTexture, filter:MetalFilter)
+    init(image:UIImage)
     {
-        self.texture = texture
-        self.filter = filter
+        self.image = image
         
         super.init(nibName:nil, bundle:nil)
-        self.home = home
     }
     
     required init?(coder:NSCoder)
@@ -27,12 +23,5 @@ class CHomeFiltered:CController
         let viewFiltered:VHomeFiltered = VHomeFiltered(controller:self)
         self.viewFiltered = viewFiltered
         view = viewFiltered
-    }
-    
-    override func viewDidAppear(_ animated:Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        viewFiltered.viewPicture.draw()
     }
 }
