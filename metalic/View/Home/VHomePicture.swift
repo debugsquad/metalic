@@ -23,7 +23,6 @@ class VHomePicture:MTKView
     {
         guard
         
-            let metalFitlerType:MetalFilter.Type = controller.viewHome.viewMenu.selectedItem?.filter,
             let drawable:CAMetalDrawable = currentDrawable,
             let sourceTexture:MTLTexture = controller.sourceTexture
         
@@ -33,6 +32,28 @@ class VHomePicture:MTKView
         }
         
         let destinationTexture:MTLTexture = drawable.texture
+        filterTexture(
+            sourceTexture:sourceTexture,
+            destinationTexture:destinationTexture)
+        commandBuffer.present(drawable)
+        commandBuffer.commit()
+        
+        super.draw()
+    }
+    
+    //MARK: public
+    
+    func filterTexture(sourceTexture:MTLTexture, destinationTexture:MTLTexture)
+    {
+        guard
+            
+            let metalFitlerType:MetalFilter.Type = controller.viewHome.viewMenu.selectedItem?.filter
+            
+            else
+        {
+            return
+        }
+        
         let commandBuffer:MTLCommandBuffer = controller.commandQueue.makeCommandBuffer()
         let metalFilter:MetalFilter = metalFitlerType.init(device:controller.device)
         
@@ -40,9 +61,5 @@ class VHomePicture:MTKView
             commandBuffer:commandBuffer,
             sourceTexture:sourceTexture,
             destinationTexture:destinationTexture)
-        commandBuffer.present(drawable)
-        commandBuffer.commit()
-        
-        super.draw()
     }
 }
