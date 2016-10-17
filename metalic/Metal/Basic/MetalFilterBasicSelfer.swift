@@ -42,17 +42,18 @@ class MetalFilterBasicSelfer:MetalFilter
             mipmapped:false)
         
         let facesTexture:MTLTexture = device.makeTexture(descriptor:textureDescriptor)
-        let sizeOfFloat:Int = MemoryLayout.size(ofValue:Float())
         let features:[CIFeature] = detector.features(in:image)
+        let sizeOfFloat:Int = MemoryLayout.size(ofValue:Float())
+        let sourceHeight:Int = sourceTexture.height
         
         for feature:CIFeature in features
         {
             if let faceFeature:CIFaceFeature = feature as? CIFaceFeature
             {
-                let faceFeatureX:Int = Int(faceFeature.bounds.minX)
-                let faceFeatureY:Int = Int(faceFeature.bounds.minY)
-                let faceFeatureW:Int = Int(faceFeature.bounds.maxX)
-                let faceFeatureH:Int = Int(faceFeature.bounds.maxY)
+                let faceFeatureX:Int = Int(faceFeature.bounds.origin.x)
+                let faceFeatureW:Int = Int(faceFeature.bounds.size.width)
+                let faceFeatureH:Int = Int(faceFeature.bounds.size.height)
+                let faceFeatureY:Int = sourceHeight - (Int(faceFeature.bounds.origin.y) + faceFeatureH)
                 let regionSize:Int = faceFeatureW * faceFeatureH
                 let bytesPerRow:Int = sizeOfFloat * faceFeatureW
                 let region:MTLRegion = MTLRegionMake2D(
