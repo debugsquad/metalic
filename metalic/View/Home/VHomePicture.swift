@@ -13,6 +13,9 @@ class VHomePicture:MTKView
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = UIViewContentMode.scaleAspectFill
         autoResizeDrawable = false
+        framebufferOnly = false
+        isPaused = true
+        colorPixelFormat = MTLPixelFormat.bgra8Unorm
     }
     
     override func draw()

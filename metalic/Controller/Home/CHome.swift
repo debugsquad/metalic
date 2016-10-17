@@ -38,10 +38,7 @@ class CHome:CController
     {
         device = MTLCreateSystemDefaultDevice()
         commandQueue = device.makeCommandQueue()
-        viewHome.viewPicture.framebufferOnly = false
-        viewHome.viewPicture.isPaused = true
         viewHome.viewPicture.device = device
-        viewHome.viewPicture.colorPixelFormat = MTLPixelFormat.bgra8Unorm
     }
     
     private func normalize(image:UIImage, onCompletion:(() -> ())?)
@@ -199,6 +196,20 @@ class CHome:CController
             
             return
         }
+        
+        guard
+        
+            let fullSizeTexture:MTLTexture = textureWith(cgImage:cgImage)
+        
+        else
+        {
+            viewHome.showImage()
+            
+            return
+        }
+        
+        
+        
     }
     
     //MARK: public
