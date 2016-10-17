@@ -19,7 +19,6 @@ extension MTLTexture
         
         let bytesPerRow:Int = width * 4
         let region:MTLRegion = MTLRegionMake2D(0, 0, width, height)
-        
         getBytes(bytes, bytesPerRow:bytesPerRow, from:region, mipmapLevel:0)
         
         guard
@@ -41,9 +40,9 @@ extension MTLTexture
         let bitsPerPixel:Int = 32
         let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitMapInfo:CGBitmapInfo = CGBitmapInfo([
-            CGBitmapInfo(rawValue:CGImageAlphaInfo.premultipliedLast.rawValue),
-            CGBitmapInfo.byteOrder32Big
-            ])
+            CGBitmapInfo.byteOrder32Little,
+            CGBitmapInfo(rawValue:CGImageAlphaInfo.noneSkipFirst.rawValue)
+        ])
         let renderingIntent:CGColorRenderingIntent = CGColorRenderingIntent.defaultIntent
         
         guard
@@ -69,7 +68,7 @@ extension MTLTexture
         image = UIImage(
             cgImage:cgImage,
             scale:0.0,
-            orientation:UIImageOrientation.downMirrored)
+            orientation:UIImageOrientation.up)
         
         return image
     }

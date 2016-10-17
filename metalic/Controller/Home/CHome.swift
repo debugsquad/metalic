@@ -149,7 +149,8 @@ class CHome:CController
         let mtkTextureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
         
         var options:[String:NSObject] = [
-            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject
+            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
+            MTKTextureLoaderOptionSRGB:true as NSObject
         ]
         
         if #available(iOS 10.0, *)
