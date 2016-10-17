@@ -72,7 +72,7 @@ class MetalFilter:MPSUnaryImageKernel
     
     //MARK: public
     
-    func specialConfig()
+    func specialConfig(commandEncoder:MTLComputeCommandEncoder)
     {
     }
 }

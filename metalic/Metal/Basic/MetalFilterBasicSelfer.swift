@@ -5,13 +5,14 @@ import UIKit
 class MetalFilterBasicSelfer:MetalFilter
 {
     private let kFunctionName:String = "filter_basicSelfer"
+    var facesTexture:MTLTexture?
     
     required init(device:MTLDevice)
     {
         super.init(device:device, functionName:kFunctionName)
     }
     
-    override func specialConfig()
+    override func specialConfig(commandEncoder:MTLComputeCommandEncoder)
     {
         let context:CIContext = CIContext()
         let options:[String:Any] = [
@@ -23,24 +24,9 @@ class MetalFilterBasicSelfer:MetalFilter
             let detector:CIDetector = CIDetector(
                 ofType:CIDetectorTypeFace,
                 context:context,
-                options:options)
-        
-        else
-        {
-            return
-        }
-        
-        guard
-            
-            let uiImage:UIImage = sourceTexture?.exportImage()
-            
-            else
-        {
-            return
-        }
-        
-        guard
-            
+                options:options),
+            let sourceTexture:MTLTexture = sourceTexture,
+            let uiImage:UIImage = sourceTexture.exportImage(),
             let image:CIImage = CIImage(image:uiImage)
         
         else
@@ -48,21 +34,34 @@ class MetalFilterBasicSelfer:MetalFilter
             return
         }
         
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:sourceTexture.pixelFormat,
+            width:sourceTexture.width,
+            height:sourceTexture.height,
+            mipmapped:false)
+        
+        facesTexture = device.makeTexture(descriptor:textureDescriptor)
+        
         let features:[CIFeature] = detector.features(in:image)
         
         for feature:CIFeature in features
         {
-            guard
-            
-                let faceFeature:CIFaceFeature = feature as? CIFaceFeature
-            
-            else
+            if let faceFeature:CIFaceFeature = feature as? CIFaceFeature
             {
-                continue
+                print(faceFeature.bounds)
             }
-            
-            print(faceFeature.bounds)
         }
+        
+        guard
+        
+            let strongFacetexture:MTLTexture = facesTexture
+        
+        else
+        {
+            return
+        }
+        
+        commandEncoder.setTexture(strongFacetexture, at:2)
         
         /*
  
