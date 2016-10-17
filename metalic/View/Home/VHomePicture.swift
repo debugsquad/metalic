@@ -32,7 +32,10 @@ class VHomePicture:MTKView
         }
         
         let destinationTexture:MTLTexture = drawable.texture
+        let commandBuffer:MTLCommandBuffer = controller.commandQueue.makeCommandBuffer()
+        
         filterTexture(
+            commandBuffer:commandBuffer,
             sourceTexture:sourceTexture,
             destinationTexture:destinationTexture)
         commandBuffer.present(drawable)
@@ -43,7 +46,7 @@ class VHomePicture:MTKView
     
     //MARK: public
     
-    func filterTexture(sourceTexture:MTLTexture, destinationTexture:MTLTexture)
+    func filterTexture(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
     {
         guard
             
@@ -54,7 +57,6 @@ class VHomePicture:MTKView
             return
         }
         
-        let commandBuffer:MTLCommandBuffer = controller.commandQueue.makeCommandBuffer()
         let metalFilter:MetalFilter = metalFitlerType.init(device:controller.device)
         
         metalFilter.encode(
