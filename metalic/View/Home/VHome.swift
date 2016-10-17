@@ -86,6 +86,8 @@ class VHome:UIView
     {
         viewSpinner.stopAnimating()
         viewPicture.isHidden = false
+        viewSelector.isHidden = false
+        viewMenu.isHidden = false
         viewPicture.draw()
     }
     
@@ -95,6 +97,8 @@ class VHome:UIView
     {
         viewSpinner.startAnimating()
         viewPicture.isHidden = true
+        viewSelector.isHidden = true
+        viewMenu.isHidden = true
     }
     
     func showImage()

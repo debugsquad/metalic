@@ -216,6 +216,6 @@ class CHome:CController
     
     func next()
     {
-        
+        viewHome.showLoading()
     }
 }
