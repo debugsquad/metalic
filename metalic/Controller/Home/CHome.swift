@@ -208,8 +208,30 @@ class CHome:CController
             return
         }
         
-        
-        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+                
+                let strongSelf:CHome = self,
+                let metalFilterType:MetalFilter.Type = strongSelf.viewHome.viewMenu.selectedItem?.filter
+            
+            else
+            {
+                self?.viewHome.showImage()
+                
+                return
+            }
+            
+            let metalFilter:MetalFilter = metalFilterType.init(
+                device:strongSelf.device)
+            let controllerFiltered:CHomeFiltered = CHomeFiltered(
+                home:strongSelf,
+                texture:fullSizeTexture,
+                filter:metalFilter)
+            
+            strongSelf.parentController.push(controller:controllerFiltered)
+        }
     }
     
     //MARK: public
