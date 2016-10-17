@@ -44,6 +44,9 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
     bool mainlyBlue = false;
     bool mainlyRed = false;
     bool ultraRedish = false;
+    float newColorRed;
+    float newColorGreen;
+    float newColorBlue;
     
     if (deltaColorRedGreen < kMinDeltaColor)
     {
@@ -79,17 +82,15 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
     {
         if (lightValue < kMinLightThreshold)
         {
-            float newColorRed = gridColorRed * kMinThresholdMult;
-            float newColorGreen = gridColorGreen * kMinThresholdMult;
-            float newColorBlue = gridColorBlue * kMinThresholdMult;
-            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+            newColorRed = gridColorRed * kMinThresholdMult;
+            newColorGreen = gridColorGreen * kMinThresholdMult;
+            newColorBlue = gridColorBlue * kMinThresholdMult;
         }
         else if (lightValue > kTopLightThreshold)
         {
-            float newColorRed = gridColorRed * kTopThresholdMultRed;
-            float newColorGreen = gridColorGreen * kTopThresholdMultGreen;
-            float newColorBlue = gridColorBlue * kTopThresholdMultBlue;
-            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+            newColorRed = gridColorRed * kTopThresholdMultRed;
+            newColorGreen = gridColorGreen * kTopThresholdMultGreen;
+            newColorBlue = gridColorBlue * kTopThresholdMultBlue;
         }
         else
         {
@@ -98,26 +99,23 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
     }
     else if (mainlyBlue)
     {
-        float newColorRed = gridColorRed * kTopThresholdBlueMultRed;
-        float newColorGreen = gridColorGreen * kTopThresholdBlueMultGreen;
-        float newColorBlue = gridColorBlue * kTopThresholdBlueMultBlue;
-        outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+        newColorRed = gridColorRed * kTopThresholdBlueMultRed;
+        newColorGreen = gridColorGreen * kTopThresholdBlueMultGreen;
+        newColorBlue = gridColorBlue * kTopThresholdBlueMultBlue;
     }
     else if (mainlyRed)
     {
         if (ultraRedish)
         {
-            float newColorRed = gridColorRed * kTopThresholdRedishMultRed;
-            float newColorGreen = gridColorGreen * kTopThresholdRedishMultGreen;
-            float newColorBlue = gridColorBlue * kTopThresholdRedishMultBlue;
-            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+            newColorRed = gridColorRed * kTopThresholdRedishMultRed;
+            newColorGreen = gridColorGreen * kTopThresholdRedishMultGreen;
+            newColorBlue = gridColorBlue * kTopThresholdRedishMultBlue;
         }
         else
         {
-            float newColorRed = gridColorRed * kTopThresholdRedMultRed;
-            float newColorGreen = gridColorGreen * kTopThresholdRedMultGreen;
-            float newColorBlue = gridColorBlue * kTopThresholdRedMultBlue;
-            outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
+            newColorRed = gridColorRed * kTopThresholdRedMultRed;
+            newColorGreen = gridColorGreen * kTopThresholdRedMultGreen;
+            newColorBlue = gridColorBlue * kTopThresholdRedMultBlue;
         }
     }
     else
@@ -148,8 +146,38 @@ filter_basicGothic(texture2d<float, access::read> originalTexture [[texture(0)]]
         }
         
         sumColor /= (size * size);
-        outColor = float4(sumColor.rgb, 1);
+        newColorRed = sumColor[0];
+        newColorGreen = sumColor[1];
+        newColorBlue = sumColor[2];
     }
     
+    if (newColorRed > kMaxColor)
+    {
+        newColorRed = kMaxColor;
+    }
+    else if (newColorRed < kMinColor)
+    {
+        newColorRed = kMinColor;
+    }
+    
+    if (newColorGreen > kMaxColor)
+    {
+        newColorGreen = kMaxColor;
+    }
+    else if (newColorGreen < kMinColor)
+    {
+        newColorGreen = kMinColor;
+    }
+    
+    if (newColorBlue > kMaxColor)
+    {
+        newColorBlue = kMaxColor;
+    }
+    else if (newColorBlue < kMinColor)
+    {
+        newColorBlue = kMinColor;
+    }
+    
+    outColor = float4(newColorRed, newColorGreen, newColorBlue, kBrightness);
     filteredTexture.write(outColor, gridId);
 }
