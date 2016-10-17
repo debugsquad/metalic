@@ -224,14 +224,14 @@ class CHome:CController
             destinationTexture:destinationTexture)
         
         commandBuffer.commit()
+        commandBuffer.waitUntilCompleted()
         
         guard
             
             let resultImage:UIImage = destinationTexture.exportImage()
-        
+            
         else
         {
-            print("failed shit")
             viewHome.showImage()
             
             return

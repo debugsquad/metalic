@@ -18,7 +18,7 @@ class VHomeFiltered:UIView
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.image
         
         addSubview(imageView)
