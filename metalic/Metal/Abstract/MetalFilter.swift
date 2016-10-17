@@ -6,6 +6,7 @@ class MetalFilter:MPSUnaryImageKernel
     private let kThreadgroupWidth:Int = 2
     private let kThreadgroupHeight:Int = 2
     private let kThreadgroupDeep:Int = 1
+    weak var sourceTexture:MTLTexture?
     
     init(device:MTLDevice, functionName:String)
     {
@@ -22,6 +23,7 @@ class MetalFilter:MPSUnaryImageKernel
     
     override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
     {
+        self.sourceTexture = sourceTexture
         let optionalPipeline:MTLComputePipelineState?
         
         do
