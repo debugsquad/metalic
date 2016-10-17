@@ -23,8 +23,25 @@ class MetalFilterBasicSelfer:MetalFilter
             let detector:CIDetector = CIDetector(
                 ofType:CIDetectorTypeFace,
                 context:context,
-                options:options),
-            let image:CIImage = sourceTexture?.exportImage()?.ciImage
+                options:options)
+        
+        else
+        {
+            return
+        }
+        
+        guard
+            
+            let uiImage:UIImage = sourceTexture?.exportImage()
+            
+            else
+        {
+            return
+        }
+        
+        guard
+            
+            let image:CIImage = CIImage(image:uiImage)
         
         else
         {
@@ -44,7 +61,7 @@ class MetalFilterBasicSelfer:MetalFilter
                 continue
             }
             
-            print(faceFeature)
+            print(faceFeature.bounds)
         }
         
         /*

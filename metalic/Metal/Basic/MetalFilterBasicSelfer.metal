@@ -13,8 +13,9 @@ static constant float kMaxColor = 1;
 
 kernel void
 filter_basicSelfer(texture2d<float, access::read> originalTexture [[texture(0)]],
-                texture2d<float, access::write> filteredTexture [[texture(1)]],
-                uint2 gridId [[thread_position_in_grid]])
+                   texture2d<float, access::write> filteredTexture [[texture(1)]],
+                   texture2d<float, access::write> facesTexture [[texture(2)]],
+                   uint2 gridId [[thread_position_in_grid]])
 {
     float4 gridColor = originalTexture.read(gridId);
     float gridColorRed = gridColor[0];
