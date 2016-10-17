@@ -19,6 +19,7 @@ class MetalFilterBasicSelfer:MetalFilter
         
         let detector:CIDetector? = CIDetector(ofType:CIDetectorTypeFace, context:context
             , options:options)
+        self.sourceTexture.ima
         detector?.features(in: <#T##CIImage#>)
         
         /*
