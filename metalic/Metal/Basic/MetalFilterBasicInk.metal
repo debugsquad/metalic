@@ -44,6 +44,7 @@ filter_basicInk(texture2d<float, access::read> originalTexture [[texture(0)]],
     newColorGreen = gridColorGreen * brightness;
     newColorBlue = gridColorBlue * brightness;
     
+    if (newColorRed > kMaxColor)
     {
         newColorRed = kMaxColor;
     }
