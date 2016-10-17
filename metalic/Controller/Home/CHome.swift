@@ -146,17 +146,9 @@ class CHome:CController
         onCompletion?()
     }
     
-    private func loadTexture(onCompletion:(() -> ())?)
+    private func textureWith(cgImage:CGImage) -> MTLTexture?
     {
-        guard
-            
-            let scaledImage:CGImage = normalizedScaledImage
-            
-        else
-        {
-            return
-        }
-        
+        let mtlTexture:MTLTexture?
         let mtkTextureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
         
         var options:[String:NSObject] = [
@@ -170,13 +162,28 @@ class CHome:CController
         
         do
         {
-            sourceTexture = try mtkTextureLoader.newTexture(with:scaledImage, options:options)
+            mtlTexture = try mtkTextureLoader.newTexture(with:cgImage, options:options)
         }
         catch
         {
-            sourceTexture = nil
+            mtlTexture = nil
         }
         
+        return mtlTexture
+    }
+    
+    private func loadTexture(onCompletion:(() -> ())?)
+    {
+        guard
+            
+            let scaledImage:CGImage = normalizedScaledImage
+            
+        else
+        {
+            return
+        }
+        
+        sourceTexture = textureWith(cgImage:scaledImage)
         onCompletion?()
     }
     
