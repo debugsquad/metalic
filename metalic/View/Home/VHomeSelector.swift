@@ -51,6 +51,11 @@ class VHomeSelector:UIView
         buttonNext.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
+        buttonNext.addTarget(
+            self,
+            action:#selector(actionNext(sender:)),
+            for:UIControlEvents.touchUpInside)
+        buttonNext.titleLabel!.font = UIFont.bold(size:13)
         self.buttonNext = buttonNext
         
         addSubview(buttonCamera)
@@ -161,5 +166,10 @@ class VHomeSelector:UIView
             picker,
             animated:true,
             completion:nil)
+    }
+    
+    func actionNext(sender button:UIButton)
+    {
+        controller.next()
     }
 }

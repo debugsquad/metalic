@@ -213,4 +213,9 @@ class CHome:CController
     {
         viewHome.showImage()
     }
+    
+    func next()
+    {
+        
+    }
 }
