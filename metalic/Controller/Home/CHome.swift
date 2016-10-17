@@ -243,6 +243,7 @@ class CHome:CController
             let filteredController:CHomeFiltered = CHomeFiltered(image:resultImage)
             
             self?.parentController.push(controller:filteredController)
+            self?.viewHome.showImage()
         }
     }
     
