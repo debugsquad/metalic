@@ -3,6 +3,7 @@ import UIKit
 class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
+    weak var viewPicture:VHomeFilteredPicture!
     
     convenience init(controller:CHomeFiltered)
     {

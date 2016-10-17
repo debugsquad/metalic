@@ -28,4 +28,11 @@ class CHomeFiltered:CController
         self.viewFiltered = viewFiltered
         view = viewFiltered
     }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        viewFiltered.viewPicture.draw()
+    }
 }
