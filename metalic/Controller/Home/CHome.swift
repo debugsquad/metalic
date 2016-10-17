@@ -208,6 +208,16 @@ class CHome:CController
             return
         }
         
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:fullSizeTexture.pixelFormat,
+            width:fullSizeTexture.width,
+            height:fullSizeTexture.height,
+            mipmapped:false)
+        
+        let destinationTexture:MTLTexture = device.makeTexture(
+            descriptor:textureDescriptor)
+        
+        
         DispatchQueue.main.async
         { [weak self] in
             
