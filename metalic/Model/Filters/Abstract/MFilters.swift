@@ -23,12 +23,14 @@ class MFilters
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
         let itemGothic:MFiltersItemBasicGothic = MFiltersItemBasicGothic()
         let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
+        let itemSelfer:MFiltersItemBasicSelfer = MFiltersItemBasicSelfer()
         
         let items:[MFiltersItem] = [
             itemNone,
             itemInk,
             itemGothic,
-            itemRembrandt
+            itemRembrandt,
+            itemSelfer
         ]
         
         return items
