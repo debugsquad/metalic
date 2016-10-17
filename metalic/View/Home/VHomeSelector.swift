@@ -6,6 +6,7 @@ class VHomeSelector:UIView
     weak var layoutButtonsLeft:NSLayoutConstraint!
     weak var layoutButtonCameraTop:NSLayoutConstraint!
     weak var layoutButtonLibraryTop:NSLayoutConstraint!
+    weak var buttonNext:UIButton!
     private let totalButtonsWidth:CGFloat
     private let kButtonWidth:CGFloat = 80
     private let kButtonHeight:CGFloat = 36
@@ -38,12 +39,28 @@ class VHomeSelector:UIView
             action:#selector(self.actionLibrary(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonNext:UIButton = UIButton()
+        buttonNext.translatesAutoresizingMaskIntoConstraints = false
+        buttonNext.clipsToBounds = true
+        buttonNext.setTitle(
+            NSLocalizedString("VHomeSelector_buttonNext", comment:""),
+            for:UIControlState.normal)
+        buttonNext.setTitleColor(
+            UIColor.black,
+            for:UIControlState.normal)
+        buttonNext.setTitleColor(
+            UIColor(white:0, alpha:0.2),
+            for:UIControlState.highlighted)
+        self.buttonNext = buttonNext
+        
         addSubview(buttonCamera)
         addSubview(buttonLibrary)
+        addSubview(buttonNext)
         
         let views:[String:UIView] = [
             "buttonCamera":buttonCamera,
-            "buttonLibrary":buttonLibrary]
+            "buttonLibrary":buttonLibrary,
+            "buttonNext":buttonNext]
         
         let metrics:[String:CGFloat] = [
             "buttonWidth":kButtonWidth,
@@ -55,12 +72,22 @@ class VHomeSelector:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonNext(buttonWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCamera(buttonHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonLibrary(buttonHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[buttonNext]-0-|",
             options:[],
             metrics:metrics,
             views:views))
