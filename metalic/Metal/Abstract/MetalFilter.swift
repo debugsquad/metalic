@@ -59,6 +59,9 @@ class MetalFilter:MPSUnaryImageKernel
         commandEncoder.setComputePipelineState(pipeline)
         commandEncoder.setTexture(sourceTexture, at:0)
         commandEncoder.setTexture(destinationTexture, at:1)
+        
+        specialConfig()
+        
         commandEncoder.dispatchThreadgroups(
             threadgroups,
             threadsPerThreadgroup:threadgroupCounts)
