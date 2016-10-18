@@ -62,6 +62,7 @@
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
 		DAF74BEF1DB5A48100F490CF /* MetalFilterBasicComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BEE1DB5A48100F490CF /* MetalFilterBasicComic.swift */; };
 		DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BF01DB5A48C00F490CF /* MetalFilterBasicComic.metal */; };
+		DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DAF74BEE1DB5A48100F490CF /* MetalFilterBasicComic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicComic.swift; sourceTree = "<group>"; };
 		DAF74BF01DB5A48C00F490CF /* MetalFilterBasicComic.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBasicComic.metal; sourceTree = "<group>"; };
+		DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicComic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				DAA0C0091DB42EE20017DBE1 /* MFiltersItemBasicGothic.swift */,
 				DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */,
 				DAA0C0131DB5248C0017DBE1 /* MFiltersItemBasicSelfer.swift */,
+				DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				DAA0C00E1DB42F3C0017DBE1 /* MetalFilterBasicGothic.swift in Sources */,
 				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
+				DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */,
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
 				DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
