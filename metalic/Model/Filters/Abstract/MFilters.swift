@@ -27,10 +27,12 @@ class MFilters
         let itemComic:MFiltersItemBasicComic = MFiltersItemBasicComic()
         let itemTest:MFiltersItemBasicTest = MFiltersItemBasicTest()
         let itemChalk:MFiltersItemBasicChalk = MFiltersItemBasicChalk()
+        let itemDefine:MFiltersItemBasicDefine = MFiltersItemBasicDefine()
         
         let items:[MFiltersItem] = [
             itemNone,
             itemTest,
+            itemDefine,
             itemChalk,
             itemComic,
             itemInk,
