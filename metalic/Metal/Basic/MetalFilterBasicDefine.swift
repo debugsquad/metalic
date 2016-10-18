@@ -1,9 +1,7 @@
 import MetalPerformanceShaders
 
-class MetalFilterBasicTest:MetalFilter
+class MetalFilterBasicDefine:MetalFilter
 {
-    
-    
     required init(device:MTLDevice)
     {
         super.init(device:device, functionName:nil)
@@ -20,9 +18,9 @@ class MetalFilterBasicTest:MetalFilter
         ]
         
         let convolution = MPSImageConvolution(device: device,
-                                          kernelWidth: 3,
-                                          kernelHeight: 3,
-                                          weights: weights)
+                                              kernelWidth: 3,
+                                              kernelHeight: 3,
+                                              weights: weights)
         
         convolution.edgeMode = .zero
         
