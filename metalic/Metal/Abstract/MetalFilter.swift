@@ -3,8 +3,8 @@ import MetalPerformanceShaders
 class MetalFilter:MPSUnaryImageKernel
 {
     let mtlFunction:MTLFunction?
-    private let kThreadgroupWidth:Int = 2
-    private let kThreadgroupHeight:Int = 2
+    private let kThreadgroupWidth:Int = 8
+    private let kThreadgroupHeight:Int = 8
     private let kThreadgroupDeep:Int = 1
     weak var sourceTexture:MTLTexture?
     

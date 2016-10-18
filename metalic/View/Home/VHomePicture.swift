@@ -29,10 +29,12 @@ class VHomePicture:MTKView
         {
             return
         }
-        
+
         let sourceWidth:Int = sourceTexture.width
         let sourceHeight:Int = sourceTexture.height
         drawableSize = CGSize(width:sourceWidth, height:sourceHeight)
+        
+        super.draw()
         
         guard
         
@@ -52,8 +54,6 @@ class VHomePicture:MTKView
             destinationTexture:destinationTexture)
         commandBuffer.present(drawable)
         commandBuffer.commit()
-        
-        super.draw()
     }
     
     //MARK: public
