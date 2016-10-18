@@ -26,9 +26,11 @@ class MFilters
         let itemSelfer:MFiltersItemBasicSelfer = MFiltersItemBasicSelfer()
         let itemComic:MFiltersItemBasicComic = MFiltersItemBasicComic()
         let itemTest:MFiltersItemBasicTest = MFiltersItemBasicTest()
+        let itemChalk:MFiltersItemBasicChalk = MFiltersItemBasicChalk()
         
         let items:[MFiltersItem] = [
             itemNone,
+            itemChalk,
             itemTest,
             itemComic,
             itemInk,
