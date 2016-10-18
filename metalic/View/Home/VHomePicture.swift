@@ -4,6 +4,7 @@ import MetalKit
 class VHomePicture:MTKView
 {
     weak var controller:CHome!
+    weak var presentingTexture:MTLTexture?
 
     convenience init(controller:CHome)
     {
@@ -46,6 +47,7 @@ class VHomePicture:MTKView
         }
         
         let destinationTexture:MTLTexture = drawable.texture
+        presentingTexture = destinationTexture
         let commandBuffer:MTLCommandBuffer = controller.commandQueue.makeCommandBuffer()
         
         filterTexture(

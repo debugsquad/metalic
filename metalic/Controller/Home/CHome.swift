@@ -5,7 +5,6 @@ class CHome:CController
 {
     weak var viewHome:VHome!
     var normalizedImage:UIImage?
-    var normalizedScaledImage:CGImage?
     var device:MTLDevice!
     var commandQueue:MTLCommandQueue!
     var sourceTexture:MTLTexture?
@@ -77,75 +76,22 @@ class CHome:CController
     {
         guard
             
-            let scaledImage:CGImage = normalizedImage?.cgImage
+            let cgImage:CGImage = normalizedImage?.cgImage
             
         else
         {
             return
         }
         
-        sourceTexture = textureWith(cgImage:scaledImage)
+        sourceTexture = textureWith(cgImage:cgImage)
         onCompletion?()
     }
     
     private func filterImage()
     {
         guard
-        
-            let normalizedImage:UIImage = normalizedImage
-        
-        else
-        {
-            viewHome.showImage()
             
-            return
-        }
-        
-        let width:CGFloat = normalizedImage.size.width
-        let height:CGFloat = normalizedImage.size.height
-        
-        guard
-        
-            let cgImage:CGImage = scaleImage(width:width, height:height)
-        
-        else
-        {
-            viewHome.showImage()
-            
-            return
-        }
-        
-        guard
-        
-            let fullSizeTexture:MTLTexture = textureWith(cgImage:cgImage)
-        
-        else
-        {
-            viewHome.showImage()
-            
-            return
-        }
-        
-        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
-            pixelFormat:fullSizeTexture.pixelFormat,
-            width:fullSizeTexture.width,
-            height:fullSizeTexture.height,
-            mipmapped:false)
-        let destinationTexture:MTLTexture = device.makeTexture(
-            descriptor:textureDescriptor)
-        let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-        
-        viewHome.viewPicture.filterTexture(
-            commandBuffer:commandBuffer,
-            sourceTexture:fullSizeTexture,
-            destinationTexture:destinationTexture)
-        
-        commandBuffer.commit()
-        commandBuffer.waitUntilCompleted()
-        
-        guard
-            
-            let resultImage:UIImage = destinationTexture.exportImage()
+            let resultImage:UIImage = viewHome.viewPicture.presentingTexture?.exportImage()
             
         else
         {
@@ -177,19 +123,9 @@ class CHome:CController
             return
         }
         
-        let screenScale:CGFloat = UIScreen.main.scale
-        let width:CGFloat = viewHome.viewPicture.bounds.width
-        let height:CGFloat = viewHome.viewPicture.bounds.height
-        let widthScale:CGFloat = width * screenScale
-        let heightScale:CGFloat = height * screenScale
-        
         normalize(
             image:image)
         { [weak self] in
-            
-            self?.normalizedScaledImage = self?.scaleImage(
-                width:widthScale,
-                height:heightScale)
             
             self?.loadTexture(onCompletion:
             { [weak self] in
