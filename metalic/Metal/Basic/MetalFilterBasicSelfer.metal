@@ -2,10 +2,10 @@
 using namespace metal;
 
 static constant float kBrightness = 1;
-static constant float kBlurSize = 8;
+static constant float kBlurSize = 6;
 static constant float kMinColor = 0;
 static constant float kMaxColor = 1;
-static constant float kBrightnessNotFace = 0.9;
+static constant float kBrightnessNotFace = 0.7;
 
 kernel void
 filter_basicSelfer(texture2d<float, access::read> originalTexture [[texture(0)]],
@@ -25,7 +25,7 @@ filter_basicSelfer(texture2d<float, access::read> originalTexture [[texture(0)]]
     if (facesColor[0] == 0)
     {
         applyBlur = true;
-        brightness = kBrightnessNotFace
+        brightness = kBrightnessNotFace;
     }
     
     if (applyBlur)

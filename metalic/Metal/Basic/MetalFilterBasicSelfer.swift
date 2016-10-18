@@ -49,7 +49,7 @@ class MetalFilterBasicSelfer:MetalFilter
         for feature:CIFeature in features
         {
             if let faceFeature:CIFaceFeature = feature as? CIFaceFeature
-            {
+            {   
                 let faceFeatureX:Int = Int(faceFeature.bounds.origin.x)
                 let faceFeatureW:Int = Int(faceFeature.bounds.size.width)
                 let faceFeatureH:Int = Int(faceFeature.bounds.size.height)
