@@ -2,11 +2,8 @@
 using namespace metal;
 
 static constant float3 kLightScale(0.299, 0.587, 0.114);
-static constant float kTopLightThreshold = 0.9;
-static constant float kMidLightThreshold = 0.7;
-static constant float kTopBrightness = 0.66;
-static constant float kMidBrightness = 0.7;
-static constant float kMinBrightness = 0.3;
+static constant float kRedGreenDeltaColor = 0.4;
+static constant float kMinDeltaColor = 0.06;
 static constant float kBrightness = 1;
 static constant float kMinColor = 0;
 static constant float kMaxColor = 1;
@@ -17,32 +14,84 @@ filter_basicComic(texture2d<float, access::read> originalTexture [[texture(0)]],
                   uint2 gridId [[thread_position_in_grid]])
 {
     float4 gridColor = originalTexture.read(gridId);
+    float lightValue = dot(gridColor.rgb, kLightScale);
     float gridColorRed = gridColor[0];
     float gridColorGreen = gridColor[1];
     float gridColorBlue = gridColor[2];
-    float lightValue = dot(gridColor.rgb, kLightScale);
-    float newColorRed;
-    float newColorGreen;
-    float newColorBlue;
-    float brightness;
+    float deltaColorRedGreen = abs(gridColorRed - gridColorGreen);
+    float deltaColorGreenBlue = abs(gridColorGreen - gridColorBlue);
+    float deltaColorBlueRed = abs(gridColorBlue - gridColorRed);
+    float newColorRed = gridColorRed;
+    float newColorGreen = gridColorGreen;
+    float newColorBlue = gridColorBlue;
     float4 outColor;
+    bool plainColor = false;
     
-    if (lightValue >= kTopLightThreshold)
+    if (deltaColorRedGreen < kMinDeltaColor)
     {
-        brightness = kTopBrightness;
+        if (deltaColorGreenBlue < kMinDeltaColor)
+        {
+            if (deltaColorBlueRed < kMinDeltaColor)
+            {
+                plainColor = true;
+            }
+        }
     }
-    else if (lightValue >= kMidLightThreshold)
+    
+    if (plainColor)
     {
-        brightness = kMidBrightness;
+        if (lightValue > 0.6)
+        {
+            newColorRed = gridColorRed * 0.9;
+            newColorGreen = gridColorGreen * 0.9;
+            newColorBlue = gridColorBlue * 0.9;
+        }
+        else
+        {
+            newColorRed = gridColorRed * 0.5;
+            newColorGreen = gridColorGreen * 0.5;
+            newColorBlue = gridColorBlue * 0.5;
+        }
     }
     else
     {
-        brightness = kMinBrightness;
+        if (gridColorBlue >= gridColorGreen &&  gridColorBlue >= gridColorRed)
+        {
+            newColorRed = gridColorRed * 0.8;
+            newColorGreen = gridColorGreen * 1;
+            newColorBlue = gridColorBlue * 1.2;
+        }
+        else if (gridColorRed >= gridColorBlue && gridColorRed >= gridColorGreen)
+        {
+            if (deltaColorRedGreen >= kRedGreenDeltaColor)
+            {
+                newColorRed = gridColorRed * 0.9;
+                newColorGreen = gridColorGreen * 0.5;
+                newColorBlue = gridColorBlue * 0.5;
+            }
+            else
+            {
+                if (deltaColorRedGreen >= deltaColorGreenBlue || lightValue > 0.6)
+                {
+                    newColorRed = gridColorRed * 1;
+                    newColorGreen = gridColorGreen * 1.05;
+                    newColorBlue = gridColorBlue * 1.1;
+                }
+                else
+                {
+                    newColorRed = gridColorRed * 0.8;
+                    newColorGreen = gridColorGreen * 0.7;
+                    newColorBlue = gridColorBlue * 0.6;
+                }
+            }
+        }
+        else
+        {
+            newColorRed = gridColorRed * 0.9;
+            newColorGreen = gridColorGreen * 0.6;
+            newColorBlue = gridColorBlue * 0.4;
+        }
     }
-    
-    newColorRed = gridColorRed * brightness;
-    newColorGreen = gridColorGreen * brightness;
-    newColorBlue = gridColorBlue * brightness;
     
     if (newColorRed > kMaxColor)
     {
