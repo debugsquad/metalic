@@ -165,7 +165,7 @@ class CHome:CController
     {
         guard
             
-            let scaledImage:CGImage = normalizedScaledImage
+            let scaledImage:CGImage = normalizedImage?.cgImage
             
         else
         {
@@ -180,7 +180,21 @@ class CHome:CController
     {
         guard
         
-            let cgImage:CGImage = normalizedImage?.cgImage
+            let normalizedImage:UIImage = normalizedImage
+        
+        else
+        {
+            viewHome.showImage()
+            
+            return
+        }
+        
+        let width:CGFloat = normalizedImage.size.width
+        let height:CGFloat = normalizedImage.size.height
+        
+        guard
+        
+            let cgImage:CGImage = scaleImage(width:width, height:height)
         
         else
         {

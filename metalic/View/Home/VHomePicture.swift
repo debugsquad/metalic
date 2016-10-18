@@ -22,9 +22,21 @@ class VHomePicture:MTKView
     override func draw()
     {
         guard
-        
-            let drawable:CAMetalDrawable = currentDrawable,
+            
             let sourceTexture:MTLTexture = controller.sourceTexture
+        
+        else
+        {
+            return
+        }
+        
+        let sourceWidth:Int = sourceTexture.width
+        let sourceHeight:Int = sourceTexture.height
+        drawableSize = CGSize(width:sourceWidth, height:sourceHeight)
+        
+        guard
+        
+            let drawable:CAMetalDrawable = currentDrawable
         
         else
         {
