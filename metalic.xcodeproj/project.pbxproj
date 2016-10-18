@@ -11,6 +11,7 @@
 		DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */; };
 		DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */; };
 		DA40A0FF1DB6750D00DC42C6 /* MetalFilterBasicChalk.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FE1DB6750D00DC42C6 /* MetalFilterBasicChalk.metal */; };
+		DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A1001DB6758600DC42C6 /* MFiltersItemBasicChalk.swift */; };
 		DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8551DB140FD00B89DE9 /* MFilters.swift */; };
 		DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */; };
 		DA46D85B1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D85A1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift */; };
@@ -83,6 +84,7 @@
 		DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicChalk.swift; sourceTree = "<group>"; };
 		DA40A0FE1DB6750D00DC42C6 /* MetalFilterBasicChalk.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBasicChalk.metal; sourceTree = "<group>"; };
+		DA40A1001DB6758600DC42C6 /* MFiltersItemBasicChalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicChalk.swift; sourceTree = "<group>"; };
 		DA46D8551DB140FD00B89DE9 /* MFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFilters.swift; sourceTree = "<group>"; };
 		DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItem.swift; sourceTree = "<group>"; };
 		DA46D85A1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicInk.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				DAA0C0131DB5248C0017DBE1 /* MFiltersItemBasicSelfer.swift */,
 				DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */,
 				DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */,
+				DA40A1001DB6758600DC42C6 /* MFiltersItemBasicChalk.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA4C0A5A1DAD316E006934D1 /* MBasicShader.metal in Sources */,
 				DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */,
+				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,
 				DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */,
 				DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */,
