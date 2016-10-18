@@ -25,9 +25,11 @@ class MFilters
         let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
         let itemSelfer:MFiltersItemBasicSelfer = MFiltersItemBasicSelfer()
         let itemComic:MFiltersItemBasicComic = MFiltersItemBasicComic()
+        let itemTest:MFiltersItemBasicTest = MFiltersItemBasicTest()
         
         let items:[MFiltersItem] = [
             itemNone,
+            itemTest,
             itemComic,
             itemInk,
             itemGothic,
