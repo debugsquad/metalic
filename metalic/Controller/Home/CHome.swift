@@ -8,7 +8,7 @@ class CHome:CController
     var normalizedScaledImage:CGImage?
     var device:MTLDevice!
     var commandQueue:MTLCommandQueue!
-    var sourceTexture: MTLTexture?
+    var sourceTexture:MTLTexture?
     private let kMinBytesPerRow:Int = 3000
     
     override func loadView()
@@ -51,7 +51,7 @@ class CHome:CController
         onCompletion?()
     }
     
-    private func scaleImage(onCompletion:(() -> ())?)
+    private func scaleImage(width:CGFloat, height:CGFloat) -> CGImage?
     {
         guard
             
@@ -60,18 +60,13 @@ class CHome:CController
         
         else
         {
-            return
+            return nil
         }
         
-        let screenScale:CGFloat = UIScreen.main.scale
         let imageWidth:CGFloat = normalizedImage.size.width
         let imageHeight:CGFloat = normalizedImage.size.height
-        let usableWidth:CGFloat = viewHome.viewPicture.bounds.width
-        let usableHeight:CGFloat = viewHome.viewPicture.bounds.height
-        let usableWidthScale:CGFloat = usableWidth * screenScale
-        let usableHeightScale:CGFloat = usableHeight * screenScale
-        let usableWidthScaleInt:Int = Int(usableWidthScale)
-        let usableHeightScaleInt:Int = Int(usableHeightScale)
+        let usableWidthScaleInt:Int = Int(width)
+        let usableHeightScaleInt:Int = Int(height)
         let bitsPerComponent:Int = normalizedCGImage.bitsPerComponent
         let bitmapInfo:CGBitmapInfo = normalizedCGImage.bitmapInfo
         let colorSpace:CGColorSpace? = normalizedCGImage.colorSpace
@@ -82,15 +77,15 @@ class CHome:CController
         let drawX:Int
         let drawY:Int
         
-        if usableWidthScale < imageWidth || usableHeightScale < imageHeight
+        if width < imageWidth || height < imageHeight
         {
-            let ratioWidth:CGFloat = imageWidth / usableWidthScale
-            let ratioHeight:CGFloat = imageHeight / usableHeightScale
+            let ratioWidth:CGFloat = imageWidth / width
+            let ratioHeight:CGFloat = imageHeight / height
             let maxRatio:CGFloat = max(ratioWidth, ratioHeight)
             let scaledWidth:CGFloat = floor(imageWidth / maxRatio)
             let scaledHeight:CGFloat = floor(imageHeight / maxRatio)
-            let deltaWidth:CGFloat = usableWidthScale - scaledWidth
-            let deltaHeight:CGFloat = usableHeightScale - scaledHeight
+            let deltaWidth:CGFloat = width - scaledWidth
+            let deltaHeight:CGFloat = height - scaledHeight
             let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
             let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
             drawX = Int(drawXFloat)
@@ -100,8 +95,8 @@ class CHome:CController
         }
         else
         {
-            let deltaWidth:CGFloat = usableWidthScale - imageWidth
-            let deltaHeight:CGFloat = usableHeightScale - imageHeight
+            let deltaWidth:CGFloat = width - imageWidth
+            let deltaHeight:CGFloat = height - imageHeight
             let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
             let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
             drawX = Int(drawXFloat)
@@ -131,7 +126,7 @@ class CHome:CController
         
         else
         {
-            return
+            return nil
         }
         
         context.interpolationQuality = CGInterpolationQuality.high
@@ -139,8 +134,9 @@ class CHome:CController
             normalizedCGImage,
             in:drawRect)
         
-        normalizedScaledImage = context.makeImage()
-        onCompletion?()
+        let cgImage:CGImage? = context.makeImage()
+        
+        return cgImage
     }
     
     private func textureWith(cgImage:CGImage) -> MTLTexture?
@@ -209,7 +205,6 @@ class CHome:CController
             width:fullSizeTexture.width,
             height:fullSizeTexture.height,
             mipmapped:false)
-        
         let destinationTexture:MTLTexture = device.makeTexture(
             descriptor:textureDescriptor)
         let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
@@ -256,18 +251,24 @@ class CHome:CController
             return
         }
         
+        let screenScale:CGFloat = UIScreen.main.scale
+        let width:CGFloat = viewHome.viewPicture.bounds.width
+        let height:CGFloat = viewHome.viewPicture.bounds.height
+        let widthScale:CGFloat = width * screenScale
+        let heightScale:CGFloat = height * screenScale
+        
         normalize(
             image:image)
         { [weak self] in
             
-            self?.scaleImage(onCompletion:
+            self?.normalizedScaledImage = self?.scaleImage(
+                width:widthScale,
+                height:heightScale)
+            
+            self?.loadTexture(onCompletion:
             { [weak self] in
                 
-                self?.loadTexture(onCompletion:
-                { [weak self] in
-                    
-                    self?.viewHome.showImage()
-                })
+                self?.viewHome.showImage()
             })
         }
     }

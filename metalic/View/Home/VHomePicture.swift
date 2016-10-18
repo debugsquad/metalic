@@ -52,7 +52,7 @@ class VHomePicture:MTKView
             
             let metalFitlerType:MetalFilter.Type = controller.viewHome.viewMenu.selectedItem?.filter
             
-            else
+        else
         {
             return
         }

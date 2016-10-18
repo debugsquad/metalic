@@ -30,8 +30,8 @@ class MFilters
         
         let items:[MFiltersItem] = [
             itemNone,
-            itemChalk,
             itemTest,
+            itemChalk,
             itemComic,
             itemInk,
             itemGothic,

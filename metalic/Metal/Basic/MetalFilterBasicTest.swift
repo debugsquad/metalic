@@ -2,6 +2,12 @@ import MetalPerformanceShaders
 
 class MetalFilterBasicTest:MetalFilter
 {
+    let weights: [Float] = [
+        4,  0,  0,
+        0,  1,  0,
+        0,  0,  -4
+    ]
+    
     required init(device:MTLDevice)
     {
         super.init(device:device, functionName:nil)
@@ -9,10 +15,14 @@ class MetalFilterBasicTest:MetalFilter
     
     override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
     {
-        let sobel = MPSImageSobel(device: device)
-        sobel.edgeMode = .clamp
-        sobel.encode(commandBuffer: commandBuffer,
-                     sourceTexture: sourceTexture,
-                     destinationTexture: destinationTexture)
+        let convolution = MPSImageConvolution(device: device,
+                                          kernelWidth: 3,
+                                          kernelHeight: 3,
+                                          weights: weights)
+        convolution.edgeMode = .zero
+        
+        convolution.encode(commandBuffer: commandBuffer,
+                           sourceTexture: sourceTexture,
+                           destinationTexture: destinationTexture)
     }
 }
