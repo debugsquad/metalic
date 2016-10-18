@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */; };
 		DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8551DB140FD00B89DE9 /* MFilters.swift */; };
 		DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */; };
 		DA46D85B1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46D85A1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift */; };
@@ -76,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicTest.swift; sourceTree = "<group>"; };
 		DA46D8551DB140FD00B89DE9 /* MFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFilters.swift; sourceTree = "<group>"; };
 		DA46D8571DB141C600B89DE9 /* MFiltersItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItem.swift; sourceTree = "<group>"; };
 		DA46D85A1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicInk.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				DAA0C0111DB523150017DBE1 /* MetalFilterBasicSelfer.metal */,
 				DAF74BEE1DB5A48100F490CF /* MetalFilterBasicComic.swift */,
 				DAF74BF01DB5A48C00F490CF /* MetalFilterBasicComic.metal */,
+				DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAA0C00A1DB42EE20017DBE1 /* MFiltersItemBasicGothic.swift in Sources */,
+				DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */,
 				DA4C0A601DADA472006934D1 /* MBasicA.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
 				DAA0C0121DB523150017DBE1 /* MetalFilterBasicSelfer.metal in Sources */,
