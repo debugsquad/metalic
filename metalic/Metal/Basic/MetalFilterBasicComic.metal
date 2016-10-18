@@ -12,7 +12,7 @@ static constant float kMinColor = 0;
 static constant float kMaxColor = 1;
 
 kernel void
-filter_basicMetal(texture2d<float, access::read> originalTexture [[texture(0)]],
+filter_basicComic(texture2d<float, access::read> originalTexture [[texture(0)]],
                   texture2d<float, access::write> filteredTexture [[texture(1)]],
                   uint2 gridId [[thread_position_in_grid]])
 {
