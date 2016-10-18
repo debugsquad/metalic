@@ -22,7 +22,7 @@ class MetalFilterBasicChalk:MetalFilter
         
         super.encode(
             commandBuffer:commandBuffer,
-            sourceTexture:sourceTexture,
+            sourceTexture:destinationTexture,
             destinationTexture:destinationTexture)
     }
 }
