@@ -95,7 +95,7 @@ class CHome:CController
             
         else
         {
-            viewHome.showImage()
+            viewHome.showImage(redraw:false)
             
             return
         }
@@ -106,7 +106,7 @@ class CHome:CController
             let filteredController:CHomeFiltered = CHomeFiltered(image:resultImage)
             
             self?.parentController.push(controller:filteredController)
-            self?.viewHome.showImage()
+            self?.viewHome.showImage(redraw:false)
         }
     }
     
@@ -130,14 +130,14 @@ class CHome:CController
             self?.loadTexture(onCompletion:
             { [weak self] in
                 
-                self?.viewHome.showImage()
+                self?.viewHome.showImage(redraw:true)
             })
         }
     }
     
     func updateFilter()
     {
-        viewHome.showImage()
+        viewHome.showImage(redraw:true)
     }
     
     func next()

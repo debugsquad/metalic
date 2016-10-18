@@ -82,13 +82,17 @@ class VHome:UIView
     
     //MARK: private
     
-    private func asyncShowImage()
+    private func asyncShowImage(redraw:Bool)
     {
         viewSpinner.stopAnimating()
         viewPicture.isHidden = false
         viewSelector.isHidden = false
         viewMenu.isHidden = false
-        viewPicture.draw()
+        
+        if redraw
+        {
+            viewPicture.draw()
+        }
     }
     
     //MARK: public
@@ -101,12 +105,12 @@ class VHome:UIView
         viewMenu.isHidden = true
     }
     
-    func showImage()
+    func showImage(redraw:Bool)
     {
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.asyncShowImage()
+            self?.asyncShowImage(redraw:redraw)
         }
     }
 }
