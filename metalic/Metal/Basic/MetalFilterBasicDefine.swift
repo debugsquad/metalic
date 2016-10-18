@@ -4,9 +4,9 @@ class MetalFilterBasicDefine:MetalFilter
 {
     private let kMinCenter:Float = 5
     private let kMinCorners:Float = -1
-    private let kSizeDivider:Float = 144
-    private let kCornersDivider:Float = -5
-    private let kMinImageSize:Int = 640
+    private let kCornerMultiplier:Float = 4
+    private let kCornerAdd:Float = 1
+    private let kMinImageSize:Int = 960
     private let kKernelSize:Int = 3
     
     required init(device:MTLDevice)
@@ -22,11 +22,12 @@ class MetalFilterBasicDefine:MetalFilter
         let center:Float
         let corners:Float
         
-        if minSize >= kMinImageSize
+        if minSize > kMinImageSize
         {
-            let minSizeFloat:Float = Float(minSize)
-            center = ceilf(minSizeFloat / kSizeDivider)
-            corners = floor(center / kCornersDivider)
+            let scalableSize:Int = sourceWidth / kMinImageSize
+            let scalableSizeFloat:Float = Float(scalableSize)
+            corners = -scalableSizeFloat
+            center = (scalableSizeFloat * kCornerMultiplier) + kCornerAdd
         }
         else
         {
@@ -36,7 +37,7 @@ class MetalFilterBasicDefine:MetalFilter
         
         let weights:[Float] = [
             corners, 0, corners,
-            corners, center, 0,
+            0, center, 0,
             corners, 0, corners
         ]
         
