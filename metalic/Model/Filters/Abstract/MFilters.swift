@@ -9,8 +9,8 @@ class MFilters
         self.items = []
         
         var items:[MFiltersItem] = []
-        items.append(contentsOf:basicFilters())
         items.append(contentsOf:premiumFilters())
+        items.append(contentsOf:basicFilters())
         
         self.items = items
     }
@@ -47,9 +47,11 @@ class MFilters
     private func premiumFilters() -> [MFiltersItem]
     {
         let itemNeon:MFiltersItemPremiumNeon = MFiltersItemPremiumNeon()
+        let itemEmber:MFiltersItemPremiumEmber = MFiltersItemPremiumEmber()
         
         let items:[MFiltersItem] = [
-            itemNeon
+            itemNeon,
+            itemEmber
         ]
         
         return items
