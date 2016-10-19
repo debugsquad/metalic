@@ -31,14 +31,14 @@ class MFilters
         
         let items:[MFiltersItem] = [
             itemNone,
-            itemSelfer,
             itemTest,
             itemDefine,
             itemChalk,
             itemComic,
             itemInk,
             itemGothic,
-            itemRembrandt
+            itemRembrandt,
+            itemSelfer
         ]
         
         return items

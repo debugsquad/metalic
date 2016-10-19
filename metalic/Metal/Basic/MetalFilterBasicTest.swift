@@ -2,32 +2,14 @@ import MetalPerformanceShaders
 
 class MetalFilterBasicTest:MetalFilter
 {
-    let dilate: MPSImageDilate
-    let bokehRadius = 40
+    var histogramInfo = MPSImageHistogramInfo(
+        numberOfHistogramEntries: 256,
+        histogramForAlpha: false,
+        minPixelValue: vector_float4(0,0,0,0),
+        maxPixelValue: vector_float4(0.5,0.32,0.2,1))
     
     required init(device:MTLDevice)
     {
-        var probe = [Float]()
-        let size = bokehRadius * 2 + 1
-        let mid = Float(size) / 2
-        
-        for i in 0 ..< size
-        {
-            for j in 0 ..< size
-            {
-                let x = abs(Float(i) - mid)
-                let y = abs(Float(j) - mid)
-                let element: Float = hypot(x, y) < Float(self.bokehRadius) ? 0.0 : 1.0
-                probe.append(element)
-            }
-        }
-        
-        dilate = MPSImageDilate(
-            device: device,
-            kernelWidth: size,
-            kernelHeight: size,
-            values: probe)
-        
         super.init(device:device, functionName:nil)
     }
     
@@ -35,8 +17,34 @@ class MetalFilterBasicTest:MetalFilter
     {
         print("\(sourceTexture.width) \(sourceTexture.height)")
         
-        dilate.encode(commandBuffer: commandBuffer,
-                      sourceTexture: sourceTexture,
-                      destinationTexture: destinationTexture)
+        let calculation = MPSImageHistogram(device: device,
+                                        histogramInfo: &histogramInfo)
+        
+        let equalization = MPSImageHistogramEqualization(device: device,
+                                                     histogramInfo: &histogramInfo)
+        
+        
+        let bufferLength = calculation.histogramSize(forSourceFormat: sourceTexture.pixelFormat)
+        let histogramInfoBuffer = device.makeBuffer(length: bufferLength, options: [.storageModePrivate])
+        print("Equalization Buffer Length: \(bufferLength)")
+        
+        // Performing equalization with MPS is a three stage operation:
+        
+        // 1: The image's histogram is calculated and passed to an MPSImageHistogramInfo object.
+        calculation.encode(to: commandBuffer,
+                           sourceTexture: sourceTexture,
+                           histogram: histogramInfoBuffer,
+                           histogramOffset: 0)
+        
+        // 2: The equalization filter's encodeTransform method creates an image transform which is used to equalize the distribution of the histogram of the source image.
+        equalization.encodeTransform(to: commandBuffer,
+                                     sourceTexture: sourceTexture,
+                                     histogram: histogramInfoBuffer,
+                                     histogramOffset: 0)
+        
+        // 3: The equalization filter's encode method applies the equalization transform to the source texture and and writes the output to the destination texture.
+        equalization.encode(commandBuffer: commandBuffer,
+                            sourceTexture: sourceTexture,
+                            destinationTexture: destinationTexture)
     }
 }
