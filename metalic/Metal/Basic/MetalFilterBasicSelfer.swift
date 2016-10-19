@@ -33,11 +33,6 @@ class MetalFilterBasicSelfer:MetalFilter
         generateDilate(sourceTexture:sourceTexture)
         generateGaussian(sourceTexture:sourceTexture)
         
-        dilate?.encode(
-            commandBuffer:commandBuffer,
-            sourceTexture:sourceTexture,
-            destinationTexture:destinationTexture)
-        
         let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
             pixelFormat:sourceTexture.pixelFormat,
             width:sourceWidth,
@@ -45,22 +40,11 @@ class MetalFilterBasicSelfer:MetalFilter
             mipmapped:false)
         
         let bokehTexture:MTLTexture = device.makeTexture(descriptor:textureDescriptor)
-        let origin:MTLOrigin = MTLOriginMake(0, 0, 0)
-        let size:MTLSize = MTLSizeMake(sourceWidth, sourceHeight, sourceTexture.depth)
-        let blitEncoder:MTLBlitCommandEncoder = commandBuffer.makeBlitCommandEncoder()
         
-        blitEncoder.copy(
-            from:destinationTexture,
-            sourceSlice:0,
-            sourceLevel:0,
-            sourceOrigin:origin,
-            sourceSize:size,
-            to:bokehTexture,
-            destinationSlice:0,
-            destinationLevel:0,
-            destinationOrigin:origin)
-        blitEncoder.endEncoding()
-        
+        dilate?.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:sourceTexture,
+            destinationTexture:bokehTexture)
         gaussian?.encode(
             commandBuffer:commandBuffer,
             sourceTexture:bokehTexture,
