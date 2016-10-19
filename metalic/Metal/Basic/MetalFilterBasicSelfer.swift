@@ -8,6 +8,7 @@ class MetalFilterBasicSelfer:MetalFilter
     private var dilate:MPSImageDilate?
     private let kFunctionName:String = "filter_basicSelfer"
     private let kFacesTextureIndex:Int = 2
+    private let kBokehTextureIndex:Int = 3
     private let kMinImageSize:Int = 640
     private let kMinBokehSize:Int = 15
     private let kRepeatingElement:Float = 1
@@ -176,7 +177,7 @@ class MetalFilterBasicSelfer:MetalFilter
             bytesPerRow:bytesPerRow)
         
         commandEncoder.setTexture(facesTexture, at:kFacesTextureIndex)
-        commandEncoder.setTexture(destinationTexture, at:3)
+        commandEncoder.setTexture(destinationTexture, at:kBokehTextureIndex)
     }
     
     //MARK: private
