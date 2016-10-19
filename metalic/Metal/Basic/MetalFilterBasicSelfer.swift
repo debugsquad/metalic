@@ -4,10 +4,8 @@ import UIKit
 
 class MetalFilterBasicSelfer:MetalFilter
 {
-    private let dilate:MPSImageDilate
-    private let bokehRadius:Int = 10
+    private var dilate:MPSImageDilate?
     private let kFunctionName:String = "filter_basicSelfer"
-    private let kRepeatingValue:Float = 0.8
     private let kFacesTextureIndex:Int = 2
     
     required init(device:MTLDevice)
@@ -27,22 +25,19 @@ class MetalFilterBasicSelfer:MetalFilter
             }
         }
         
-        dilate = MPSImageDilate(
-            device: device,
-            kernelWidth: size,
-            kernelHeight: size,
-            values: probe)
-        
         super.init(device:device, functionName:kFunctionName)
     }
     
-    override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture) {
+    override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture: MTLTexture)
+    {
+        dilate.encode(commandBuffer:commandBuffer,
+                      sourceTexture:sourceTexture,
+                      destinationTexture:destinationTexture)
         
-        dilate.encode(commandBuffer: commandBuffer,
-                      sourceTexture: sourceTexture,
-                      destinationTexture: destinationTexture)
-        
-        super.encode(commandBuffer:commandBuffer, sourceTexture:sourceTexture, destinationTexture:destinationTexture)
+        super.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:sourceTexture,
+            destinationTexture:destinationTexture)
         
     }
     
