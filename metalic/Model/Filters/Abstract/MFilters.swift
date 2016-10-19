@@ -27,7 +27,6 @@ class MFilters
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
         let itemGothic:MFiltersItemBasicGothic = MFiltersItemBasicGothic()
         let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
-        let itemSelfer:MFiltersItemBasicSelfer = MFiltersItemBasicSelfer()
         let itemComic:MFiltersItemBasicComic = MFiltersItemBasicComic()
         let itemTest:MFiltersItemBasicTest = MFiltersItemBasicTest()
         let itemChalk:MFiltersItemBasicChalk = MFiltersItemBasicChalk()
@@ -40,8 +39,7 @@ class MFilters
             itemComic,
             itemInk,
             itemGothic,
-            itemRembrandt,
-            itemSelfer
+            itemRembrandt
         ]
         
         return items
@@ -51,10 +49,12 @@ class MFilters
     {
         let itemNeon:MFiltersItemPremiumNeon = MFiltersItemPremiumNeon()
         let itemEmber:MFiltersItemPremiumEmber = MFiltersItemPremiumEmber()
+        let itemSelfer:MFiltersItemPremiumSelfer = MFiltersItemPremiumSelfer()
         
         let items:[MFiltersItem] = [
             itemNeon,
-            itemEmber
+            itemEmber,
+            itemSelfer
         ]
         
         return items
