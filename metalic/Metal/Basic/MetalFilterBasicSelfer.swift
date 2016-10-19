@@ -4,32 +4,24 @@ import UIKit
 
 class MetalFilterBasicSelfer:MetalFilter
 {
+    private var bokehSize:Int
     private var dilate:MPSImageDilate?
     private let kFunctionName:String = "filter_basicSelfer"
     private let kFacesTextureIndex:Int = 2
+    private let kMinImageSize:Int = 640
+    private let kMinBokehSize:Int = 15
     
     required init(device:MTLDevice)
     {
-        var probe = [Float]()
-        let size = bokehRadius * 2 + 1
-        let mid = Float(size) / 2
-        
-        for i in 0 ..< size
-        {
-            for j in 0 ..< size
-            {
-                let x = abs(Float(i) - mid)
-                let y = abs(Float(j) - mid)
-                let element: Float = hypot(x, y) < Float(self.bokehRadius) ? 0.0 : 1.0
-                probe.append(element)
-            }
-        }
+        bokehSize = 0
         
         super.init(device:device, functionName:kFunctionName)
     }
     
     override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture: MTLTexture)
     {
+        generateDilate(sourceTexture:sourceTexture)
+        
         dilate.encode(commandBuffer:commandBuffer,
                       sourceTexture:sourceTexture,
                       destinationTexture:destinationTexture)
@@ -104,5 +96,59 @@ class MetalFilterBasicSelfer:MetalFilter
         
         commandEncoder.setTexture(facesTexture, at:kFacesTextureIndex)
         commandEncoder.setTexture(destinationTexture, at:3)
+    }
+    
+    //MARK: private
+    
+    private func generateDilate(sourceTexture:MTLTexture)
+    {
+        let sourceWidth:Int = sourceTexture.width
+        let sourceHeight:Int = sourceTexture.height
+        let minSize:Int = min(sourceWidth, sourceHeight)
+        
+        if minSize <= kMinImageSize
+        {
+            bokehSize = kMinBokehSize
+        }
+        else
+        {
+            let sizeRatio:Int = minSize / kMinImageSize
+            bokehSize = kMinBokehSize * sizeRatio
+        }
+        
+        var probe:[Float] = []
+        let bokehSizeFloat:Float = Float(bokehSize)
+        let midSize:Float = bokehSizeFloat / 2.0
+        
+        for indexHr:Int in 0 ..< bokehSize
+        {
+            let indexHrFloat:Float = Float(indexHr)
+            let xPos:Float = abs(indexHrFloat - midSize)
+            
+            for indexVr:Int in 0 ..< bokehSize
+            {
+                let indexVrFloat:Float = Float(indexVr)
+                let yPos:Float = abs(indexVrFloat - midSize)
+                let hypotPos:Float = hypot(xPos, yPos)
+                let probeElement:Float
+                
+                if hypotPos > bokehSizeFloat
+                {
+                    probeElement = 0
+                }
+                else
+                {
+                    probeElement = 1
+                }
+                
+                probe.append(probeElement)
+            }
+        }
+        
+        dilate = MPSImageDilate(
+            device:device,
+            kernelWidth:bokehSize,
+            kernelHeight:bokehSize,
+            values:probe)
     }
 }
