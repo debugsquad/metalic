@@ -12,14 +12,15 @@ class MetalFilterBasicSelfer:MetalFilter
     private let kFacesTextureIndex:Int = 2
     private let kBokehTextureIndex:Int = 3
     private let kMinImageSize:Int = 640
-    private let kMinBokehSize:Int = 15
+    private let kMinBokehSize:Int = 12
+    private let kMinSizeRatio:Int = 2
     private let kRepeatingElement:Float = 1
-    private let kGaussSigma:Float = 6
+    private let kGaussSigma:Float = 10
     
     required init(device:MTLDevice)
     {
         bokehSize = 0
-        sizeRatio = 0
+        sizeRatio = kMinSizeRatio
         
         super.init(device:device, functionName:kFunctionName)
     }
@@ -182,14 +183,14 @@ class MetalFilterBasicSelfer:MetalFilter
                             let deltaRadius:Int = hyp - faceFeatureRadius
                             let pixelWeight:Float
                             
-                            if deltaRadius > 1
+                            if deltaRadius > faceRadius
                             {
-                                fatalError("didn't know this could happen")
+                                pixelWeight = 1
                             }
                             else if deltaRadius > 0
                             {
-                                let deltaRaiusFloat:Float = Float(deltaRadius)
-                                pixelWeight = deltaRaiusFloat / faceRadiusFloat
+                                let deltaRadiusFloat:Float = Float(deltaRadius)
+                                pixelWeight = deltaRadiusFloat / faceRadiusFloat
                             }
                             else
                             {
@@ -228,7 +229,7 @@ class MetalFilterBasicSelfer:MetalFilter
         if minSize <= kMinImageSize
         {
             bokehSize = kMinBokehSize
-            sizeRatio = 1
+            sizeRatio = kMinSizeRatio
         }
         else
         {
@@ -290,8 +291,8 @@ class MetalFilterBasicSelfer:MetalFilter
         }
         else
         {
-            let sizeRatio:Float = Float(minSize / kMinImageSize)
-            gaussSigma = kGaussSigma * sizeRatio
+            let gaussSizeRatio:Float = Float(minSize / kMinImageSize)
+            gaussSigma = kGaussSigma * gaussSizeRatio
         }
         
         gaussian = MPSImageGaussianBlur(
