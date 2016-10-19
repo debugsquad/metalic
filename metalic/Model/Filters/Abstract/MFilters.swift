@@ -24,16 +24,15 @@ class MFilters
     
     private func basicFilters() -> [MFiltersItem]
     {
+        let _:MFiltersItemBasicTest = MFiltersItemBasicTest()
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
         let itemGothic:MFiltersItemBasicGothic = MFiltersItemBasicGothic()
         let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
         let itemComic:MFiltersItemBasicComic = MFiltersItemBasicComic()
-        let itemTest:MFiltersItemBasicTest = MFiltersItemBasicTest()
         let itemChalk:MFiltersItemBasicChalk = MFiltersItemBasicChalk()
         let itemDefine:MFiltersItemBasicDefine = MFiltersItemBasicDefine()
         
         let items:[MFiltersItem] = [
-            itemTest,
             itemDefine,
             itemChalk,
             itemComic,
