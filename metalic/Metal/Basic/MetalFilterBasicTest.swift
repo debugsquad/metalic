@@ -5,8 +5,8 @@ class MetalFilterBasicTest:MetalFilter
     var histogramInfo = MPSImageHistogramInfo(
         numberOfHistogramEntries: 256,
         histogramForAlpha: false,
-        minPixelValue: vector_float4(0,0,0,0),
-        maxPixelValue: vector_float4(0.5,0.32,0.2,1))
+        minPixelValue: vector_float4(0,0,0,-1),
+        maxPixelValue: vector_float4(1,1,1,-1))
     
     required init(device:MTLDevice)
     {
@@ -24,7 +24,7 @@ class MetalFilterBasicTest:MetalFilter
                                                      histogramInfo: &histogramInfo)
         
         
-        let bufferLength = calculation.histogramSize(forSourceFormat: sourceTexture.pixelFormat)
+        let bufferLength = calculation.histogramSize(forSourceFormat:sourceTexture.pixelFormat)
         let histogramInfoBuffer = device.makeBuffer(length: bufferLength, options: [.storageModePrivate])
         print("Equalization Buffer Length: \(bufferLength)")
         

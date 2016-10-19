@@ -9,9 +9,9 @@ class MetalFilterPremiumEmber:MetalFilter
     private let kHistogramEntries:Int = 256
     private let kAlphaChannel:ObjCBool = false
     private let kMinPixelValue:Float = 0
-    private let kMaxCyanPixelValue:Float = 0.2
-    private let kMaxMagentaPixelValue:Float = 0.4
-    private let kMaxYellowPixelValue:Float = 0.6
+    private let kMaxCyanPixelValue:Float = 0.35
+    private let kMaxMagentaPixelValue:Float = 0.45
+    private let kMaxYellowPixelValue:Float = 0.5
     private let kMaxKeyPixelValue:Float = 1
     private let kHistogramOffset:Int = 0
     
@@ -21,7 +21,7 @@ class MetalFilterPremiumEmber:MetalFilter
             kMinPixelValue,
             kMinPixelValue,
             kMinPixelValue,
-            kMinPixelValue
+            1
         )
         
         let maxPixel:vector_float4 = vector_float4(
