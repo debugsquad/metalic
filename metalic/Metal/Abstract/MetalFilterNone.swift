@@ -1,6 +1,6 @@
 import MetalPerformanceShaders
 
-class MetalFilterBasicNone:MetalFilter
+class MetalFilterNone:MetalFilter
 {
     private let kDepth:Int = 1
     

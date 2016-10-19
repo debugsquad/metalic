@@ -8,7 +8,12 @@ class MFilters
     {
         self.items = []
         
-        var items:[MFiltersItem] = []
+        let itemNone:MFiltersItemNone = MFiltersItemNone()
+        
+        var items:[MFiltersItem] = [
+            itemNone
+        ]
+        
         items.append(contentsOf:premiumFilters())
         items.append(contentsOf:basicFilters())
         
@@ -19,7 +24,6 @@ class MFilters
     
     private func basicFilters() -> [MFiltersItem]
     {
-        let itemNone:MFiltersItemBasicNone = MFiltersItemBasicNone()
         let itemInk:MFiltersItemBasicInk = MFiltersItemBasicInk()
         let itemGothic:MFiltersItemBasicGothic = MFiltersItemBasicGothic()
         let itemRembrandt:MFiltersItemBasicRembrandt = MFiltersItemBasicRembrandt()
