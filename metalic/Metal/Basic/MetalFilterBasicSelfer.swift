@@ -7,12 +7,14 @@ class MetalFilterBasicSelfer:MetalFilter
     private var bokehSize:Int
     private var sizeRatio:Int
     private var dilate:MPSImageDilate?
+    private var gaussian:MPSImageGaussianBlur?
     private let kFunctionName:String = "filter_basicSelfer"
     private let kFacesTextureIndex:Int = 2
     private let kBokehTextureIndex:Int = 3
-    private let kMinImageSize:Int = 320
+    private let kMinImageSize:Int = 640
     private let kMinBokehSize:Int = 15
     private let kRepeatingElement:Float = 1
+    private let kGaussSigma:Float = 6
     
     required init(device:MTLDevice)
     {
@@ -24,11 +26,44 @@ class MetalFilterBasicSelfer:MetalFilter
     
     override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture: MTLTexture)
     {
-        generateDilate(sourceTexture:sourceTexture)
+        let sourceWidth:Int = sourceTexture.width
+        let sourceHeight:Int = sourceTexture.height
         
-        dilate?.encode(commandBuffer:commandBuffer,
-                      sourceTexture:sourceTexture,
-                      destinationTexture:destinationTexture)
+        generateDilate(sourceTexture:sourceTexture)
+        generateGaussian(sourceTexture:sourceTexture)
+        
+        dilate?.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:sourceTexture,
+            destinationTexture:destinationTexture)
+        
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:sourceTexture.pixelFormat,
+            width:sourceWidth,
+            height:sourceHeight,
+            mipmapped:false)
+        
+        let bokehTexture:MTLTexture = device.makeTexture(descriptor:textureDescriptor)
+        let origin:MTLOrigin = MTLOriginMake(0, 0, 0)
+        let size:MTLSize = MTLSizeMake(sourceWidth, sourceHeight, sourceTexture.depth)
+        let blitEncoder:MTLBlitCommandEncoder = commandBuffer.makeBlitCommandEncoder()
+        
+        blitEncoder.copy(
+            from:destinationTexture,
+            sourceSlice:0,
+            sourceLevel:0,
+            sourceOrigin:origin,
+            sourceSize:size,
+            to:bokehTexture,
+            destinationSlice:0,
+            destinationLevel:0,
+            destinationOrigin:origin)
+        blitEncoder.endEncoding()
+        
+        gaussian?.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:bokehTexture,
+            destinationTexture:destinationTexture)
         
         super.encode(
             commandBuffer:commandBuffer,
@@ -96,78 +131,75 @@ class MetalFilterBasicSelfer:MetalFilter
                 let faceFeatureY:Int = sourceHeight - (Int(faceFeature.bounds.origin.y) + faceFeatureH)
                 let faceFeatureMaxX:Int = faceFeatureX + faceFeatureW
                 let faceFeatureMaxY:Int = faceFeatureY + faceFeatureH
+                let faceFeatureW_2:Int = Int(round(Float(faceFeatureW) / 2.0))
+                let faceFeatureH_2:Int = Int(round(Float(faceFeatureH) / 2.0))
+                let faceFeatureCenterX:Int = faceFeatureX + faceFeatureW_2
+                let faceFeatureCenterY:Int = faceFeatureY + faceFeatureH_2
+                let faceFeatureRadius:Int = min(faceFeatureW_2, faceFeatureH_2)
                 
-                for faceHr:Int in faceFeatureX ..< faceFeatureMaxX
+                var minX:Int = faceFeatureX - faceRadius
+                var maxX:Int = faceFeatureMaxX + faceRadius
+                var minY:Int = faceFeatureY - faceRadius
+                var maxY:Int = faceFeatureMaxY + faceRadius
+                
+                if minX < 0
                 {
-                    for faceVr:Int in faceFeatureY ..< faceFeatureMaxY
-                    {
-                        let facePosition:Int = (sourceWidth * faceVr) + faceHr
-                        textureArray[facePosition] = 0
-                    }
+                    minX = 0
                 }
                 
-                for radius:Int in 0 ..< faceRadius
+                if maxX > maxWidth
                 {
-                    let radiusFloat:Float = Float(radius)
-                    let thisPixel:Float = radiusFloat / faceRadiusFloat
-                    var minX:Int = faceFeatureX - radius
-                    var maxX:Int = faceFeatureMaxX + radius
-                    var minY:Int = faceFeatureY - radius
-                    var maxY:Int = faceFeatureMaxY + radius
-                    
-                    if minX < 0
-                    {
-                        minX = 0
-                    }
-                    
-                    if maxX > maxWidth
-                    {
-                        maxX = maxWidth
-                    }
-                    
-                    if minY < 0
-                    {
-                        minY = 0
-                    }
-                    
-                    if maxY > maxHeight
-                    {
-                        maxY = maxHeight
-                    }
+                    maxX = maxWidth
+                }
+                
+                if minY < 0
+                {
+                    minY = 0
+                }
+                
+                if maxY > maxHeight
+                {
+                    maxY = maxHeight
+                }
+                
+                for indexVr:Int in minY ..< maxY
+                {
+                    let deltaY:Int = indexVr - faceFeatureCenterY
+                    let deltaY2:Int = deltaY * deltaY
+                    let currentRow:Int = sourceWidth * indexVr
                     
                     for indexHr:Int in minX ..< maxX
                     {
-                        let topIndex:Int = (sourceWidth * minY) + indexHr
-                        let bottomIndex:Int = (sourceWidth * maxY) + indexHr
-                        let currentTop:Float = textureArray[topIndex]
-                        let currentBottom:Float = textureArray[bottomIndex]
+                        let pixelIndex:Int = currentRow + indexHr
+                        let currentWeight:Float = textureArray[pixelIndex]
                         
-                        if currentTop > thisPixel
+                        if currentWeight > 0
                         {
-                            textureArray[topIndex] = thisPixel
-                        }
-                        
-                        if currentBottom > thisPixel
-                        {
-                            textureArray[bottomIndex] = thisPixel
-                        }
-                    }
-                    
-                    for indexVr:Int in minY ..< maxY
-                    {
-                        let leftIndex:Int = (sourceWidth * indexVr) + minX
-                        let rightIndex:Int = (sourceWidth * indexVr) + maxX
-                        let currentLeft:Float = textureArray[leftIndex]
-                        let currentRight:Float = textureArray[rightIndex]
-                        
-                        if currentLeft > thisPixel
-                        {
-                            textureArray[leftIndex] = thisPixel
-                        }
-                        
-                        if currentRight > thisPixel
-                        {
-                            textureArray[rightIndex] = thisPixel
+                            let deltaX:Int = indexHr - faceFeatureCenterX
+                            let deltaX2:Int = deltaX * deltaX
+                            let deltaSum:Int = deltaX2 + deltaY2
+                            let hyp:Int = Int(sqrt(Float(deltaSum)))
+                            let deltaRadius:Int = hyp - faceFeatureRadius
+                            let pixelWeight:Float
+                            
+                            if deltaRadius > 1
+                            {
+                                fatalError("didn't know this could happen")
+                            }
+                            else if deltaRadius > 0
+                            {
+                                let deltaRaiusFloat:Float = Float(deltaRadius)
+                                pixelWeight = deltaRaiusFloat / faceRadiusFloat
+                            }
+                            else
+                            {
+                                pixelWeight = 0
+                            }
+                            
+                            if pixelWeight < currentWeight
+                            {
+                                textureArray[pixelIndex] = pixelWeight
+                            }
                         }
                     }
                 }
@@ -243,5 +275,27 @@ class MetalFilterBasicSelfer:MetalFilter
             kernelWidth:bokehSize,
             kernelHeight:bokehSize,
             values:probe)
+    }
+    
+    private func generateGaussian(sourceTexture:MTLTexture)
+    {
+        let sourceWidth:Int = sourceTexture.width
+        let sourceHeight:Int = sourceTexture.height
+        let minSize:Int = min(sourceWidth, sourceHeight)
+        let gaussSigma:Float
+        
+        if minSize <= kMinImageSize
+        {
+            gaussSigma = kGaussSigma
+        }
+        else
+        {
+            let sizeRatio:Float = Float(minSize / kMinImageSize)
+            gaussSigma = kGaussSigma * sizeRatio
+        }
+        
+        gaussian = MPSImageGaussianBlur(
+            device:device,
+            sigma:gaussSigma)
     }
 }
