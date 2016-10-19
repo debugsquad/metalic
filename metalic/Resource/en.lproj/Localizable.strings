@@ -2,12 +2,12 @@
 "MFiltersItemBasicInk_name"="Ink";
 "MFiltersItemBasicGothic_name"="Gothic";
 "MFiltersItemBasicRembrandt_name"="Rembrandt";
-"MFiltersItemBasicSelfer_name"="Selfer";
 "MFiltersItemBasicComic_name"="Comic book";
 "MFiltersItemBasicTest_name"="Test";
 "MFiltersItemBasicChalk_name"="Chalk";
 "MFiltersItemBasicDefine_name"="Define";
 "MFiltersItemPremiumNeon_name"="Neon";
 "MFiltersItemPremiumEmber_name"="Ember";
+"MFiltersItemPremiumSelfer_name"="Selfer";
 
 "VHomeSelector_buttonNext"="Next";
