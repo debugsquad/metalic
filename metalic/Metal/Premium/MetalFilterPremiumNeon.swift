@@ -2,49 +2,80 @@ import MetalPerformanceShaders
 
 class MetalFilterPremiumNeon:MetalFilter
 {
-    var histogramInfo = MPSImageHistogramInfo(
-        numberOfHistogramEntries: 256,
-        histogramForAlpha: false,
-        minPixelValue: vector_float4(0,0,0,0),
-        maxPixelValue: vector_float4(0.5,0.32,0.2,1))
+    private var histogramInfo:MPSImageHistogramInfo
+    private let histogramOptions:MTLResourceOptions
+    private let calculation:MPSImageHistogram
+    private let equalization:MPSImageHistogramEqualization
+    private let kHistogramEntries:Int = 256
+    private let kAlphaChannel:ObjCBool = false
+    private let kMinPixelValue:Float = 0
+    private let kMaxCyanPixelValue:Float = 0.5
+    private let kMaxMagentaPixelValue:Float = 0.32
+    private let kMaxYellowPixelValue:Float = 0.2
+    private let kMaxKeyPixelValue:Float = 1
+    private let kHistogramOffset:Int = 0
     
     required init(device:MTLDevice)
     {
+        let minPixel:vector_float4 = vector_float4(
+            kMinPixelValue,
+            kMinPixelValue,
+            kMinPixelValue,
+            kMinPixelValue
+        )
+        
+        let maxPixel:vector_float4 = vector_float4(
+            kMaxCyanPixelValue,
+            kMaxMagentaPixelValue,
+            kMaxYellowPixelValue,
+            kMaxKeyPixelValue
+        )
+        
+        histogramInfo = MPSImageHistogramInfo(
+            numberOfHistogramEntries:kHistogramEntries,
+            histogramForAlpha:kAlphaChannel,
+            minPixelValue:minPixel,
+            maxPixelValue:maxPixel)
+        
+        histogramOptions = MTLResourceOptions([
+            MTLResourceOptions.storageModePrivate
+        ])
+        
+        calculation = MPSImageHistogram(
+            device:device,
+            histogramInfo:&histogramInfo)
+        
+        equalization = MPSImageHistogramEqualization(
+            device:device,
+            histogramInfo:&histogramInfo)
+        
         super.init(device:device, functionName:nil)
     }
     
-    override func encode(commandBuffer: MTLCommandBuffer, sourceTexture: MTLTexture, destinationTexture: MTLTexture)
+    override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
     {
-        print("\(sourceTexture.width) \(sourceTexture.height)")
+        let pixelFormat:MTLPixelFormat = sourceTexture.pixelFormat
+        let histogramSize:Int = calculation.histogramSize(
+            forSourceFormat:pixelFormat)
+        let histogramBuffer:MTLBuffer = device.makeBuffer(
+            length:histogramSize,
+            options:histogramOptions)
         
-        let calculation = MPSImageHistogram(device: device,
-                                            histogramInfo: &histogramInfo)
+        calculation.encode(
+            to:commandBuffer,
+            sourceTexture:sourceTexture,
+            histogram:histogramBuffer,
+            histogramOffset:kHistogramOffset)
         
-        let equalization = MPSImageHistogramEqualization(device: device,
-                                                         histogramInfo: &histogramInfo)
+        equalization.encodeTransform(
+            to:commandBuffer,
+            sourceTexture:sourceTexture,
+            histogram:histogramBuffer,
+            histogramOffset:kHistogramOffset)
         
-        
-        let bufferLength = calculation.histogramSize(forSourceFormat: sourceTexture.pixelFormat)
-        let histogramInfoBuffer = device.makeBuffer(length: bufferLength, options: [.storageModePrivate])
-        print("Equalization Buffer Length: \(bufferLength)")
-        
-        // Performing equalization with MPS is a three stage operation:
-        
-        // 1: The image's histogram is calculated and passed to an MPSImageHistogramInfo object.
-        calculation.encode(to: commandBuffer,
-                           sourceTexture: sourceTexture,
-                           histogram: histogramInfoBuffer,
-                           histogramOffset: 0)
-        
-        // 2: The equalization filter's encodeTransform method creates an image transform which is used to equalize the distribution of the histogram of the source image.
-        equalization.encodeTransform(to: commandBuffer,
-                                     sourceTexture: sourceTexture,
-                                     histogram: histogramInfoBuffer,
-                                     histogramOffset: 0)
-        
-        // 3: The equalization filter's encode method applies the equalization transform to the source texture and and writes the output to the destination texture.
-        equalization.encode(commandBuffer: commandBuffer,
-                            sourceTexture: sourceTexture,
-                            destinationTexture: destinationTexture)
+        equalization.encode(
+            commandBuffer:commandBuffer,
+            sourceTexture:sourceTexture,
+            destinationTexture:destinationTexture)
     }
 }
