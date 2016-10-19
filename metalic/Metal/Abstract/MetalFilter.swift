@@ -3,10 +3,11 @@ import MetalPerformanceShaders
 class MetalFilter:MPSUnaryImageKernel
 {
     let mtlFunction:MTLFunction?
-    private let kThreadgroupWidth:Int = 8
-    private let kThreadgroupHeight:Int = 8
+    private let kThreadgroupWidth:Int = 16
+    private let kThreadgroupHeight:Int = 16
     private let kThreadgroupDeep:Int = 1
     weak var sourceTexture:MTLTexture?
+    weak var destinationTexture:MTLTexture?
     
     init(device:MTLDevice, functionName:String?)
     {
@@ -31,6 +32,7 @@ class MetalFilter:MPSUnaryImageKernel
     override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
     {
         self.sourceTexture = sourceTexture
+        self.destinationTexture = destinationTexture
         let optionalPipeline:MTLComputePipelineState?
         
         guard
