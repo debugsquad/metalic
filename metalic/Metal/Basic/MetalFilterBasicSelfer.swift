@@ -88,15 +88,26 @@ class MetalFilterBasicSelfer:MetalFilter
                 let faceFeatureW:Int = Int(faceFeature.bounds.size.width)
                 let faceFeatureH:Int = Int(faceFeature.bounds.size.height)
                 let faceFeatureY:Int = sourceHeight - (Int(faceFeature.bounds.origin.y) + faceFeatureH)
+                let faceFeatureMaxX:Int = faceFeatureX + faceFeatureW
+                let faceFeatureMaxY:Int = faceFeatureY + faceFeatureH
+                
+                for faceHr:Int in faceFeatureX ..< faceFeatureMaxX
+                {
+                    for faceVr:Int in faceFeatureY ..< faceFeatureMaxY
+                    {
+                        let facePosition:Int = (sourceWidth * faceVr) + faceHr
+                        textureArray[facePosition] = 0
+                    }
+                }
                 
                 for radius:Int in 1 ..< bokehSize
                 {
                     let radiusFloat:Float = Float(radius)
                     let thisPixel:Float = radiusFloat / bokehSizeFloat
                     var minX:Int = faceFeatureX - radius
-                    var maxX:Int = faceFeatureX + faceFeatureW + radius
+                    var maxX:Int = faceFeatureMaxX + radius
                     var minY:Int = faceFeatureY - radius
-                    var maxY:Int = faceFeatureY + faceFeatureH + radius
+                    var maxY:Int = faceFeatureMaxY + radius
                     
                     if minX < 0
                     {
