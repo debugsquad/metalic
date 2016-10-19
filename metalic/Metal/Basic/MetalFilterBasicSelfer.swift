@@ -5,17 +5,19 @@ import UIKit
 class MetalFilterBasicSelfer:MetalFilter
 {
     private var bokehSize:Int
+    private var sizeRatio:Int
     private var dilate:MPSImageDilate?
     private let kFunctionName:String = "filter_basicSelfer"
     private let kFacesTextureIndex:Int = 2
     private let kBokehTextureIndex:Int = 3
-    private let kMinImageSize:Int = 640
+    private let kMinImageSize:Int = 320
     private let kMinBokehSize:Int = 15
     private let kRepeatingElement:Float = 1
     
     required init(device:MTLDevice)
     {
         bokehSize = 0
+        sizeRatio = 0
         
         super.init(device:device, functionName:kFunctionName)
     }
@@ -59,6 +61,8 @@ class MetalFilterBasicSelfer:MetalFilter
         
         let sourceWidth:Int = sourceTexture.width
         let sourceHeight:Int = sourceTexture.height
+        let maxWidth:Int = sourceWidth - 1
+        let maxHeight:Int = sourceHeight - 1
         let sourceSize:Int = sourceWidth * sourceHeight
         let sizeOfFloat:Int = MemoryLayout.size(ofValue:kRepeatingElement)
         var textureArray:[Float] = Array(
@@ -79,7 +83,8 @@ class MetalFilterBasicSelfer:MetalFilter
         
         let facesTexture:MTLTexture = device.makeTexture(descriptor:textureDescriptor)
         let features:[CIFeature] = detector.features(in:image)
-        let bokehSizeFloat:Float = Float(bokehSize)
+        let faceRadius:Int = bokehSize * sizeRatio
+        let faceRadiusFloat:Float = Float(faceRadius)
         
         for feature:CIFeature in features
         {
@@ -101,10 +106,10 @@ class MetalFilterBasicSelfer:MetalFilter
                     }
                 }
                 
-                for radius:Int in 1 ..< bokehSize
+                for radius:Int in 0 ..< faceRadius
                 {
                     let radiusFloat:Float = Float(radius)
-                    let thisPixel:Float = radiusFloat / bokehSizeFloat
+                    let thisPixel:Float = radiusFloat / faceRadiusFloat
                     var minX:Int = faceFeatureX - radius
                     var maxX:Int = faceFeatureMaxX + radius
                     var minY:Int = faceFeatureY - radius
@@ -115,9 +120,9 @@ class MetalFilterBasicSelfer:MetalFilter
                         minX = 0
                     }
                     
-                    if maxX > sourceWidth
+                    if maxX > maxWidth
                     {
-                        maxX = sourceWidth
+                        maxX = maxWidth
                     }
                     
                     if minY < 0
@@ -125,9 +130,9 @@ class MetalFilterBasicSelfer:MetalFilter
                         minY = 0
                     }
                     
-                    if maxY > sourceHeight
+                    if maxY > maxHeight
                     {
-                        maxY = sourceHeight
+                        maxY = maxHeight
                     }
                     
                     for indexHr:Int in minX ..< maxX
@@ -191,11 +196,17 @@ class MetalFilterBasicSelfer:MetalFilter
         if minSize <= kMinImageSize
         {
             bokehSize = kMinBokehSize
+            sizeRatio = 1
         }
         else
         {
-            let sizeRatio:Int = minSize / kMinImageSize
+            sizeRatio = minSize / kMinImageSize
             bokehSize = kMinBokehSize * sizeRatio
+        }
+        
+        if bokehSize % 2 == 0
+        {
+            bokehSize += 1
         }
         
         var probe:[Float] = []
@@ -214,7 +225,7 @@ class MetalFilterBasicSelfer:MetalFilter
                 let hypotPos:Float = hypot(xPos, yPos)
                 let probeElement:Float
                 
-                if hypotPos > bokehSizeFloat
+                if hypotPos < midSize
                 {
                     probeElement = 0
                 }
