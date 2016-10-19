@@ -2,13 +2,13 @@ import MetalPerformanceShaders
 import CoreImage
 import UIKit
 
-class MetalFilterBasicSelfer:MetalFilter
+class MetalFilterPremiumSelfer:MetalFilter
 {
     private var bokehSize:Int
     private var sizeRatio:Int
     private var dilate:MPSImageDilate?
     private var gaussian:MPSImageGaussianBlur?
-    private let kFunctionName:String = "filter_basicSelfer"
+    private let kFunctionName:String = "filter_premiumSelfer"
     private let kFacesTextureIndex:Int = 2
     private let kBokehTextureIndex:Int = 3
     private let kMinImageSize:Int = 640
