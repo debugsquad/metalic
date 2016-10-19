@@ -34,7 +34,6 @@ class MFilters
         let itemDefine:MFiltersItemBasicDefine = MFiltersItemBasicDefine()
         
         let items:[MFiltersItem] = [
-            itemNone,
             itemTest,
             itemDefine,
             itemChalk,
