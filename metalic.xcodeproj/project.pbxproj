@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */; };
+		DA2162631DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */; };
 		DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */; };
 		DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */; };
 		DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumNeon.swift; sourceTree = "<group>"; };
+		DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumNeon.swift; sourceTree = "<group>"; };
 		DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicChalk.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		DA46D8591DB142F500B89DE9 /* Premium */ = {
 			isa = PBXGroup;
 			children = (
+				DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,
 				DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */,
+				DA2162631DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift in Sources */,
 				DAB94E581DAC2E9F00880B1B /* ExtensionUIFont.swift in Sources */,
 				DA48F6951DAAFD7D00D7D3E3 /* VParent.swift in Sources */,
 				DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */,
