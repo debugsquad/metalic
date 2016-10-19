@@ -46,7 +46,10 @@ class MFilters
     
     private func premiumFilters() -> [MFiltersItem]
     {
+        let itemNeon:MFiltersItemPremiumNeon = MFiltersItemPremiumNeon()
+        
         let items:[MFiltersItem] = [
+            itemNeon
         ]
         
         return items
