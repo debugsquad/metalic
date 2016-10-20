@@ -3,6 +3,7 @@ import UIKit
 class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
+    weak var buttonExport:UIButton!
     
     convenience init(controller:CHomeFiltered)
     {
@@ -20,6 +21,11 @@ class VHomeFiltered:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.image
+        
+        let buttonExport:UIButton = UIButton()
+        buttonExport.translatesAutoresizingMaskIntoConstraints = false
+        buttonExport
+        self.buttonExport = buttonExport
         
         addSubview(imageView)
         
