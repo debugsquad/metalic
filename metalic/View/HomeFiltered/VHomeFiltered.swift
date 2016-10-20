@@ -15,6 +15,13 @@ class VHomeFiltered:UIView
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
+        let background:UIImageView = UIImageView()
+        background.isUserInteractionEnabled = false
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.clipsToBounds = true
+        background.contentMode = UIViewContentMode.scaleAspectFill
+        background.image = controller.image
+        
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,10 +43,12 @@ class VHomeFiltered:UIView
         buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
         self.buttonExport = buttonExport
         
+        addSubview(background)
         addSubview(imageView)
         
         let views:[String:UIView] = [
-            "imageView":imageView]
+            "imageView":imageView,
+            "background":background]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -51,6 +60,16 @@ class VHomeFiltered:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[background]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[background]-0-|",
             options:[],
             metrics:metrics,
             views:views))
