@@ -24,6 +24,13 @@ class VHomeFiltered:UIView
         
         let buttonExport:UIButton = UIButton()
         buttonExport.translatesAutoresizingMaskIntoConstraints = false
+        buttonExport.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonExport.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonExport.imageView!.tintColor = UIColor.black
         self.buttonExport = buttonExport
         
         addSubview(imageView)
@@ -45,6 +52,23 @@ class VHomeFiltered:UIView
             metrics:metrics,
             views:views))
         
-        controller.parentController.viewParent.bar.addSubview(buttonExport)
+        let bar:VBar = controller.parentController.viewParent.bar
+        bar.addSubview(buttonExport)
+        
+        let barViews:[String:UIView] = [
+            "buttonExport":buttonExport]
+        
+        let barMetrics:[String:CGFloat] = [:]
+        
+        bar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonExport(60)]-0-|",
+            options:[],
+            metrics:barMetrics,
+            views:barViews))
+        bar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[buttonExport]-0-|",
+            options:[],
+            metrics:barMetrics,
+            views:barViews))
     }
 }
