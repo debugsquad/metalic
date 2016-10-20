@@ -15,6 +15,11 @@ class VHomeFiltered:UIView
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
+        let blurEffect:UIVisualEffectView = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blur:UIVisualEffectView = UIVisualEffectView(effect:blur)
+        blur.isUserInteractionEnabled = false
+        blur.translatesAutoresizingMaskIntoConstraints = false
+        
         let background:UIImageView = UIImageView()
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -44,10 +49,12 @@ class VHomeFiltered:UIView
         self.buttonExport = buttonExport
         
         addSubview(background)
+        addSubview(blur)
         addSubview(imageView)
         
         let views:[String:UIView] = [
             "imageView":imageView,
+            "blur":blur,
             "background":background]
         
         let metrics:[String:CGFloat] = [
@@ -60,6 +67,16 @@ class VHomeFiltered:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
