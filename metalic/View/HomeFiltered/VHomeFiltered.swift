@@ -15,8 +15,8 @@ class VHomeFiltered:UIView
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
-        let blurEffect:UIVisualEffectView = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let blur:UIVisualEffectView = UIVisualEffectView(effect:blur)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,6 +46,10 @@ class VHomeFiltered:UIView
         buttonExport.imageView!.contentMode = UIViewContentMode.center
         buttonExport.imageView!.clipsToBounds = true
         buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
+        buttonExport.addTarget(
+            self,
+            action:#selector(actionExport(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonExport = buttonExport
         
         addSubview(background)
@@ -114,5 +118,12 @@ class VHomeFiltered:UIView
     deinit
     {
         buttonExport.removeFromSuperview()
+    }
+    
+    //MARK: actions
+    
+    func actionExport(sender button:UIButton)
+    {
+        
     }
 }
