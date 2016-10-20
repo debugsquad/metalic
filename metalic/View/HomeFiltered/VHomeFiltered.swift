@@ -31,7 +31,9 @@ class VHomeFiltered:UIView
             #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonExport.imageView!.tintColor = UIColor.black
-        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0)
+        buttonExport.imageView!.contentMode = UIViewContentMode.center
+        buttonExport.imageView!.clipsToBounds = true
+        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
         self.buttonExport = buttonExport
         
         addSubview(imageView)
@@ -71,5 +73,10 @@ class VHomeFiltered:UIView
             options:[],
             metrics:barMetrics,
             views:barViews))
+    }
+    
+    deinit
+    {
+        buttonExport.removeFromSuperview()
     }
 }
