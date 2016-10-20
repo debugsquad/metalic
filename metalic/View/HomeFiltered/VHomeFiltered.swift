@@ -31,6 +31,7 @@ class VHomeFiltered:UIView
             #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonExport.imageView!.tintColor = UIColor.black
+        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0)
         self.buttonExport = buttonExport
         
         addSubview(imageView)
