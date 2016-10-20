@@ -124,6 +124,6 @@ class VHomeFiltered:UIView
     
     func actionExport(sender button:UIButton)
     {
-        
+        controller.export()
     }
 }

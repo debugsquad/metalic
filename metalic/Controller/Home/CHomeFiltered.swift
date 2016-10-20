@@ -31,4 +31,20 @@ class CHomeFiltered:CController
         
         title = NSLocalizedString("CHomeFiltered_title", comment:"")
     }
+    
+    //MARK: public
+    
+    func export()
+    {
+        let activity:UIActivityViewController = UIActivityViewController(activityItems:[image], applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewFiltered
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
+    }
 }
