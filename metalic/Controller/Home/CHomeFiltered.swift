@@ -24,4 +24,11 @@ class CHomeFiltered:CController
         self.viewFiltered = viewFiltered
         view = viewFiltered
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        title = NSLocalizedString("CHomeFiltered_title", comment:"")
+    }
 }

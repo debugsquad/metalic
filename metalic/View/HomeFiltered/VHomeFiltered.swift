@@ -24,7 +24,6 @@ class VHomeFiltered:UIView
         
         let buttonExport:UIButton = UIButton()
         buttonExport.translatesAutoresizingMaskIntoConstraints = false
-        buttonExport
         self.buttonExport = buttonExport
         
         addSubview(imageView)
@@ -45,5 +44,7 @@ class VHomeFiltered:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        controller.parentController.viewParent.bar.addSubview(buttonExport)
     }
 }
