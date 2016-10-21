@@ -3,11 +3,6 @@ import UIKit
 class CStore:CController
 {
     weak var viewHome:VHome!
-    var normalizedImage:UIImage?
-    var device:MTLDevice!
-    var commandQueue:MTLCommandQueue!
-    var sourceTexture:MTLTexture?
-    private let kMinBytesPerRow:Int = 3000
     
     override func loadView()
     {
