@@ -4,6 +4,7 @@ import UIKit
 class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
+    static let appId:String = "1168066325"
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {

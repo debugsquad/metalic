@@ -11,7 +11,7 @@ class MMainItemStore:MMainItem
     
     override func controller() -> CController
     {
-        let controller:CHome = CHome()
+        let controller:CStore = CStore()
         
         return controller
     }

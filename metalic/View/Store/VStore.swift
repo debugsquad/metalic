@@ -5,6 +5,7 @@ class VStore:UIView
     weak var controller:CStore!
     weak var viewStore:VStore!
     weak var viewSpinner:VSpinner!
+    weak var collectionView:UICollectionView!
     
     convenience init(controller:CStore)
     {
@@ -19,6 +20,13 @@ class VStore:UIView
         let viewSpinner:VSpinner = VSpinner()
         self.viewSpinner = viewSpinner
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.isHidden = false
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
         addSubview(viewSpinner)
         
         let views:[String:UIView] = [
