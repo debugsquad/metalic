@@ -16,6 +16,7 @@
 		DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */; };
 		DA21626F1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */; };
 		DA2162711DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */; };
+		DA375C2C1DB99654004D7265 /* ExtensionUIColorr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA375C2B1DB99654004D7265 /* ExtensionUIColorr.swift */; };
 		DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */; };
 		DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */; };
 		DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */; };
@@ -90,6 +91,7 @@
 		DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterPremiumSelfer.metal; sourceTree = "<group>"; };
 		DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumSelfer.swift; sourceTree = "<group>"; };
 		DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumSelfer.swift; sourceTree = "<group>"; };
+		DA375C2B1DB99654004D7265 /* ExtensionUIColorr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColorr.swift; sourceTree = "<group>"; };
 		DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FC1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicChalk.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		DAB94E541DAC2C0E00880B1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DA375C2B1DB99654004D7265 /* ExtensionUIColorr.swift */,
 				DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */,
 				DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */,
 				DAA0C0151DB52C150017DBE1 /* ExtensionMTLTexture.swift */,
@@ -542,6 +545,7 @@
 				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
+				DA375C2C1DB99654004D7265 /* ExtensionUIColorr.swift in Sources */,
 				DAA0C0081DB19BEF0017DBE1 /* MetalFilterBasicRembrandt.metal in Sources */,
 				DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */,
 				DAA0C01B1DB54A6F0017DBE1 /* VHomeFiltered.swift in Sources */,
