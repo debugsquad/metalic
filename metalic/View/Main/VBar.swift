@@ -123,7 +123,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             self.collectionView.selectItem(
                 at:indexPath,
                 animated:false,
-                scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+                scrollPosition:UICollectionViewScrollPosition())
         }
     }
     
@@ -140,16 +140,6 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         {
             currentWidth = width
             collectionView.collectionViewLayout.invalidateLayout()
-            
-            DispatchQueue.main.async
-            {
-                let selected:Int = self.model.current.index
-                let selectedIndexPath:IndexPath = IndexPath(item:selected, section:0)
-                self.collectionView.scrollToItem(
-                    at:selectedIndexPath,
-                    at:UICollectionViewScrollPosition.centeredHorizontally,
-                    animated:true)
-            }
         }
         
         DispatchQueue.main.async
@@ -316,7 +306,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let remain:CGFloat = width - kCellWidth
+        let cellsWidth:CGFloat = kCellWidth * CGFloat(model.items.count)
+        let remain:CGFloat = width - cellsWidth
         let margin:CGFloat = remain / 2.0
         let insets:UIEdgeInsets = UIEdgeInsetsMake(0, margin, 0, margin)
         
@@ -361,11 +352,6 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         if item !== model.current
         {
             selectItem(item:item)
-            
-            collectionView.scrollToItem(
-                at:indexPath,
-                at:UICollectionViewScrollPosition.centeredHorizontally,
-                animated:true)
         }
     }
 }
