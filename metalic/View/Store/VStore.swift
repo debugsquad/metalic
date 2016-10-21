@@ -1,6 +1,6 @@
 import UIKit
 
-class VStore:UIView
+class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CStore!
     weak var viewStore:VStore!
@@ -30,7 +30,8 @@ class VStore:UIView
         addSubview(viewSpinner)
         
         let views:[String:UIView] = [
-            "viewSpinner":viewSpinner]
+            "viewSpinner":viewSpinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -41,7 +42,17 @@ class VStore:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[viewSpinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -55,4 +66,13 @@ class VStore:UIView
     {
         viewSpinner.startAnimating()
     }
+    
+    //MARK: collection delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    
 }
