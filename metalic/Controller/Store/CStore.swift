@@ -2,26 +2,17 @@ import UIKit
 
 class CStore:CController
 {
-    weak var viewHome:VHome!
+    weak var viewStore:VStore!
     
     override func loadView()
     {
-        let viewHome:VHome = VHome(controller:self)
-        self.viewHome = viewHome
-        view = viewHome
+        let viewStore:VStore = VStore(controller:self)
+        self.viewStore = viewStore
+        view = viewStore
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        setupMetal()
-    }
-    
-    override func viewDidAppear(_ animated:Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        viewHome.viewPicture.draw()
     }
 }
