@@ -1,9 +1,18 @@
-//
-//  MMainItemStore.swift
-//  metalic
-//
-//  Created by zero on 10/21/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MMainItemStore:MMainItem
+{
+    private let kIconImage:String = "assetGenericStore"
+    
+    init(index:Int)
+    {
+        super.init(iconImage:kIconImage, index:index)
+    }
+    
+    override func controller() -> CController
+    {
+        let controller:CHome = CHome()
+        
+        return controller
+    }
+}
