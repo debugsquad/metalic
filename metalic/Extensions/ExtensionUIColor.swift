@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor
 {
-    open class var main:UIColor
+    open class var main:UIColor //#4D80B3
     {
         get
         {
