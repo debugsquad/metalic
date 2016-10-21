@@ -242,10 +242,10 @@
 				DA48F69B1DAAFE5E00D7D3E3 /* MMain.swift */,
 				DA48F69D1DAAFE6700D7D3E3 /* MMainItem.swift */,
 				DA48F69F1DAAFE7500D7D3E3 /* MMainItemHome.swift */,
+				DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */,
 				DAB94E4E1DAC29AF00880B1B /* MMainState.swift */,
 				DAB94E501DAC2A2F00880B1B /* MMainStateOptions.swift */,
 				DAB94E521DAC2A3A00880B1B /* MMainStatePushed.swift */,
-				DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
