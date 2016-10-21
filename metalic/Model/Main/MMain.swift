@@ -17,6 +17,8 @@ class MMain
         current = itemHome
         self.itemHome = itemHome
         items.append(itemHome)
+        let itemStore:MMainItemStore = MMainItemStore(index:items.count)
+        items.append(itemStore)
         
         self.items = items
     }
