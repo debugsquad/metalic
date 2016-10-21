@@ -10,7 +10,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat
-    private let kCellWidth:CGFloat = 80
+    private let kCellWidth:CGFloat = 70
     private let kAnimationDuration:TimeInterval = 0.3
     private let kWaitingTime:TimeInterval = 1
     

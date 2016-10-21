@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
+		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
 		DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */; };
 		DA2162631DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */; };
 		DA2162651DB82CE400F97B6C /* MetalFilterPremiumEmber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
+		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
 		DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumEmber.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA12D2861DBA766D00F19962 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				DA12D2871DBA767600F19962 /* CStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		DA21625F1DB81EDF00F97B6C /* Premium */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 		DAD5C2011DA85FA5002996A0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA12D2861DBA766D00F19962 /* Store */,
 				DAD5C2181DA86C47002996A0 /* Home */,
 				DAD5C2191DA86C47002996A0 /* Main */,
 			);
@@ -541,6 +552,7 @@
 				DA21626B1DB82EDE00F97B6C /* MFiltersItemNone.swift in Sources */,
 				DA40A0FF1DB6750D00DC42C6 /* MetalFilterBasicChalk.metal in Sources */,
 				DAF74BEF1DB5A48100F490CF /* MetalFilterBasicComic.swift in Sources */,
+				DA12D2881DBA767600F19962 /* CStore.swift in Sources */,
 				DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */,
 				DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */,
 				DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */,
