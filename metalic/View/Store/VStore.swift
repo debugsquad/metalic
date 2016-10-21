@@ -33,6 +33,18 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = false
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VStoreCell.self,
+            forCellWithReuseIdentifier:
+            VStoreCell.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
