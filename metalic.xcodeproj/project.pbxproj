@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */; };
 		DA2162631DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */; };
 		DA2162651DB82CE400F97B6C /* MetalFilterPremiumEmber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumEmber.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			children = (
 				DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */,
 				DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */,
+				DA12D2821DBA5DB000F19962 /* Brand.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
+				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
 				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,
 			);
