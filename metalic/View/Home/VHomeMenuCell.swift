@@ -14,7 +14,7 @@ class VHomeMenuCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.bold(size:11)
+        label.font = UIFont.medium(size:12)
         self.label = label
         
         addSubview(label)

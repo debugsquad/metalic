@@ -6,7 +6,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     weak var collectionView:UICollectionView!
     weak var selectedItem:MFiltersItem?
     let model:MFilters
-    private let kCellWidth:CGFloat = 80
+    private let kCellWidth:CGFloat = 90
     private let kAfterSelect:TimeInterval = 0.1
     
     init(controller:CHome)
@@ -134,6 +134,10 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
         selectItemAtIndex(index:indexPath)
     }
 }
