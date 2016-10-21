@@ -25,6 +25,11 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize(width:0, height:kHeaderSize)
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets.zero
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = false
