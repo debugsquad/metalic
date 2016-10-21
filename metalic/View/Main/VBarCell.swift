@@ -31,7 +31,7 @@ class VBarCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-29-[icon]-0-|",
+            withVisualFormat:"V:|-20-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
