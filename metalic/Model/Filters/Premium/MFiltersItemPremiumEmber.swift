@@ -4,7 +4,7 @@ class MFiltersItemPremiumEmber:MFiltersItem
 {
     private let kImageName:String = ""
     
-    init()
+    required init()
     {
         let name:String = NSLocalizedString("MFiltersItemPremiumEmber_name", comment:"")
         let filter:MetalFilter.Type = MetalFilterPremiumEmber.self

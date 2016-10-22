@@ -4,7 +4,7 @@ class MFiltersItemBasicGothic:MFiltersItem
 {
     private let kImageName:String = ""
     
-    init()
+    required init()
     {
         let name:String = NSLocalizedString("MFiltersItemBasicGothic_name", comment:"")
         let filter:MetalFilter.Type = MetalFilterBasicGothic.self

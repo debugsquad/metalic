@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 import StoreKit
 
 class MStore, skprod
@@ -28,3 +28,4 @@ class MStore, skprod
     //MARK: store delegate
     
 }
+*/

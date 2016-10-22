@@ -4,7 +4,7 @@ class MFiltersItemBasicChalk:MFiltersItem
 {
     private let kImageName:String = ""
     
-    init()
+    required init()
     {
         let name:String = NSLocalizedString("MFiltersItemBasicChalk_name", comment:"")
         let filter:MetalFilter.Type = MetalFilterBasicChalk.self

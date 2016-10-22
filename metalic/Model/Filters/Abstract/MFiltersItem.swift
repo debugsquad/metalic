@@ -8,6 +8,7 @@ class MFiltersItem
     
     required init()
     {
+        fatalError()
     }
     
     init(name:String, asset:String, filter:MetalFilter.Type)
