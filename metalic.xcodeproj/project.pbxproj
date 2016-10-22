@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */; };
 		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
+		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
 		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
+		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA114BDE1DBBCBBF00C74C30 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DA114BDF1DBBCBE900C74C30 /* DManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		DA12D2861DBA766D00F19962 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +367,7 @@
 		DAD5C1DE1DA85DCC002996A0 /* metalic */ = {
 			isa = PBXGroup;
 			children = (
+				DA114BDE1DBBCBBF00C74C30 /* Data */,
 				DA4C0A571DAD3153006934D1 /* Metal */,
 				DAB94E541DAC2C0E00880B1B /* Extensions */,
 				DAD5C20F1DA85FE9002996A0 /* Tests */,
@@ -638,6 +649,7 @@
 				DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */,
 				DA40A1051DB6B43B00DC42C6 /* MFiltersItemBasicDefine.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
+				DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */,
 				DA40A1031DB6B30800DC42C6 /* MetalFilterBasicDefine.swift in Sources */,
 				DAA0C0061DB19BE50017DBE1 /* MetalFilterBasicRembrandt.swift in Sources */,
 				DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */,
