@@ -9,6 +9,10 @@
 "MFiltersItemPremiumNeon_name"="Neon";
 "MFiltersItemPremiumEmber_name"="Ember";
 "MFiltersItemPremiumSelfer_name"="Selfer";
+"MStorePurchaseItemDeferred_name"="Deferred";
+"MStorePurchaseItemNew_name"="New";
+"MStorePurchaseItemPurchased_name"="Purchased";
+"MStorePurchaseItemPurchasing_name"="Purchasing";
 
 "VHomeSelector_buttonNext"="Next";
 
