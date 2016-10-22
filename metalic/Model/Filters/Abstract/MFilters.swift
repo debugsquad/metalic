@@ -58,10 +58,6 @@ class MFilters
                     break
                 }
             }
-            /*
-            let classType:AnyObject.Type = classTypeWithSuffix(suffix:classSuffix!)
-            let itemType:MSuggesticConversationItem.Type = classType as! MSuggesticConversationItem.Type
-            item = itemType.init(raw:raw)*/
             
             if dbFilterStored == nil
             {
@@ -69,7 +65,7 @@ class MFilters
                     modelType:DObjectPurchase.self)
                 { (object) in
                     
-                    object.purchaseId = rawPurchase
+                    object.purchaseId = rawPurchaseId
                 }
             }
             else
@@ -79,10 +75,15 @@ class MFilters
                     let classType:AnyClass? = NSClassFromString(rawPurchaseClass)
                     let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
                     let filterItem:MFiltersItem = filterClass.init()
-                    
+                    premiumFilters.append(filterItem)
                 }
             }
         }
+        
+        fillItems()
+        NotificationCenter.default.post(
+            name:Notification.filtersLoaded,
+            object:nil)
     }
     
     private func basicFilters() -> [MFiltersItem]
