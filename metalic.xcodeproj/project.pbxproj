@@ -11,6 +11,7 @@
 		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
 		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
 		DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */; };
+		DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -96,6 +97,7 @@
 		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
 		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
+		DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */,
 				DAA0C0151DB52C150017DBE1 /* ExtensionMTLTexture.swift */,
 				DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */,
+				DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */,
+				DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */,
 				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA12D28B1DBA788C00F19962 /* VStore.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,

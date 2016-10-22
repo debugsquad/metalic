@@ -19,7 +19,7 @@ class DManager
         let sqliteFile:String = String(
             format:kSQLiteExtension,
             kModelName)
-        let storeCoordinatorURL:URL = FileManager.appDirectory().appendingPathComponent(
+        let storeCoordinatorURL:URL = FileManager.appDirectory.appendingPathComponent(
             sqliteFile)
         let managedObjectModel:NSManagedObjectModel = NSManagedObjectModel(
             contentsOf:modelURL)!
@@ -34,7 +34,9 @@ class DManager
                 at:storeCoordinatorURL,
                 options:nil)
         }
-        catch{}
+        catch
+        {
+        }
         
         managedObjectContext = NSManagedObjectContext(
             concurrencyType:
@@ -61,7 +63,9 @@ class DManager
                 {
                     try self.managedObjectContext.save()
                 }
-                catch{}
+                catch
+                {
+                }
             }
         }
     }
