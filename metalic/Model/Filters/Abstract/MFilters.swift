@@ -3,13 +3,17 @@ import Foundation
 class MFilters
 {
     var items:[MFiltersItem]
-    var dbFilters:[DObjectPurchase]
+    private var dbFilters:[DObjectPurchase]
+    private var premiumFilters:[MFiltersItem]
     private let kResourcesName:String = "Purchases"
     private let kResourcesExtension:String = "plist"
+    private let kPurchaseIdKey:String = "purchaseId"
+    private let kPurchaseClassKey:String = "purchaseClass"
     
     init()
     {
         items = []
+        premiumFilters = []
         dbFilters = []
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
@@ -37,23 +41,29 @@ class MFilters
         let resURL:URL = Bundle.main.url(
             forResource:kResourcesName,
             withExtension:kResourcesExtension)!
-        let rawPurchases:[String] = NSArray(contentsOf:resURL) as! [String]
+        let rawPurchases:[[String:String]] = NSArray(contentsOf:resURL) as! [[String:String]]
         
-        for rawPurchase:String in rawPurchases
+        for rawPurchase:[String:String] in rawPurchases
         {
-            var found:Bool = false
+            var dbFilterStored:DObjectPurchase?
+            let rawPurchaseId:String = rawPurchase[kPurchaseIdKey]!
+            let rawPurchaseClass:String = rawPurchase[kPurchaseClassKey]!
             
             for dbFilter:DObjectPurchase in dbFilters
             {
-                if dbFilter.purchaseId == rawPurchase
+                if dbFilter.purchaseId == rawPurchaseId
                 {
-                    found = true
+                    dbFilterStored = dbFilter
                     
                     break
                 }
             }
+            /*
+            let classType:AnyObject.Type = classTypeWithSuffix(suffix:classSuffix!)
+            let itemType:MSuggesticConversationItem.Type = classType as! MSuggesticConversationItem.Type
+            item = itemType.init(raw:raw)*/
             
-            if !found
+            if dbFilterStored == nil
             {
                 DManager.sharedInstance.createManagedObject(
                     modelType:DObjectPurchase.self)
@@ -61,6 +71,13 @@ class MFilters
                     
                     object.purchaseId = rawPurchase
                 }
+            }
+            else
+            {
+                if dbFilterStored!.status ==
+                
+                let classType:AnyClass? = NSClassFromString(rawPurchaseClass)
+                let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
             }
         }
     }
@@ -87,21 +104,6 @@ class MFilters
         return items
     }
     
-    private func premiumFilters() -> [MFiltersItem]
-    {
-        let itemNeon:MFiltersItemPremiumNeon = MFiltersItemPremiumNeon()
-        let itemEmber:MFiltersItemPremiumEmber = MFiltersItemPremiumEmber()
-        let itemSelfer:MFiltersItemPremiumSelfer = MFiltersItemPremiumSelfer()
-        
-        let items:[MFiltersItem] = [
-            itemNeon,
-            itemEmber,
-            itemSelfer
-        ]
-        
-        return items
-    }
-    
     private func fillItems()
     {
         self.items = []
@@ -112,7 +114,7 @@ class MFilters
             itemNone
         ]
         
-        items.append(contentsOf:premiumFilters())
+        items.append(contentsOf:premiumFilters)
         items.append(contentsOf:basicFilters())
         
         self.items = items
