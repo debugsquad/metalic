@@ -3,24 +3,42 @@ import Foundation
 class MFilters
 {
     var items:[MFiltersItem]
+    var dbFilters:[DObjectPurchase]
+    private let kResourcesName:String = "Purchases"
+    private let kResourcesExtension:String = "plist"
     
     init()
     {
-        self.items = []
+        items = []
+        dbFilters = []
         
-        let itemNone:MFiltersItemNone = MFiltersItemNone()
-        
-        var items:[MFiltersItem] = [
-            itemNone
-        ]
-        
-        items.append(contentsOf:premiumFilters())
-        items.append(contentsOf:basicFilters())
-        
-        self.items = items
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.loadDb()
+        }
     }
     
     //MARK: private
+    
+    private func loadDb()
+    {
+        DManager.sharedInstance.fetchManagedObjects(
+            modelType:DObjectPurchase.self)
+        { [weak self] (objects) in
+            
+            self?.dbFilters = objects
+            self?.loadResources()
+        }
+    }
+    
+    private func loadResources()
+    {
+        let resURL:URL = Bundle.main.url(
+            forResource:kResourcesName,
+            withExtension:kResourcesExtension)!
+        let rawPurchases:[String] = NSArray(contentsOf:resURL) as! [String]
+    }
     
     private func basicFilters() -> [MFiltersItem]
     {
@@ -57,5 +75,21 @@ class MFilters
         ]
         
         return items
+    }
+    
+    private func fillItems()
+    {
+        self.items = []
+        
+        let itemNone:MFiltersItemNone = MFiltersItemNone()
+        
+        var items:[MFiltersItem] = [
+            itemNone
+        ]
+        
+        items.append(contentsOf:premiumFilters())
+        items.append(contentsOf:basicFilters())
+        
+        self.items = items
     }
 }
