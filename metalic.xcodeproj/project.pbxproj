@@ -13,6 +13,7 @@
 		DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */; };
 		DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */; };
 		DA114BE71DBBD30F00C74C30 /* DMetalic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE51DBBD30F00C74C30 /* DMetalic.xcdatamodeld */; };
+		DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA114BE81DBBD60300C74C30 /* Purchases.plist */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -100,6 +101,7 @@
 		DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
 		DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
 		DA114BE61DBBD30F00C74C30 /* DMetalic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMetalic.xcdatamodel; sourceTree = "<group>"; };
+		DA114BE81DBBD60300C74C30 /* Purchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Purchases.plist; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD5C2071DA85FA5002996A0 /* Localizable.strings */,
+				DA114BE81DBBD60300C74C30 /* Purchases.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
+				DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */,
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
 				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,
