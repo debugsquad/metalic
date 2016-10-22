@@ -38,6 +38,31 @@ class MFilters
             forResource:kResourcesName,
             withExtension:kResourcesExtension)!
         let rawPurchases:[String] = NSArray(contentsOf:resURL) as! [String]
+        
+        for rawPurchase:String in rawPurchases
+        {
+            var found:Bool = false
+            
+            for dbFilter:DObjectPurchase in dbFilters
+            {
+                if dbFilter.purchaseId == rawPurchase
+                {
+                    found = true
+                    
+                    break
+                }
+            }
+            
+            if !found
+            {
+                DManager.sharedInstance.createManagedObject(
+                    modelType:DObjectPurchase.self)
+                { (object) in
+                    
+                    object.purchaseId = rawPurchase
+                }
+            }
+        }
     }
     
     private func basicFilters() -> [MFiltersItem]
