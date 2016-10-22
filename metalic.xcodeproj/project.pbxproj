@@ -12,6 +12,7 @@
 		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
 		DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */; };
 		DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */; };
+		DA114BE71DBBD30F00C74C30 /* DMetalic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE51DBBD30F00C74C30 /* DMetalic.xcdatamodeld */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -98,6 +99,7 @@
 		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
 		DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
+		DA114BE61DBBD30F00C74C30 /* DMetalic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMetalic.xcdatamodel; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				DA114BDF1DBBCBE900C74C30 /* DManager.swift */,
+				DA114BE51DBBD30F00C74C30 /* DMetalic.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
 				DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */,
 				DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */,
+				DA114BE71DBBD30F00C74C30 /* DMetalic.xcdatamodeld in Sources */,
 				DA12D28D1DBA9E0C00F19962 /* VStoreCell.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAA0C00A1DB42EE20017DBE1 /* MFiltersItemBasicGothic.swift in Sources */,
@@ -883,6 +887,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA114BE51DBBD30F00C74C30 /* DMetalic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA114BE61DBBD30F00C74C30 /* DMetalic.xcdatamodel */,
+			);
+			currentVersion = DA114BE61DBBD30F00C74C30 /* DMetalic.xcdatamodel */;
+			path = DMetalic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DAD5C1D41DA85DCC002996A0 /* Project object */;
 }
