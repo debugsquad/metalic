@@ -31,6 +31,10 @@ class MStorePurchase
                 let purchaseItem:MStorePurchaseItem = MStorePurchaseItem(dbFilter:object)
                 self.mapItems[purchaseId] = purchaseItem
             }
+            
+            NotificationCenter.default.post(
+                name:Notification.purchasesLoaded,
+                object:nil)
         }
     }
 }
