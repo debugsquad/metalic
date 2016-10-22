@@ -66,6 +66,7 @@ class MFilters
                 { (object) in
                     
                     object.purchaseId = rawPurchaseId
+                    DManager.sharedInstance.save()
                 }
             }
             else
