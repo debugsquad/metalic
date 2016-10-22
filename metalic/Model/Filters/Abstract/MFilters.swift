@@ -74,10 +74,13 @@ class MFilters
             }
             else
             {
-                if dbFilterStored!.status ==
-                
-                let classType:AnyClass? = NSClassFromString(rawPurchaseClass)
-                let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
+                if dbFilterStored!.purchased
+                {
+                    let classType:AnyClass? = NSClassFromString(rawPurchaseClass)
+                    let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
+                    let filterItem:MFiltersItem = filterClass.init()
+                    
+                }
             }
         }
     }
