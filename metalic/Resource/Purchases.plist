@@ -2,8 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>iturbide.metalic.neon</string>
-	<string>iturbide.metalic.ember</string>
-	<string>iturbide.metalic.selfer</string>
+	<dict>
+		<key>purchaseId</key>
+		<string>iturbide.metalic.neon</string>
+		<key>purchaseClass</key>
+		<string>MFiltersItemPremiumNeon</string>
+	</dict>
+    <dict>
+        <key>purchaseId</key>
+        <string>iturbide.metalic.ember</string>
+        <key>purchaseClass</key>
+        <string>MFiltersItemPremiumEmber</string>
+    </dict>
+    <dict>
+        <key>purchaseId</key>
+        <string>iturbide.metalic.selfer</string>
+        <key>purchaseClass</key>
+        <string>MFiltersItemPremiumSelfer</string>
+    </dict>
 </array>
 </plist>
