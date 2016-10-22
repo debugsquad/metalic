@@ -6,6 +6,7 @@ class MStorePurchaseItem
     private weak var dbFilter:DObjectPurchase!
     let title:String
     var skProduct:SKProduct?
+    var status:MStorePurchaseItemStatus
     
     init(dbFilter:DObjectPurchase)
     {
@@ -15,5 +16,6 @@ class MStorePurchaseItem
             format:"%@_name",
             dbFilter.purchaseId!)
         title = NSLocalizedString(titleLocalized, comment:"")
+        status = MStorePurchaseItemStatusNew()
     }
 }
