@@ -14,6 +14,7 @@
 		DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */; };
 		DA114BE71DBBD30F00C74C30 /* DMetalic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE51DBBD30F00C74C30 /* DMetalic.xcdatamodeld */; };
 		DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA114BE81DBBD60300C74C30 /* Purchases.plist */; };
+		DA114BEB1DBBD91900C74C30 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BEA1DBBD91900C74C30 /* ExtensionNotification.swift */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -102,6 +103,7 @@
 		DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
 		DA114BE61DBBD30F00C74C30 /* DMetalic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMetalic.xcdatamodel; sourceTree = "<group>"; };
 		DA114BE81DBBD60300C74C30 /* Purchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Purchases.plist; sourceTree = "<group>"; };
+		DA114BEA1DBBD91900C74C30 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				DAA0C0151DB52C150017DBE1 /* ExtensionMTLTexture.swift */,
 				DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */,
 				DA114BE31DBBD27400C74C30 /* ExtensionNSManagedObject.swift */,
+				DA114BEA1DBBD91900C74C30 /* ExtensionNotification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				DA12D28D1DBA9E0C00F19962 /* VStoreCell.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAA0C00A1DB42EE20017DBE1 /* MFiltersItemBasicGothic.swift in Sources */,
+				DA114BEB1DBBD91900C74C30 /* ExtensionNotification.swift in Sources */,
 				DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */,
 				DA40A1051DB6B43B00DC42C6 /* MFiltersItemBasicDefine.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
