@@ -24,7 +24,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = 0
-        flow.sectionInset = UIEdgeInsets.zero
+        flow.sectionInset = UIEdgeInsets(top:0, left:kCellWidth, bottom:0, right:kCellWidth)
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
@@ -59,18 +59,6 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             options:[],
             metrics:metrics,
             views:views))
-        
-        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelect)
-        { [weak self] in
-            
-            let index:IndexPath = IndexPath(item:0, section:0)
-            self?.collectionView.selectItem(
-                at:index,
-                animated:false,
-                scrollPosition:UICollectionViewScrollPosition())
-            
-            self?.selectItemAtIndex(index:index)
-        }
     }
     
     required init?(coder:NSCoder)
@@ -78,7 +66,43 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         fatalError()
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedFiltersLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.filtersLoaded()
+        }
+    }
+    
     //MARK: private
+    
+    private func filtersLoaded()
+    {
+        collectionView.reloadData()
+        
+        if model.items.count > 0
+        {
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelect)
+            { [weak self] in
+                
+                let index:IndexPath = IndexPath(item:0, section:0)
+                self?.collectionView.selectItem(
+                    at:index,
+                    animated:false,
+                    scrollPosition:UICollectionViewScrollPosition())
+                
+                self?.selectItemAtIndex(index:index)
+            }
+        }
+    }
     
     private func modelAtIndex(index:IndexPath) -> MFiltersItem
     {
