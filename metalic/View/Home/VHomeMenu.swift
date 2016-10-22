@@ -59,6 +59,12 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             options:[],
             metrics:metrics,
             views:views))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedFiltersLoaded(sender:)),
+            name:Notification.filtersLoaded,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
