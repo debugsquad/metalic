@@ -50,6 +50,7 @@
 		DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */; };
 		DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */; };
 		DA513CB61DAC54A600031E5D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB51DAC54A600031E5D /* CParent.swift */; };
+		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -130,6 +131,7 @@
 		DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerCamera.swift; sourceTree = "<group>"; };
 		DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerLibrary.swift; sourceTree = "<group>"; };
 		DA513CB51DAC54A600031E5D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -302,6 +304,14 @@
 			path = Basic;
 			sourceTree = "<group>";
 		};
+		DA64DE8A1DBAD0D000CA2C36 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		DAA0C0191DB54A660017DBE1 /* HomeFiltered */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +387,7 @@
 		DAD5C2051DA85FA5002996A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA64DE8A1DBAD0D000CA2C36 /* Store */,
 				DA46D8521DB126B200B89DE9 /* Filters */,
 				DA48F69A1DAAFE3D00D7D3E3 /* Main */,
 			);
@@ -562,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA48F69C1DAAFE5E00D7D3E3 /* MMain.swift in Sources */,
+				DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */,
 				DA46D8601DB14CA200B89DE9 /* MetalFilter.swift in Sources */,
 				DA21626B1DB82EDE00F97B6C /* MFiltersItemNone.swift in Sources */,
 				DA40A0FF1DB6750D00DC42C6 /* MetalFilterBasicChalk.metal in Sources */,
