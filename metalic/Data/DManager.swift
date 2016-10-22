@@ -106,7 +106,7 @@ class DManager
         managedObjectContext.perform
         {
             let entityDescription:NSEntityDescription = NSEntityDescription.entity(
-                forEntityName:modelType.entityName(),
+                forEntityName:modelType.entityName,
                 in:self.managedObjectContext)!
             let managedObject:NSManagedObject = NSManagedObject(
                 entity:entityDescription,
@@ -120,7 +120,8 @@ class DManager
     {
         delaySaving()
         
-        let fetchRequest:NSFetchRequest<ModelType> = NSFetchRequest(entityName:modelType.entityName())
+        let fetchRequest:NSFetchRequest<ModelType> = NSFetchRequest(
+            entityName:modelType.entityName)
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sorters
         fetchRequest.fetchLimit = limit
@@ -159,7 +160,7 @@ class DManager
     func untracked<ModelType:NSManagedObject>(modelType:ModelType.Type) -> ModelType
     {
         let entity:NSEntityDescription = NSEntityDescription.entity(
-            forEntityName:modelType.entityName(),
+            forEntityName:modelType.entityName,
             in:managedObjectContext)!
         let managedObject:NSManagedObject = NSManagedObject(
             entity:entity,
