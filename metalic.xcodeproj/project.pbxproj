@@ -10,6 +10,7 @@
 		DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */; };
 		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
 		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
+		DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -94,6 +95,7 @@
 		DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
 		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
 		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
+		DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				DAB94E571DAC2E9F00880B1B /* ExtensionUIFont.swift */,
 				DAB94E5B1DAC330800880B1B /* ExtensionUICollectionReusableView.swift */,
 				DAA0C0151DB52C150017DBE1 /* ExtensionMTLTexture.swift */,
+				DA114BE11DBBD1A200C74C30 /* ExtensionFileManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */,
 				DA21626F1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift in Sources */,
 				DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */,
+				DA114BE21DBBD1A200C74C30 /* ExtensionFileManager.swift in Sources */,
 				DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */,
 				DA12D28D1DBA9E0C00F19962 /* VStoreCell.swift in Sources */,
 				DAB94E5C1DAC330800880B1B /* ExtensionUICollectionReusableView.swift in Sources */,
