@@ -1,6 +1,6 @@
 import Foundation
 
-class MStorePurchases
+class MStorePurchaseItem
 {
     
 }

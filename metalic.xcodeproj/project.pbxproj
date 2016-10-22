@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA114BDB1DBBC69F00C74C30 /* MStorePurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchases.swift */; };
+		DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */; };
+		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
 		DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA12D2821DBA5DB000F19962 /* Brand.xcassets */; };
 		DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */; };
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
@@ -89,7 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA114BDA1DBBC69F00C74C30 /* MStorePurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchases.swift; sourceTree = "<group>"; };
+		DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
+		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
 		DA12D2821DBA5DB000F19962 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA12D2841DBA6C9B00F19962 /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -310,7 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */,
-				DA114BDA1DBBC69F00C74C30 /* MStorePurchases.swift */,
+				DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */,
+				DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -585,7 +588,7 @@
 				DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */,
 				DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */,
 				DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */,
-				DA114BDB1DBBC69F00C74C30 /* MStorePurchases.swift in Sources */,
+				DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */,
 				DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
@@ -594,6 +597,7 @@
 				DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */,
 				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
+				DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
 				DA375C2C1DB99654004D7265 /* ExtensionUIColor.swift in Sources */,
 				DAA0C0081DB19BEF0017DBE1 /* MetalFilterBasicRembrandt.metal in Sources */,
