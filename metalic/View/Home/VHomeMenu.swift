@@ -7,6 +7,7 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     weak var selectedItem:MFiltersItem?
     let model:MFilters
     private let kCellWidth:CGFloat = 90
+    private let kMarginHorizontal:CGFloat = 10
     private let kAfterSelect:TimeInterval = 0.1
     
     init(controller:CHome)
@@ -24,7 +25,11 @@ class VHomeMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = 0
-        flow.sectionInset = UIEdgeInsets(top:0, left:kCellWidth, bottom:0, right:kCellWidth)
+        flow.sectionInset = UIEdgeInsets(
+            top:0,
+            left:kMarginHorizontal,
+            bottom:0,
+            right:kMarginHorizontal)
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
