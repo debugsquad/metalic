@@ -37,6 +37,21 @@ class MStorePurchase
                 object:nil)
         }
     }
+    
+    //MARK: public
+    
+    func makeSet() -> Set<String>
+    {
+        var itemsSet:Set<String> = Set<String>()
+        let mapItemsKeys:[String] = Array(mapItems.keys)
+        
+        for mappedItemKey:String in mapItemsKeys
+        {
+            itemsSet.insert(mappedItemKey)
+        }
+        
+        return itemsSet
+    }
 }
 
 /*

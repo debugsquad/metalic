@@ -1,11 +1,16 @@
-/*import Foundation
+import Foundation
 import StoreKit
 
-class MStore, skprod
+class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
-    //SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
     static let sharedInstance:MStore = MStore()
+    let purchase:MStorePurchase
     var error:String?
+    
+    private init()
+    {
+        purchase = MStorePurchase()
+    }
     
     //MARK: public
     
@@ -13,7 +18,7 @@ class MStore, skprod
     {
         error = nil
         
-        let request:SKProductsRequest = SKProductsRequest.init(productIdentifiers:)
+        let request:SKProductsRequest = SKProductsRequest(productIdentifiers: <#T##Set<String>#>)
         
         SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:self.purchases.asset];
         request.delegate = self;
@@ -28,4 +33,3 @@ class MStore, skprod
     //MARK: store delegate
     
 }
-*/
