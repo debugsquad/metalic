@@ -29,6 +29,13 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
         }
     }
     
+    //MARK: private
+    
+    private func notifyStore()
+    {
+        
+    }
+    
     //MARK: public
     
     func checkAvailability()
@@ -59,4 +66,7 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     //MARK: store delegate
     
+    func request(_ request:SKRequest, didFailWithError error:Error)
+    {
+    }
 }
