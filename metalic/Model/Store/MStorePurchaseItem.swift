@@ -5,6 +5,7 @@ class MStorePurchaseItem
 {
     private weak var dbFilter:DObjectPurchase!
     let title:String
+    var price:String?
     var skProduct:SKProduct?
     var status:MStorePurchaseItemStatus
     

@@ -33,7 +33,9 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     private func notifyStore()
     {
-        
+        NotificationCenter.default.post(
+            name:Notification.storeLoaded,
+            object:nil)
     }
     
     //MARK: public
@@ -68,5 +70,30 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     func request(_ request:SKRequest, didFailWithError error:Error)
     {
+        self.error = error.localizedDescription
+        notifyStore()
+    }
+    
+    func productsRequest(_ request:SKProductsRequest, didReceive response:SKProductsResponse)
+    {
+        let products:[SKProduct] = response.products
+        
+        for product:SKProduct in products
+        {
+            
+        }
+        
+        
+        NSArray *products = response.products;
+        NSInteger qty = products.count;
+        
+        for(NSUInteger i = 0; i < qty; i++)
+        {
+            SKProduct *skproduct = products[i];
+            [self.purchases loadskproduct:skproduct];
+        }
+        
+        [self restorepurchases];
+        
     }
 }

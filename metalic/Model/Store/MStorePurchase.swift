@@ -1,4 +1,5 @@
 import Foundation
+import StoreKit
 
 class MStorePurchase
 {
@@ -52,43 +53,27 @@ class MStorePurchase
         
         return itemsSet
     }
+    
+    func loadSkProduct(skProduct:SKProduct)
+    {
+        let productId:String = skProduct.productIdentifier
+        let mappedItem:MStorePurchaseItem? = mapItems[productId]
+        
+        if mappedItem != nil
+        {
+            mappedItem!.skProduct = skProduct
+            priceFormatter.locale = skProduct.priceLocale
+            
+            let priceNumber:NSDecimalNumber = skProduct.price
+            let priceString:String? = priceFormatter.string(from:priceNumber)
+            mappedItem!.price = priceString
+        }
+    }
+    
 }
 
 /*
- 
- #pragma mark public
- 
- -(void)loadskproduct:(SKProduct*)skproduct
- {
- NSDictionary *dicttitle = @{NSFontAttributeName:[UIFont fontWithName:fontboldname size:itemtitlesize], NSForegroundColorAttributeName:colormain};
- NSDictionary *dictdescr = @{NSFontAttributeName:[UIFont fontWithName:fontregularname size:itemdescrsize], NSForegroundColorAttributeName:colorthird};
- NSDictionary *dictprice = @{NSFontAttributeName:[UIFont fontWithName:fontboldname size:itempricesize], NSForegroundColorAttributeName:[UIColor blackColor]};
- 
- NSString *prodid = skproduct.productIdentifier;
- mstorepurchasesitem *initem = self.dictitems[prodid];
- 
- if(initem)
- {
- [self.priceformater setLocale:skproduct.priceLocale];
- NSString *strprice = [self.priceformater stringFromNumber:skproduct.price];
- initem.pricestring = strprice;
- initem.skproduct = skproduct;
- 
- NSString *stringtitle = initem.itemtitle;
- NSString *stringdescr = [NSString stringWithFormat:@"\n%@", initem.itemdescr];
- NSString *stringprice = [NSString stringWithFormat:@"\n%@", strprice];
- 
- NSAttributedString *attrtitle = [[NSAttributedString alloc] initWithString:stringtitle attributes:dicttitle];
- NSAttributedString *attrdescr = [[NSAttributedString alloc] initWithString:stringdescr attributes:dictdescr];
- NSAttributedString *attrprice = [[NSAttributedString alloc] initWithString:stringprice attributes:dictprice];
- 
- NSMutableAttributedString *mut = [[NSMutableAttributedString alloc] init];
- [mut appendAttributedString:attrtitle];
- [mut appendAttributedString:attrdescr];
- [mut appendAttributedString:attrprice];
- initem.attributestring = mut;
- }
- }
+
  
  
  -(void)updatetransactions:(NSArray<SKPaymentTransaction*>*)transactions
