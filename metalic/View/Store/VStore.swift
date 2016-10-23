@@ -94,13 +94,29 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let size:CGSize
         
-        if MStore.sharedInstance.purchase.mapItems.count > 0
+        if MStore.sharedInstance.purchase.mapItems.count > 0 && MStore.sharedInstance.error == nil
         {
             size = CGSize(width:0, height:kHeaderSize)
         }
         else
         {
             size = CGSize.zero
+        }
+        
+        return size
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        let size:CGSize
+        
+        if MStore.sharedInstance.purchase.mapItems.count > 0 || MStore.sharedInstance.error == nil
+        {
+            size = CGSize.zero
+        }
+        else
+        {
+            size = CGSize(width:0, height:kFooterSize)
         }
         
         return size
@@ -113,7 +129,9 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = MStore.sharedInstance.purchase.mapItems.count
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
