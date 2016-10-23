@@ -3,11 +3,13 @@ import Foundation
 class MStorePurchase
 {
     var mapItems:[String:MStorePurchaseItem]
+    var loaded:Bool
     private let priceFormatter:NumberFormatter
     
     init()
     {
         mapItems = [:]
+        loaded = false
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
         

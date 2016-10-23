@@ -18,6 +18,7 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     {
         error = nil
         
+        let itemsSet:Set<String> = 
         let request:SKProductsRequest = SKProductsRequest(productIdentifiers: <#T##Set<String>#>)
         
         SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:self.purchases.asset];
