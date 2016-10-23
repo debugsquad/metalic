@@ -1,10 +1,10 @@
 import UIKit
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
-    static let appId:String = "1168066325"
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
@@ -15,6 +15,8 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         let parent:CParent = CParent()
         window.rootViewController = parent
         self.window = window
+        
+        SKPaymentQueue.default().add(MStore.sharedInstance)
         
         return true
     }
