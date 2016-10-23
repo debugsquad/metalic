@@ -80,20 +80,14 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
         
         for product:SKProduct in products
         {
-            
+            purchase.loadSkProduct(skProduct:product)
         }
         
-        
-        NSArray *products = response.products;
-        NSInteger qty = products.count;
-        
-        for(NSUInteger i = 0; i < qty; i++)
-        {
-            SKProduct *skproduct = products[i];
-            [self.purchases loadskproduct:skproduct];
-        }
-        
-        [self restorepurchases];
+        restorePurchases()
+    }
+    
+    func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
+    {
         
     }
 }

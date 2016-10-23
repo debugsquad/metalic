@@ -57,76 +57,68 @@ class MStorePurchase
     func loadSkProduct(skProduct:SKProduct)
     {
         let productId:String = skProduct.productIdentifier
-        let mappedItem:MStorePurchaseItem? = mapItems[productId]
         
-        if mappedItem != nil
-        {
-            mappedItem!.skProduct = skProduct
-            priceFormatter.locale = skProduct.priceLocale
+        guard
             
-            let priceNumber:NSDecimalNumber = skProduct.price
-            let priceString:String? = priceFormatter.string(from:priceNumber)
-            mappedItem!.price = priceString
+            let mappedItem:MStorePurchaseItem = mapItems[productId]
+        
+        else
+        {
+            return
         }
+        
+        mappedItem.skProduct = skProduct
+        priceFormatter.locale = skProduct.priceLocale
+        
+        let priceNumber:NSDecimalNumber = skProduct.price
+        let priceString:String? = priceFormatter.string(from:priceNumber)
+        mappedItem.price = priceString
     }
     
+    func updateTransactions(transactions:[SKPaymentTransaction])
+    {
+        for skPaymentTransaction:SKPaymentTransaction in transactions
+        {
+            let productId:String = skPaymentTransaction.payment.productIdentifier
+            
+            guard
+                
+                let mappedItem:MStorePurchaseItem = mapItems[productId]
+            
+            else
+            {
+                continue
+            }
+            
+            switch skPaymentTransaction.transactionState
+            {
+                case SKPaymentTransactionState.deferred:
+                    
+                    mappedItem.status = MStorePurchaseItemStatusDeferred()
+                    
+                    break
+                    
+                case SKPaymentTransactionState.failed:
+                    
+                    mappedItem.status = MStorePurchaseItemStatusNew()
+                    SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+                    
+                    break
+                    
+                case SKPaymentTransactionState.purchased,
+                     SKPaymentTransactionState.restored:
+                    
+                    mappedItem.status = MStorePurchaseItemStatusPurchased()
+                    SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+                    
+                    break
+                    
+                case SKPaymentTransactionState.purchasing:
+                    
+                    mappedItem.status = MStorePurchaseItemStatusPurchasing()
+                    
+                    break
+            }
+        }
+    }
 }
-
-/*
-
- 
- 
- -(void)updatetransactions:(NSArray<SKPaymentTransaction*>*)transactions
- {
- NSUInteger qty = transactions.count;
- for(NSUInteger i = 0; i < qty; i++)
- {
- SKPaymentTransaction *tran = transactions[i];
- NSString *prodid = tran.payment.productIdentifier;
- mstorepurchasesitem *item = self.dictitems[prodid];
- 
- if(item)
- {
- switch(tran.transactionState)
- {
- case SKPaymentTransactionStateDeferred:
- 
- item.status = [[mstorestatusdeferred alloc] init];
- 
- break;
- 
- case SKPaymentTransactionStateFailed:
- 
- item.status = [[mstorestatusnew alloc] init];
- [[SKPaymentQueue defaultQueue] finishTransaction:tran];
- 
- break;
- 
- case SKPaymentTransactionStatePurchased:
- 
- item.status = [[mstorestatuspurchased alloc] init];
- [mcourse opencourse:NSClassFromString(item.courseclass)];
- [[SKPaymentQueue defaultQueue] finishTransaction:tran];
- 
- break;
- 
- case SKPaymentTransactionStatePurchasing:
- 
- item.status = [[mstorestatuspurchasing alloc] init];
- 
- break;
- 
- case SKPaymentTransactionStateRestored:
- 
- item.status = [[mstorestatuspurchased alloc] init];
- [mcourse opencourse:NSClassFromString(item.courseclass)];
- [[SKPaymentQueue defaultQueue] finishTransaction:tran];
- 
- break;
- }
- }
- }
- }
-
- 
- */
