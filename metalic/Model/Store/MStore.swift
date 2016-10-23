@@ -12,11 +12,41 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
         purchase = MStorePurchase()
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedPurchasesLoaded(sender notification:Notification)
+    {
+        NotificationCenter.default.removeObserver(self)
+        
+        DispatchQueue.main.async
+        {
+            self.checkAvailability()
+        }
+    }
+    
     //MARK: public
     
     func checkAvailability()
     {
         error = nil
+        
+        if purchase.mapItems.count > 0
+        {
+            
+        }
+        else
+        {
+            NotificationCenter.default.addObserver(
+                self,
+                selector:#selector(notifiedPurchasesLoaded(sender:)),
+                name:Notification.purchasesLoaded,
+                object:nil)
+        }
         
         let itemsSet:Set<String> = 
         let request:SKProductsRequest = SKProductsRequest(productIdentifiers: <#T##Set<String>#>)
