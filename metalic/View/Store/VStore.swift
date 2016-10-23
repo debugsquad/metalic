@@ -44,6 +44,16 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             VStoreCell.self,
             forCellWithReuseIdentifier:
             VStoreCell.reusableIdentifier)
+        collectionView.register(
+            VStoreHeader.self,
+            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VStoreHeader.reusableIdentifier)
+        collectionView.register(
+            VStoreFooter.self,
+            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
+            withReuseIdentifier:
+            VStoreFooter.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
