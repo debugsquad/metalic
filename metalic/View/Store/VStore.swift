@@ -7,6 +7,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
     private let kHeaderSize:CGFloat = 100
+    private let kFooterSize:CGFloat = 100
     private let kCellSize:CGFloat = 120
     private let kInterLine:CGFloat = 1
     
@@ -24,7 +25,6 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.viewSpinner = viewSpinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize(width:0, height:kHeaderSize)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
@@ -89,6 +89,22 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     //MARK: collection delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
+    {
+        let size:CGSize
+        
+        if MStore.sharedInstance.purchase.mapItems.count > 0
+        {
+            size = CGSize(width:0, height:kHeaderSize)
+        }
+        else
+        {
+            size = CGSize.zero
+        }
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
