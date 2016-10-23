@@ -122,6 +122,14 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return size
     }
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kHeaderSize)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
@@ -129,9 +137,40 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = MStore.sharedInstance.purchase.mapItems.count
+        let count:Int
+        
+        if MStore.sharedInstance.error == nil
+        {
+            count = MStore.sharedInstance.purchase.mapItems.count
+        }
+        else
+        {
+            count = 0
+        }
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusableView:UICollectionReusableView
+        
+        if kind == UICollectionElementKindSectionHeader
+        {
+            reusableView = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:VStoreHeader.reusableIdentifier,
+                for:indexPath)
+        }
+        else
+        {
+            reusableView = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:VStoreFooter.reusableIdentifier,
+                for:indexPath)
+        }
+        
+        return reusableView
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
