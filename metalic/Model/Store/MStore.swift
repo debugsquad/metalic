@@ -1,13 +1,13 @@
 import Foundation
 import StoreKit
 
-class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
+class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
     static let sharedInstance:MStore = MStore()
     let purchase:MStorePurchase
     var error:String?
     
-    private init()
+    override init()
     {
         purchase = MStorePurchase()
     }
@@ -19,7 +19,7 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     //MARK: notifications
     
-    @objc func notifiedPurchasesLoaded(sender notification:Notification)
+    func notifiedPurchasesLoaded(sender notification:Notification)
     {
         NotificationCenter.default.removeObserver(self)
         
@@ -88,6 +88,24 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
     {
-        
+        purchase.updateTransactions(transactions:transactions)
+        notifyStore()
+    }
+    
+    func paymentQueue(_ queue:SKPaymentQueue, removedTransactions transactions:[SKPaymentTransaction])
+    {
+        purchase.updateTransactions(transactions:transactions)
+        notifyStore()
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue:SKPaymentQueue)
+    {
+        notifyStore()
+    }
+    
+    func paymentQueue(_ queue:SKPaymentQueue, restoreCompletedTransactionsFailedWithError error:Error)
+    {
+        self.error = error.localizedDescription
+        notifyStore()
     }
 }
