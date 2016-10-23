@@ -16,6 +16,7 @@
 
 "VHomeSelector_buttonNext"="Next";
 "VStoreHeader_buttonRestore"="Restore purchases";
+"VStoreHeader_restoringPurchases"="Restored purchases";
 
 "CHomeFiltered_title"="Done";
 

@@ -16,11 +16,16 @@ class VStoreHeader:UICollectionReusableView
         buttonRestore.clipsToBounds = true
         buttonRestore.translatesAutoresizingMaskIntoConstraints = false
         buttonRestore.backgroundColor = UIColor.main
-        buttonRestore.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonRestore.setTitleColor(UIColor.black, for:UIControlState.highlighted)
+        buttonRestore.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonRestore.setTitleColor(
+            UIColor.black,
+            for:UIControlState.highlighted)
         buttonRestore.setTitle(
             NSLocalizedString("VStoreHeader_buttonRestore", comment:""),
             for:UIControlState.normal)
+        buttonRestore.titleLabel!.font = UIFont.bold(size:14)
         buttonRestore.layer.cornerRadius = kCornerRadius
         buttonRestore.addTarget(
             self,
@@ -57,6 +62,15 @@ class VStoreHeader:UICollectionReusableView
     
     func actionRestore(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
+        button.setTitle(
+            NSLocalizedString("VStoreHeader_restoringPurchases", comment:""),
+            for:UIControlState.normal)
+        button.backgroundColor = UIColor.clear
+        button.setTitle(
+            UIColor.main,
+            for:UIControlState.normal)
+        
         MStore.sharedInstance.restorePurchases()
     }
 }

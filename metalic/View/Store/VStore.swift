@@ -6,7 +6,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var viewStore:VStore!
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
-    private let kHeaderSize:CGFloat = 60
+    private let kHeaderSize:CGFloat = 75
     private let kFooterSize:CGFloat = 100
     private let kCellSize:CGFloat = 120
     private let kInterLine:CGFloat = 1
@@ -94,6 +94,13 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             selector:#selector(notifiedStoreLoaded(sender:)),
             name:Notification.storeLoaded,
             object:nil)
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: notified
