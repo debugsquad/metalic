@@ -14,5 +14,7 @@ class CStore:CController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        MStore.sharedInstance.checkAvailability()
     }
 }

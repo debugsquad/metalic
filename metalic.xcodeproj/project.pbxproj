@@ -34,6 +34,7 @@
 		DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */; };
 		DA21626F1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */; };
 		DA2162711DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */; };
+		DA34BBB41DBD6F7500708EF2 /* Loader.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */; };
 		DA375C2C1DB99654004D7265 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA375C2B1DB99654004D7265 /* ExtensionUIColor.swift */; };
 		DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */; };
 		DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */; };
@@ -128,6 +129,7 @@
 		DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterPremiumSelfer.metal; sourceTree = "<group>"; };
 		DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumSelfer.swift; sourceTree = "<group>"; };
 		DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumSelfer.swift; sourceTree = "<group>"; };
+		DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Loader.xcassets; sourceTree = "<group>"; };
 		DA375C2B1DB99654004D7265 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		DA40A0F81DB667D600DC42C6 /* MetalFilterBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicTest.swift; sourceTree = "<group>"; };
 		DA40A0FA1DB6684800DC42C6 /* MFiltersItemBasicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicTest.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */,
 				DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */,
 				DA12D2821DBA5DB000F19962 /* Brand.xcassets */,
+				DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA34BBB41DBD6F7500708EF2 /* Loader.xcassets in Resources */,
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
 				DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */,
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
