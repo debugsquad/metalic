@@ -32,7 +32,6 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         flow.sectionInset = UIEdgeInsets.zero
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
-        collectionView.isHidden = false
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
@@ -77,9 +76,44 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             options:[],
             metrics:metrics,
             views:views))
+        
+        storeLoaded()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedStoreLoaded(sender:)),
+            name:Notification.storeLoaded,
+            object:nil)
+    }
+    
+    //MARK: notified
+    
+    func notifiedStoreLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.storeLoaded()
+        }
     }
     
     //MARK: private
+    
+    private func storeLoaded()
+    {
+        collectionView.reloadData()
+        
+        if MStore.sharedInstance.purchase.mapItems.count == 0 && MStore.sharedInstance.error == nil
+        {
+            collectionView.isHidden = true
+            viewSpinner.startAnimating()
+        }
+        else
+        {
+            collectionView.isHidden = false
+            viewSpinner.stopAnimating()
+        }
+    }
     
     //MARK: public
     
