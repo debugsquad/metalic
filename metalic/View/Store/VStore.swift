@@ -8,6 +8,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var collectionView:UICollectionView!
     private let kHeaderSize:CGFloat = 75
     private let kFooterSize:CGFloat = 100
+    private let kCollectionBottom:CGFloat = 20
     private let kCellSize:CGFloat = 120
     private let kInterLine:CGFloat = 1
     
@@ -29,7 +30,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets.zero
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true

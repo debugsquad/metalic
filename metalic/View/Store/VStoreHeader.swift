@@ -67,7 +67,7 @@ class VStoreHeader:UICollectionReusableView
             NSLocalizedString("VStoreHeader_restoringPurchases", comment:""),
             for:UIControlState.normal)
         button.backgroundColor = UIColor.clear
-        button.setTitle(
+        button.setTitleColor(
             UIColor.main,
             for:UIControlState.normal)
         
