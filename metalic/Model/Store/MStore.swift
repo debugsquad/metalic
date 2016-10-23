@@ -19,7 +19,7 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
     
     //MARK: notifications
     
-    func notifiedPurchasesLoaded(sender notification:Notification)
+    @objc func notifiedPurchasesLoaded(sender notification:Notification)
     {
         NotificationCenter.default.removeObserver(self)
         
@@ -37,7 +37,10 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
         
         if purchase.mapItems.count > 0
         {
-            
+            let itemsSet:Set<String> = purchase.makeSet()
+            let request:SKProductsRequest = SKProductsRequest(productIdentifiers:itemsSet)
+            request.delegate = self
+            request.start()
         }
         else
         {
@@ -47,13 +50,6 @@ class MStore:SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestD
                 name:Notification.purchasesLoaded,
                 object:nil)
         }
-        
-        let itemsSet:Set<String> = 
-        let request:SKProductsRequest = SKProductsRequest(productIdentifiers: <#T##Set<String>#>)
-        
-        SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:self.purchases.asset];
-        request.delegate = self;
-        [request start];
     }
     
     func restorePurchases()
