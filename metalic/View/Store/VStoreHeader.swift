@@ -57,6 +57,6 @@ class VStoreHeader:UICollectionReusableView
     
     func actionRestore(sender button:UIButton)
     {
-        
+        MStore.sharedInstance.restorePurchases()
     }
 }
