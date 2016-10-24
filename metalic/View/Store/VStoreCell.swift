@@ -7,6 +7,11 @@ class VStoreCell:UICollectionViewCell
     weak var labelPrice:UILabel!
     weak var labelStatus:UILabel!
     weak var buttonPurchase:UIButton!
+    private let kImageWidth:CGFloat = 60
+    private let kLabelsWidth:CGFloat = 150
+    private let kLabelTitleHeight:CGFloat = 17
+    private let kLabelPriceHeight:CGFloat = 16
+    private let kLabelStatusHeight:CGFloat = 15
     
     override init(frame:CGRect)
     {
@@ -48,6 +53,45 @@ class VStoreCell:UICollectionViewCell
         addSubview(labelTitle)
         addSubview(labelPrice)
         addSubview(labelStatus)
+        
+        let views:[String:UIView] = [
+            "imageView":imageView,
+            "labelTitle":labelTitle,
+            "labelPrice":labelPrice,
+            "labelStatus":labelStatus]
+        
+        let metrics:[String:CGFloat] = [
+            "imageWidth":kImageWidth,
+            "labelsWidth":kLabelsWidth,
+            "labelTitleHeight":kLabelTitleHeight,
+            "labelPriceHeight":kLabelPriceHeight,
+            "labelStatusHeight":kLabelStatusHeight]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelTitle(labelsWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelPrice(labelsWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelStatus(labelsWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[imageView(imageWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[labelTitle(labelTitleHeight)]-0-[labelPrice(labelPriceHeight)]-0-[labelStatus(labelStatusHeight)]-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
