@@ -32,4 +32,14 @@ class MStorePurchaseItem:NSObject
         title = filterItem.name
         asset = filterItem.asset
     }
+    
+    //MARK: public
+    
+    func purchased()
+    {
+        status = MStorePurchaseItemStatusPurchased()
+        dbFilter.purchased = true
+        
+        DManager.sharedInstance.save()
+    }
 }
