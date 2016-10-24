@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemBasicChalk:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterChalk"
     
     required init()
     {
