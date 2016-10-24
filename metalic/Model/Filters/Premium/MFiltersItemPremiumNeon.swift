@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemPremiumNeon:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterNeon"
     
     required init()
     {
