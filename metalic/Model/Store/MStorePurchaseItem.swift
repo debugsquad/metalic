@@ -3,7 +3,7 @@ import StoreKit
 
 class MStorePurchaseItem:NSObject
 {
-    private weak var dbFilter:DObjectPurchase!
+    private var dbFilter:DObjectPurchase!
     let title:String
     var price:String?
     var skProduct:SKProduct?
