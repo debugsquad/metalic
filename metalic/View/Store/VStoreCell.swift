@@ -7,7 +7,7 @@ class VStoreCell:UICollectionViewCell
     weak var labelPrice:UILabel!
     weak var labelStatus:UILabel!
     weak var buttonPurchase:UIButton!
-    private let kImageWidth:CGFloat = 60
+    private let kImageWidth:CGFloat = 50
     private let kLabelsWidth:CGFloat = 150
     private let kLabelTitleHeight:CGFloat = 17
     private let kLabelPriceHeight:CGFloat = 16
@@ -23,6 +23,7 @@ class VStoreCell:UICollectionViewCell
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = UIViewContentMode.center
         self.imageView = imageView
         
         let labelTitle:UILabel = UILabel()
@@ -37,7 +38,7 @@ class VStoreCell:UICollectionViewCell
         labelPrice.isUserInteractionEnabled = false
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
         labelPrice.backgroundColor = UIColor.clear
-        labelPrice.font = UIFont.medium(size:14)
+        labelPrice.font = UIFont.medium(size:12)
         labelPrice.textColor = UIColor.black
         self.labelPrice = labelPrice
         
@@ -46,7 +47,7 @@ class VStoreCell:UICollectionViewCell
         labelStatus.translatesAutoresizingMaskIntoConstraints = false
         labelStatus.backgroundColor = UIColor.clear
         labelStatus.font = UIFont.medium(size:12)
-        labelStatus.textColor = UIColor.black
+        labelStatus.textColor = UIColor.main
         self.labelStatus = labelStatus
         
         addSubview(imageView)
@@ -88,7 +89,7 @@ class VStoreCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelTitle(labelTitleHeight)]-0-[labelPrice(labelPriceHeight)]-0-[labelStatus(labelStatusHeight)]-0-[imageView]-0-|",
+            withVisualFormat:"V:|-10-[labelTitle(labelTitleHeight)]-0-[labelStatus(labelStatusHeight)]-0-[labelPrice(labelPriceHeight)]-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))

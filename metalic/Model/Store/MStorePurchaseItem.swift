@@ -16,13 +16,10 @@ class MStorePurchaseItem:NSObject
         self.dbFilter = dbFilter
         status = MStorePurchaseItemStatusNew()
         
-        print(dbFilter.purchaseClass)
-        
         guard
             
-            let purchaseClass:String = dbFilter.purchaseClass,
-            let classType:AnyObject.Type = NSClassFromString(purchaseClass),
-            let filterClass:MFiltersItem.Type = classType as? MFiltersItem.Type
+            let className:String = dbFilter.purchaseClass,
+            let filterItem:MFiltersItem = MFiltersItem.Factory(className:className)
             
         else
         {
@@ -31,8 +28,6 @@ class MStorePurchaseItem:NSObject
             
             return
         }
-        
-        let filterItem:MFiltersItem = filterClass.init()
         
         title = filterItem.name
         asset = filterItem.asset

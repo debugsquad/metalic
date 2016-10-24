@@ -195,7 +195,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kHeaderSize)
+        let size:CGSize = CGSize(width:width, height:kCellSize)
         
         return size
     }
