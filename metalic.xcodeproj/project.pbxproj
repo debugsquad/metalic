@@ -27,6 +27,7 @@
 		DA12D2881DBA767600F19962 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D2871DBA767600F19962 /* CStore.swift */; };
 		DA12D28B1DBA788C00F19962 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D28A1DBA788C00F19962 /* VStore.swift */; };
 		DA12D28D1DBA9E0C00F19962 /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12D28C1DBA9E0C00F19962 /* VStoreCell.swift */; };
+		DA17C79F1DBED59B006C168F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA17C79E1DBED59B006C168F /* GoogleService-Info.plist */; };
 		DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */; };
 		DA2162631DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */; };
 		DA2162651DB82CE400F97B6C /* MetalFilterPremiumEmber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */; };
@@ -131,6 +132,7 @@
 		DA12D2871DBA767600F19962 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
 		DA12D28A1DBA788C00F19962 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA12D28C1DBA9E0C00F19962 /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
+		DA17C79E1DBED59B006C168F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumEmber.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		DA5DC55C1DBECF9C0069C2C9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA17C79E1DBED59B006C168F /* GoogleService-Info.plist */,
 				DA5DC55D1DBECFC00069C2C9 /* FMain.swift */,
 			);
 			path = Main;
@@ -679,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA34BBB41DBD6F7500708EF2 /* Loader.xcassets in Resources */,
+				DA17C79F1DBED59B006C168F /* GoogleService-Info.plist in Resources */,
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
 				DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */,
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
