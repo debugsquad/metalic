@@ -234,10 +234,14 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         }
         else
         {
-            reusableView = collectionView.dequeueReusableSupplementaryView(
+            let errorString:String? = MStore.sharedInstance.error
+            let footer:VStoreFooter = collectionView.dequeueReusableSupplementaryView(
                 ofKind:kind,
                 withReuseIdentifier:VStoreFooter.reusableIdentifier,
-                for:indexPath)
+                for:indexPath) as! VStoreFooter
+            footer.showError(errorString:errorString)
+            
+            reusableView = footer
         }
         
         return reusableView
