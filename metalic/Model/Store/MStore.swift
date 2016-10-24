@@ -58,6 +58,8 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
                 selector:#selector(notifiedPurchasesLoaded(sender:)),
                 name:Notification.purchasesLoaded,
                 object:nil)
+            
+            purchase.loadDb()
         }
     }
     

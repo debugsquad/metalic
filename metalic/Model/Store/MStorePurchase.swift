@@ -11,11 +11,6 @@ class MStorePurchase
         mapItems = [:]
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            self.loadFromDb()
-        }
     }
     
     //MARK: private
@@ -40,6 +35,16 @@ class MStorePurchase
     }
     
     //MARK: public
+    
+    func loadDb()
+    {
+        mapItems = [:]
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            self.loadFromDb()
+        }
+    }
     
     func makeSet() -> Set<String>
     {
