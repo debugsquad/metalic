@@ -8,6 +8,7 @@ class MStorePurchaseItem
     var price:String?
     var skProduct:SKProduct?
     var status:MStorePurchaseItemStatus
+    var asset:String
     
     init(dbFilter:DObjectPurchase)
     {
@@ -18,5 +19,22 @@ class MStorePurchaseItem
             dbFilter.purchaseId!)
         title = NSLocalizedString(titleLocalized, comment:"")
         status = MStorePurchaseItemStatusNew()
+        
+        guard
+            
+            let purchaseClass:String = dbFilter.purchaseClass
+        
+        else
+        {
+            asset = ""
+            
+            return
+        }
+        
+        let classType:AnyClass? = NSClassFromString(purchaseClass)
+        let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
+        let filterItem:MFiltersItem = filterClass.init()
+        
+        asset = filterItem.asset
     }
 }
