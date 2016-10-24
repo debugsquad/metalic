@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemPremiumSelfer:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterSelfer"
     
     required init()
     {
