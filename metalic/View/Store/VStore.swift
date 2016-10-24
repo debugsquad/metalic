@@ -8,7 +8,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var collectionView:UICollectionView!
     private var arrayKeys:[String]
     private let kHeaderSize:CGFloat = 75
-    private let kFooterSize:CGFloat = 100
+    private let kFooterSize:CGFloat = 130
     private let kCollectionBottom:CGFloat = 20
     private let kCellSize:CGFloat = 120
     private let kInterLine:CGFloat = 1
@@ -180,7 +180,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let size:CGSize
         
-        if arrayKeys.count > 0 || MStore.sharedInstance.error == nil
+        if MStore.sharedInstance.error == nil
         {
             size = CGSize.zero
         }

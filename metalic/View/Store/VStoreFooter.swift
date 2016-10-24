@@ -3,8 +3,9 @@ import UIKit
 class VStoreFooter:UICollectionReusableView
 {
     weak var labelError:UILabel!
-    private let kButtonHeight:CGFloat = 34
+    private let kButtonHeight:CGFloat = 36
     private let kButtonBottom:CGFloat = 20
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -32,6 +33,11 @@ class VStoreFooter:UICollectionReusableView
             NSLocalizedString("VStoreFooter_buttonTryAgain", comment:""),
             for:UIControlState.normal)
         buttonTryAgain.titleLabel!.font = UIFont.bold(size:12)
+        buttonTryAgain.layer.cornerRadius = kCornerRadius
+        buttonTryAgain.addTarget(
+            self,
+            action:#selector(actionTryAgain(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(labelError)
         addSubview(buttonTryAgain)
@@ -75,7 +81,7 @@ class VStoreFooter:UICollectionReusableView
     
     //MARK: public
     
-    func showError(errorString:String)
+    func showError(errorString:String?)
     {
         labelError.text = errorString
     }
