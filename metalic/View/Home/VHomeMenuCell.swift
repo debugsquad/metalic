@@ -5,7 +5,7 @@ class VHomeMenuCell:UICollectionViewCell
     weak var label:UILabel!
     weak var imageView:UIImageView!
     private let kLabelHeight:CGFloat = 16
-    private let kLabelBottom:CGFloat = 10
+    private let kLabelBottom:CGFloat = 5
     
     override init(frame:CGRect)
     {
