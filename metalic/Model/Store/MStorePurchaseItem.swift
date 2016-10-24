@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-class MStorePurchaseItem
+class MStorePurchaseItem:NSObject
 {
     private weak var dbFilter:DObjectPurchase!
     let title:String
@@ -16,9 +16,13 @@ class MStorePurchaseItem
         self.dbFilter = dbFilter
         status = MStorePurchaseItemStatusNew()
         
+        print(dbFilter.purchaseClass)
+        
         guard
             
-            let purchaseClass:String = dbFilter.purchaseClass
+            let purchaseClass:String = dbFilter.purchaseClass,
+            let classType:AnyObject.Type = NSClassFromString(purchaseClass),
+            let filterClass:MFiltersItem.Type = classType as? MFiltersItem.Type
             
         else
         {
@@ -28,8 +32,6 @@ class MStorePurchaseItem
             return
         }
         
-        let classType:AnyClass? = NSClassFromString(purchaseClass)
-        let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
         let filterItem:MFiltersItem = filterClass.init()
         
         title = filterItem.name
