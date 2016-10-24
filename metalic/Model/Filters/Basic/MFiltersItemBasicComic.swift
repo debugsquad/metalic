@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemBasicComic:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterComic"
     
     required init()
     {

@@ -88,7 +88,7 @@ class VHomeMenuCell:UICollectionViewCell
         else
         {
             backgroundColor = UIColor.clear
-            label.textColor = UIColor(white:0.8, alpha:1)
+            label.textColor = UIColor(white:0.75, alpha:1)
         }
     }
     
