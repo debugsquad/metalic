@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemNone:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterNone"
     
     required init()
     {
