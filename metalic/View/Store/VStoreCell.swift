@@ -10,7 +10,7 @@ class VStoreCell:UICollectionViewCell
     weak var model:MStorePurchaseItem!
     private let kImageWidth:CGFloat = 50
     private let kLabelsWidth:CGFloat = 150
-    private let kLabelTitleHeight:CGFloat = 19
+    private let kLabelTitleHeight:CGFloat = 20
     private let kLabelPriceHeight:CGFloat = 17
     private let kLabelStatusHeight:CGFloat = 17
     private let kButtonWidth:CGFloat = 110
@@ -55,7 +55,7 @@ class VStoreCell:UICollectionViewCell
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:16)
+        labelTitle.font = UIFont.bold(size:17)
         labelTitle.textColor = UIColor.main
         self.labelTitle = labelTitle
         
@@ -72,7 +72,7 @@ class VStoreCell:UICollectionViewCell
         labelStatus.translatesAutoresizingMaskIntoConstraints = false
         labelStatus.backgroundColor = UIColor.clear
         labelStatus.font = UIFont.medium(size:14)
-        labelStatus.textColor = UIColor.main
+        labelStatus.textColor = UIColor(red:1, green:0.3, blue:0, alpha:1)
         self.labelStatus = labelStatus
         
         addSubview(imageView)
