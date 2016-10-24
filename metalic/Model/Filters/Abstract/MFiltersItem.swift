@@ -5,6 +5,7 @@ class MFiltersItem
     let filter:MetalFilter.Type
     let name:String
     let asset:String
+    let commitable:Bool
     
     class func Factory(className:String) -> MFiltersItem?
     {
@@ -29,10 +30,11 @@ class MFiltersItem
         fatalError()
     }
     
-    init(name:String, asset:String, filter:MetalFilter.Type)
+    init(name:String, asset:String, filter:MetalFilter.Type, commitable:Bool)
     {
         self.name = name
         self.asset = asset
         self.filter = filter
+        self.commitable = commitable
     }
 }

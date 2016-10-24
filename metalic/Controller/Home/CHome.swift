@@ -114,6 +114,8 @@ class CHome:CController
     
     func imageSelected(image:UIImage?)
     {
+        viewHome.showLoading()
+        
         guard
         
             let image:UIImage = image

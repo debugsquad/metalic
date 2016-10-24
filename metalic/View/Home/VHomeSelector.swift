@@ -33,7 +33,7 @@ class VHomeSelector:UIView
         buttonCamera.setTitleColor(
             UIColor.black,
             for:UIControlState.highlighted)
-        buttonCamera.titleLabel!.font = UIFont.bold(size:12)
+        buttonCamera.titleLabel!.font = UIFont.bold(size:13)
         buttonCamera.addTarget(
             self,
             action:#selector(self.actionCamera(sender:)),
@@ -51,7 +51,7 @@ class VHomeSelector:UIView
         buttonLibrary.setTitleColor(
             UIColor.black,
             for:UIControlState.highlighted)
-        buttonLibrary.titleLabel!.font = UIFont.bold(size:12)
+        buttonLibrary.titleLabel!.font = UIFont.bold(size:13)
         buttonLibrary.addTarget(
             self,
             action:#selector(self.actionLibrary(sender:)),
@@ -69,7 +69,8 @@ class VHomeSelector:UIView
         buttonNext.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonNext.titleLabel!.font = UIFont.bold(size:13)
+        buttonNext.titleLabel!.font = UIFont.bold(size:14)
+        buttonNext.isHidden = true
         buttonNext.addTarget(
             self,
             action:#selector(actionNext(sender:)),
@@ -189,5 +190,23 @@ class VHomeSelector:UIView
     func actionNext(sender button:UIButton)
     {
         controller.next()
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        if controller.viewHome.viewPicture.presentingTexture == nil || controller.viewHome.viewMenu.selectedItem == nil
+        {
+            buttonNext.isHidden = true
+        }
+        else if !controller.viewHome.viewMenu.selectedItem!.commitable
+        {
+            buttonNext.isHidden = true
+        }
+        else
+        {
+            buttonNext.isHidden = false
+        }
     }
 }
