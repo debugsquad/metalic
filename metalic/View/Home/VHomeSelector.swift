@@ -24,7 +24,16 @@ class VHomeSelector:UIView
         let buttonCamera:UIButton = UIButton()
         buttonCamera.translatesAutoresizingMaskIntoConstraints = false
         buttonCamera.clipsToBounds = true
-        buttonCamera.setTitle("Camera", for:UIControlState.normal)
+        buttonCamera.setTitle(
+            NSLocalizedString("VHomeSelector_buttonCamera", comment:""),
+            for:UIControlState.normal)
+        buttonCamera.setTitleColor(
+            UIColor.main,
+            for:UIControlState.normal)
+        buttonCamera.setTitleColor(
+            UIColor.black,
+            for:UIControlState.highlighted)
+        buttonCamera.titleLabel!.font = UIFont.bold(size:12)
         buttonCamera.addTarget(
             self,
             action:#selector(self.actionCamera(sender:)),
@@ -33,7 +42,16 @@ class VHomeSelector:UIView
         let buttonLibrary:UIButton = UIButton()
         buttonLibrary.translatesAutoresizingMaskIntoConstraints = false
         buttonLibrary.clipsToBounds = true
-        buttonLibrary.setTitle("Library", for:UIControlState.normal)
+        buttonLibrary.setTitle(
+            NSLocalizedString("VHomeSelector_buttonLibrary", comment:""),
+            for:UIControlState.normal)
+        buttonLibrary.setTitleColor(
+            UIColor.main,
+            for:UIControlState.normal)
+        buttonLibrary.setTitleColor(
+            UIColor.black,
+            for:UIControlState.highlighted)
+        buttonLibrary.titleLabel!.font = UIFont.bold(size:12)
         buttonLibrary.addTarget(
             self,
             action:#selector(self.actionLibrary(sender:)),
@@ -51,11 +69,11 @@ class VHomeSelector:UIView
         buttonNext.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
+        buttonNext.titleLabel!.font = UIFont.bold(size:13)
         buttonNext.addTarget(
             self,
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
-        buttonNext.titleLabel!.font = UIFont.bold(size:13)
         self.buttonNext = buttonNext
         
         addSubview(buttonCamera)

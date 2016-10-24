@@ -9,6 +9,7 @@ class VHome:UIView
     weak var viewSpinner:VSpinner!
     private let kSelectorHeight:CGFloat = 50
     private let kMenuHeight:CGFloat = 90
+    private let kBackgroundAlpha:CGFloat = 0.2
     
     convenience init(controller:CHome)
     {
@@ -19,6 +20,15 @@ class VHome:UIView
         translatesAutoresizingMaskIntoConstraints = false
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
+        let background:UIImageView = UIImageView()
+        background.isUserInteractionEnabled = false
+        background.clipsToBounds = true
+        background.contentMode = UIViewContentMode.center
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.tintColor = UIColor.black
+        background.alpha = kBackgroundAlpha
+        background.image = #imageLiteral(resourceName: "assetGenericLogo").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         
         let viewPicture:VHomePicture = VHomePicture(controller:controller)
         self.viewPicture = viewPicture
@@ -32,12 +42,14 @@ class VHome:UIView
         let viewSpinner:VSpinner = VSpinner()
         self.viewSpinner = viewSpinner
         
+        addSubview(background)
         addSubview(viewPicture)
         addSubview(viewSelector)
         addSubview(viewMenu)
         addSubview(viewSpinner)
         
         let views:[String:UIView] = [
+            "background":background,
             "viewPicture":viewPicture,
             "viewSelector":viewSelector,
             "viewMenu":viewMenu,
@@ -48,6 +60,11 @@ class VHome:UIView
             "selectorHeight":kSelectorHeight,
             "menuHeight":kMenuHeight]
         
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[background]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[viewPicture]-0-|",
             options:[],
@@ -70,6 +87,11 @@ class VHome:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[viewPicture]-0-[viewSelector(selectorHeight)]-0-[viewMenu(menuHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[background]-0-[viewSelector]",
             options:[],
             metrics:metrics,
             views:views))
