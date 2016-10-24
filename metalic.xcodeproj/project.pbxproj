@@ -67,6 +67,7 @@
 		DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */; };
 		DA513CB61DAC54A600031E5D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB51DAC54A600031E5D /* CParent.swift */; };
 		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
+		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -164,6 +165,7 @@
 		DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerLibrary.swift; sourceTree = "<group>"; };
 		DA513CB51DAC54A600031E5D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
+		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */,
 				DA12D2821DBA5DB000F19962 /* Brand.xcassets */,
 				DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */,
+				DA831B021DBE5D170082269F /* Filter.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
 				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,
+				DA831B031DBE5D170082269F /* Filter.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
