@@ -36,6 +36,7 @@
 		DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */; };
 		DA21626F1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */; };
 		DA2162711DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */; };
+		DA319D1B1DBED0A600B42431 /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA319D1A1DBED0A600B42431 /* FAnalytics.swift */; };
 		DA34BBB41DBD6F7500708EF2 /* Loader.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */; };
 		DA34BBB61DBD739200708EF2 /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34BBB51DBD739200708EF2 /* VStoreHeader.swift */; };
 		DA34BBB81DBD739B00708EF2 /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34BBB71DBD739B00708EF2 /* VStoreFooter.swift */; };
@@ -139,6 +140,7 @@
 		DA21626C1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterPremiumSelfer.metal; sourceTree = "<group>"; };
 		DA21626D1DB83D8500F97B6C /* MetalFilterPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumSelfer.swift; sourceTree = "<group>"; };
 		DA2162701DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumSelfer.swift; sourceTree = "<group>"; };
+		DA319D1A1DBED0A600B42431 /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Loader.xcassets; sourceTree = "<group>"; };
 		DA34BBB51DBD739200708EF2 /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 		DA34BBB71DBD739B00708EF2 /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		DA5DC55B1DBECF9C0069C2C9 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				DA319D1A1DBED0A600B42431 /* FAnalytics.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				DAF74BEF1DB5A48100F490CF /* MetalFilterBasicComic.swift in Sources */,
 				DA114BED1DBC093D00C74C30 /* MStorePurchaseItemStatus.swift in Sources */,
 				DA12D2881DBA767600F19962 /* CStore.swift in Sources */,
+				DA319D1B1DBED0A600B42431 /* FAnalytics.swift in Sources */,
 				DA46D8561DB140FD00B89DE9 /* MFilters.swift in Sources */,
 				DA46D8581DB141C600B89DE9 /* MFiltersItem.swift in Sources */,
 				DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */,
