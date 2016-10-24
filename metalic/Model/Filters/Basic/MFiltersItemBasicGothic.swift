@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemBasicGothic:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterGothic"
     
     required init()
     {
