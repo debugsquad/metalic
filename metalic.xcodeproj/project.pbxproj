@@ -93,6 +93,7 @@
 		DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2001DA85FA5002996A0 /* LaunchScreen.storyboard */; };
 		DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAD5C2071DA85FA5002996A0 /* Localizable.strings */; };
 		DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */; };
+		DAECF7FF1DBED6D700052CEA /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAECF7FE1DBED6D700052CEA /* CController.swift */; };
 		DAF74BEF1DB5A48100F490CF /* MetalFilterBasicComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BEE1DB5A48100F490CF /* MetalFilterBasicComic.swift */; };
 		DAF74BF11DB5A48C00F490CF /* MetalFilterBasicComic.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BF01DB5A48C00F490CF /* MetalFilterBasicComic.metal */; };
 		DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */; };
@@ -201,6 +202,7 @@
 		DAD5C2081DA85FA5002996A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAD5C2101DA85FE9002996A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DAECF7FE1DBED6D700052CEA /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DAF74BEE1DB5A48100F490CF /* MetalFilterBasicComic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBasicComic.swift; sourceTree = "<group>"; };
 		DAF74BF01DB5A48C00F490CF /* MetalFilterBasicComic.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBasicComic.metal; sourceTree = "<group>"; };
 		DAF74BF21DB5A66900F490CF /* MFiltersItemBasicComic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicComic.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 		DAD5C2191DA86C47002996A0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DAECF7FE1DBED6D700052CEA /* CController.swift */,
 				DAD5C21A1DA86C47002996A0 /* CAppDelegate.swift */,
 				DA513CB51DAC54A600031E5D /* CParent.swift */,
 			);
@@ -831,6 +834,7 @@
 				DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */,
 				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA12D28B1DBA788C00F19962 /* VStore.swift in Sources */,
+				DAECF7FF1DBED6D700052CEA /* CController.swift in Sources */,
 				DA34BBB81DBD739B00708EF2 /* VStoreFooter.swift in Sources */,
 				DA48F6991DAAFDEE00D7D3E3 /* VBarCell.swift in Sources */,
 				DA513CAC1DAC42B800031E5D /* VHomePicture.swift in Sources */,
