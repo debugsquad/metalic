@@ -68,6 +68,7 @@
 		DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */; };
 		DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */; };
 		DA513CB61DAC54A600031E5D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB51DAC54A600031E5D /* CParent.swift */; };
+		DA5DC55E1DBECFC00069C2C9 /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5DC55D1DBECFC00069C2C9 /* FMain.swift */; };
 		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
 		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
@@ -170,6 +171,7 @@
 		DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerCamera.swift; sourceTree = "<group>"; };
 		DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomePickerLibrary.swift; sourceTree = "<group>"; };
 		DA513CB51DAC54A600031E5D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DA5DC55D1DBECFC00069C2C9 /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
 		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		DA5DC55C1DBECF9C0069C2C9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA5DC55D1DBECFC00069C2C9 /* FMain.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */,
+				DA5DC55E1DBECFC00069C2C9 /* FMain.swift in Sources */,
 				DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */,
 				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA12D28B1DBA788C00F19962 /* VStore.swift in Sources */,
