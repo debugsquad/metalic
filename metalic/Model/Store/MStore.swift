@@ -100,7 +100,7 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
             purchase.loadSkProduct(skProduct:product)
         }
         
-        restorePurchases()
+        notifyStore()
     }
     
     func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
