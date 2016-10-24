@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemBasicInk:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterInk"
     
     required init()
     {
