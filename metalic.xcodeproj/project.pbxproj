@@ -379,6 +379,29 @@
 			path = Basic;
 			sourceTree = "<group>";
 		};
+		DA5DC55A1DBECF9C0069C2C9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA5DC55B1DBECF9C0069C2C9 /* Analytics */,
+				DA5DC55C1DBECF9C0069C2C9 /* Main */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA5DC55B1DBECF9C0069C2C9 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		DA5DC55C1DBECF9C0069C2C9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		DA64DE8A1DBAD0D000CA2C36 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +461,7 @@
 		DAD5C1DE1DA85DCC002996A0 /* metalic */ = {
 			isa = PBXGroup;
 			children = (
+				DA5DC55A1DBECF9C0069C2C9 /* Firebase */,
 				DA114BDE1DBBCBBF00C74C30 /* Data */,
 				DA4C0A571DAD3153006934D1 /* Metal */,
 				DAB94E541DAC2C0E00880B1B /* Extensions */,
