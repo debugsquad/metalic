@@ -9,24 +9,21 @@ class MStorePurchaseItem
     var skProduct:SKProduct?
     var status:MStorePurchaseItemStatus
     var asset:String
+    private let kEmpty:String = ""
     
     init(dbFilter:DObjectPurchase)
     {
         self.dbFilter = dbFilter
-        
-        let titleLocalized:String = String(
-            format:"%@_name",
-            dbFilter.purchaseId!)
-        title = NSLocalizedString(titleLocalized, comment:"")
         status = MStorePurchaseItemStatusNew()
         
         guard
             
             let purchaseClass:String = dbFilter.purchaseClass
-        
+            
         else
         {
-            asset = ""
+            asset = kEmpty
+            title = kEmpty
             
             return
         }
@@ -35,6 +32,7 @@ class MStorePurchaseItem
         let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
         let filterItem:MFiltersItem = filterClass.init()
         
+        title = filterItem.name
         asset = filterItem.asset
     }
 }

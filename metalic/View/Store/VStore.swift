@@ -245,7 +245,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MStorePurchaseItem = modelAtIndex(index:index)
+        let item:MStorePurchaseItem = modelAtIndex(index:indexPath)
         let cell:VStoreCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VStoreCell.reusableIdentifier,
