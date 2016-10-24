@@ -18,5 +18,6 @@
 "VStoreHeader_buttonRestore"="Restore purchases";
 "VStoreHeader_restoringPurchases"="Restored purchases";
 "VStoreFooter_buttonTryAgain"="Try again";
+"VStoreCell_button"="Purchase";
 
 "CHomeFiltered_title"="Done";

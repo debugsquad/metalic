@@ -17,7 +17,7 @@ class VStoreFooter:UICollectionReusableView
         labelError.isUserInteractionEnabled = false
         labelError.translatesAutoresizingMaskIntoConstraints = false
         labelError.backgroundColor = UIColor.clear
-        labelError.font = UIFont.medium(size:14)
+        labelError.font = UIFont.medium(size:15)
         labelError.textColor = UIColor(red:1, green:0.2, blue:0, alpha:1)
         labelError.textAlignment = NSTextAlignment.center
         labelError.numberOfLines = 0

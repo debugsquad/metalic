@@ -12,12 +12,32 @@ class VStoreCell:UICollectionViewCell
     private let kLabelTitleHeight:CGFloat = 17
     private let kLabelPriceHeight:CGFloat = 16
     private let kLabelStatusHeight:CGFloat = 15
+    private let kButtonWidth:CGFloat = 110
+    private let kButtonHeight:CGFloat = 34
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
+        
+        let buttonPurchase:UIButton = UIButton()
+        buttonPurchase.translatesAutoresizingMaskIntoConstraints = false
+        buttonPurchase.backgroundColor = UIColor.main
+        buttonPurchase.clipsToBounds = true
+        buttonPurchase.layer.cornerRadius = kCornerRadius
+        buttonPurchase.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonPurchase.setTitleColor(
+            UIColor.black,
+            for:UIControlState.highlighted)
+        buttonPurchase.setTitle(
+            NSLocalizedString("VStoreCell_button", comment:""),
+            for:UIControlState.normal)
+        buttonPurchase.titleLabel!.font = UIFont.bold(size:14)
+        self.buttonPurchase = buttonPurchase
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -54,19 +74,23 @@ class VStoreCell:UICollectionViewCell
         addSubview(labelTitle)
         addSubview(labelPrice)
         addSubview(labelStatus)
+        addSubview(buttonPurchase)
         
         let views:[String:UIView] = [
             "imageView":imageView,
             "labelTitle":labelTitle,
             "labelPrice":labelPrice,
-            "labelStatus":labelStatus]
+            "labelStatus":labelStatus,
+            "buttonPurchase":buttonPurchase]
         
         let metrics:[String:CGFloat] = [
             "imageWidth":kImageWidth,
             "labelsWidth":kLabelsWidth,
             "labelTitleHeight":kLabelTitleHeight,
             "labelPriceHeight":kLabelPriceHeight,
-            "labelStatusHeight":kLabelStatusHeight]
+            "labelStatusHeight":kLabelStatusHeight,
+            "buttonWidth":kButtonWidth,
+            "buttonHeight":kButtonHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-10-[labelTitle(labelsWidth)]",
@@ -89,7 +113,17 @@ class VStoreCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonPurchase(buttonWidth)]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-10-[labelTitle(labelTitleHeight)]-0-[labelStatus(labelStatusHeight)]-0-[labelPrice(labelPriceHeight)]-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[buttonPurchase(buttonHeight)]",
             options:[],
             metrics:metrics,
             views:views))
