@@ -68,7 +68,6 @@
 		DA513CB61DAC54A600031E5D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB51DAC54A600031E5D /* CParent.swift */; };
 		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
 		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
-		DA831B051DBE9BD80082269F /* MStorePurchaseItemStatusUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA831B041DBE9BD70082269F /* MStorePurchaseItemStatusUnknown.swift */; };
 		DA9E561D1DAC375E00E0F1B4 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E561C1DAC375E00E0F1B4 /* CController.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
@@ -167,7 +166,6 @@
 		DA513CB51DAC54A600031E5D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
-		DA831B041DBE9BD70082269F /* MStorePurchaseItemStatusUnknown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusUnknown.swift; sourceTree = "<group>"; };
 		DA9E561C1DAC375E00E0F1B4 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -362,7 +360,6 @@
 				DA114BF01DBC0A0900C74C30 /* MStorePurchaseItemStatusNew.swift */,
 				DA114BF21DBC0A1900C74C30 /* MStorePurchaseItemStatusPurchased.swift */,
 				DA114BF41DBC0A2600C74C30 /* MStorePurchaseItemStatusPurchasing.swift */,
-				DA831B041DBE9BD70082269F /* MStorePurchaseItemStatusUnknown.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -658,7 +655,6 @@
 				DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */,
 				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
-				DA831B051DBE9BD80082269F /* MStorePurchaseItemStatusUnknown.swift in Sources */,
 				DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
 				DA375C2C1DB99654004D7265 /* ExtensionUIColor.swift in Sources */,

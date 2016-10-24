@@ -14,7 +14,7 @@ class MStorePurchaseItem:NSObject
     init(dbFilter:DObjectPurchase)
     {
         self.dbFilter = dbFilter
-        status = MStorePurchaseItemStatusUnknown()
+        status = MStorePurchaseItemStatusNew()
         
         guard
             
