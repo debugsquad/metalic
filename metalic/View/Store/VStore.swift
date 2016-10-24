@@ -6,15 +6,18 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var viewStore:VStore!
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
+    private var arrayKeys:[String]
     private let kHeaderSize:CGFloat = 75
     private let kFooterSize:CGFloat = 100
     private let kCollectionBottom:CGFloat = 20
     private let kCellSize:CGFloat = 120
     private let kInterLine:CGFloat = 1
     
-    convenience init(controller:CStore)
+    init(controller:CStore)
     {
-        self.init()
+        arrayKeys = []
+        
+        super.init(frame:CGRect.zero)
         self.controller = controller
         clipsToBounds = true
         backgroundColor = UIColor.background
@@ -97,6 +100,11 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             object:nil)
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     override func layoutSubviews()
     {
         collectionView.collectionViewLayout.invalidateLayout()
@@ -120,8 +128,9 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private func storeLoaded()
     {
         collectionView.reloadData()
+        arrayKeys = Array(MStore.sharedInstance.purchase.mapItems.keys)
         
-        if MStore.sharedInstance.purchase.mapItems.count == 0 && MStore.sharedInstance.error == nil
+        if arrayKeys.count == 0 && MStore.sharedInstance.error == nil
         {
             collectionView.isHidden = true
             viewSpinner.startAnimating()
@@ -131,6 +140,15 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             collectionView.isHidden = false
             viewSpinner.stopAnimating()
         }
+    }
+    
+    private func modelAtIndex(index:IndexPath) -> MStorePurchaseItem
+    {
+        let itemKey:String = arrayKeys[index.item]
+        let item:MStorePurchaseItem = MStore.sharedInstance.purchase.mapItems[itemKey]!
+        
+        return item
+        
     }
     
     //MARK: public
@@ -146,7 +164,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let size:CGSize
         
-        if MStore.sharedInstance.purchase.mapItems.count > 0 && MStore.sharedInstance.error == nil
+        if arrayKeys.count > 0 && MStore.sharedInstance.error == nil
         {
             size = CGSize(width:0, height:kHeaderSize)
         }
@@ -162,7 +180,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let size:CGSize
         
-        if MStore.sharedInstance.purchase.mapItems.count > 0 || MStore.sharedInstance.error == nil
+        if arrayKeys.count > 0 || MStore.sharedInstance.error == nil
         {
             size = CGSize.zero
         }
@@ -227,10 +245,12 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MStorePurchaseItem = modelAtIndex(index:index)
         let cell:VStoreCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VStoreCell.reusableIdentifier,
             for:indexPath) as! VStoreCell
+        cell.config(model:item)
         
         return cell
     }
