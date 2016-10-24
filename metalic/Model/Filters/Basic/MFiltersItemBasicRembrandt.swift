@@ -2,7 +2,7 @@ import Foundation
 
 class MFiltersItemBasicRembrandt:MFiltersItem
 {
-    private let kImageName:String = ""
+    private let kImageName:String = "assetFilterRembrandt"
     
     required init()
     {
