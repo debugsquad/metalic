@@ -10,7 +10,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kHeaderSize:CGFloat = 75
     private let kFooterSize:CGFloat = 130
     private let kCollectionBottom:CGFloat = 20
-    private let kCellSize:CGFloat = 120
+    private let kCellSize:CGFloat = 140
     private let kInterLine:CGFloat = 1
     
     init(controller:CStore)

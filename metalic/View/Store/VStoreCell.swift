@@ -9,9 +9,9 @@ class VStoreCell:UICollectionViewCell
     weak var buttonPurchase:UIButton!
     private let kImageWidth:CGFloat = 50
     private let kLabelsWidth:CGFloat = 150
-    private let kLabelTitleHeight:CGFloat = 17
-    private let kLabelPriceHeight:CGFloat = 16
-    private let kLabelStatusHeight:CGFloat = 15
+    private let kLabelTitleHeight:CGFloat = 19
+    private let kLabelPriceHeight:CGFloat = 17
+    private let kLabelStatusHeight:CGFloat = 17
     private let kButtonWidth:CGFloat = 110
     private let kButtonHeight:CGFloat = 34
     private let kCornerRadius:CGFloat = 4
@@ -37,6 +37,10 @@ class VStoreCell:UICollectionViewCell
             NSLocalizedString("VStoreCell_button", comment:""),
             for:UIControlState.normal)
         buttonPurchase.titleLabel!.font = UIFont.bold(size:14)
+        buttonPurchase.addTarget(
+            self,
+            action:#selector(actionPurchase(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonPurchase = buttonPurchase
         
         let imageView:UIImageView = UIImageView()
@@ -50,7 +54,7 @@ class VStoreCell:UICollectionViewCell
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:14)
+        labelTitle.font = UIFont.bold(size:16)
         labelTitle.textColor = UIColor.main
         self.labelTitle = labelTitle
         
@@ -58,7 +62,7 @@ class VStoreCell:UICollectionViewCell
         labelPrice.isUserInteractionEnabled = false
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
         labelPrice.backgroundColor = UIColor.clear
-        labelPrice.font = UIFont.medium(size:12)
+        labelPrice.font = UIFont.medium(size:14)
         labelPrice.textColor = UIColor.black
         self.labelPrice = labelPrice
         
@@ -66,7 +70,7 @@ class VStoreCell:UICollectionViewCell
         labelStatus.isUserInteractionEnabled = false
         labelStatus.translatesAutoresizingMaskIntoConstraints = false
         labelStatus.backgroundColor = UIColor.clear
-        labelStatus.font = UIFont.medium(size:12)
+        labelStatus.font = UIFont.medium(size:14)
         labelStatus.textColor = UIColor.main
         self.labelStatus = labelStatus
         
@@ -132,6 +136,13 @@ class VStoreCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionPurchase(sender button:UIButton)
+    {
+        
     }
     
     //MARK: public
