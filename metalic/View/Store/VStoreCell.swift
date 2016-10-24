@@ -98,4 +98,14 @@ class VStoreCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MStorePurchaseItem)
+    {
+        labelTitle.text = model.title
+        labelPrice.text = model.price
+        labelStatus.text = model.status.title
+        imageView.image = UIImage(named:model.asset)
+    }
 }
