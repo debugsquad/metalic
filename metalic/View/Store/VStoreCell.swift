@@ -7,6 +7,7 @@ class VStoreCell:UICollectionViewCell
     weak var labelPrice:UILabel!
     weak var labelStatus:UILabel!
     weak var buttonPurchase:UIButton!
+    weak var model:MStorePurchaseItem!
     private let kImageWidth:CGFloat = 50
     private let kLabelsWidth:CGFloat = 150
     private let kLabelTitleHeight:CGFloat = 19
@@ -142,13 +143,15 @@ class VStoreCell:UICollectionViewCell
     
     func actionPurchase(sender button:UIButton)
     {
-        
+        ms
     }
     
     //MARK: public
     
     func config(model:MStorePurchaseItem)
     {
+        self.model = model
+        
         labelTitle.text = model.title
         labelPrice.text = model.price
         labelStatus.text = model.status.title

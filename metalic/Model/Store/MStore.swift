@@ -66,6 +66,21 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
+    func purchase(skProduct:SKProduct?)
+    {
+        guard
+            
+            let skProduct:SKProduct = skProduct
+        
+        else
+        {
+            return
+        }
+        
+        let skPayment:SKPayment = SKPayment(product:skProduct)
+        SKPaymentQueue.default().add(skPayment)
+    }
+    
     //MARK: store delegate
     
     func request(_ request:SKRequest, didFailWithError error:Error)
