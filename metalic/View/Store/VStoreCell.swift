@@ -143,7 +143,8 @@ class VStoreCell:UICollectionViewCell
     
     func actionPurchase(sender button:UIButton)
     {
-        ms
+        MStore.sharedInstance.purchase(
+            skProduct:model.skProduct)
     }
     
     //MARK: public

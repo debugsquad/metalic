@@ -74,9 +74,16 @@ class MFilters
             {
                 if dbFilterStored!.purchased
                 {
-                    let classType:AnyClass? = NSClassFromString(rawPurchaseClass)
-                    let filterClass:MFiltersItem.Type = classType as! MFiltersItem.Type
-                    let filterItem:MFiltersItem = filterClass.init()
+                    guard
+                        
+                        let filterItem:MFiltersItem = MFiltersItem.Factory(
+                            className:rawPurchaseClass)
+                    
+                    else
+                    {
+                        continue
+                    }
+                    
                     premiumFilters.append(filterItem)
                 }
             }
