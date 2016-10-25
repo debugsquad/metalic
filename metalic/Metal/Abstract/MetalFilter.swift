@@ -1,3 +1,4 @@
+import Metal
 import MetalPerformanceShaders
 
 class MetalFilter:MPSUnaryImageKernel
