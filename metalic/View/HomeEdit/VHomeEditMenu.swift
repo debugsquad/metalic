@@ -5,6 +5,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CHomeEdit!
     weak var collectionView:UICollectionView!
     let model:MEdit
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CHomeEdit)
     {
@@ -14,6 +15,11 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
         self.controller = controller
+        
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = UIColor(white:1, alpha:0.2)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
@@ -39,12 +45,15 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             VHomeEditMenuCell.reusableIdentifier)
         self.collectionView = collectionView
         
+        addSubview(border)
         addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "border":border]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -52,7 +61,12 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            withVisualFormat:"H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[border(borderHeight)]-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
