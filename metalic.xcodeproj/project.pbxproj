@@ -80,6 +80,7 @@
 		DA8919051DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */; };
 		DA8919081DBFF762006B7AE0 /* MEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919071DBFF762006B7AE0 /* MEdit.swift */; };
 		DA89190A1DBFF7BD006B7AE0 /* MEditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */; };
+		DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
 		DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */; };
@@ -192,6 +193,7 @@
 		DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditMenuCell.swift; sourceTree = "<group>"; };
 		DA8919071DBFF762006B7AE0 /* MEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEdit.swift; sourceTree = "<group>"; };
 		DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItem.swift; sourceTree = "<group>"; };
+		DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFilteredBar.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicRembrandt.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA0C01A1DB54A6F0017DBE1 /* VHomeFiltered.swift */,
+				DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */,
 			);
 			path = HomeFiltered;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */,
 				DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
+				DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */,
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
 				DA46D85D1DB1481E00B89DE9 /* MetalFilterBasicInk.swift in Sources */,
 				DAA0C00C1DB42F330017DBE1 /* MetalFilterBasicGothic.metal in Sources */,
