@@ -135,11 +135,4 @@ class VHomeFiltered:UIView
     {
         buttonExport.removeFromSuperview()
     }
-    
-    //MARK: actions
-    
-    func actionExport(sender button:UIButton)
-    {
-        controller.export()
-    }
 }
