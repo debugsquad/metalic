@@ -126,7 +126,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        DispatchQueue.main.async
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelectTime)
         { [weak collectionView] in
             
             collectionView?.selectItem(
