@@ -6,9 +6,9 @@ class VHomeEdit:UIView
     
     convenience init(controller:CHomeEdit)
     {
-        self.controller = controller
+        self.init()
         translatesAutoresizingMaskIntoConstraints = false
-        clipsToBounds = true
         backgroundColor = UIColor.black
+        self.controller = controller
     }
 }
