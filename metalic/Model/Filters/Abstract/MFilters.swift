@@ -38,10 +38,14 @@ class MFilters
     
     private func loadResources()
     {
-        let resURL:URL = Bundle.main.url(
-            forResource:kResourcesName,
-            withExtension:kResourcesExtension)!
-        let rawPurchases:[[String:String]] = NSArray(contentsOf:resURL) as! [[String:String]]
+        guard
+        
+            let rawPurchases:[[String:String]] = purchasesList()
+        
+        else
+        {
+            return
+        }
         
         for rawPurchase:[String:String] in rawPurchases
         {
@@ -131,5 +135,17 @@ class MFilters
         items.append(contentsOf:basicFilters())
         
         self.items = items
+    }
+    
+    //MARK: public
+    
+    func purchasesList() -> [[String:String]]?
+    {
+        let resURL:URL = Bundle.main.url(
+            forResource:kResourcesName,
+            withExtension:kResourcesExtension)!
+        let rawPurchases:[[String:String]]? = NSArray(contentsOf:resURL) as? [[String:String]]
+        
+        return rawPurchases
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4BE39DB681C140E58180A721 /* Pods_metalic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBD3BD4CE598B1C025E026B /* Pods_metalic.framework */; };
 		B18ECED26F0D0C0D65E93FCE /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48063F423406A42E808EF2B /* Pods_tests.framework */; };
+		DA10871B1DBEE5BB00C26CF8 /* TMFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */; };
 		DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */; };
 		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
 		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
@@ -114,6 +115,7 @@
 		B9EBB701E2AA2A990BCCB9FC /* Pods-metalic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metalic.release.xcconfig"; path = "Pods/Target Support Files/Pods-metalic/Pods-metalic.release.xcconfig"; sourceTree = "<group>"; };
 		CDBD3BD4CE598B1C025E026B /* Pods_metalic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_metalic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D006514DD3C975E805628E85 /* Pods-metalic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metalic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-metalic/Pods-metalic.debug.xcconfig"; sourceTree = "<group>"; };
+		DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFilters.swift; sourceTree = "<group>"; };
 		DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
 		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
 		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
@@ -248,6 +250,30 @@
 				E48063F423406A42E808EF2B /* Pods_tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA1087171DBEE57500C26CF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA1087181DBEE57500C26CF8 /* Filters */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA1087181DBEE57500C26CF8 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				DA1087191DBEE57500C26CF8 /* Abstract */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		DA1087191DBEE57500C26CF8 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 		DA114BDE1DBBCBBF00C74C30 /* Data */ = {
@@ -540,6 +566,7 @@
 		DAD5C20F1DA85FE9002996A0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DA1087171DBEE57500C26CF8 /* Model */,
 				DAD5C2101DA85FE9002996A0 /* Info.plist */,
 			);
 			path = Tests;
@@ -652,6 +679,7 @@
 					DAD5C1EF1DA85DCC002996A0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7AMWG3RLHN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DAD5C1DB1DA85DCC002996A0;
 					};
@@ -886,6 +914,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA10871B1DBEE5BB00C26CF8 /* TMFilters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,11 +1073,13 @@
 			baseConfigurationReference = 01385C47117B69A802F80C9A /* Pods-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metalic.app/metalic";
 			};
@@ -1059,6 +1090,7 @@
 			baseConfigurationReference = FB15CB8596A3D505D77AF285 /* Pods-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
