@@ -5,6 +5,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CHomeEdit!
     weak var collectionView:UICollectionView!
     let model:MEdit
+    private let kCellWidth:CGFloat = 45
     private let kBorderHeight:CGFloat = 1
     private let kAfterSelectTime:TimeInterval = 1
     
@@ -78,6 +79,12 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MEditItem
@@ -89,13 +96,22 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: collection delegate
     
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let height:CGFloat = collectionView.bounds.maxY
         let count:CGFloat = CGFloat(model.items.count)
-        let sizePerCell:CGFloat = width / count
-        let size:CGSize = CGSize(width:sizePerCell, height:height)
+        let cellsWidth:CGFloat = count * kCellWidth
+        let remain:CGFloat = width - cellsWidth
+        let margin:CGFloat = remain / 2.0
+        let edgeInsets:UIEdgeInsets = UIEdgeInsets(top:0, left:margin, bottom:0, right:margin)
+        
+        return edgeInsets
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
         
         return size
     }
