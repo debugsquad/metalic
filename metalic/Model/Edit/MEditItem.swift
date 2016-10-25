@@ -1,11 +1,11 @@
-import Foundation
+import UIKit
 
 class MEditItem
 {
-    let assetName:String
+    let icon:UIImage
     
-    init(assetName:String)
+    init(icon:UIImage)
     {
-        self.assetName = assetName
+        self.icon = icon
     }
 }

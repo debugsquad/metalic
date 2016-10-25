@@ -2,10 +2,8 @@ import Foundation
 
 class MEditItemCrop:MEditItem
 {
-    private let kAssetName:String = ""
-    
     init()
     {
-        super.init(assetName:kAssetName)
+        super.init(icon:#imageLiteral(resourceName: "assetGenericEdit"))
     }
 }

@@ -1,11 +1,9 @@
-import Foundation
+import UIKit
 
 class MEditItemBack:MEditItem
 {
-    private let kAssetName:String = ""
-    
     init()
     {
-        super.init(assetName:kAssetName)
+        super.init(icon:#imageLiteral(resourceName: "assetGenericBack"))
     }
 }
