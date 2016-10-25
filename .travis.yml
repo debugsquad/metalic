@@ -4,8 +4,8 @@ branches:
   only:
     - dev
 script:
-- if [ $MODE == 'Tests' ]; then set -o pipefail && xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" test | xcpretty; fi
-- if [ $MODE == 'Build' ]; then set -o pipefail && xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" build | xcpretty; fi
+- if [ $MODE == 'Tests' ]; then set -o pipefail && xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" clean test | xcpretty; fi
+- if [ $MODE == 'Build' ]; then set -o pipefail && xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk "iphonesimulator" -destination "platform=iOS Simulator,OS=10.0,name=iPhone 6s" clean build | xcpretty; fi
 notifications:
   email:
     on_success: never
