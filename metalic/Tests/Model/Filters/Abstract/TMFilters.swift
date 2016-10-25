@@ -19,46 +19,9 @@ class TMFilters:XCTestCase
             XCTAssertNotNil(rawPurchaseId, "Couldn't parse purchase id")
             XCTAssertNotNil(rawPurchaseClass, "Couldn't parser purchase class")
             
+            let filterItem:MFiltersItem? = MFiltersItem.Factory(className:rawPurchaseClass!)
             
-            
-            for dbFilter:DObjectPurchase in dbFilters
-            {
-                if dbFilter.purchaseId == rawPurchaseId
-                {
-                    dbFilterStored = dbFilter
-                    
-                    break
-                }
-            }
-            
-            if dbFilterStored == nil
-            {
-                DManager.sharedInstance.createManagedObject(
-                    modelType:DObjectPurchase.self)
-                { (object) in
-                    
-                    object.purchaseId = rawPurchaseId
-                    object.purchaseClass = rawPurchaseClass
-                    DManager.sharedInstance.save()
-                }
-            }
-            else
-            {
-                if dbFilterStored!.purchased
-                {
-                    guard
-                        
-                        let filterItem:MFiltersItem = MFiltersItem.Factory(
-                            className:rawPurchaseClass)
-                        
-                        else
-                    {
-                        continue
-                    }
-                    
-                    premiumFilters.append(filterItem)
-                }
-            }
+            XCTAssertNotNil(filterItem, "Unable to factory filter class")
         }
     }
 }
