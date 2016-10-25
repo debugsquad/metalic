@@ -119,16 +119,6 @@ class VHomeFiltered:UIView
             options:[],
             metrics:barMetrics,
             views:barViews))
-        controllerBar.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonExport(60)]-0-|",
-            options:[],
-            metrics:barMetrics,
-            views:barViews))
-        controllerBar.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[buttonExport]-0-|",
-            options:[],
-            metrics:barMetrics,
-            views:barViews))
     }
     
     deinit

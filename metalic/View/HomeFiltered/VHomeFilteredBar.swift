@@ -47,20 +47,27 @@ class VHomeFilteredBar:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(buttonExport)
+        addSubview(buttonEdit)
         
         let barViews:[String:UIView] = [
-            "buttonExport":buttonExport]
+            "buttonExport":buttonExport,
+            "buttonEdit":buttonEdit]
         
         let barMetrics:[String:CGFloat] = [
             "buttonWidth":kButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonExport(buttonWidth)]-0-|",
+            withVisualFormat:"H:[buttonEdit(buttonWidth)]-0-[buttonExport(buttonWidth)]-0-|",
             options:[],
             metrics:barMetrics,
             views:barViews))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[buttonExport]-0-|",
+            options:[],
+            metrics:barMetrics,
+            views:barViews))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[buttonEdit]-0-|",
             options:[],
             metrics:barMetrics,
             views:barViews))
