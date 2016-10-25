@@ -9,8 +9,6 @@ class MEditItemBack:MEditItem
     
     override func selected(controller:CHomeEdit)
     {
-        controller.dismiss(
-            animated:true,
-            completion:nil)
+        controller.parentController.dismiss()
     }
 }
