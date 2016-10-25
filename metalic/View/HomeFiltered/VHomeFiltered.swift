@@ -3,7 +3,9 @@ import UIKit
 class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
+    weak var bar:VHomeFilteredBar!
     weak var buttonExport:UIButton!
+    private let kBarWidth:CGFloat = 180
     
     convenience init(controller:CHomeFiltered)
     {
@@ -33,6 +35,9 @@ class VHomeFiltered:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.image
+        
+        let bar:VHomeFilteredBar = VHomeFilteredBar(controller:controller)
+        self.bar = bar
         
         let buttonExport:UIButton = UIButton()
         buttonExport.translatesAutoresizingMaskIntoConstraints = false
@@ -95,20 +100,31 @@ class VHomeFiltered:UIView
             metrics:metrics,
             views:views))
         
-        let bar:VBar = controller.parentController.viewParent.bar
-        bar.addSubview(buttonExport)
+        let controllerBar:VBar = controller.parentController.viewParent.bar
+        controllerBar.addSubview(buttonExport)
         
         let barViews:[String:UIView] = [
-            "buttonExport":buttonExport]
+            "bar":bar]
         
-        let barMetrics:[String:CGFloat] = [:]
+        let barMetrics:[String:CGFloat] = [
+            "barWidth":kBarWidth]
         
-        bar.addConstraints(NSLayoutConstraint.constraints(
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[bar(barWidth)]-0-|",
+            options:[],
+            metrics:barMetrics,
+            views:barViews))
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[bar]-0-|",
+            options:[],
+            metrics:barMetrics,
+            views:barViews))
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[buttonExport(60)]-0-|",
             options:[],
             metrics:barMetrics,
             views:barViews))
-        bar.addConstraints(NSLayoutConstraint.constraints(
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[buttonExport]-0-|",
             options:[],
             metrics:barMetrics,
