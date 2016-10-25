@@ -83,6 +83,6 @@ class VHomeFilteredBar:UIView
     func actionEdit(sender button:UIButton)
     {
         let controllerEdit:CHomeEdit = CHomeEdit(filtered:controller)
-        controller.parentController.push(controller:controllerEdit)
+        controller.parentController.over(controller:controllerEdit)
     }
 }
