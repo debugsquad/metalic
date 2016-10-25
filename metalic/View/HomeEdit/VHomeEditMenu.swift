@@ -1,6 +1,6 @@
 import UIKit
 
-class VHomeEditBar:UIView
+class VHomeEditMenu:UIView
 {
     weak var controller:CHomeEdit!
     

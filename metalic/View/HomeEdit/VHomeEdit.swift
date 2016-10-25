@@ -3,6 +3,8 @@ import UIKit
 class VHomeEdit:UIView
 {
     weak var controller:CHomeEdit!
+    weak var menu:VHomeEditMenu!
+    private let kMenuHeight:CGFloat = 80
     
     convenience init(controller:CHomeEdit)
     {
@@ -10,5 +12,27 @@ class VHomeEdit:UIView
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.black
         self.controller = controller
+        
+        let menu:VHomeEditMenu = VHomeEditMenu(controller:controller)
+        self.menu = menu
+        
+        addSubview(menu)
+        
+        let views:[String:UIView] = [
+            "menu":menu]
+        
+        let metrics:[String:CGFloat] = [
+            "menuHeight":kMenuHeight]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[menu]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[menu(menuHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
 }
