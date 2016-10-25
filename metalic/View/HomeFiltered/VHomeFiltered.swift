@@ -4,7 +4,7 @@ class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
     weak var bar:VHomeFilteredBar!
-    private let kBarWidth:CGFloat = 180
+    private let kBarWidth:CGFloat = 135
     
     convenience init(controller:CHomeFiltered)
     {

@@ -3,7 +3,7 @@ import UIKit
 class VHomeFilteredBar:UIView
 {
     weak var controller:CHomeFiltered!
-    private let kButtonWidth:CGFloat = 60
+    private let kButtonWidth:CGFloat = 45
     
     convenience init(controller:CHomeFiltered)
     {
@@ -23,7 +23,7 @@ class VHomeFilteredBar:UIView
         buttonExport.imageView!.tintColor = UIColor.black
         buttonExport.imageView!.contentMode = UIViewContentMode.center
         buttonExport.imageView!.clipsToBounds = true
-        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
+        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 3, 0, 0)
         buttonExport.addTarget(
             self,
             action:#selector(actionExport(sender:)),
@@ -40,7 +40,7 @@ class VHomeFilteredBar:UIView
         buttonEdit.imageView!.tintColor = UIColor.black
         buttonEdit.imageView!.contentMode = UIViewContentMode.center
         buttonEdit.imageView!.clipsToBounds = true
-        buttonEdit.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
+        buttonEdit.imageEdgeInsets = UIEdgeInsetsMake(20, 3, 0, 0)
         buttonEdit.addTarget(
             self,
             action:#selector(actionEdit(sender:)),
