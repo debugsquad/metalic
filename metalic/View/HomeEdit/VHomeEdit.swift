@@ -15,8 +15,6 @@ class VHomeEdit:UIView
         backgroundColor = UIColor.black
         self.controller = controller
         
-        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
-        
         let menu:VHomeEditMenu = VHomeEditMenu(controller:controller)
         self.menu = menu
         
@@ -36,7 +34,6 @@ class VHomeEdit:UIView
             "imageView":imageView]
         
         let metrics:[String:CGFloat] = [
-            "barHeight":barHeight,
             "menuHeight":kMenuHeight,
             "imageMargin":kImageMargin]
         
@@ -51,7 +48,7 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(barHeight)-[menu(menuHeight)]-(imageMargin)-[imageView]-(imageMargin)-|",
+            withVisualFormat:"V:|-20-[menu(menuHeight)]-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
