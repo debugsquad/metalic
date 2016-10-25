@@ -106,7 +106,6 @@ class VHome:UIView
     
     private func asyncShowImage(redraw:Bool)
     {
-        viewSelector.refresh()
         viewSpinner.stopAnimating()
         viewPicture.isHidden = false
         viewSelector.isHidden = false
@@ -116,6 +115,8 @@ class VHome:UIView
         {
             viewPicture.draw()
         }
+        
+        viewSelector.refresh()
     }
     
     //MARK: public
