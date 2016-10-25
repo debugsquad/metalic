@@ -9,7 +9,7 @@ class CHomePickerCamera:UIImagePickerController, UINavigationControllerDelegate,
         self.init()
         sourceType = UIImagePickerControllerSourceType.camera
         delegate = self
-        allowsEditing = true
+        allowsEditing = false
         self.controller = controller
     }
     
@@ -17,12 +17,7 @@ class CHomePickerCamera:UIImagePickerController, UINavigationControllerDelegate,
     
     func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
     {
-        var image:UIImage? = info[UIImagePickerControllerEditedImage] as? UIImage
-        
-        if image == nil
-        {
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        }
+        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         controller.dismiss(animated:true)
         { [weak self] in

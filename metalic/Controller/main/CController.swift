@@ -6,6 +6,16 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VShadow?
     
+    open var name:NSString
+    {
+        get
+        {
+            let classType:AnyClass = object_getClass(self)
+            
+            return NSStringFromClass(classType) as NSString
+        }
+    }
+    
     override var title:String?
     {
         didSet
@@ -26,6 +36,7 @@ class CController:UIViewController
     {
         super.viewDidLoad()
         
+        FMain.sharedInstance.analytics.screen(controller:self)
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
