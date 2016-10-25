@@ -1,9 +1,9 @@
-import Foundation
+import UIKit
 
 class MEditItemCrop:MEditItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetGenericEdit"))
+        super.init(icon:#imageLiteral(resourceName: "assetGenericEdit").withRenderingMode(UIImageRenderingMode.alwaysTemplate))
     }
 }

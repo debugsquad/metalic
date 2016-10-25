@@ -76,6 +76,7 @@ class VHomeEditMenuCell:UICollectionViewCell
     
     func config(model:MEditItem)
     {
+        imageView.image = model.icon
         hover()
     }
 }

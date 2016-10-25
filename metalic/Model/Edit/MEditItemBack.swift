@@ -4,6 +4,6 @@ class MEditItemBack:MEditItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetGenericBack"))
+        super.init(icon:#imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate))
     }
 }
