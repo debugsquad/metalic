@@ -6,6 +6,7 @@ class VHomeEdit:UIView
     weak var menu:VHomeEditMenu!
     weak var imageView:UIImageView!
     private let kMenuHeight:CGFloat = 80
+    private let kImageMargin:CGFloat = 10
     
     convenience init(controller:CHomeEdit)
     {
@@ -33,7 +34,8 @@ class VHomeEdit:UIView
             "imageView":imageView]
         
         let metrics:[String:CGFloat] = [
-            "menuHeight":kMenuHeight]
+            "menuHeight":kMenuHeight,
+            "imageMargin":kImageMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[menu]-0-|",
@@ -41,12 +43,12 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[menu(menuHeight)]-0-[imageView]-0-|",
+            withVisualFormat:"V:|-0-[menu(menuHeight)]-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
