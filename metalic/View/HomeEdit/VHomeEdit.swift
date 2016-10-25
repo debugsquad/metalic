@@ -4,6 +4,7 @@ class VHomeEdit:UIView
 {
     weak var controller:CHomeEdit!
     weak var menu:VHomeEditMenu!
+    weak var imageView:UIImageView!
     private let kMenuHeight:CGFloat = 80
     
     convenience init(controller:CHomeEdit)
@@ -15,6 +16,9 @@ class VHomeEdit:UIView
         
         let menu:VHomeEditMenu = VHomeEditMenu(controller:controller)
         self.menu = menu
+        
+        let imageView:UIImageView = UIImageView()
+        self.imageView = imageView
         
         addSubview(menu)
         
