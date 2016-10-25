@@ -8,7 +8,6 @@ class VHomeEditMenuCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -41,10 +40,42 @@ class VHomeEditMenuCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            backgroundColor = UIColor(white:1, alpha:0.3)
+            imageView.tintColor = UIColor.black
+        }
+        else
+        {
+            backgroundColor = UIColor.clear
+            imageView.tintColor = UIColor(white:1, alpha:0.5)
+        }
+    }
+    
     //MARK: public
     
     func config(model:MEditItem)
     {
-    
+        hover()
     }
 }

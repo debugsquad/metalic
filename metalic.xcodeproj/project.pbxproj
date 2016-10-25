@@ -81,6 +81,8 @@
 		DA8919081DBFF762006B7AE0 /* MEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919071DBFF762006B7AE0 /* MEdit.swift */; };
 		DA89190A1DBFF7BD006B7AE0 /* MEditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */; };
 		DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */; };
+		DA89190E1DC01563006B7AE0 /* MEditItemBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */; };
+		DA8919101DC0156D006B7AE0 /* MEditItemCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
 		DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */; };
@@ -194,6 +196,8 @@
 		DA8919071DBFF762006B7AE0 /* MEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEdit.swift; sourceTree = "<group>"; };
 		DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItem.swift; sourceTree = "<group>"; };
 		DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFilteredBar.swift; sourceTree = "<group>"; };
+		DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemBack.swift; sourceTree = "<group>"; };
+		DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemCrop.swift; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicRembrandt.swift; sourceTree = "<group>"; };
@@ -481,6 +485,8 @@
 			children = (
 				DA8919071DBFF762006B7AE0 /* MEdit.swift */,
 				DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */,
+				DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */,
+				DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -889,6 +895,7 @@
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
 				DA89190A1DBFF7BD006B7AE0 /* MEditItem.swift in Sources */,
 				DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */,
+				DA8919101DC0156D006B7AE0 /* MEditItemCrop.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
 				DA375C2C1DB99654004D7265 /* ExtensionUIColor.swift in Sources */,
 				DAA0C0081DB19BEF0017DBE1 /* MetalFilterBasicRembrandt.metal in Sources */,
@@ -921,6 +928,7 @@
 				DA8919011DBFF3DC006B7AE0 /* VHomeEdit.swift in Sources */,
 				DA2162651DB82CE400F97B6C /* MetalFilterPremiumEmber.swift in Sources */,
 				DA46D8641DB1680800B89DE9 /* VSpinner.swift in Sources */,
+				DA89190E1DC01563006B7AE0 /* MEditItemBack.swift in Sources */,
 				DAA0C00E1DB42F3C0017DBE1 /* MetalFilterBasicGothic.swift in Sources */,
 				DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */,
 				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
