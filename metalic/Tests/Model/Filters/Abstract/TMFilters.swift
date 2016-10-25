@@ -11,6 +11,8 @@ class TMFilters:XCTestCase
         XCTAssertNotNil(purchasesList, "Unabled to load purchases list")
         XCTAssertGreaterThan(purchasesList!.count, 0, "Empty purchases list")
         
+        var purchasesMap:[String:Bool] = [:]
+        
         for rawPurchase:[String:String] in purchasesList!
         {
             let rawPurchaseId:String? = rawPurchase[mFilters.kPurchaseIdKey]
@@ -18,6 +20,13 @@ class TMFilters:XCTestCase
             
             XCTAssertNotNil(rawPurchaseId, "Couldn't parse purchase id")
             XCTAssertNotNil(rawPurchaseClass, "Couldn't parser purchase class")
+            XCTAssertFalse(rawPurchaseId!.isEmpty, "Empty purchase id")
+            
+            let alreadyIn:Bool? = purchasesMap[rawPurchaseId!]
+            
+            XCTAssertNil(alreadyIn, "Duplicated purchase id")
+            
+            purchasesMap[rawPurchaseId!] = true
             
             let filterItem:MFiltersItem? = MFiltersItem.Factory(className:rawPurchaseClass!)
             
