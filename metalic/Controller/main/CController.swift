@@ -6,13 +6,13 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VShadow?
     
-    open var name:String
+    open var name:NSString
     {
         get
         {
             let classType:AnyClass = object_getClass(self)
             
-            return NSStringFromClass(classType)
+            return NSStringFromClass(classType) as NSString
         }
     }
     
