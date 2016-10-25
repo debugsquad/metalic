@@ -36,7 +36,11 @@ class CHomeFiltered:CController
     
     func export()
     {
-        let activity:UIActivityViewController = UIActivityViewController(activityItems:[image], applicationActivities:nil)
+        FMain.sharedInstance.analytics.share()
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
         
         if activity.popoverPresentationController != nil
         {
