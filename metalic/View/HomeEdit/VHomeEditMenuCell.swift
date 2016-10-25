@@ -8,6 +8,7 @@ class VHomeEditMenuCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
+        backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -62,12 +63,10 @@ class VHomeEditMenuCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:1, alpha:0.6)
-            imageView.tintColor = UIColor.black
+            imageView.tintColor = UIColor(white:1, alpha:0.1)
         }
         else
         {
-            backgroundColor = UIColor.clear
             imageView.tintColor = UIColor.white
         }
     }

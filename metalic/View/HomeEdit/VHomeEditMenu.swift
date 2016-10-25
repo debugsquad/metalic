@@ -6,6 +6,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var collectionView:UICollectionView!
     let model:MEdit
     private let kBorderHeight:CGFloat = 1
+    private let kAfterSelectTime:TimeInterval = 1
     
     init(controller:CHomeEdit)
     {
@@ -121,5 +122,17 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.async
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
