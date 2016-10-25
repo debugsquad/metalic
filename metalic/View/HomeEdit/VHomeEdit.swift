@@ -18,12 +18,19 @@ class VHomeEdit:UIView
         self.menu = menu
         
         let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = controller.filtered.image
         self.imageView = imageView
         
+        addSubview(imageView)
         addSubview(menu)
         
         let views:[String:UIView] = [
-            "menu":menu]
+            "menu":menu,
+            "imageView":imageView]
         
         let metrics:[String:CGFloat] = [
             "menuHeight":kMenuHeight]
@@ -34,7 +41,12 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[menu(menuHeight)]",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[menu(menuHeight)]-0-[imageView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
