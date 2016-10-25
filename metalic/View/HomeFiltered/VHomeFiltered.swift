@@ -4,7 +4,6 @@ class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
     weak var bar:VHomeFilteredBar!
-    weak var buttonExport:UIButton!
     private let kBarWidth:CGFloat = 180
     
     convenience init(controller:CHomeFiltered)
@@ -38,24 +37,6 @@ class VHomeFiltered:UIView
         
         let bar:VHomeFilteredBar = VHomeFilteredBar(controller:controller)
         self.bar = bar
-        
-        let buttonExport:UIButton = UIButton()
-        buttonExport.translatesAutoresizingMaskIntoConstraints = false
-        buttonExport.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonExport.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonExport.imageView!.tintColor = UIColor.black
-        buttonExport.imageView!.contentMode = UIViewContentMode.center
-        buttonExport.imageView!.clipsToBounds = true
-        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
-        buttonExport.addTarget(
-            self,
-            action:#selector(actionExport(sender:)),
-            for:UIControlEvents.touchUpInside)
-        self.buttonExport = buttonExport
         
         addSubview(background)
         addSubview(blur)
@@ -101,7 +82,7 @@ class VHomeFiltered:UIView
             views:views))
         
         let controllerBar:VBar = controller.parentController.viewParent.bar
-        controllerBar.addSubview(buttonExport)
+        controllerBar.addSubview(bar)
         
         let barViews:[String:UIView] = [
             "bar":bar]
@@ -123,6 +104,6 @@ class VHomeFiltered:UIView
     
     deinit
     {
-        buttonExport.removeFromSuperview()
+        bar.removeFromSuperview()
     }
 }
