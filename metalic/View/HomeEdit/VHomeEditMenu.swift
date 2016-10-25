@@ -102,7 +102,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let count:CGFloat = CGFloat(model.items.count)
         let cellsWidth:CGFloat = count * kCellWidth
         let remain:CGFloat = width - cellsWidth
-        let edgeInsets:UIEdgeInsets = UIEdgeInsets(top:0, left:remain, bottom:0, right:0)
+        let edgeInsets:UIEdgeInsets = UIEdgeInsets(top:0, left:0, bottom:0, right:remain)
         
         return edgeInsets
     }
