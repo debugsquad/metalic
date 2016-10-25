@@ -13,4 +13,11 @@ class VHomeEditMenuCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MEditItem)
+    {
+    
+    }
 }

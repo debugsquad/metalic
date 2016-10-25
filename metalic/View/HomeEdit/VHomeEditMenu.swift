@@ -63,6 +63,15 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MEditItem
+    {
+        let item:MEditItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collection delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -90,10 +99,12 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MEditItem = modelAtIndex(index:indexPath)
         let cell:VHomeEditMenuCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VHomeEditMenuCell.reusableIdentifier,
             for:indexPath) as! VHomeEditMenuCell
+        cell.config(model:item)
         
         return cell
     }
