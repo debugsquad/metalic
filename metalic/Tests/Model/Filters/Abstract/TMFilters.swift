@@ -9,5 +9,6 @@ class TMFilters:XCTestCase
         let purchasesList:[[String:String]]? = mFilters.purchasesList()
         
         XCTAssertNotNil(purchasesList, "Unabled to load purchases list")
+        XCTAssertGreaterThan(purchasesList!.count, 0, "Empty purchases list")
     }
 }
