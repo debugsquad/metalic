@@ -19,7 +19,7 @@ class VHomeEditMenuCell:UICollectionViewCell
         addSubview(imageView)
         
         let views:[String:UIView] = [
-            "iamgeView":imageView]
+            "imageView":imageView]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -62,13 +62,13 @@ class VHomeEditMenuCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:1, alpha:0.3)
+            backgroundColor = UIColor(white:1, alpha:0.6)
             imageView.tintColor = UIColor.black
         }
         else
         {
             backgroundColor = UIColor.clear
-            imageView.tintColor = UIColor(white:1, alpha:0.5)
+            imageView.tintColor = UIColor.white
         }
     }
     
