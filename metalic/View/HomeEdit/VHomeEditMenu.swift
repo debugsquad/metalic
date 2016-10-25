@@ -69,10 +69,32 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     {
         let width:CGFloat = collectionView.bounds.maxX
         let height:CGFloat = collectionView.bounds.maxY
-        let count:CGFloat = CGFLoat(model.items.count)
+        let count:CGFloat = CGFloat(model.items.count)
         let sizePerCell:CGFloat = width / count
         let size:CGSize = CGSize(width:sizePerCell, height:height)
         
         return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VHomeEditMenuCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VHomeEditMenuCell.reusableIdentifier,
+            for:indexPath) as! VHomeEditMenuCell
+        
+        return cell
     }
 }
