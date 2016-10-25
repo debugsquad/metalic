@@ -4,6 +4,6 @@ class MEditItemCrop:MEditItem
 {
     init()
     {
-        super.init(icon:#imageLiteral(resourceName: "assetGenericEdit").withRenderingMode(UIImageRenderingMode.alwaysTemplate))
+        super.init(icon:#imageLiteral(resourceName: "assetEditCrop").withRenderingMode(UIImageRenderingMode.alwaysTemplate))
     }
 }
