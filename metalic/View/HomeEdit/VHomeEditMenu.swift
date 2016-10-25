@@ -65,5 +65,14 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: collection delegate
     
-    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let height:CGFloat = collectionView.bounds.maxY
+        let count:CGFloat = CGFLoat(model.items.count)
+        let sizePerCell:CGFloat = width / count
+        let size:CGSize = CGSize(width:sizePerCell, height:height)
+        
+        return size
+    }
 }
