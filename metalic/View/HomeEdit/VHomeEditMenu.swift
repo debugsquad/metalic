@@ -126,6 +126,9 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MEditItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kAfterSelectTime)
         { [weak collectionView] in
             

@@ -8,4 +8,10 @@ class MEditItem
     {
         self.icon = icon
     }
+    
+    //MARK: public
+    
+    func selected(controller:CHomeEdit)
+    {
+    }
 }
