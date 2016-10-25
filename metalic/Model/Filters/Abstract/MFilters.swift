@@ -7,8 +7,8 @@ class MFilters
     private var premiumFilters:[MFiltersItem]
     private let kResourcesName:String = "Purchases"
     private let kResourcesExtension:String = "plist"
-    private let kPurchaseIdKey:String = "purchaseId"
-    private let kPurchaseClassKey:String = "purchaseClass"
+    public let kPurchaseIdKey:String = "purchaseId"
+    public let kPurchaseClassKey:String = "purchaseClass"
     
     init()
     {

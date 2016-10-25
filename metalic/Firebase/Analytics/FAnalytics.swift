@@ -14,12 +14,12 @@ class FAnalytics
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterItemID:self.kEventScreen,
-                kFIRParameterItemName:controller.name
+                kFIRParameterContentType:self.kEventScreen,
+                kFIRParameterItemID:controller.name
             ]
             
             FIRAnalytics.logEvent(
-                withName:kFIREventViewItem,
+                withName:kFIREventSelectContent,
                 parameters:parameters)
         }
     }
@@ -29,12 +29,12 @@ class FAnalytics
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterItemID:self.kEventScreen,
-                kFIRParameterItemName:self.kEventActionShare
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionShare
             ]
             
             FIRAnalytics.logEvent(
-                withName:kFIREventViewItem,
+                withName:kFIREventSelectContent,
                 parameters:parameters)
         }
     }
