@@ -83,6 +83,7 @@
 		DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */; };
 		DA89190E1DC01563006B7AE0 /* MEditItemBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */; };
 		DA8919101DC0156D006B7AE0 /* MEditItemCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */; };
+		DA8919121DC01EED006B7AE0 /* Edit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8919111DC01EED006B7AE0 /* Edit.xcassets */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
 		DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */; };
@@ -198,6 +199,7 @@
 		DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFilteredBar.swift; sourceTree = "<group>"; };
 		DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemBack.swift; sourceTree = "<group>"; };
 		DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemCrop.swift; sourceTree = "<group>"; };
+		DA8919111DC01EED006B7AE0 /* Edit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Edit.xcassets; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicRembrandt.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				DA12D2821DBA5DB000F19962 /* Brand.xcassets */,
 				DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */,
 				DA831B021DBE5D170082269F /* Filter.xcassets */,
+				DA8919111DC01EED006B7AE0 /* Edit.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				DA17C79F1DBED59B006C168F /* GoogleService-Info.plist in Resources */,
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
 				DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */,
+				DA8919121DC01EED006B7AE0 /* Edit.xcassets in Resources */,
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
 				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,

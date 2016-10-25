@@ -31,7 +31,9 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         flow.sectionInset = UIEdgeInsets.zero
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
-        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = false
@@ -150,7 +152,8 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             collectionView?.selectItem(
                 at:nil,
                 animated:false,
-                scrollPosition:UICollectionViewScrollPosition())
+                scrollPosition:
+                UICollectionViewScrollPosition())
         }
     }
 }
