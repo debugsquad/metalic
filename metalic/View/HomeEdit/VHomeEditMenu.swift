@@ -5,7 +5,7 @@ class VHomeEditMenu:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CHomeEdit!
     weak var collectionView:UICollectionView!
     let model:MEdit
-    private let kCellWidth:CGFloat = 45
+    private let kCellWidth:CGFloat = 50
     private let kBorderHeight:CGFloat = 1
     private let kAfterSelectTime:TimeInterval = 1
     
