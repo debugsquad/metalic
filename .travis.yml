@@ -4,8 +4,8 @@ branches:
   only:
     - dev
 script:
-- if [ $MODE == 'Tests' ]; then xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6S' clean build test; fi
-- if [ $MODE == 'Build' ]; then xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6S' clean build; fi
+- if [ $MODE == 'Tests' ]; then xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' clean build test; fi
+- if [ $MODE == 'Build' ]; then xcodebuild -workspace metalic.xcworkspace -scheme metalic -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' clean build; fi
 notifications:
   email:
     on_success: never
