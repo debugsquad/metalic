@@ -82,7 +82,8 @@ class VHomeEditCrop:UIView
             "handlerBottomRight":handlerBottomRight]
         
         let metrics:[String:CGFloat] = [
-            "handlerSize":kHandlerSize]
+            "handlerSize":kHandlerSize,
+            "handlerSize_2":-handlerSize_2]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[overlayLeft]-0-[overlayTop]-0-[overlayRight]",
@@ -125,22 +126,22 @@ class VHomeEditCrop:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[handlerTopLeft(handlerSize)]",
+            withVisualFormat:"H:[overlayLeft]-(handlerSize_2)-[handlerTopLeft(handlerSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[handlerTopRight(handlerSize)]",
+            withVisualFormat:"H:[handlerTopRight(handlerSize)]-(handlerSize_2)-[overlayRight]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[handlerBottomLeft(handlerSize)]",
+            withVisualFormat:"H:[overlayLeft]-(handlerSize_2)-[handlerBottomLeft(handlerSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[handlerBottomRight(handlerSize)]",
+            withVisualFormat:"H:[handlerBottomRight(handlerSize)]-(handlerSize_2)-[overlayRight]",
             options:[],
             metrics:metrics,
             views:views))
@@ -185,22 +186,22 @@ class VHomeEditCrop:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[handlerTopLeft(handlerSize)]",
+            withVisualFormat:"V:[overlayTop]-(handlerSize_2)-[handlerTopLeft(handlerSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[handlerTopRight(handlerSize)]",
+            withVisualFormat:"V:[overlayTop]-(handlerSize_2)-[handlerTopRight(handlerSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[handlerBottomLeft(handlerSize)]",
+            withVisualFormat:"V:[handlerBottomLeft(handlerSize)]-(handlerSize_2)-[overlayBottom]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[handlerBottomRight(handlerSize)]",
+            withVisualFormat:"V:[handlerBottomRight(handlerSize)]-(handlerSize_2)-[overlayBottom]",
             options:[],
             metrics:metrics,
             views:views))
@@ -238,83 +239,10 @@ class VHomeEditCrop:UIView
             multiplier:1,
             constant:100)
         
-        handlerTopLeft.layoutHorizontal = NSLayoutConstraint(
-            item:handlerTopLeft,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        handlerTopLeft.layoutVertical = NSLayoutConstraint(
-            item:handlerTopLeft,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        handlerTopRight.layoutHorizontal = NSLayoutConstraint(
-            item:handlerTopRight,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        handlerTopRight.layoutVertical = NSLayoutConstraint(
-            item:handlerTopRight,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        handlerBottomLeft.layoutHorizontal = NSLayoutConstraint(
-            item:handlerBottomLeft,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        handlerBottomLeft.layoutVertical = NSLayoutConstraint(
-            item:handlerBottomLeft,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        handlerBottomRight.layoutHorizontal = NSLayoutConstraint(
-            item:handlerBottomRight,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        handlerBottomRight.layoutVertical = NSLayoutConstraint(
-            item:handlerBottomRight,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        
         addConstraint(layoutOverlayLeft)
         addConstraint(layoutOverlayTop)
         addConstraint(layoutOverlayRight)
         addConstraint(layoutOverlayBottom)
-        addConstraint(handlerTopLeft.layoutHorizontal)
-        addConstraint(handlerTopLeft.layoutVertical)
-        addConstraint(handlerTopRight.layoutHorizontal)
-        addConstraint(handlerTopRight.layoutVertical)
-        addConstraint(handlerBottomLeft.layoutHorizontal)
-        addConstraint(handlerBottomLeft.layoutVertical)
-        addConstraint(handlerBottomRight.layoutHorizontal)
-        addConstraint(handlerBottomRight.layoutVertical)
         
         let panTopLeft:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
@@ -333,30 +261,15 @@ class VHomeEditCrop:UIView
         handlerTopRight.panGestureRecognizer = panTopRight
         handlerBottomLeft.panGestureRecognizer = panBottomLeft
         handlerBottomRight.panGestureRecognizer = panBottomRight
-        
-        handlerTopLeft.addGestureRecognizer(handlerTopLeft.panGestureRecognizer)
-        handlerTopRight.addGestureRecognizer(handlerTopRight.panGestureRecognizer)
-        handlerBottomLeft.addGestureRecognizer(handlerBottomLeft.panGestureRecognizer)
-        handlerBottomRight.addGestureRecognizer(handlerBottomRight.panGestureRecognizer)
+        handlerTopLeft.addGestureRecognizer(panTopLeft)
+        handlerTopRight.addGestureRecognizer(panTopRight)
+        handlerBottomLeft.addGestureRecognizer(panBottomLeft)
+        handlerBottomRight.addGestureRecognizer(panBottomRight)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func layoutSubviews()
-    {
-        handlerTopLeft.layoutHorizontal.constant = layoutOverlayLeft.constant - handlerSize_2
-        handlerTopLeft.layoutVertical.constant = layoutOverlayTop.constant - handlerSize_2
-        handlerTopRight.layoutHorizontal.constant = -layoutOverlayRight.constant + handlerSize_2
-        handlerTopRight.layoutVertical.constant = layoutOverlayTop.constant - handlerSize_2
-        handlerBottomLeft.layoutHorizontal.constant = layoutOverlayLeft.constant - handlerSize_2
-        handlerBottomLeft.layoutVertical.constant = -layoutOverlayBottom.constant + handlerSize_2
-        handlerBottomRight.layoutHorizontal.constant = -layoutOverlayRight.constant + handlerSize_2
-        handlerBottomRight.layoutVertical.constant = -layoutOverlayBottom.constant + handlerSize_2
-        
-        super.layoutSubviews()
     }
     
     //MARK: public
@@ -370,19 +283,17 @@ class VHomeEditCrop:UIView
     
     func panGesturized(sender gesture:UIPanGestureRecognizer)
     {
-        print("gesture recognizer")
-        
         let handler:VHomeEditCropHandler
         
-        if gesture == handlerTopLeft
+        if gesture === handlerTopLeft.panGestureRecognizer
         {
             handler = handlerTopLeft
         }
-        else if gesture == handlerTopRight
+        else if gesture === handlerTopRight.panGestureRecognizer
         {
             handler = handlerTopRight
         }
-        else if gesture == handlerBottomLeft
+        else if gesture === handlerBottomLeft.panGestureRecognizer
         {
             handler = handlerBottomLeft
         }
@@ -393,10 +304,10 @@ class VHomeEditCrop:UIView
         
         switch gesture.state
         {
-            case UIGestureRecognizerState.began,
-                 UIGestureRecognizerState.recognized,
-                 UIGestureRecognizerState.possible:
-                
+            case UIGestureRecognizerState.began:
+            
+//                handler.initialX = initialLocation.x
+//                handler.initialY = initialLocation.y
                 handler.setSelected()
                 
                 break
@@ -404,11 +315,14 @@ class VHomeEditCrop:UIView
             case UIGestureRecognizerState.changed:
             
                 let translation:CGPoint = gesture.translation(in:self)
+                let translationX:CGFloat = translation.x
+                let translationY:CGFloat = translation.y
+                let newX:CGFloat = handler.initialX - translationX
+                let newY:CGFloat = handler.initialY - translationY
                 
                 break
             
-            case UIGestureRecognizerState.failed,
-                 UIGestureRecognizerState.cancelled:
+            default:
             
                 handler.setStandby()
                 
