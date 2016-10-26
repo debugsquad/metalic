@@ -4,6 +4,7 @@ class VHomeEditCropHandler:UIView
 {
     weak var layoutHorizontal:NSLayoutConstraint!
     weak var layoutVertical:NSLayoutConstraint!
+    weak var panGestureRecognizer:UIPanGestureRecognizer!
     
     init()
     {

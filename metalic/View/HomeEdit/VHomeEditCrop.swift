@@ -315,6 +315,24 @@ class VHomeEditCrop:UIView
         addConstraint(handlerBottomLeft.layoutVertical)
         addConstraint(handlerBottomRight.layoutHorizontal)
         addConstraint(handlerBottomRight.layoutVertical)
+        
+        handlerTopLeft.panGestureRecognizer = UIPanGestureRecognizer(
+            target:self,
+            action:#selector(panGesturized(sender:)))
+        handlerTopRight.panGestureRecognizer = UIPanGestureRecognizer(
+            target:self,
+            action:#selector(panGesturized(sender:)))
+        handlerBottomLeft.panGestureRecognizer = UIPanGestureRecognizer(
+            target:self,
+            action:#selector(panGesturized(sender:)))
+        handlerBottomRight.panGestureRecognizer = UIPanGestureRecognizer(
+            target:self,
+            action:#selector(panGesturized(sender:)))
+        
+        handlerTopLeft.addGestureRecognizer(handlerTopLeft.panGestureRecognizer)
+        handlerTopRight.addGestureRecognizer(handlerTopRight.panGestureRecognizer)
+        handlerBottomLeft.addGestureRecognizer(handlerBottomLeft.panGestureRecognizer)
+        handlerBottomRight.addGestureRecognizer(handlerBottomRight.panGestureRecognizer)
     }
     
     required init?(coder:NSCoder)
@@ -341,5 +359,12 @@ class VHomeEditCrop:UIView
     func startCropping()
     {
         isHidden = false
+    }
+    
+    //MARK: pan gesture
+    
+    func panGesturized(sender gesture:UIPanGestureRecognizer)
+    {
+        print("gesture recognizer")
     }
 }
