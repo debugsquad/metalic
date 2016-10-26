@@ -7,7 +7,12 @@ class VHomeEditCrop:UIView
     weak var layoutOverlayTop:NSLayoutConstraint!
     weak var layoutOverlayRight:NSLayoutConstraint!
     weak var layoutOverlayBottom:NSLayoutConstraint!
+    weak var handlerTopLeft:VHomeEditCropHandler!
+    weak var handlerTopRight:VHomeEditCropHandler!
+    weak var handlerBottomLeft:VHomeEditCropHandler!
+    weak var handlerBottomRight:VHomeEditCropHandler!
     private let kOverlayAlpha:CGFloat = 0.85
+    private let kHandlerSize:CGFloat = 50
     
     convenience init(controller:CHomeEdit)
     {
@@ -34,6 +39,18 @@ class VHomeEditCrop:UIView
         let overlayRightBottom:VHomeEditCropOverlay = VHomeEditCropOverlay(
             borderPosition:VHomeEditCropOverlay.BorderPosition.none)
         
+        let handlerTopLeft:VHomeEditCropHandler = VHomeEditCropHandler()
+        self.handlerTopLeft = handlerTopLeft
+        
+        let handlerTopRight:VHomeEditCropHandler = VHomeEditCropHandler()
+        self.handlerTopRight = handlerTopRight
+        
+        let handlerBottomLeft:VHomeEditCropHandler = VHomeEditCropHandler()
+        self.handlerBottomLeft = handlerBottomLeft
+        
+        let handlerBottomRight:VHomeEditCropHandler = VHomeEditCropHandler()
+        self.handlerBottomRight = handlerBottomRight
+        
         addSubview(overlayLeft)
         addSubview(overlayRight)
         addSubview(overlayTop)
@@ -42,6 +59,10 @@ class VHomeEditCrop:UIView
         addSubview(overlayRightTop)
         addSubview(overlayLeftBottom)
         addSubview(overlayRightBottom)
+        addSubview(handlerTopLeft)
+        addSubview(handlerTopRight)
+        addSubview(handlerBottomLeft)
+        addSubview(handlerBottomRight)
         
         let views:[String:UIView] = [
             "overlayLeft":overlayLeft,
@@ -51,9 +72,14 @@ class VHomeEditCrop:UIView
             "overlayLeftTop":overlayLeftTop,
             "overlayRightTop":overlayRightTop,
             "overlayLeftBottom":overlayLeftBottom,
-            "overlayRightBottom":overlayRightBottom]
+            "overlayRightBottom":overlayRightBottom,
+            "handlerTopLeft":handlerTopLeft,
+            "handlerTopRight":handlerTopRight,
+            "handlerBottomLeft":handlerBottomLeft,
+            "handlerBottomRight":handlerBottomRight]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "handlerSize":kHandlerSize]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[overlayLeft]-0-[overlayTop]-0-[overlayRight]",
@@ -96,6 +122,26 @@ class VHomeEditCrop:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[handlerTopLeft(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[handlerTopRight(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[handlerBottomLeft(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[handlerBottomRight(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[overlayTop]",
             options:[],
             metrics:metrics,
@@ -132,6 +178,26 @@ class VHomeEditCrop:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[overlayRight]-0-[overlayRightBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[handlerTopLeft(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[handlerTopRight(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[handlerBottomLeft(handlerSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[handlerBottomRight(handlerSize)]",
             options:[],
             metrics:metrics,
             views:views))
