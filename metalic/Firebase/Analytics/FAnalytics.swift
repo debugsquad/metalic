@@ -18,9 +18,17 @@ class FAnalytics
                 kFIRParameterItemID:controller.name
             ]
             
+            #if DEBUG
+
+                print(parameters)
+            
+            #else
+                
             FIRAnalytics.logEvent(
                 withName:kFIREventSelectContent,
                 parameters:parameters)
+                
+            #endif
         }
     }
     
@@ -33,9 +41,17 @@ class FAnalytics
                 kFIRParameterItemID:self.kEventActionShare
             ]
             
+            #if DEBUG
+            
+                print(parameters)
+                
+            #else
+                
             FIRAnalytics.logEvent(
                 withName:kFIREventSelectContent,
                 parameters:parameters)
+
+            #endif
         }
     }
 }

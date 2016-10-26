@@ -291,8 +291,9 @@ class VHomeEditCrop:UIView
     
     override func layoutSubviews()
     {
-        let maxWidth:CGFloat = bounds.maxX
-        let maxHeight:CGFloat = bounds.maxY
+        let imageMargin:CGFloat = controller.viewEdit.kImageMargin
+        let maxWidth:CGFloat = bounds.maxX - imageMargin
+        let maxHeight:CGFloat = bounds.maxY - imageMargin
         let deltaX:CGFloat = imageWidth / maxWidth
         let deltaY:CGFloat = imageHeight / maxHeight
         let maxDelta:CGFloat = max(deltaX, deltaY)
@@ -300,13 +301,15 @@ class VHomeEditCrop:UIView
         let scaledHeight:CGFloat = imageHeight / maxDelta
         let remainWidth:CGFloat = maxWidth - scaledWidth
         let remainHeight:CGFloat = maxHeight - scaledHeight
-        marginX = remainWidth / 2.0
-        marginY = remainHeight / 2.0
+        let marginHorizontal:CGFloat = remainWidth / 2.0
+        let marginVertical:CGFloat = remainHeight / 2.0
+        marginX = marginHorizontal + imageMargin
+        marginY = marginVertical + imageMargin
         
-        layoutOverlayTop.constant = marginY + deltaTop
-        layoutOverlayBottom.constant = marginY + deltaBottom
         layoutOverlayLeft.constant = marginX + deltaLeft
         layoutOverlayRight.constant = marginX + deltaRight
+        layoutOverlayTop.constant = marginY + deltaTop
+        layoutOverlayBottom.constant = marginY + deltaBottom
         
         super.layoutSubviews()
     }

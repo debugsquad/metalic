@@ -8,9 +8,9 @@ class VHomeEdit:UIView
     weak var viewCrop:VHomeEditCrop!
     weak var menuCrop:VHomeEditCropMenu!
     private let kMenuHeight:CGFloat = 50
-    private let kStatusbarHeight:CGFloat = 15
+    private let kStatusbarHeight:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
-    let kImageMargin:CGFloat = 20
+    let kImageMargin:CGFloat = 15
     
     convenience init(controller:CHomeEdit)
     {
