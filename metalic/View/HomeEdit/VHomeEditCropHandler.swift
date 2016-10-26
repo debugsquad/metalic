@@ -2,6 +2,8 @@ import UIKit
 
 class VHomeEditCropHandler:UIView
 {
+    weak var layoutLeft:NSLayoutConstraint!
+    weak var layoutTop:NSLayoutConstraint!
     
     init()
     {
@@ -14,6 +16,7 @@ class VHomeEditCropHandler:UIView
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.image = #imageLiteral(resourceName: "assetEditCropHandler")
         
         addSubview(imageView)
         

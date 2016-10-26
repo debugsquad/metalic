@@ -13,10 +13,13 @@ class VHomeEditCrop:UIView
     weak var handlerBottomRight:VHomeEditCropHandler!
     private let kOverlayAlpha:CGFloat = 0.85
     private let kHandlerSize:CGFloat = 50
+    private let handlerSize_2:CGFloat
     
-    convenience init(controller:CHomeEdit)
+    init(controller:CHomeEdit)
     {
-        self.init()
+        handlerSize_2 = kHandlerSize / 2.0
+        
+        super.init(frame:CGRect.zero)
         isHidden = true
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
@@ -239,6 +242,11 @@ class VHomeEditCrop:UIView
         addConstraint(layoutOverlayTop)
         addConstraint(layoutOverlayRight)
         addConstraint(layoutOverlayBottom)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     //MARK: public
