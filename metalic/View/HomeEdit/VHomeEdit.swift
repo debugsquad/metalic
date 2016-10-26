@@ -5,6 +5,7 @@ class VHomeEdit:UIView
     weak var controller:CHomeEdit!
     weak var menu:VHomeEditMenu!
     weak var imageView:UIImageView!
+    weak var shade:UIView!
     private let kMenuHeight:CGFloat = 50
     private let kImageMargin:CGFloat = 20
     private let kStatusbarHeight:CGFloat = 20
