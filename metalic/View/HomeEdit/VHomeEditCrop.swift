@@ -3,13 +3,11 @@ import UIKit
 class VHomeEditCrop:UIView
 {
     weak var controller:CHomeEdit!
-    weak var overlayView:UIView!
-    weak var maskingView:UIView!
-    weak var layoutMaskingLeft:NSLayoutConstraint!
-    weak var layoutMaskingTop:NSLayoutConstraint!
-    weak var layoutMaskingRight:NSLayoutConstraint!
-    weak var layoutMaskingBottom:NSLayoutConstraint!
-    private let kOverlayAlpha:CGFloat = 0.6
+    weak var layoutOverlayLeft:NSLayoutConstraint!
+    weak var layoutOverlayTop:NSLayoutConstraint!
+    weak var layoutOverlayRight:NSLayoutConstraint!
+    weak var layoutOverlayBottom:NSLayoutConstraint!
+    private let kOverlayAlpha:CGFloat = 0.85
     
     convenience init(controller:CHomeEdit)
     {
@@ -19,38 +17,31 @@ class VHomeEditCrop:UIView
         clipsToBounds = true
         self.controller = controller
         
-        let overlayView:UIView = UIView()
-        overlayView.isUserInteractionEnabled = false
-        overlayView.translatesAutoresizingMaskIntoConstraints = false
-        overlayView.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
-        overlayView.clipsToBounds = true
-        self.overlayView = overlayView
+        let overlayLeft:UIView = UIView()
+        overlayLeft.isUserInteractionEnabled = false
+        overlayLeft.translatesAutoresizingMaskIntoConstraints = false
+        overlayLeft.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
+        overlayLeft.clipsToBounds = true
         
-        let maskingView:UIView = UIView()
-        maskingView.isUserInteractionEnabled = false
-        maskingView.translatesAutoresizingMaskIntoConstraints = false
-        maskingView.backgroundColor = UIColor.red
-        maskingView.clipsToBounds = true
-        self.maskingView = maskingView
+        let overlayRight:UIView = UIView()
+        overlayRight.isUserInteractionEnabled = false
+        overlayRight.translatesAutoresizingMaskIntoConstraints = false
+        overlayRight.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
+        overlayRight.clipsToBounds = true
         
-        addSubview(overlayView)
-        addSubview(maskingView)
+        let overlayRight:UIView = UIView()
+        overlayRight.isUserInteractionEnabled = false
+        overlayRight.translatesAutoresizingMaskIntoConstraints = false
+        overlayRight.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
+        overlayRight.clipsToBounds = true
         
-        let views:[String:UIView] = [
-            "overlayView":overlayView]
+        let overlayLeft:UIView = UIView()
+        overlayLeft.isUserInteractionEnabled = false
+        overlayLeft.translatesAutoresizingMaskIntoConstraints = false
+        overlayLeft.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
+        overlayLeft.clipsToBounds = true
         
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[overlayView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[overlayView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
+        addSubview(overlayLeft)
         
         layoutMaskingLeft = NSLayoutConstraint(
             item:maskingView,
