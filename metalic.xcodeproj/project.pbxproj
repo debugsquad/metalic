@@ -76,6 +76,7 @@
 		DA6771531DC0F8C600D69AAD /* VHomeEditCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */; };
 		DA6771551DC10B4800D69AAD /* VHomeEditCropOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */; };
 		DA6771571DC1177C00D69AAD /* VHomeEditCropHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */; };
+		DA6771591DC15A6700D69AAD /* VHomeEditCropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */; };
 		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
 		DA8918FE1DBFEFB6006B7AE0 /* CHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */; };
 		DA8919011DBFF3DC006B7AE0 /* VHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */; };
@@ -195,6 +196,7 @@
 		DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCrop.swift; sourceTree = "<group>"; };
 		DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropOverlay.swift; sourceTree = "<group>"; };
 		DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropHandler.swift; sourceTree = "<group>"; };
+		DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropMenu.swift; sourceTree = "<group>"; };
 		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
 		DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeEdit.swift; sourceTree = "<group>"; };
 		DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEdit.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */,
 				DA8919021DBFF487006B7AE0 /* VHomeEditMenu.swift */,
 				DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */,
+				DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */,
 				DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */,
 				DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */,
 				DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */,
@@ -934,6 +937,7 @@
 				DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */,
 				DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
+				DA6771591DC15A6700D69AAD /* VHomeEditCropMenu.swift in Sources */,
 				DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */,
 				DA46D85B1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift in Sources */,
 				DAA0C0161DB52C150017DBE1 /* ExtensionMTLTexture.swift in Sources */,

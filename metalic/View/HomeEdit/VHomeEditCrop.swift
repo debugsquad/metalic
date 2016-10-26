@@ -13,13 +13,36 @@ class VHomeEditCrop:UIView
     weak var handlerBottomRight:VHomeEditCropHandler!
     private let kOverlayAlpha:CGFloat = 0.85
     private let kHandlerSize:CGFloat = 50
-    private let kHandlersMinSeparation:CGFloat = 20
+    private let kHandlersMinSeparation:CGFloat = 40
     private let handlerSize_2:CGFloat
+    private let imageWidth:CGFloat
+    private let imageHeight:CGFloat
+    private let imageMargin:CGFloat
+    private var originalLeft:CGFloat
+    private var originalTop:CGFloat
+    private var originalRight:CGFloat
+    private var originalBottom:CGFloat
+    private var deltaLeft:CGFloat
+    private var deltaTop:CGFloat
+    private var deltaRight:CGFloat
+    private var deltaBottom:CGFloat
     
     init(controller:CHomeEdit)
     {
         handlerSize_2 = kHandlerSize / 2.0
-        
+        let imageSize:CGSize = controller.filtered.image.size
+        imageWidth = imageSize.width
+        imageHeight = imageSize.height
+        imageMargin = controller.viewEdit.kImageMargin
+        originalTop = 0
+        originalLeft = 0
+        originalRight = 0
+        originalBottom = 0
+        deltaLeft = 0
+        deltaRight = 0
+        deltaTop = 0
+        deltaBottom = 0
+
         super.init(frame:CGRect.zero)
         isHidden = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -214,7 +237,7 @@ class VHomeEditCrop:UIView
             toItem:nil,
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:100)
+            constant:0)
         layoutOverlayTop = NSLayoutConstraint(
             item:overlayTop,
             attribute:NSLayoutAttribute.height,
@@ -222,7 +245,7 @@ class VHomeEditCrop:UIView
             toItem:nil,
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:100)
+            constant:0)
         layoutOverlayRight = NSLayoutConstraint(
             item:overlayRight,
             attribute:NSLayoutAttribute.width,
@@ -230,7 +253,7 @@ class VHomeEditCrop:UIView
             toItem:nil,
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:100)
+            constant:0)
         layoutOverlayBottom = NSLayoutConstraint(
             item:overlayBottom,
             attribute:NSLayoutAttribute.height,
@@ -238,7 +261,7 @@ class VHomeEditCrop:UIView
             toItem:nil,
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:100)
+            constant:0)
         
         addConstraint(layoutOverlayLeft)
         addConstraint(layoutOverlayTop)
@@ -271,6 +294,13 @@ class VHomeEditCrop:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        
+        
+        super.layoutSubviews()
     }
     
     //MARK: public
@@ -380,7 +410,7 @@ class VHomeEditCrop:UIView
                 }
                 else if layoutRight != nil
                 {
-                    let maxX:CGFloat = layoutOverlayLeft.constant + kHandlersMinSeparation
+                    let maxX:CGFloat = screenWidth - layoutOverlayLeft.constant - kHandlersMinSeparation
                     var newX:CGFloat = handler.initialX - translationX
                     
                     if newX > maxX
@@ -415,7 +445,7 @@ class VHomeEditCrop:UIView
                 }
                 else
                 {
-                    let maxY:CGFloat = layoutOverlayTop.constant + kHandlersMinSeparation
+                    let maxY:CGFloat = screenHeight - layoutOverlayTop.constant - kHandlersMinSeparation
                     var newY:CGFloat = handler.initialY - translationY
                     
                     if newY > maxY
