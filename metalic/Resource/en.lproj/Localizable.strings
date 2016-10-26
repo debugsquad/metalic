@@ -21,5 +21,7 @@
 "VStoreHeader_restoringPurchases"="Restored purchases";
 "VStoreFooter_buttonTryAgain"="Try again";
 "VStoreCell_button"="Purchase";
+"VHomeEditCropMenu_buttonCancel"="Cancel";
+"VHomeEditCropMenu_buttonCrop"="Crop";
 
 "CHomeFiltered_title"="Done";
