@@ -13,6 +13,7 @@ class VHomeEditCrop:UIView
     weak var handlerBottomRight:VHomeEditCropHandler!
     private let kOverlayAlpha:CGFloat = 0.85
     private let kHandlerSize:CGFloat = 50
+    private let kHandlersMinSeparation:CGFloat = 20
     private let handlerSize_2:CGFloat
     
     init(controller:CHomeEdit)
@@ -284,41 +285,151 @@ class VHomeEditCrop:UIView
     func panGesturized(sender gesture:UIPanGestureRecognizer)
     {
         let handler:VHomeEditCropHandler
+        let layoutLeft:NSLayoutConstraint?
+        let layoutTop:NSLayoutConstraint?
+        let layoutRight:NSLayoutConstraint?
+        let layoutBottom:NSLayoutConstraint?
         
         if gesture === handlerTopLeft.panGestureRecognizer
         {
             handler = handlerTopLeft
+            
+            layoutTop = layoutOverlayTop
+            layoutLeft = layoutOverlayLeft
+            layoutBottom = nil
+            layoutRight = nil
         }
         else if gesture === handlerTopRight.panGestureRecognizer
         {
             handler = handlerTopRight
+            
+            layoutTop = layoutOverlayTop
+            layoutLeft = nil
+            layoutBottom = nil
+            layoutRight = layoutOverlayRight
         }
         else if gesture === handlerBottomLeft.panGestureRecognizer
         {
             handler = handlerBottomLeft
+            
+            layoutTop = nil
+            layoutLeft = layoutOverlayLeft
+            layoutBottom = layoutOverlayBottom
+            layoutRight = nil
         }
         else
         {
             handler = handlerBottomRight
+            
+            layoutTop = nil
+            layoutLeft = nil
+            layoutBottom = layoutOverlayBottom
+            layoutRight = layoutOverlayRight
         }
         
         switch gesture.state
         {
             case UIGestureRecognizerState.began:
             
-//                handler.initialX = initialLocation.x
-//                handler.initialY = initialLocation.y
+                if layoutLeft != nil
+                {
+                    handler.initialX = layoutLeft!.constant
+                }
+                else if layoutRight != nil
+                {
+                    handler.initialX = layoutRight!.constant
+                }
+                
+                if layoutTop != nil
+                {
+                    handler.initialY = layoutTop!.constant
+                }
+                else
+                {
+                    handler.initialY = layoutBottom!.constant
+                }
+                
                 handler.setSelected()
                 
                 break
             
             case UIGestureRecognizerState.changed:
             
+                let screenWidth:CGFloat = bounds.maxX
+                let screenHeight:CGFloat = bounds.maxY
                 let translation:CGPoint = gesture.translation(in:self)
                 let translationX:CGFloat = translation.x
                 let translationY:CGFloat = translation.y
-                let newX:CGFloat = handler.initialX - translationX
-                let newY:CGFloat = handler.initialY - translationY
+                
+                if layoutLeft != nil
+                {
+                    let maxX:CGFloat = screenWidth - layoutOverlayRight.constant - kHandlersMinSeparation
+                    var newX:CGFloat = handler.initialX + translationX
+                    
+                    if newX > maxX
+                    {
+                        newX = maxX
+                    }
+                    
+                    if newX < 0
+                    {
+                        newX = 0
+                    }
+                    
+                    layoutLeft!.constant = newX
+                }
+                else if layoutRight != nil
+                {
+                    let maxX:CGFloat = layoutOverlayLeft.constant + kHandlersMinSeparation
+                    var newX:CGFloat = handler.initialX - translationX
+                    
+                    if newX > maxX
+                    {
+                        newX = maxX
+                    }
+                    
+                    if newX < 0
+                    {
+                        newX = 0
+                    }
+                    
+                    layoutRight!.constant = newX
+                }
+                
+                if layoutTop != nil
+                {
+                    let maxY:CGFloat = screenHeight - layoutOverlayBottom.constant - kHandlersMinSeparation
+                    var newY:CGFloat = handler.initialY + translationY
+                    
+                    if newY > maxY
+                    {
+                        newY = maxY
+                    }
+                    
+                    if newY < 0
+                    {
+                        newY = 0
+                    }
+                    
+                    layoutTop!.constant = newY
+                }
+                else
+                {
+                    let maxY:CGFloat = layoutOverlayTop.constant + kHandlersMinSeparation
+                    var newY:CGFloat = handler.initialY - translationY
+                    
+                    if newY > maxY
+                    {
+                        newY = maxY
+                    }
+                    
+                    if newY < 0
+                    {
+                        newY = 0
+                    }
+                    
+                    layoutBottom!.constant = newY
+                }
                 
                 break
             
