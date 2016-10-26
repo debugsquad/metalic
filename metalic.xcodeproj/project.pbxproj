@@ -75,6 +75,7 @@
 		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
 		DA6771531DC0F8C600D69AAD /* VHomeEditCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */; };
 		DA6771551DC10B4800D69AAD /* VHomeEditCropOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */; };
+		DA6771571DC1177C00D69AAD /* VHomeEditCropHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */; };
 		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
 		DA8918FE1DBFEFB6006B7AE0 /* CHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */; };
 		DA8919011DBFF3DC006B7AE0 /* VHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */; };
@@ -193,6 +194,7 @@
 		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCrop.swift; sourceTree = "<group>"; };
 		DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropOverlay.swift; sourceTree = "<group>"; };
+		DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropHandler.swift; sourceTree = "<group>"; };
 		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
 		DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeEdit.swift; sourceTree = "<group>"; };
 		DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEdit.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */,
 				DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */,
 				DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */,
+				DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */,
 			);
 			path = HomeEdit;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */,
 				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
+				DA6771571DC1177C00D69AAD /* VHomeEditCropHandler.swift in Sources */,
 				DA2162691DB82EBC00F97B6C /* MetalFilterNone.swift in Sources */,
 				DA114BEF1DBC09F700C74C30 /* MStorePurchaseItemStatusDeferred.swift in Sources */,
 				DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */,

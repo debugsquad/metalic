@@ -12,7 +12,7 @@ class VHomeEditCropOverlay:UIView
     }
     
     private let kAlpha:CGFloat = 0.7
-    private let kBorderSize:CGFloat = 1
+    private let kBorderSize:CGFloat = 2
     private let kEmpty:String = ""
     
     convenience init(borderPosition:BorderPosition)
