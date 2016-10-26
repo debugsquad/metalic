@@ -366,5 +366,23 @@ class VHomeEditCrop:UIView
     func panGesturized(sender gesture:UIPanGestureRecognizer)
     {
         print("gesture recognizer")
+        
+        switch gesture.state
+        {
+            case UIGestureRecognizerState.began,
+                 UIGestureRecognizerState.recognized,
+                 UIGestureRecognizerState.possible:
+            
+                break
+            
+            case UIGestureRecognizerState.changed:
+            
+                break
+            
+            case UIGestureRecognizerState.failed,
+                 UIGestureRecognizerState.cancelled:
+            
+                break
+        }
     }
 }

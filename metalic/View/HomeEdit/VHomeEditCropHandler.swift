@@ -5,9 +5,14 @@ class VHomeEditCropHandler:UIView
     weak var layoutHorizontal:NSLayoutConstraint!
     weak var layoutVertical:NSLayoutConstraint!
     weak var panGestureRecognizer:UIPanGestureRecognizer!
+    var initialX:CGFloat
+    var initialY:CGFloat
     
     init()
     {
+        initialX = 0
+        initialY = 0
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
