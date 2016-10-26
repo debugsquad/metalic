@@ -55,4 +55,11 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
     }
+    
+    //MARK: public
+    
+    func cropMode()
+    {
+        
+    }
 }
