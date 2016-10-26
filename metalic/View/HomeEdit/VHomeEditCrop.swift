@@ -17,58 +17,42 @@ class VHomeEditCrop:UIView
         clipsToBounds = true
         self.controller = controller
         
-        let overlayLeft:UIView = UIView()
-        overlayLeft.isUserInteractionEnabled = false
-        overlayLeft.translatesAutoresizingMaskIntoConstraints = false
-        overlayLeft.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
-        overlayLeft.clipsToBounds = true
-        
-        let overlayRight:UIView = UIView()
-        overlayRight.isUserInteractionEnabled = false
-        overlayRight.translatesAutoresizingMaskIntoConstraints = false
-        overlayRight.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
-        overlayRight.clipsToBounds = true
-        
-        let overlayRight:UIView = UIView()
-        overlayRight.isUserInteractionEnabled = false
-        overlayRight.translatesAutoresizingMaskIntoConstraints = false
-        overlayRight.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
-        overlayRight.clipsToBounds = true
-        
-        let overlayLeft:UIView = UIView()
-        overlayLeft.isUserInteractionEnabled = false
-        overlayLeft.translatesAutoresizingMaskIntoConstraints = false
-        overlayLeft.backgroundColor = UIColor(white:0, alpha:kOverlayAlpha)
-        overlayLeft.clipsToBounds = true
+        let overlayLeft:VHomeEditCropOverlay = VHomeEditCropOverlay()
+        let overlayRight:VHomeEditCropOverlay = VHomeEditCropOverlay()
+        let overlayTop:VHomeEditCropOverlay = VHomeEditCropOverlay()
+        let overlayBottom:VHomeEditCropOverlay = VHomeEditCropOverlay()
         
         addSubview(overlayLeft)
+        addSubview(overlayRight)
+        addSubview(overlayTop)
+        addSubview(overlayBottom)
         
-        layoutMaskingLeft = NSLayoutConstraint(
-            item:maskingView,
+        layoutOverlayLeft = NSLayoutConstraint(
+            item:overlayLeft,
             attribute:NSLayoutAttribute.left,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
             attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:100)
-        layoutMaskingTop = NSLayoutConstraint(
-            item:maskingView,
+        layoutOverlayTop = NSLayoutConstraint(
+            item:overlayTop,
             attribute:NSLayoutAttribute.top,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
             attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:100)
-        layoutMaskingRight = NSLayoutConstraint(
-            item:maskingView,
+        layoutOverlayRight = NSLayoutConstraint(
+            item:overlayRight,
             attribute:NSLayoutAttribute.right,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
             attribute:NSLayoutAttribute.right,
             multiplier:1,
             constant:-100)
-        layoutMaskingBottom = NSLayoutConstraint(
-            item:maskingView,
+        layoutOverlayBottom = NSLayoutConstraint(
+            item:overlayBottom,
             attribute:NSLayoutAttribute.bottom,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -76,10 +60,10 @@ class VHomeEditCrop:UIView
             multiplier:1,
             constant:-100)
         
-        addConstraint(layoutMaskingLeft)
-        addConstraint(layoutMaskingTop)
-        addConstraint(layoutMaskingRight)
-        addConstraint(layoutMaskingBottom)
+        addConstraint(layoutOverlayLeft)
+        addConstraint(layoutOverlayTop)
+        addConstraint(layoutOverlayRight)
+        addConstraint(layoutOverlayBottom)
     }
     
     //MARK: public
