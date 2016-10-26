@@ -322,6 +322,20 @@ class VHomeEditCrop:UIView
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        handlerTopLeft.layoutHorizontal.constant = layoutOverlayLeft.constant - handlerSize_2
+        handlerTopLeft.layoutVertical.constant = layoutOverlayTop.constant - handlerSize_2
+        handlerTopRight.layoutHorizontal.constant = -layoutOverlayRight.constant + handlerSize_2
+        handlerTopRight.layoutVertical.constant = layoutOverlayTop.constant - handlerSize_2
+        handlerBottomLeft.layoutHorizontal.constant = layoutOverlayLeft.constant - handlerSize_2
+        handlerBottomLeft.layoutVertical.constant = -layoutOverlayBottom.constant + handlerSize_2
+        handlerBottomRight.layoutHorizontal.constant = -layoutOverlayRight.constant + handlerSize_2
+        handlerBottomRight.layoutVertical.constant = -layoutOverlayBottom.constant + handlerSize_2
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: public
     
     func startCropping()
