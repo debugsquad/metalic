@@ -76,6 +76,6 @@ class VHomeEdit:UIView
     
     func cropMode()
     {
-        
+        viewCrop.startCropping()
     }
 }

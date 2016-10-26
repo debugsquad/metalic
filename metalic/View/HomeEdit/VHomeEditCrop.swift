@@ -12,4 +12,11 @@ class VHomeEditCrop:UIView
         clipsToBounds = true
         self.controller = controller
     }
+    
+    //MARK: public
+    
+    func startCropping()
+    {
+        
+    }
 }
