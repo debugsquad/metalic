@@ -76,6 +76,7 @@ class VHomeEdit:UIView
     
     func cropMode()
     {
+        menu.isHidden = true
         viewCrop.startCropping()
     }
 }
