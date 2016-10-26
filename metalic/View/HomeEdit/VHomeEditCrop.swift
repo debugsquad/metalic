@@ -238,10 +238,83 @@ class VHomeEditCrop:UIView
             multiplier:1,
             constant:100)
         
+        handlerTopLeft.layoutHorizontal = NSLayoutConstraint(
+            item:handlerTopLeft,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        handlerTopLeft.layoutVertical = NSLayoutConstraint(
+            item:handlerTopLeft,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        handlerTopRight.layoutHorizontal = NSLayoutConstraint(
+            item:handlerTopRight,
+            attribute:NSLayoutAttribute.right,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.right,
+            multiplier:1,
+            constant:0)
+        handlerTopRight.layoutVertical = NSLayoutConstraint(
+            item:handlerTopRight,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        handlerBottomLeft.layoutHorizontal = NSLayoutConstraint(
+            item:handlerBottomLeft,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        handlerBottomLeft.layoutVertical = NSLayoutConstraint(
+            item:handlerBottomLeft,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:0)
+        handlerBottomRight.layoutHorizontal = NSLayoutConstraint(
+            item:handlerBottomRight,
+            attribute:NSLayoutAttribute.right,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.right,
+            multiplier:1,
+            constant:0)
+        handlerBottomRight.layoutVertical = NSLayoutConstraint(
+            item:handlerBottomRight,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:0)
+        
         addConstraint(layoutOverlayLeft)
         addConstraint(layoutOverlayTop)
         addConstraint(layoutOverlayRight)
         addConstraint(layoutOverlayBottom)
+        addConstraint(handlerTopLeft.layoutHorizontal)
+        addConstraint(handlerTopLeft.layoutVertical)
+        addConstraint(handlerTopRight.layoutHorizontal)
+        addConstraint(handlerTopRight.layoutVertical)
+        addConstraint(handlerBottomLeft.layoutHorizontal)
+        addConstraint(handlerBottomLeft.layoutVertical)
+        addConstraint(handlerBottomRight.layoutHorizontal)
+        addConstraint(handlerBottomRight.layoutVertical)
     }
     
     required init?(coder:NSCoder)

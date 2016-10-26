@@ -2,8 +2,8 @@ import UIKit
 
 class VHomeEditCropHandler:UIView
 {
-    weak var layoutLeft:NSLayoutConstraint!
-    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutHorizontal:NSLayoutConstraint!
+    weak var layoutVertical:NSLayoutConstraint!
     
     init()
     {
