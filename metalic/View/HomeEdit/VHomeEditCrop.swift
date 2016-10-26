@@ -17,10 +17,8 @@ class VHomeEditCrop:UIView
     private let handlerSize_2:CGFloat
     private let imageWidth:CGFloat
     private let imageHeight:CGFloat
-    private var originalLeft:CGFloat
-    private var originalTop:CGFloat
-    private var originalRight:CGFloat
-    private var originalBottom:CGFloat
+    private var marginX:CGFloat
+    private var marginY:CGFloat
     private var deltaLeft:CGFloat
     private var deltaTop:CGFloat
     private var deltaRight:CGFloat
@@ -32,10 +30,8 @@ class VHomeEditCrop:UIView
         let imageSize:CGSize = controller.filtered.image.size
         imageWidth = imageSize.width
         imageHeight = imageSize.height
-        originalTop = 0
-        originalLeft = 0
-        originalRight = 0
-        originalBottom = 0
+        marginX = 0
+        marginY = 0
         deltaLeft = 0
         deltaRight = 0
         deltaTop = 0
@@ -295,7 +291,22 @@ class VHomeEditCrop:UIView
     
     override func layoutSubviews()
     {
+        let maxWidth:CGFloat = bounds.maxX
+        let maxHeight:CGFloat = bounds.maxY
+        let deltaX:CGFloat = imageWidth / maxWidth
+        let deltaY:CGFloat = imageHeight / maxHeight
+        let maxDelta:CGFloat = max(deltaX, deltaY)
+        let scaledWidth:CGFloat = imageWidth / maxDelta
+        let scaledHeight:CGFloat = imageHeight / maxDelta
+        let remainWidth:CGFloat = maxWidth - scaledWidth
+        let remainHeight:CGFloat = maxHeight - scaledHeight
+        marginX = remainWidth / 2.0
+        marginY = remainHeight / 2.0
         
+        layoutOverlayTop.constant = marginY + deltaTop
+        layoutOverlayBottom.constant = marginY + deltaBottom
+        layoutOverlayLeft.constant = marginX + deltaLeft
+        layoutOverlayRight.constant = marginX + deltaRight
         
         super.layoutSubviews()
     }
