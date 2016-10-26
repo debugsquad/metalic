@@ -6,6 +6,7 @@ class VHomeEdit:UIView
     weak var menu:VHomeEditMenu!
     weak var imageView:UIImageView!
     weak var viewCrop:VHomeEditCrop!
+    weak var menuCrop:VHomeEditCropMenu!
     private let kMenuHeight:CGFloat = 50
     private let kStatusbarHeight:CGFloat = 15
     let kImageMargin:CGFloat = 20
@@ -31,14 +32,20 @@ class VHomeEdit:UIView
         let viewCrop:VHomeEditCrop = VHomeEditCrop(controller:controller)
         self.viewCrop = viewCrop
         
+        let menuCrop:VHomeEditCropMenu = VHomeEditCropMenu(controller:controller)
+        menuCrop.isHidden = true
+        self.menuCrop = menuCrop
+        
         addSubview(imageView)
         addSubview(viewCrop)
         addSubview(menu)
+        addSubview(menuCrop)
         
         let views:[String:UIView] = [
             "menu":menu,
             "imageView":imageView,
-            "viewCrop":viewCrop]
+            "viewCrop":viewCrop,
+            "menuCrop":menuCrop]
         
         let metrics:[String:CGFloat] = [
             "menuHeight":kMenuHeight,
@@ -47,6 +54,11 @@ class VHomeEdit:UIView
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[menu]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[menuCrop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -66,7 +78,7 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[menu]-0-[viewCrop]-0-|",
+            withVisualFormat:"V:|-(statusbarHeight)-[menuCrop(menuHeight)]-0-[viewCrop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -77,6 +89,7 @@ class VHomeEdit:UIView
     func cropMode()
     {
         menu.isHidden = true
+        menuCrop.isHidden = false
         viewCrop.startCropping()
     }
 }
