@@ -5,7 +5,7 @@ class VHomeEdit:UIView
     weak var controller:CHomeEdit!
     weak var menu:VHomeEditMenu!
     weak var imageView:UIImageView!
-    weak var shade:UIView!
+    weak var viewCrop:VHomeEditCrop!
     private let kMenuHeight:CGFloat = 50
     private let kImageMargin:CGFloat = 20
     private let kStatusbarHeight:CGFloat = 20
@@ -28,12 +28,17 @@ class VHomeEdit:UIView
         imageView.image = controller.filtered.image
         self.imageView = imageView
         
+        let viewCrop:VHomeEditCrop = VHomeEditCrop(controller:controller)
+        self.viewCrop = viewCrop
+        
         addSubview(imageView)
+        addSubview(viewCrop)
         addSubview(menu)
         
         let views:[String:UIView] = [
             "menu":menu,
-            "imageView":imageView]
+            "imageView":imageView,
+            "viewCrop":viewCrop]
         
         let metrics:[String:CGFloat] = [
             "menuHeight":kMenuHeight,
@@ -46,12 +51,22 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[viewCrop]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(statusbarHeight)-[menu(menuHeight)]-(imageMargin)-[imageView]-(imageMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[menu]-0-[viewCrop]-0-|",
             options:[],
             metrics:metrics,
             views:views))
