@@ -316,18 +316,23 @@ class VHomeEditCrop:UIView
         addConstraint(handlerBottomRight.layoutHorizontal)
         addConstraint(handlerBottomRight.layoutVertical)
         
-        handlerTopLeft.panGestureRecognizer = UIPanGestureRecognizer(
+        let panTopLeft:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
             action:#selector(panGesturized(sender:)))
-        handlerTopRight.panGestureRecognizer = UIPanGestureRecognizer(
+        let panTopRight:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
             action:#selector(panGesturized(sender:)))
-        handlerBottomLeft.panGestureRecognizer = UIPanGestureRecognizer(
+        let panBottomLeft:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
             action:#selector(panGesturized(sender:)))
-        handlerBottomRight.panGestureRecognizer = UIPanGestureRecognizer(
+        let panBottomRight:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
             action:#selector(panGesturized(sender:)))
+    
+        handlerTopLeft.panGestureRecognizer = panTopLeft
+        handlerTopRight.panGestureRecognizer = panTopRight
+        handlerBottomLeft.panGestureRecognizer = panBottomLeft
+        handlerBottomRight.panGestureRecognizer = panBottomRight
         
         handlerTopLeft.addGestureRecognizer(handlerTopLeft.panGestureRecognizer)
         handlerTopRight.addGestureRecognizer(handlerTopRight.panGestureRecognizer)
@@ -398,7 +403,7 @@ class VHomeEditCrop:UIView
             
             case UIGestureRecognizerState.changed:
             
-                
+                let translation:CGPoint = gesture.translation(in:self)
                 
                 break
             
