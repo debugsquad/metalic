@@ -5,8 +5,7 @@ class VHomeEditCropHandler:UIView
     weak var layoutHorizontal:NSLayoutConstraint!
     weak var layoutVertical:NSLayoutConstraint!
     weak var panGestureRecognizer:UIPanGestureRecognizer!
-    private let kAlphaStand:CGFloat = 0.5
-    private let kAlphaSelected:CGFloat = 1
+    weak var imageView:UIImageView!
     
     init()
     {
@@ -19,7 +18,7 @@ class VHomeEditCropHandler:UIView
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.image = #imageLiteral(resourceName: "assetEditCropHandler")
+        self.imageView = imageView
         
         addSubview(imageView)
         
@@ -51,11 +50,11 @@ class VHomeEditCropHandler:UIView
     
     func setSelected()
     {
-        alpha = kAlphaSelected
+        imageView.image = #imageLiteral(resourceName: "assetEditCropHandlerOn")
     }
     
     func setStandby()
     {
-        alpha = kAlphaStand
+        imageView.image = #imageLiteral(resourceName: "assetEditCropHandlerOff")
     }
 }
