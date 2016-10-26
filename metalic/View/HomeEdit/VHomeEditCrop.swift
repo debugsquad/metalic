@@ -17,7 +17,6 @@ class VHomeEditCrop:UIView
     private let handlerSize_2:CGFloat
     private let imageWidth:CGFloat
     private let imageHeight:CGFloat
-    private let imageMargin:CGFloat
     private var originalLeft:CGFloat
     private var originalTop:CGFloat
     private var originalRight:CGFloat
@@ -33,7 +32,6 @@ class VHomeEditCrop:UIView
         let imageSize:CGSize = controller.filtered.image.size
         imageWidth = imageSize.width
         imageHeight = imageSize.height
-        imageMargin = controller.viewEdit.kImageMargin
         originalTop = 0
         originalLeft = 0
         originalRight = 0
@@ -44,7 +42,6 @@ class VHomeEditCrop:UIView
         deltaBottom = 0
 
         super.init(frame:CGRect.zero)
-        isHidden = true
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller
@@ -301,13 +298,6 @@ class VHomeEditCrop:UIView
         
         
         super.layoutSubviews()
-    }
-    
-    //MARK: public
-    
-    func startCropping()
-    {
-        isHidden = false
     }
     
     //MARK: pan gesture

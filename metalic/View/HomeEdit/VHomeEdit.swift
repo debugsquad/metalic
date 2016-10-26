@@ -9,6 +9,7 @@ class VHomeEdit:UIView
     weak var menuCrop:VHomeEditCropMenu!
     private let kMenuHeight:CGFloat = 50
     private let kStatusbarHeight:CGFloat = 15
+    private let kBorderHeight:CGFloat = 1
     let kImageMargin:CGFloat = 20
     
     convenience init(controller:CHomeEdit)
@@ -17,6 +18,11 @@ class VHomeEdit:UIView
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.black
         self.controller = controller
+        
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = UIColor.white
         
         let menu:VHomeEditMenu = VHomeEditMenu(controller:controller)
         self.menu = menu
@@ -30,6 +36,7 @@ class VHomeEdit:UIView
         self.imageView = imageView
         
         let viewCrop:VHomeEditCrop = VHomeEditCrop(controller:controller)
+        viewCrop.isHidden = true
         self.viewCrop = viewCrop
         
         let menuCrop:VHomeEditCropMenu = VHomeEditCropMenu(controller:controller)
@@ -38,6 +45,7 @@ class VHomeEdit:UIView
         
         addSubview(imageView)
         addSubview(viewCrop)
+        addSubview(border)
         addSubview(menu)
         addSubview(menuCrop)
         
@@ -45,12 +53,14 @@ class VHomeEdit:UIView
             "menu":menu,
             "imageView":imageView,
             "viewCrop":viewCrop,
-            "menuCrop":menuCrop]
+            "menuCrop":menuCrop,
+            "border":border]
         
         let metrics:[String:CGFloat] = [
             "menuHeight":kMenuHeight,
             "imageMargin":kImageMargin,
-            "statusbarHeight":kStatusbarHeight]
+            "statusbarHeight":kStatusbarHeight,
+            "borderHeight":kBorderHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[menu]-0-|",
@@ -68,12 +78,22 @@ class VHomeEdit:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(statusbarHeight)-[menu(menuHeight)]-(imageMargin)-[imageView]-(imageMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[menu]-0-[border(borderHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -90,6 +110,13 @@ class VHomeEdit:UIView
     {
         menu.isHidden = true
         menuCrop.isHidden = false
-        viewCrop.startCropping()
+        viewCrop.isHidden = false
+    }
+    
+    func endCropMode()
+    {
+        menu.isHidden = false
+        menuCrop.isHidden = true
+        viewCrop.isHidden = true
     }
 }

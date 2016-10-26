@@ -4,7 +4,7 @@ class VHomeEditCropMenu:UIView
 {
     weak var controller:CHomeEdit!
     weak var layoutButtonsLeft:NSLayoutConstraint!
-    private let kButtonWidth:CGFloat = 120
+    private let kButtonWidth:CGFloat = 100
     private let buttonsWidth:CGFloat
     
     init(controller:CHomeEdit)
@@ -29,7 +29,7 @@ class VHomeEditCropMenu:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCancel.titleLabel!.font = UIFont.bold(
-            size:14)
+            size:16)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -47,7 +47,7 @@ class VHomeEditCropMenu:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCrop.titleLabel!.font = UIFont.bold(
-            size:14)
+            size:16)
         buttonCrop.addTarget(
             self,
             action:#selector(actionCrop(sender:)),
@@ -60,10 +60,11 @@ class VHomeEditCropMenu:UIView
             "buttonCancel":buttonCancel,
             "buttonCrop":buttonCrop]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "buttonWidth":kButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonCancel]-0-[buttonCrop]",
+            withVisualFormat:"H:[buttonCancel(buttonWidth)]-0-[buttonCrop(buttonWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -109,11 +110,11 @@ class VHomeEditCropMenu:UIView
     
     func actionCancel(sender button:UIButton)
     {
-        
+        controller.viewEdit.endCropMode()
     }
     
     func actionCrop(sender button:UIButton)
     {
-        
+        controller.viewEdit.endCropMode()
     }
 }
