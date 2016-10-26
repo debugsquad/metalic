@@ -27,38 +27,87 @@ class VHomeEditCrop:UIView
         addSubview(overlayTop)
         addSubview(overlayBottom)
         
+        let views:[String:UIView] = [
+            "overlayLeft":overlayLeft,
+            "overlayTop":overlayTop,
+            "overlayRight":overlayRight,
+            "overlayBottom":overlayBottom]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[overlayTop]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[overlayBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[overlayLeft]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[overlayRight]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[overlayTop]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[overlayBottom]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[overlayTop]-0-[overlayLeft]-0-[overlayBottom]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[overlayTop]-0-[overlayRight]-0-[overlayBottom]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
         layoutOverlayLeft = NSLayoutConstraint(
             item:overlayLeft,
-            attribute:NSLayoutAttribute.left,
+            attribute:NSLayoutAttribute.width,
             relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:100)
         layoutOverlayTop = NSLayoutConstraint(
             item:overlayTop,
-            attribute:NSLayoutAttribute.top,
+            attribute:NSLayoutAttribute.height,
             relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:100)
         layoutOverlayRight = NSLayoutConstraint(
             item:overlayRight,
-            attribute:NSLayoutAttribute.right,
+            attribute:NSLayoutAttribute.width,
             relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:-100)
+            constant:100)
         layoutOverlayBottom = NSLayoutConstraint(
             item:overlayBottom,
-            attribute:NSLayoutAttribute.bottom,
+            attribute:NSLayoutAttribute.height,
             relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
-            constant:-100)
+            constant:100)
         
         addConstraint(layoutOverlayLeft)
         addConstraint(layoutOverlayTop)
