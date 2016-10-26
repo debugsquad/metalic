@@ -2,6 +2,7 @@ import UIKit
 
 class VHomeEditCropHandler:UIView
 {
+    
     init()
     {
         super.init(frame:CGRect.zero)
