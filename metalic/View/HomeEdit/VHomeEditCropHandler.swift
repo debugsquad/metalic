@@ -5,14 +5,11 @@ class VHomeEditCropHandler:UIView
     weak var layoutHorizontal:NSLayoutConstraint!
     weak var layoutVertical:NSLayoutConstraint!
     weak var panGestureRecognizer:UIPanGestureRecognizer!
-    var initialX:CGFloat
-    var initialY:CGFloat
+    private let kAlphaStand:CGFloat = 0.5
+    private let kAlphaSelected:CGFloat = 1
     
     init()
     {
-        initialX = 0
-        initialY = 0
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -41,10 +38,24 @@ class VHomeEditCropHandler:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        setStandby()
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func setSelected()
+    {
+        alpha = kAlphaSelected
+    }
+    
+    func setStandby()
+    {
+        alpha = kAlphaStand
     }
 }

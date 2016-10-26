@@ -367,21 +367,46 @@ class VHomeEditCrop:UIView
     {
         print("gesture recognizer")
         
+        let handler:VHomeEditCropHandler
+        
+        if gesture == handlerTopLeft
+        {
+            handler = handlerTopLeft
+        }
+        else if gesture == handlerTopRight
+        {
+            handler = handlerTopRight
+        }
+        else if gesture == handlerBottomLeft
+        {
+            handler = handlerBottomLeft
+        }
+        else
+        {
+            handler = handlerBottomRight
+        }
+        
         switch gesture.state
         {
             case UIGestureRecognizerState.began,
                  UIGestureRecognizerState.recognized,
                  UIGestureRecognizerState.possible:
-            
+                
+                handler.setSelected()
+                
                 break
             
             case UIGestureRecognizerState.changed:
             
+                
+                
                 break
             
             case UIGestureRecognizerState.failed,
                  UIGestureRecognizerState.cancelled:
             
+                handler.setStandby()
+                
                 break
         }
     }
