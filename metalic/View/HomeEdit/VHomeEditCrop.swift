@@ -17,10 +17,14 @@ class VHomeEditCrop:UIView
         clipsToBounds = true
         self.controller = controller
         
-        let overlayLeft:VHomeEditCropOverlay = VHomeEditCropOverlay()
-        let overlayRight:VHomeEditCropOverlay = VHomeEditCropOverlay()
-        let overlayTop:VHomeEditCropOverlay = VHomeEditCropOverlay()
-        let overlayBottom:VHomeEditCropOverlay = VHomeEditCropOverlay()
+        let overlayLeft:VHomeEditCropOverlay = VHomeEditCropOverlay(
+            borderPosition:VHomeEditCropOverlay.BorderPosition.left)
+        let overlayRight:VHomeEditCropOverlay = VHomeEditCropOverlay(
+            borderPosition:VHomeEditCropOverlay.BorderPosition.right)
+        let overlayTop:VHomeEditCropOverlay = VHomeEditCropOverlay(
+            borderPosition:VHomeEditCropOverlay.BorderPosition.top)
+        let overlayBottom:VHomeEditCropOverlay = VHomeEditCropOverlay(
+            borderPosition:VHomeEditCropOverlay.BorderPosition.bottom)
         
         addSubview(overlayLeft)
         addSubview(overlayRight)
@@ -36,12 +40,12 @@ class VHomeEditCrop:UIView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[overlayTop]-0-|",
+            withVisualFormat:"H:[overlayLeft]-0-[overlayTop]-0-[overlayRight]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[overlayBottom]-0-|",
+            withVisualFormat:"H:[overlayLeft]-0-[overlayBottom]-0-[overlayRight]",
             options:[],
             metrics:metrics,
             views:views))
