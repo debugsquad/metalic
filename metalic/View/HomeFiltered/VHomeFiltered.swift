@@ -4,6 +4,8 @@ class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
     weak var bar:VHomeFilteredBar!
+    weak var background:UIImageView!
+    weak var imageView:UIImageView!
     private let kBarWidth:CGFloat = 150
     
     convenience init(controller:CHomeFiltered)
@@ -27,6 +29,7 @@ class VHomeFiltered:UIView
         background.clipsToBounds = true
         background.contentMode = UIViewContentMode.scaleAspectFill
         background.image = controller.image
+        self.background = background
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -34,6 +37,7 @@ class VHomeFiltered:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.image
+        self.imageView = imageView
         
         let bar:VHomeFilteredBar = VHomeFilteredBar(controller:controller)
         self.bar = bar

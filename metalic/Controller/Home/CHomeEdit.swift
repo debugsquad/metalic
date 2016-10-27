@@ -4,6 +4,7 @@ class CHomeEdit:CController
 {
     weak var viewEdit:VHomeEdit!
     weak var filtered:CHomeFiltered!
+    private let kMinBytesPerRow:Int = 3000
     
     convenience init(filtered:CHomeFiltered)
     {
@@ -27,96 +28,84 @@ class CHomeEdit:CController
     
     func cropImage(percentLeft:CGFloat, percentRight:CGFloat, percentTop:CGFloat, percentBottom:CGFloat)
     {
+        guard
         
-        /*
+            let cgImage:CGImage = filtered.image.cgImage
+        
+        else
+        {
+            viewEdit.endCropMode()
+            
+            return
+        }
+        
+        let imageOriginalWidth:CGFloat = filtered.image.size.width
+        let imageOriginalHeight:CGFloat = filtered.image.size.height
+        let imageOriginalWidthInt:Int = Int(imageOriginalWidth)
+        let imageOriginalHeightInt:Int = Int(imageOriginalHeight)
+        let deltaLeft:Int = Int(ceil(percentLeft))
+        let deltaRight:Int = Int(ceil(percentRight))
+        let deltaTop:Int = Int(ceil(percentTop))
+        let deltaBottom:Int = Int(ceil(percentBottom))
+        let deltaHorizontal:Int = deltaLeft + deltaRight
+        let deltaVertical:Int = deltaTop + deltaBottom
+        let expectedWidth:Int = imageOriginalWidthInt - deltaHorizontal
+        let expectedHeight:Int = imageOriginalHeightInt - deltaVertical
+        let bitsPerComponent:Int = cgImage.bitsPerComponent
+        let bitmapInfo:CGBitmapInfo = cgImage.bitmapInfo
+        var bytesPerRow:Int = cgImage.bytesPerRow
+        let drawRect:CGRect = CGRect(
+            x:-deltaLeft,
+            y:-deltaTop,
+            width:imageOriginalWidthInt,
+            height:imageOriginalHeightInt)
+        
+        if bytesPerRow < kMinBytesPerRow
+        {
+            bytesPerRow = kMinBytesPerRow
+        }
         
         guard
-        -
-        -            let normalizedImage:UIImage = normalizedImage,
-        -            let normalizedCGImage:CGImage = normalizedImage.cgImage
-        -
-        -        else
-        -        {
-            -            return nil
-            -        }
-            -
-        -        let imageWidth:CGFloat = normalizedImage.size.width
-        -        let imageHeight:CGFloat = normalizedImage.size.height
-        -        let usableWidthScaleInt:Int = Int(width)
-        -        let usableHeightScaleInt:Int = Int(height)
-        -        let bitsPerComponent:Int = normalizedCGImage.bitsPerComponent
-        -        let bitmapInfo:CGBitmapInfo = normalizedCGImage.bitmapInfo
-        -        let colorSpace:CGColorSpace? = normalizedCGImage.colorSpace
-        -        var bytesPerRow:Int = normalizedCGImage.bytesPerRow
-        -        let drawRect:CGRect
-        -        let drawWidth:Int
-        -        let drawHeight:Int
-        -        let drawX:Int
-        -        let drawY:Int
-        -
-        -        if width < imageWidth || height < imageHeight
-        -        {
-        -            let ratioWidth:CGFloat = imageWidth / width
-        -            let ratioHeight:CGFloat = imageHeight / height
-        -            let maxRatio:CGFloat = max(ratioWidth, ratioHeight)
-        -            let scaledWidth:CGFloat = floor(imageWidth / maxRatio)
-        -            let scaledHeight:CGFloat = floor(imageHeight / maxRatio)
-        -            let deltaWidth:CGFloat = width - scaledWidth
-        -            let deltaHeight:CGFloat = height - scaledHeight
-        -            let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
-        -            let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
-        -            drawX = Int(drawXFloat)
-        -            drawY = Int(drawYFloat)
-        -            drawWidth = Int(scaledWidth)
-        -            drawHeight = Int(scaledHeight)
-        -        }
-        -        else
-        -        {
-            -            let deltaWidth:CGFloat = width - imageWidth
-            -            let deltaHeight:CGFloat = height - imageHeight
-            -            let drawXFloat:CGFloat = floor(deltaWidth / 2.0)
-            -            let drawYFloat:CGFloat = floor(deltaHeight / 2.0)
-            -            drawX = Int(drawXFloat)
-            -            drawY = Int(drawYFloat)
-            -            drawWidth = Int(imageWidth)
-            -            drawHeight = Int(imageHeight)
-            -        }
-            -
-        -        if bytesPerRow < kMinBytesPerRow
-        -        {
-        -            bytesPerRow = kMinBytesPerRow
-        -        }
-        -
-        -        drawRect = CGRect(x:drawX, y:drawY, width:drawWidth, height:drawHeight)
-        -
-        -        guard
-        -
-        -            let realColorSpace:CGColorSpace = colorSpace,
-        -            let context:CGContext = CGContext.init(
-        -                data:nil,
-        -                width:usableWidthScaleInt,
-        -                height:usableHeightScaleInt,
-        -                bitsPerComponent:bitsPerComponent,
-        -                bytesPerRow:bytesPerRow,
-        -                space:realColorSpace,
-        -                bitmapInfo:bitmapInfo.rawValue)
-        -        
-        -        else
-        -        {
-            -            return nil
-            -        }
-            -        
-            -        context.interpolationQuality = CGInterpolationQuality.high
-            -        context.draw(
-            -            normalizedCGImage,
-            -            in:drawRect)
-            -        
-        -        let cgImage:CGImage? = context.makeImage()
-        -        
-        -        return cgImage
- 
- 
- */
- 
+        
+            let colorSpace:CGColorSpace = cgImage.colorSpace,
+            let context:CGContext = CGContext.init(
+                data:nil,
+                width:expectedWidth,
+                height:expectedHeight,
+                bitsPerComponent:bitsPerComponent,
+                bytesPerRow:bytesPerRow,
+                space:colorSpace,
+                bitmapInfo:bitmapInfo.rawValue)
+        
+        else
+        {
+            viewEdit.endCropMode()
+            
+            return
+        }
+        
+        context.interpolationQuality = CGInterpolationQuality.high
+        context.draw(
+            cgImage,
+            in:drawRect)
+        
+        guard
+        
+            let editedImage:CGImage = context.makeImage()
+        
+        else
+        {
+            viewEdit.endCropMode()
+            
+            return
+        }
+        
+        let resultImage:UIImage = UIImage(cgImage:editedImage)
+        filtered.image = resultImage
+        filtered.viewFiltered.imageView.image = resultImage
+        filtered.viewFiltered.background.image = resultImage
+        viewEdit.imageView.image = resultImage
+        
+        viewEdit.endCropMode()
     }
 }

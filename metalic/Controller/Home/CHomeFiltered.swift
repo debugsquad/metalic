@@ -3,7 +3,7 @@ import UIKit
 class CHomeFiltered:CController
 {
     weak var viewFiltered:VHomeFiltered!
-    let image:UIImage
+    var image:UIImage
     
     init(image:UIImage)
     {
