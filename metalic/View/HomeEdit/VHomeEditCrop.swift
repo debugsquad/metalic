@@ -500,4 +500,14 @@ class VHomeEditCrop:UIView
         layoutOverlayBottom.constant = 0
         layoutOverlayTop.constant = 0
     }
+    
+    func restart()
+    {
+        deltaTop = 0
+        deltaLeft = 0
+        deltaRight = 0
+        deltaBottom = 0
+        
+        setNeedsLayout()
+    }
 }
