@@ -23,6 +23,7 @@ class VHomeEditCrop:UIView
     private var deltaTop:CGFloat
     private var deltaRight:CGFloat
     private var deltaBottom:CGFloat
+    private var imageDelta:CGFloat
     
     init(controller:CHomeEdit)
     {
@@ -36,6 +37,7 @@ class VHomeEditCrop:UIView
         deltaRight = 0
         deltaTop = 0
         deltaBottom = 0
+        imageDelta = 0
 
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -292,8 +294,11 @@ class VHomeEditCrop:UIView
     override func layoutSubviews()
     {
         let imageMargin:CGFloat = controller.viewEdit.kImageMargin
-        let maxWidth:CGFloat = bounds.maxX - imageMargin
-        let maxHeight:CGFloat = bounds.maxY - imageMargin
+        let imageMargin2:CGFloat = imageMargin + imageMargin
+        let screenWidth:CGFloat = bounds.maxX
+        let screenHeight:CGFloat = bounds.maxY
+        let maxWidth:CGFloat = screenWidth - imageMargin2
+        let maxHeight:CGFloat = screenHeight - imageMargin2
         let deltaX:CGFloat = imageWidth / maxWidth
         let deltaY:CGFloat = imageHeight / maxHeight
         let maxDelta:CGFloat = max(deltaX, deltaY)
@@ -303,13 +308,18 @@ class VHomeEditCrop:UIView
         let remainHeight:CGFloat = maxHeight - scaledHeight
         let marginHorizontal:CGFloat = remainWidth / 2.0
         let marginVertical:CGFloat = remainHeight / 2.0
+        let scalarDeltaLeft:CGFloat = deltaLeft / maxDelta
+        let scalarDeltaRight:CGFloat = deltaRight / maxDelta
+        let scalarDeltaBottom:CGFloat = deltaBottom / maxDelta
+        let scalarDeltaTop:CGFloat = deltaTop / maxDelta
+        imageDelta = maxDelta
         marginX = marginHorizontal + imageMargin
         marginY = marginVertical + imageMargin
         
-        layoutOverlayLeft.constant = marginX + deltaLeft
-        layoutOverlayRight.constant = marginX + deltaRight
-        layoutOverlayBottom.constant = marginY + deltaBottom
-        layoutOverlayTop.constant = marginY + deltaTop
+        layoutOverlayLeft.constant = marginX + scalarDeltaLeft
+        layoutOverlayRight.constant = marginX + scalarDeltaRight
+        layoutOverlayBottom.constant = marginY + scalarDeltaBottom
+        layoutOverlayTop.constant = marginY + scalarDeltaTop
         
         super.layoutSubviews()
     }
@@ -410,7 +420,8 @@ class VHomeEditCrop:UIView
                         newX = marginX
                     }
                     
-                    deltaLeft = newX - marginX
+                    let scalarDeltaLeft:CGFloat = newX - marginX
+                    deltaLeft = scalarDeltaLeft * imageDelta
                 }
                 else if layoutRight != nil
                 {
@@ -427,7 +438,8 @@ class VHomeEditCrop:UIView
                         newX = marginX
                     }
                     
-                    deltaRight = newX - marginX
+                    let scalarDeltaRight:CGFloat = newX - marginX
+                    deltaRight = scalarDeltaRight * imageDelta
                 }
                 
                 if layoutTop != nil
@@ -445,7 +457,8 @@ class VHomeEditCrop:UIView
                         newY = marginY
                     }
                     
-                    deltaTop = newY - marginY
+                    let scalarDeltaTop:CGFloat = newY - marginY
+                    deltaTop = scalarDeltaTop * imageDelta
                 }
                 else
                 {
@@ -462,7 +475,8 @@ class VHomeEditCrop:UIView
                         newY = marginY
                     }
                     
-                    deltaBottom = newY - marginY
+                    let scalarDeltaBottom:CGFloat = newY - marginY
+                    deltaBottom = scalarDeltaBottom * imageDelta
                 }
                 
                 break
