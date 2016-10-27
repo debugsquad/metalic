@@ -108,6 +108,7 @@ class VHomeEdit:UIView
 
     func cropMode()
     {
+        viewCrop.restart()
         menu.isHidden = true
         menuCrop.isHidden = false
         viewCrop.isHidden = false

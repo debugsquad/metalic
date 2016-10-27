@@ -56,7 +56,7 @@ class CHomeEdit:CController
         var bytesPerRow:Int = cgImage.bytesPerRow
         let drawRect:CGRect = CGRect(
             x:-deltaLeft,
-            y:-deltaTop,
+            y:-deltaBottom,
             width:imageOriginalWidthInt,
             height:imageOriginalHeightInt)
         
