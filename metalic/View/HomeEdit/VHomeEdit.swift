@@ -105,7 +105,7 @@ class VHomeEdit:UIView
     }
     
     //MARK: public
-    
+
     func cropMode()
     {
         menu.isHidden = true

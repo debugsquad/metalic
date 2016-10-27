@@ -308,8 +308,8 @@ class VHomeEditCrop:UIView
         
         layoutOverlayLeft.constant = marginX + deltaLeft
         layoutOverlayRight.constant = marginX + deltaRight
-        layoutOverlayTop.constant = marginY + deltaTop
         layoutOverlayBottom.constant = marginY + deltaBottom
+        layoutOverlayTop.constant = marginY + deltaTop
         
         super.layoutSubviews()
     }
@@ -410,7 +410,7 @@ class VHomeEditCrop:UIView
                         newX = 0
                     }
                     
-                    layoutLeft!.constant = newX
+                    deltaLeft = newX - marginX
                 }
                 else if layoutRight != nil
                 {
@@ -427,7 +427,7 @@ class VHomeEditCrop:UIView
                         newX = 0
                     }
                     
-                    layoutRight!.constant = newX
+                    deltaRight = newX - marginX
                 }
                 
                 if layoutTop != nil
@@ -445,7 +445,7 @@ class VHomeEditCrop:UIView
                         newY = 0
                     }
                     
-                    layoutTop!.constant = newY
+                    deltaTop = newY - marginY
                 }
                 else
                 {
@@ -457,12 +457,12 @@ class VHomeEditCrop:UIView
                         newY = maxY
                     }
                     
-                    if newY < 0
+                    if newY < marginY
                     {
-                        newY = 0
+                        newY = marginY
                     }
                     
-                    layoutBottom!.constant = newY
+                    deltaBottom = newY - marginY
                 }
                 
                 break
@@ -473,5 +473,17 @@ class VHomeEditCrop:UIView
                 
                 break
         }
+        
+        setNeedsUpdateConstraints()
+    }
+    
+    //MARK: public
+    
+    func willChangeSize()
+    {
+        layoutOverlayLeft.constant = 0
+        layoutOverlayRight.constant = 0
+        layoutOverlayBottom.constant = 0
+        layoutOverlayTop.constant = 0
     }
 }

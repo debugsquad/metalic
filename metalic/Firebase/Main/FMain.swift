@@ -10,7 +10,7 @@ class FMain
     {
         #if DEBUG
             
-            print("Started analytics")
+            print("Dry run Analytics")
             
         #else
             
