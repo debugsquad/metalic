@@ -115,6 +115,8 @@ class VHomeEditCropMenu:UIView
     
     func actionCrop(sender button:UIButton)
     {
+        FMain.sharedInstance.analytics.crop()
+        
         let percentLeft:CGFloat = controller.viewEdit.viewCrop.deltaLeft
         let percentRight:CGFloat = controller.viewEdit.viewCrop.deltaRight
         let percentTop:CGFloat = controller.viewEdit.viewCrop.deltaTop
