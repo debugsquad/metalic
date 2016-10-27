@@ -19,8 +19,8 @@ class VHomeEditCrop:UIView
     private let kHandlerSize:CGFloat = 50
     private let kHandlersMinSeparation:CGFloat = 40
     private let handlerSize_2:CGFloat
-    private let imageWidth:CGFloat
-    private let imageHeight:CGFloat
+    private var imageWidth:CGFloat
+    private var imageHeight:CGFloat
     private var marginX:CGFloat
     private var marginY:CGFloat
     private var imageDelta:CGFloat
@@ -503,6 +503,9 @@ class VHomeEditCrop:UIView
     
     func restart()
     {
+        let imageSize:CGSize = controller.filtered.image.size
+        imageWidth = imageSize.width
+        imageHeight = imageSize.height
         deltaTop = 0
         deltaLeft = 0
         deltaRight = 0
