@@ -115,7 +115,22 @@ class VHomeEditCropMenu:UIView
     
     func actionCrop(sender button:UIButton)
     {
-        controller.cropImage(
-            percentLeft: <#T##CGFloat#>, percentRight: <#T##CGFloat#>, percentTop: <#T##CGFloat#>, percentBottom: <#T##CGFloat#>)
+        let percentLeft:CGFloat = controller.viewEdit.viewCrop.deltaLeft
+        let percentRight:CGFloat = controller.viewEdit.viewCrop.deltaRight
+        let percentTop:CGFloat = controller.viewEdit.viewCrop.deltaTop
+        let percentBottom:CGFloat = controller.viewEdit.viewCrop.deltaBottom
+        
+        if percentLeft > 0 || percentRight > 0 || percentTop > 0 || percentBottom > 0
+        {
+            controller.cropImage(
+                percentLeft:percentLeft,
+                percentRight:percentRight,
+                percentTop:percentTop,
+                percentBottom:percentBottom)
+        }
+        else
+        {
+            actionCancel(sender:button)
+        }
     }
 }
