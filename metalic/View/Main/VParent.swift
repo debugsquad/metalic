@@ -116,6 +116,8 @@ class VParent:UIView
             addSubview(controller.view)
         }
         
+        controller.view.alpha = 0
+        
         let views:[String:UIView] = [
             "view":controller.view]
         
@@ -146,6 +148,11 @@ class VParent:UIView
         
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
+        
+        UIView.animate(withDuration:kAnimationDuration, animations:
+        {
+            controller.view.alpha = 1
+        })
     }
     
     func fromLeft(controller:CController, completion:@escaping(() -> ()))
@@ -208,10 +215,10 @@ class VParent:UIView
         bar.push(name:controller.title)
         
         UIView.animate(withDuration:kAnimationDuration, animations:
-            {
-                self.layoutIfNeeded()
-                self.parent.controllers.last?.shadow?.maxAlpha()
-            })
+        {
+            self.layoutIfNeeded()
+            self.parent.controllers.last?.shadow?.maxAlpha()
+        })
         { (done:Bool) in
             
             completion()
@@ -233,10 +240,10 @@ class VParent:UIView
         bar.pop()
         
         UIView.animate(withDuration:kAnimationDuration, animations:
-            {
-                self.layoutIfNeeded()
-                previous.shadow?.minAlpha()
-            })
+        {
+            self.layoutIfNeeded()
+            previous.shadow?.minAlpha()
+        })
         { (done:Bool) in
             
             previous.shadow?.removeFromSuperview()
@@ -250,9 +257,9 @@ class VParent:UIView
         let controller:CController = parent.controllers[countControllers - 1]
         
         UIView.animate(withDuration:kAnimationDuration, animations:
-            {
-                controller.view.alpha = 0
-            })
+        {
+            controller.view.alpha = 0
+        })
         { (done:Bool) in
             
             completion()

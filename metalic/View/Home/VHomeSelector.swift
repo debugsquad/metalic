@@ -189,13 +189,23 @@ class VHomeSelector:UIView
     
     func actionNext(sender button:UIButton)
     {
+        guard
+            
+            let filter:MFiltersItem = controller.viewHome.viewMenu.selectedItem
+        
+        else
+        {
+            return
+        }
+        
+        FMain.sharedInstance.analytics.next(filter:filter)
         controller.next()
     }
     
     //MARK: public
     
     func refresh()
-    {
+    {        
         if controller.viewHome.viewPicture.presentingTexture == nil || controller.viewHome.viewMenu.selectedItem == nil
         {
             buttonNext.isHidden = true

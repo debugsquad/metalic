@@ -3,7 +3,10 @@ import UIKit
 class VHomeFiltered:UIView
 {
     weak var controller:CHomeFiltered!
-    weak var buttonExport:UIButton!
+    weak var bar:VHomeFilteredBar!
+    weak var background:UIImageView!
+    weak var imageView:UIImageView!
+    private let kBarWidth:CGFloat = 150
     
     convenience init(controller:CHomeFiltered)
     {
@@ -26,6 +29,7 @@ class VHomeFiltered:UIView
         background.clipsToBounds = true
         background.contentMode = UIViewContentMode.scaleAspectFill
         background.image = controller.image
+        self.background = background
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -33,24 +37,10 @@ class VHomeFiltered:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.image
+        self.imageView = imageView
         
-        let buttonExport:UIButton = UIButton()
-        buttonExport.translatesAutoresizingMaskIntoConstraints = false
-        buttonExport.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonExport.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonExport.imageView!.tintColor = UIColor.black
-        buttonExport.imageView!.contentMode = UIViewContentMode.center
-        buttonExport.imageView!.clipsToBounds = true
-        buttonExport.imageEdgeInsets = UIEdgeInsetsMake(20, 18, 0, 0)
-        buttonExport.addTarget(
-            self,
-            action:#selector(actionExport(sender:)),
-            for:UIControlEvents.touchUpInside)
-        self.buttonExport = buttonExport
+        let bar:VHomeFilteredBar = VHomeFilteredBar(controller:controller)
+        self.bar = bar
         
         addSubview(background)
         addSubview(blur)
@@ -95,21 +85,22 @@ class VHomeFiltered:UIView
             metrics:metrics,
             views:views))
         
-        let bar:VBar = controller.parentController.viewParent.bar
-        bar.addSubview(buttonExport)
+        let controllerBar:VBar = controller.parentController.viewParent.bar
+        controllerBar.addSubview(bar)
         
         let barViews:[String:UIView] = [
-            "buttonExport":buttonExport]
+            "bar":bar]
         
-        let barMetrics:[String:CGFloat] = [:]
+        let barMetrics:[String:CGFloat] = [
+            "barWidth":kBarWidth]
         
-        bar.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonExport(60)]-0-|",
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[bar(barWidth)]-0-|",
             options:[],
             metrics:barMetrics,
             views:barViews))
-        bar.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[buttonExport]-0-|",
+        controllerBar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[bar]-0-|",
             options:[],
             metrics:barMetrics,
             views:barViews))
@@ -117,13 +108,6 @@ class VHomeFiltered:UIView
     
     deinit
     {
-        buttonExport.removeFromSuperview()
-    }
-    
-    //MARK: actions
-    
-    func actionExport(sender button:UIButton)
-    {
-        controller.export()
+        bar.removeFromSuperview()
     }
 }

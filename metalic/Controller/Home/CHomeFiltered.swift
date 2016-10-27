@@ -1,10 +1,9 @@
 import UIKit
-import MetalKit
 
 class CHomeFiltered:CController
 {
     weak var viewFiltered:VHomeFiltered!
-    let image:UIImage
+    var image:UIImage
     
     init(image:UIImage)
     {

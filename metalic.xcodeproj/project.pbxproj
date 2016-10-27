@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4BE39DB681C140E58180A721 /* Pods_metalic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBD3BD4CE598B1C025E026B /* Pods_metalic.framework */; };
 		B18ECED26F0D0C0D65E93FCE /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48063F423406A42E808EF2B /* Pods_tests.framework */; };
+		DA10871B1DBEE5BB00C26CF8 /* TMFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */; };
 		DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */; };
 		DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */; };
 		DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA114BDF1DBBCBE900C74C30 /* DManager.swift */; };
@@ -72,7 +73,21 @@
 		DA513CB61DAC54A600031E5D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA513CB51DAC54A600031E5D /* CParent.swift */; };
 		DA5DC55E1DBECFC00069C2C9 /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5DC55D1DBECFC00069C2C9 /* FMain.swift */; };
 		DA64DE8C1DBAD0D800CA2C36 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */; };
+		DA6771531DC0F8C600D69AAD /* VHomeEditCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */; };
+		DA6771551DC10B4800D69AAD /* VHomeEditCropOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */; };
+		DA6771571DC1177C00D69AAD /* VHomeEditCropHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */; };
+		DA6771591DC15A6700D69AAD /* VHomeEditCropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */; };
 		DA831B031DBE5D170082269F /* Filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA831B021DBE5D170082269F /* Filter.xcassets */; };
+		DA8918FE1DBFEFB6006B7AE0 /* CHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */; };
+		DA8919011DBFF3DC006B7AE0 /* VHomeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */; };
+		DA8919031DBFF487006B7AE0 /* VHomeEditMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919021DBFF487006B7AE0 /* VHomeEditMenu.swift */; };
+		DA8919051DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */; };
+		DA8919081DBFF762006B7AE0 /* MEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919071DBFF762006B7AE0 /* MEdit.swift */; };
+		DA89190A1DBFF7BD006B7AE0 /* MEditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */; };
+		DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */; };
+		DA89190E1DC01563006B7AE0 /* MEditItemBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */; };
+		DA8919101DC0156D006B7AE0 /* MEditItemCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */; };
+		DA8919121DC01EED006B7AE0 /* Edit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8919111DC01EED006B7AE0 /* Edit.xcassets */; };
 		DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */; };
 		DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */; };
 		DAA0C0041DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */; };
@@ -114,6 +129,7 @@
 		B9EBB701E2AA2A990BCCB9FC /* Pods-metalic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metalic.release.xcconfig"; path = "Pods/Target Support Files/Pods-metalic/Pods-metalic.release.xcconfig"; sourceTree = "<group>"; };
 		CDBD3BD4CE598B1C025E026B /* Pods_metalic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_metalic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D006514DD3C975E805628E85 /* Pods-metalic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metalic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-metalic/Pods-metalic.debug.xcconfig"; sourceTree = "<group>"; };
+		DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFilters.swift; sourceTree = "<group>"; };
 		DA114BDA1DBBC69F00C74C30 /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
 		DA114BDC1DBBC70300C74C30 /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
 		DA114BDF1DBBCBE900C74C30 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
@@ -133,6 +149,7 @@
 		DA12D28A1DBA788C00F19962 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA12D28C1DBA9E0C00F19962 /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
 		DA17C79E1DBED59B006C168F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA1F0E151DC26F5E0003AAB8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA2162601DB81EF700F97B6C /* MetalFilterPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162621DB81F8D00F97B6C /* MFiltersItemPremiumNeon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemPremiumNeon.swift; sourceTree = "<group>"; };
 		DA2162641DB82CE400F97B6C /* MetalFilterPremiumEmber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterPremiumEmber.swift; sourceTree = "<group>"; };
@@ -177,7 +194,21 @@
 		DA513CB51DAC54A600031E5D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA5DC55D1DBECFC00069C2C9 /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
 		DA64DE8B1DBAD0D800CA2C36 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
+		DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCrop.swift; sourceTree = "<group>"; };
+		DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropOverlay.swift; sourceTree = "<group>"; };
+		DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropHandler.swift; sourceTree = "<group>"; };
+		DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditCropMenu.swift; sourceTree = "<group>"; };
 		DA831B021DBE5D170082269F /* Filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filter.xcassets; sourceTree = "<group>"; };
+		DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeEdit.swift; sourceTree = "<group>"; };
+		DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEdit.swift; sourceTree = "<group>"; };
+		DA8919021DBFF487006B7AE0 /* VHomeEditMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditMenu.swift; sourceTree = "<group>"; };
+		DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeEditMenuCell.swift; sourceTree = "<group>"; };
+		DA8919071DBFF762006B7AE0 /* MEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEdit.swift; sourceTree = "<group>"; };
+		DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItem.swift; sourceTree = "<group>"; };
+		DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFilteredBar.swift; sourceTree = "<group>"; };
+		DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemBack.swift; sourceTree = "<group>"; };
+		DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditItemCrop.swift; sourceTree = "<group>"; };
+		DA8919111DC01EED006B7AE0 /* Edit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Edit.xcassets; sourceTree = "<group>"; };
 		DA9E561E1DAC399500E0F1B4 /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DA9E56201DAC3C1D00E0F1B4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DAA0C0031DB19B0F0017DBE1 /* MFiltersItemBasicRembrandt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFiltersItemBasicRembrandt.swift; sourceTree = "<group>"; };
@@ -248,6 +279,30 @@
 				E48063F423406A42E808EF2B /* Pods_tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA1087171DBEE57500C26CF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA1087181DBEE57500C26CF8 /* Filters */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA1087181DBEE57500C26CF8 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				DA1087191DBEE57500C26CF8 /* Abstract */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		DA1087191DBEE57500C26CF8 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA10871A1DBEE5BB00C26CF8 /* TMFilters.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 		DA114BDE1DBBCBBF00C74C30 /* Data */ = {
@@ -426,10 +481,36 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		DA8918FF1DBFF3CF006B7AE0 /* HomeEdit */ = {
+			isa = PBXGroup;
+			children = (
+				DA8919001DBFF3DC006B7AE0 /* VHomeEdit.swift */,
+				DA8919021DBFF487006B7AE0 /* VHomeEditMenu.swift */,
+				DA8919041DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift */,
+				DA6771581DC15A6700D69AAD /* VHomeEditCropMenu.swift */,
+				DA6771521DC0F8C600D69AAD /* VHomeEditCrop.swift */,
+				DA6771541DC10B4800D69AAD /* VHomeEditCropOverlay.swift */,
+				DA6771561DC1177C00D69AAD /* VHomeEditCropHandler.swift */,
+			);
+			path = HomeEdit;
+			sourceTree = "<group>";
+		};
+		DA8919061DBFF756006B7AE0 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				DA8919071DBFF762006B7AE0 /* MEdit.swift */,
+				DA8919091DBFF7BD006B7AE0 /* MEditItem.swift */,
+				DA89190D1DC01563006B7AE0 /* MEditItemBack.swift */,
+				DA89190F1DC0156D006B7AE0 /* MEditItemCrop.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		DAA0C0191DB54A660017DBE1 /* HomeFiltered */ = {
 			isa = PBXGroup;
 			children = (
 				DAA0C01A1DB54A6F0017DBE1 /* VHomeFiltered.swift */,
+				DA89190B1DBFF967006B7AE0 /* VHomeFilteredBar.swift */,
 			);
 			path = HomeFiltered;
 			sourceTree = "<group>";
@@ -493,6 +574,7 @@
 				DA12D2821DBA5DB000F19962 /* Brand.xcassets */,
 				DA34BBB31DBD6F7500708EF2 /* Loader.xcassets */,
 				DA831B021DBE5D170082269F /* Filter.xcassets */,
+				DA8919111DC01EED006B7AE0 /* Edit.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -510,6 +592,7 @@
 		DAD5C2051DA85FA5002996A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA8919061DBFF756006B7AE0 /* Edit */,
 				DA64DE8A1DBAD0D000CA2C36 /* Store */,
 				DA46D8521DB126B200B89DE9 /* Filters */,
 				DA48F69A1DAAFE3D00D7D3E3 /* Main */,
@@ -529,6 +612,7 @@
 		DAD5C2091DA85FA5002996A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA8918FF1DBFF3CF006B7AE0 /* HomeEdit */,
 				DA12D2891DBA788500F19962 /* Store */,
 				DAA0C0191DB54A660017DBE1 /* HomeFiltered */,
 				DAD5C21E1DA86C4E002996A0 /* Home */,
@@ -540,6 +624,7 @@
 		DAD5C20F1DA85FE9002996A0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DA1087171DBEE57500C26CF8 /* Model */,
 				DAD5C2101DA85FE9002996A0 /* Info.plist */,
 			);
 			path = Tests;
@@ -552,6 +637,7 @@
 				DA513CB11DAC4AEF00031E5D /* CHomePickerCamera.swift */,
 				DA513CB31DAC4F2C00031E5D /* CHomePickerLibrary.swift */,
 				DAA0C0171DB5495C0017DBE1 /* CHomeFiltered.swift */,
+				DA8918FD1DBFEFB6006B7AE0 /* CHomeEdit.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -652,6 +738,7 @@
 					DAD5C1EF1DA85DCC002996A0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7AMWG3RLHN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DAD5C1DB1DA85DCC002996A0;
 					};
@@ -663,7 +750,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				es,
 			);
 			mainGroup = DAD5C1D31DA85DCC002996A0;
 			productRefGroup = DAD5C1DD1DA85DCC002996A0 /* Products */;
@@ -685,6 +772,7 @@
 				DA17C79F1DBED59B006C168F /* GoogleService-Info.plist in Resources */,
 				DAD5C20E1DA85FA5002996A0 /* Localizable.strings in Resources */,
 				DA114BE91DBBD60300C74C30 /* Purchases.plist in Resources */,
+				DA8919121DC01EED006B7AE0 /* Edit.xcassets in Resources */,
 				DA12D2831DBA5DB000F19962 /* Brand.xcassets in Resources */,
 				DAD5C20A1DA85FA5002996A0 /* LaunchScreen.storyboard in Resources */,
 				DA9E561F1DAC399500E0F1B4 /* Generic.xcassets in Resources */,
@@ -815,23 +903,29 @@
 				DA114BDB1DBBC69F00C74C30 /* MStorePurchase.swift in Sources */,
 				DA2162611DB81EF700F97B6C /* MetalFilterPremiumNeon.swift in Sources */,
 				DAB94E511DAC2A2F00880B1B /* MMainStateOptions.swift in Sources */,
+				DA89190C1DBFF967006B7AE0 /* VHomeFilteredBar.swift in Sources */,
 				DA513CB41DAC4F2C00031E5D /* CHomePickerLibrary.swift in Sources */,
 				DA46D85D1DB1481E00B89DE9 /* MetalFilterBasicInk.swift in Sources */,
 				DAA0C00C1DB42F330017DBE1 /* MetalFilterBasicGothic.metal in Sources */,
 				DA12D2851DBA6C9B00F19962 /* MMainItemStore.swift in Sources */,
 				DA513CB21DAC4AEF00031E5D /* CHomePickerCamera.swift in Sources */,
 				DAB94E531DAC2A3A00880B1B /* MMainStatePushed.swift in Sources */,
+				DA89190A1DBFF7BD006B7AE0 /* MEditItem.swift in Sources */,
 				DA114BDD1DBBC70300C74C30 /* MStorePurchaseItem.swift in Sources */,
+				DA8919101DC0156D006B7AE0 /* MEditItemCrop.swift in Sources */,
+				DA6771551DC10B4800D69AAD /* VHomeEditCropOverlay.swift in Sources */,
 				DA513CB61DAC54A600031E5D /* CParent.swift in Sources */,
 				DA375C2C1DB99654004D7265 /* ExtensionUIColor.swift in Sources */,
 				DAA0C0081DB19BEF0017DBE1 /* MetalFilterBasicRembrandt.metal in Sources */,
 				DA9E56211DAC3C1D00E0F1B4 /* VHome.swift in Sources */,
 				DAA0C01B1DB54A6F0017DBE1 /* VHomeFiltered.swift in Sources */,
+				DA8919081DBFF762006B7AE0 /* MEdit.swift in Sources */,
 				DAB94E5A1DAC321000880B1B /* VShadow.swift in Sources */,
 				DAD5C21C1DA86C47002996A0 /* CAppDelegate.swift in Sources */,
 				DA40A0FB1DB6684800DC42C6 /* MFiltersItemBasicTest.swift in Sources */,
 				DA5DC55E1DBECFC00069C2C9 /* FMain.swift in Sources */,
 				DA114BE41DBBD27400C74C30 /* ExtensionNSManagedObject.swift in Sources */,
+				DA8918FE1DBFEFB6006B7AE0 /* CHomeEdit.swift in Sources */,
 				DA40A1011DB6758600DC42C6 /* MFiltersItemBasicChalk.swift in Sources */,
 				DA12D28B1DBA788C00F19962 /* VStore.swift in Sources */,
 				DAECF7FF1DBED6D700052CEA /* CController.swift in Sources */,
@@ -844,17 +938,21 @@
 				DA40A0FD1DB6747D00DC42C6 /* MetalFilterBasicChalk.swift in Sources */,
 				DA513CAA1DAC425800031E5D /* VHomeMenuCell.swift in Sources */,
 				DA48F6931DA9CA0800D7D3E3 /* CHome.swift in Sources */,
+				DA6771591DC15A6700D69AAD /* VHomeEditCropMenu.swift in Sources */,
 				DAB94E4F1DAC29AF00880B1B /* MMainState.swift in Sources */,
 				DA46D85B1DB1436F00B89DE9 /* MFiltersItemBasicInk.swift in Sources */,
 				DAA0C0161DB52C150017DBE1 /* ExtensionMTLTexture.swift in Sources */,
 				DAA0C0181DB5495C0017DBE1 /* CHomeFiltered.swift in Sources */,
 				DA2162711DB83DD000F97B6C /* MFiltersItemPremiumSelfer.swift in Sources */,
+				DA8919011DBFF3DC006B7AE0 /* VHomeEdit.swift in Sources */,
 				DA2162651DB82CE400F97B6C /* MetalFilterPremiumEmber.swift in Sources */,
 				DA46D8641DB1680800B89DE9 /* VSpinner.swift in Sources */,
+				DA89190E1DC01563006B7AE0 /* MEditItemBack.swift in Sources */,
 				DAA0C00E1DB42F3C0017DBE1 /* MetalFilterBasicGothic.swift in Sources */,
 				DA21626E1DB83D8500F97B6C /* MetalFilterPremiumSelfer.metal in Sources */,
 				DA513CA81DAC420500031E5D /* VHomeMenu.swift in Sources */,
 				DA48F6971DAAFDD600D7D3E3 /* VBar.swift in Sources */,
+				DA6771571DC1177C00D69AAD /* VHomeEditCropHandler.swift in Sources */,
 				DA2162691DB82EBC00F97B6C /* MetalFilterNone.swift in Sources */,
 				DA114BEF1DBC09F700C74C30 /* MStorePurchaseItemStatusDeferred.swift in Sources */,
 				DAF74BF31DB5A66900F490CF /* MFiltersItemBasicComic.swift in Sources */,
@@ -869,12 +967,15 @@
 				DA114BEB1DBBD91900C74C30 /* ExtensionNotification.swift in Sources */,
 				DA40A0F91DB667D600DC42C6 /* MetalFilterBasicTest.swift in Sources */,
 				DA40A1051DB6B43B00DC42C6 /* MFiltersItemBasicDefine.swift in Sources */,
+				DA8919051DBFF6D8006B7AE0 /* VHomeEditMenuCell.swift in Sources */,
 				DA34BBB61DBD739200708EF2 /* VStoreHeader.swift in Sources */,
 				DA48F69E1DAAFE6700D7D3E3 /* MMainItem.swift in Sources */,
 				DA114BE01DBBCBE900C74C30 /* DManager.swift in Sources */,
+				DA8919031DBFF487006B7AE0 /* VHomeEditMenu.swift in Sources */,
 				DA40A1031DB6B30800DC42C6 /* MetalFilterBasicDefine.swift in Sources */,
 				DAA0C0061DB19BE50017DBE1 /* MetalFilterBasicRembrandt.swift in Sources */,
 				DA513CB01DAC44F900031E5D /* VHomeSelector.swift in Sources */,
+				DA6771531DC0F8C600D69AAD /* VHomeEditCrop.swift in Sources */,
 				DA2162671DB82E2A00F97B6C /* MFiltersItemPremiumEmber.swift in Sources */,
 				DA48F6A01DAAFE7500D7D3E3 /* MMainItemHome.swift in Sources */,
 				DA114BF11DBC0A0900C74C30 /* MStorePurchaseItemStatusNew.swift in Sources */,
@@ -886,6 +987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA10871B1DBEE5BB00C26CF8 /* TMFilters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +1006,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DAD5C2081DA85FA5002996A0 /* en */,
+				DA1F0E151DC26F5E0003AAB8 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -929,6 +1032,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -956,6 +1060,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -979,6 +1084,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -998,6 +1104,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1016,6 +1123,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d4e2185-b0a3-4fbc-97f9-7baba6135497";
 				PROVISIONING_PROFILE_SPECIFIER = "metalic dev";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1034,6 +1142,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7e9786f5-34a1-4366-b71a-78e1a961f25c";
 				PROVISIONING_PROFILE_SPECIFIER = "metalic dist";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1044,11 +1153,14 @@
 			baseConfigurationReference = 01385C47117B69A802F80C9A /* Pods-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metalic.app/metalic";
 			};
@@ -1059,11 +1171,13 @@
 			baseConfigurationReference = FB15CB8596A3D505D77AF285 /* Pods-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = metalic/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.metalicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metalic.app/metalic";
 			};

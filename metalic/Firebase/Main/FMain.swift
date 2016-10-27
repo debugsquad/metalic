@@ -8,7 +8,15 @@ class FMain
     
     private init()
     {
-        FIRApp.configure()
+        #if DEBUG
+            
+            print("Dry run Analytics")
+            
+        #else
+            
+            FIRApp.configure()
+        
+        #endif
         
         analytics = FAnalytics()
     }

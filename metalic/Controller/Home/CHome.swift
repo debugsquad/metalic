@@ -8,7 +8,6 @@ class CHome:CController
     var device:MTLDevice!
     var commandQueue:MTLCommandQueue!
     var sourceTexture:MTLTexture?
-    private let kMinBytesPerRow:Int = 3000
     
     override func loadView()
     {

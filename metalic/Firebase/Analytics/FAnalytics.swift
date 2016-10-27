@@ -4,8 +4,10 @@ import Firebase
 class FAnalytics
 {
     private let kEventScreen:NSString = "Screen"
+    private let kEventFilter:NSString = "Filter"
     private let kEventAction:NSString = "Action"
     private let kEventActionShare:NSString = "Share"
+    private let kEventActionCrop:NSString = "Crop"
     
     //MARK: public
     
@@ -14,13 +16,44 @@ class FAnalytics
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterItemID:self.kEventScreen,
-                kFIRParameterItemName:controller.name
+                kFIRParameterContentType:self.kEventScreen,
+                kFIRParameterItemID:controller.name
             ]
             
+            #if DEBUG
+
+                print(parameters)
+            
+            #else
+                
             FIRAnalytics.logEvent(
-                withName:kFIREventViewItem,
+                withName:kFIREventSelectContent,
                 parameters:parameters)
+                
+            #endif
+        }
+    }
+    
+    func next(filter:MFiltersItem)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            let parameters:[String:NSObject] = [
+                kFIRParameterContentType:self.kEventFilter,
+                kFIRParameterItemID:filter.name as NSObject
+            ]
+            
+            #if DEBUG
+                
+                print(parameters)
+                
+            #else
+                
+                FIRAnalytics.logEvent(
+                    withName:kFIREventSelectContent,
+                    parameters:parameters)
+                
+            #endif
         }
     }
     
@@ -29,13 +62,44 @@ class FAnalytics
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterItemID:self.kEventScreen,
-                kFIRParameterItemName:self.kEventActionShare
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionShare
             ]
             
+            #if DEBUG
+            
+                print(parameters)
+                
+            #else
+                
             FIRAnalytics.logEvent(
-                withName:kFIREventViewItem,
+                withName:kFIREventSelectContent,
                 parameters:parameters)
+
+            #endif
+        }
+    }
+    
+    func crop()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            let parameters:[String:NSObject] = [
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionCrop
+            ]
+            
+            #if DEBUG
+                
+                print(parameters)
+                
+            #else
+                
+                FIRAnalytics.logEvent(
+                    withName:kFIREventSelectContent,
+                    parameters:parameters)
+                
+            #endif
         }
     }
 }
