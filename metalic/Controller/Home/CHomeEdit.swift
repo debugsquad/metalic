@@ -17,4 +17,9 @@ class CHomeEdit:CController
         self.viewEdit = viewEdit
         view = viewEdit
     }
+    
+    override func viewWillTransition(to size:CGSize, with coordinator:UIViewControllerTransitionCoordinator)
+    {
+        viewEdit.viewCrop.willChangeSize()
+    }
 }

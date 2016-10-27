@@ -405,9 +405,9 @@ class VHomeEditCrop:UIView
                         newX = maxX
                     }
                     
-                    if newX < 0
+                    if newX < marginX
                     {
-                        newX = 0
+                        newX = marginX
                     }
                     
                     deltaLeft = newX - marginX
@@ -422,9 +422,9 @@ class VHomeEditCrop:UIView
                         newX = maxX
                     }
                     
-                    if newX < 0
+                    if newX < marginX
                     {
-                        newX = 0
+                        newX = marginX
                     }
                     
                     deltaRight = newX - marginX
@@ -440,9 +440,9 @@ class VHomeEditCrop:UIView
                         newY = maxY
                     }
                     
-                    if newY < 0
+                    if newY < marginY
                     {
-                        newY = 0
+                        newY = marginY
                     }
                     
                     deltaTop = newY - marginY
@@ -474,7 +474,7 @@ class VHomeEditCrop:UIView
                 break
         }
         
-        setNeedsUpdateConstraints()
+        setNeedsLayout()
     }
     
     //MARK: public

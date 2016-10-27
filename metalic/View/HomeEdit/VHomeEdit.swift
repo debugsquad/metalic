@@ -10,7 +10,7 @@ class VHomeEdit:UIView
     private let kMenuHeight:CGFloat = 50
     private let kStatusbarHeight:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
-    let kImageMargin:CGFloat = 15
+    let kImageMargin:CGFloat = 25
     
     convenience init(controller:CHomeEdit)
     {
