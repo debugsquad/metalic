@@ -6,6 +6,7 @@ class FAnalytics
     private let kEventScreen:NSString = "Screen"
     private let kEventAction:NSString = "Action"
     private let kEventActionShare:NSString = "Share"
+    private let kEventActionCrop:NSString = "Crop"
     
     //MARK: public
     
@@ -51,6 +52,29 @@ class FAnalytics
                 withName:kFIREventSelectContent,
                 parameters:parameters)
 
+            #endif
+        }
+    }
+    
+    func crop()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            let parameters:[String:NSObject] = [
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionCrop
+            ]
+            
+            #if DEBUG
+                
+                print(parameters)
+                
+            #else
+                
+                FIRAnalytics.logEvent(
+                    withName:kFIREventSelectContent,
+                    parameters:parameters)
+                
             #endif
         }
     }
