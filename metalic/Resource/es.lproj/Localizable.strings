@@ -1,0 +1,27 @@
+"MFiltersItemNone_name"="Ninguno";
+"MFiltersItemBasicInk_name"="Tinta";
+"MFiltersItemBasicGothic_name"="Gotico";
+"MFiltersItemBasicRembrandt_name"="Rembrandt";
+"MFiltersItemBasicComic_name"="Comic";
+"MFiltersItemBasicTest_name"="Prueba";
+"MFiltersItemBasicChalk_name"="Gis";
+"MFiltersItemBasicDefine_name"="Definir";
+"MFiltersItemPremiumNeon_name"="Neon";
+"MFiltersItemPremiumEmber_name"="Flama";
+"MFiltersItemPremiumSelfer_name"="Selfer";
+"MStorePurchaseItemDeferred_name"="Detenido";
+"MStorePurchaseItemNew_name"="Nuevo";
+"MStorePurchaseItemPurchased_name"="Comprado";
+"MStorePurchaseItemPurchasing_name"="Comprando";
+
+"VHomeSelector_buttonNext"="Siguiente";
+"VHomeSelector_buttonLibrary"="Libreríaa";
+"VHomeSelector_buttonCamera"="Cámara";
+"VStoreHeader_buttonRestore"="Restaurar compras";
+"VStoreHeader_restoringPurchases"="Compras restauradas";
+"VStoreFooter_buttonTryAgain"="Reintentar";
+"VStoreCell_button"="Comprar";
+"VHomeEditCropMenu_buttonCancel"="Cancelar";
+"VHomeEditCropMenu_buttonCrop"="Cortar";
+
+"CHomeFiltered_title"="Listo";
