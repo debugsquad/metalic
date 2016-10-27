@@ -11,6 +11,10 @@ class VHomeEditCrop:UIView
     weak var handlerTopRight:VHomeEditCropHandler!
     weak var handlerBottomLeft:VHomeEditCropHandler!
     weak var handlerBottomRight:VHomeEditCropHandler!
+    var deltaLeft:CGFloat
+    var deltaTop:CGFloat
+    var deltaRight:CGFloat
+    var deltaBottom:CGFloat
     private let kOverlayAlpha:CGFloat = 0.85
     private let kHandlerSize:CGFloat = 50
     private let kHandlersMinSeparation:CGFloat = 40
@@ -19,10 +23,6 @@ class VHomeEditCrop:UIView
     private let imageHeight:CGFloat
     private var marginX:CGFloat
     private var marginY:CGFloat
-    private var deltaLeft:CGFloat
-    private var deltaTop:CGFloat
-    private var deltaRight:CGFloat
-    private var deltaBottom:CGFloat
     private var imageDelta:CGFloat
     
     init(controller:CHomeEdit)

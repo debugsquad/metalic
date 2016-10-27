@@ -115,6 +115,7 @@ class VHomeEditCropMenu:UIView
     
     func actionCrop(sender button:UIButton)
     {
-        controller.viewEdit.endCropMode()
+        controller.cropImage(
+            percentLeft: <#T##CGFloat#>, percentRight: <#T##CGFloat#>, percentTop: <#T##CGFloat#>, percentBottom: <#T##CGFloat#>)
     }
 }
