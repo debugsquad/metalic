@@ -5,7 +5,6 @@ class MMain
     let items:[MMainItem]
     var state:MMainState
     weak var current:MMainItem!
-    weak var itemHome:MMainItemHome!
     
     init()
     {
@@ -15,7 +14,6 @@ class MMain
         
         let itemHome:MMainItemHome = MMainItemHome(index:items.count)
         current = itemHome
-        self.itemHome = itemHome
         items.append(itemHome)
         let itemStore:MMainItemStore = MMainItemStore(index:items.count)
         items.append(itemStore)

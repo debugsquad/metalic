@@ -12,7 +12,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private let barDelta:CGFloat
     private let kCellWidth:CGFloat = 70
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kWaitingTime:TimeInterval = 1
+    private let kWaitingTime:TimeInterval = 0.3
     
     init(parent:CParent, barHeight:CGFloat, barDelta:CGFloat)
     {
