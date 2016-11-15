@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-class MStorePurchaseItem:NSObject
+class MStorePurchaseItem
 {
     private var dbFilter:DObjectPurchase!
     let title:String

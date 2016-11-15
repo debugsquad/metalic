@@ -3,7 +3,6 @@ import UIKit
 class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CStore!
-    weak var viewStore:VStore!
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
     private var arrayKeys:[String]
